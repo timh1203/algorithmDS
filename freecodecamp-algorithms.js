@@ -352,7 +352,7 @@ booWho([1, 2, 3]);
 booWho("true")
 
 /////////////////////
-// Sorted Union (12/28/2017)
+// Sorted Union (1/19/2017)
 // https://www.freecodecamp.org/challenges/sorted-union
 /////////////////////
 // Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
@@ -362,9 +362,37 @@ booWho("true")
 // The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
 
 // Check the assertion tests for examples.
-function uniteUnique(arr) {
-  return arr;
+function uniteUnique(...args) {
+	let arr = [];
+	let output = args.reduce((acc, val) => {
+		return acc.concat(val);
+	}, []);
+	
+	for (let item of output) {
+		if (arr.includes(item) === false) {
+			arr.push(item);
+		}
+	}
+	return arr;
 }
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+uniteUnique([1, 3, 2], [1, [5]], [2, [4]]);
+uniteUnique([1, 2, 3], [5, 2, 1]);
+uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]);
 
+/////////////////////
+// Convert HTML Entities (1/19/2017)
+// https://www.freecodecamp.org/challenges/convert-html-entities
+/////////////////////
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+function convertHTML(str) {
+  str = str.replace(/&/gi, '&amp;');
+  str = str.replace(/</gi, '&lt;');
+  str = str.replace(/>/gi, '&gt;');
+  str = str.replace(/"/gi, '&quot;');
+  str = str.replace(/'/gi, '&apos;');
+  return str;
+}
+
+convertHTML("Dolce & Gabbana");
