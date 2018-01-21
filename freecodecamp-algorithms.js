@@ -396,3 +396,63 @@ function convertHTML(str) {
 }
 
 convertHTML("Dolce & Gabbana");
+
+/////////////////////
+// Spinal Tap Case (1/20/2017)
+// https://www.freecodecamp.org/challenges/spinal-tap-case
+/////////////////////
+// Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+function spinalCase(str) {
+	return str
+		.replace(/([a-z])([A-Z])/g, '$1 $2')
+		.replace(/[_]/gi, ' ')
+		.replace(/\s/gi, "-")
+		.toLowerCase();
+}
+
+spinalCase('This Is Spinal Tap');
+spinalCase('thisIsSpinalTap');
+spinalCase('The_Andy_Griffith_Show');
+spinalCase('AllThe-small Things');
+
+/////////////////////
+// Sum All Odd Fibonacci Numbers (1/21/2017)
+// https://www.freecodecamp.org/challenges/sum-all-odd-fibonacci-numbers
+/////////////////////
+// Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+
+// The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.
+
+// For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than 10 are 1, 1, 3, and 5.
+function sumFibs(num) {
+	var arr = generateArray(num);
+	
+	arr.forEach( (numeral, i) => {
+		if(numeral % 2 === 0) {
+			arr.splice(i, 1)	
+		}
+	})
+
+	let newArr = arr.reduce( (acc, val) => acc + val)
+	
+	return newArr;
+}
+
+function generateArray(num) {
+	let arr = [1,1]
+	
+	while (true) {
+		let count = arr[arr.length-1] + arr[arr.length-2];
+		if (count <= num) {
+			arr.push(count);
+		} else {
+			return arr;
+		}
+	}
+}
+
+sumFibs(4); // 5
+
+sumFibs(10); // 10
+
+sumFibs(1000); // 1785
