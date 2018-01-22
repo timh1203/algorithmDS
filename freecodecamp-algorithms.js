@@ -456,3 +456,39 @@ sumFibs(4); // 5
 sumFibs(10); // 10
 
 sumFibs(1000); // 1785
+
+/////////////////////
+// Sum All Primes (1/22/2017)
+// https://www.freecodecamp.org/challenges/sum-all-primes
+/////////////////////
+// Sum all the prime numbers up to and including the provided number.
+
+// A prime number is defined as a number greater than one and having only two divisors, one and itself. For example, 2 is a prime number because it's only divisible by one and two.
+
+// The provided number may not be a prime.
+
+function sumPrimes(num) {
+	let arr = [];
+	let sqrt = Math.floor(Math.sqrt(num));
+	
+	// Make array of all numbers up to num
+	for (let i = 2; i <= num; i++) {
+		arr.push(i);
+	}
+	
+	// Delete composite numbers in array
+	for (let i = 2; i <= sqrt; i++) {
+		for (let j = 1; j <= arr.length; j++) {
+			if (arr[j] % i === 0 && arr[j] !== i) {
+				arr.splice(j, 1);
+			}
+		}
+	}
+	
+	// Sum all numbers in array
+	let total = arr.reduce( (acc, val) => acc + val);
+}	
+
+sumPrimes(10);
+sumPrimes(977);
+
