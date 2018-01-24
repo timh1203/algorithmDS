@@ -492,3 +492,48 @@ function sumPrimes(num) {
 sumPrimes(10);
 sumPrimes(977);
 
+/////////////////////
+// Smallest Common Multiple (1/24/2018)
+// https://www.freecodecamp.org/challenges/smallest-common-multiple
+/////////////////////
+// Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
+
+// The range will be an array of two numbers that will not necessarily be in numerical order.
+
+// e.g. for 1 and 3 - find the smallest common multiple of both 1 and 3 that is evenly divisible by all numbers between 1 and 3.
+
+function smallestCommons(arr) {
+	let sorted = arr.sort();
+	let range = [];
+	let lcm;
+	
+	// Get all numbers in the range
+	for (var i = sorted[0]; i <= sorted[1]; i++){
+		range.push(i);	
+	}
+	
+	// Find the lowest common multiple for all numbers in the range
+		let iterator = 1;
+		let count = arr[1]*iterator;
+		
+		function divisibleBy(value) {
+			if (count % value === 0) {
+		    	return true;
+			}
+		}
+
+	while (lcm === undefined) {
+		if (range.every(divisibleBy)) {
+			lcm = count;
+			return lcm;
+		} else {
+			iterator++;
+			count = arr[1]*iterator;
+		}
+	}
+}
+
+smallestCommons([1,5]); // 60
+smallestCommons([5, 1]) // 60
+smallestCommons([1, 13]) // 360360
+smallestCommons([23, 18]) // 6056820
