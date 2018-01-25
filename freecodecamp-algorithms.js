@@ -537,3 +537,17 @@ smallestCommons([1,5]); // 60
 smallestCommons([5, 1]) // 60
 smallestCommons([1, 13]) // 360360
 smallestCommons([23, 18]) // 6056820
+
+/////////////////////
+// Finders Keepers (1/25/2018)
+// https://www.freecodecamp.org/challenges/finders-keepers
+/////////////////////
+// Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument).
+
+function findElement(arr, func) {
+	let filtered = arr.filter(func);
+	return filtered[0];
+}
+
+findElement([1, 2, 3, 4], function(num){ return num % 2 === 0; });
+findElement([1, 3, 5, 8, 9, 10], function(num) { return num % 2 === 0; });
