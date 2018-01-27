@@ -579,3 +579,19 @@ dropElements([1, 2, 3], function(n) {return n < 3; }); //[1, 2, 3]
 dropElements([1, 2, 3, 4], function(n) {return n >= 3;}) // [3,4]
 dropElements([0, 1, 0, 1], function(n) {return n === 1;}) // [1,0,1]
 dropElements([1, 2, 3, 4], function(n) {return n > 5;}) // []
+
+/////////////////////
+// Steamroller (1/27/2018)
+// https://www.freecodecamp.org/challenges/steamroller
+/////////////////////
+// Flatten a nested array. You must account for varying levels of nesting.
+function steamrollArray(arr) {
+	return arr.reduce( (acc, val) => {
+		return acc.concat( Array.isArray(val) ? steamrollArray(val) : val);
+	}, []);
+}
+
+steamrollArray([[1], 2, [[3], [4]]]); // [1, 2, 3, 4]
+steamrollArray([[["a"]], [["b"]]]); // ["a", "b"]
+steamrollArray([1, [], [3, [[4]]]]) // [1, 3, 4]
+steamrollArray([1, {}, [3, [[4]]]]) // [1, {}, 3, 4]
