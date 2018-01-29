@@ -818,3 +818,38 @@ function binaryAgent(str) {
 
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"); // "Aren't bonfires fun!?"
 binaryAgent("01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001"); // "I love FreeCodeCamp!"
+
+/////////////////////
+// Everything Be True (1/29/2018)
+// https://www.freecodecamp.org/challenges/everything-be-true
+/////////////////////
+// Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
+
+// Remember, you can access object properties through either dot notation or [] notation.
+
+function truthCheck(collection, pre) {
+	for (let i of Object.values(collection)) {
+		if (!i[pre]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"); // true
+
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex") // false
+
+truthCheck([{"user": "Tinky-Winky", "sex": "male", "age": 0}, {"user": "Dipsy", "sex": "male", "age": 3}, {"user": "Laa-Laa", "sex": "female", "age": 5}, {"user": "Po", "sex": "female", "age": 4}], "age") // false
+
+truthCheck([{"name": "Pete", "onBoat": true}, {"name": "Repeat", "onBoat": true}, {"name": "FastFoward", "onBoat": null}], "onBoat") // false
+
+truthCheck([{"name": "Pete", "onBoat": true}, {"name": "Repeat", "onBoat": true, "alias": "Repete"}, {"name": "FastFoward", "onBoat": true}], "onBoat") // true
+
+truthCheck([{"single": "yes"}], "single") // true
+
+truthCheck([{"single": ""}, {"single": "double"}], "single") // false
+
+truthCheck([{"single": "double"}, {"single": undefined}], "single") // false
+
+truthCheck([{"single": "double"}, {"single": NaN}], "single") // false
