@@ -163,3 +163,72 @@ def not_string(str):
   # str[:3] goes from the start of the string up to but not
   # including index 3
 ```
+
+## Warmup1 missing_char
+- https://codingbat.com/prob/p149524
+```py
+# Given a non-empty string and an int n, return a new string where the char at index n has been removed. The value of n will be a valid index of a char in the original string (i.e. n will be in the range 0..len(str)-1 inclusive).
+# missing_char('kitten', 1) → 'ktten'
+# missing_char('kitten', 0) → 'itten'
+# missing_char('kitten', 4) → 'kittn'
+def missing_char(str, n):
+	return str[0:n] + str[n+1:]
+
+# ALTERNATE
+def missing_char(str, n):
+  front = str[:n]   # up to but not including n
+  back = str[n+1:]  # n+1 through end of string
+  return front + back
+```
+
+## Warmup1 front_back
+- https://codingbat.com/prob/p153599
+```py
+# Given a string, return a new string where the first and last chars have been exchanged.
+# front_back('code') → 'eodc'
+# front_back('a') → 'a'
+# front_back('ab') → 'ba'
+def front_back(str):
+  if len(str) <= 1:
+    return str
+  elif len(str) == 2:
+    return (str[len(str)-1] + str[0])
+  else:
+	  return (str[len(str)-1] + str[1:len(str)-1] + str[0])
+
+# ALTERNATE
+def front_back(str):
+  if len(str) <= 1:
+    return str
+  
+  mid = str[1:len(str)-1]  # can be written as str[1:-1]
+  
+  # last + mid + first
+  return str[len(str)-1] + mid + str[0]
+```
+
+## Warmup1 front3
+- https://codingbat.com/prob/p147920
+```py
+# Given a string, we'll say that the front is the first 3 chars of the string. If the string length is less than 3, the front is whatever is there. Return a new string which is 3 copies of the front.
+# front3('Java') → 'JavJavJav'
+# front3('Chocolate') → 'ChoChoCho'
+# front3('abc') → 'abcabcabc'
+def front3(str):
+  if len(str) < 3:
+    return (str * 3) 
+  else:
+    return (str[:3] * 3)
+
+# ALTERNATE
+def front3(str):
+  # Figure the end of the front
+  front_end = 3
+  if len(str) < front_end:
+    front_end = len(str)
+  front = str[:front_end]
+  return front + front + front 
+  
+  # Could omit the if logic, and write simply front = str[:3]
+  # since the slice is silent about out-of-bounds conditions.
+```
