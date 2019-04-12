@@ -93,7 +93,7 @@ def parrot_trouble(talking, hour):
   return (talking and (hour < 7 or hour > 20))
 ```
 
-# Warmup1 makes10
+## Warmup1 makes10
 - https://codingbat.com/prob/p124984
 ```py
 # Given 2 ints, a and b, return True if one if them is 10 or if their sum is 10.
@@ -108,4 +108,58 @@ def makes10(a, b):
     return True
   else:
     return False
+```
+
+## Warmup1 near_hundred
+- https://codingbat.com/prob/p124676
+```py
+# Given an int n, return True if it is within 10 of 100 or 200. Note: abs(num) computes the absolute value of a number.
+# near_hundred(93) → True
+# near_hundred(90) → True
+# near_hundred(89) → False
+def near_hundred(n):
+  if 89 < n < 111 or 189 < n < 211:
+    return True
+  else:
+    return False
+
+# ALTERNATIVE
+def near_hundred(n):
+  return (abs(100-n) <= 10) or (abs(200-n) <= 10)
+```
+
+## Warmup1 pos_neg
+- https://codingbat.com/prob/p162058
+```py
+# Given 2 int values, return True if one is negative and one is positive. Except if the parameter "negative" is True, then return True only if both are negative.
+# pos_neg(1, -1, False) → True
+# pos_neg(-1, 1, False) → True
+# pos_neg(-4, -5, True) → True
+def pos_neg(a, b, negative):
+  if negative:
+    return (a<0 and b<0)
+  else:
+    return (a<0 and b>0) or (a>0 and b<0)
+```
+
+## Warmup1 not_string
+- https://codingbat.com/prob/p189441
+```py
+# Given a string, return a new string where "not " has been added to the front. However, if the string already begins with "not", return the string unchanged.
+# not_string('candy') → 'not candy'
+# not_string('x') → 'not x'
+# not_string('not bad') → 'not bad'
+def not_string(str):
+	if str.startswith("not"):
+		return str
+	else:
+		return "not " + str
+
+# ALTERNATE
+def not_string(str):
+  if len(str) >= 3 and str[:3] == "not":
+    return str
+  return "not " + str
+  # str[:3] goes from the start of the string up to but not
+  # including index 3
 ```
