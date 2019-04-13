@@ -232,3 +232,76 @@ def front3(str):
   # Could omit the if logic, and write simply front = str[:3]
   # since the slice is silent about out-of-bounds conditions.
 ```
+
+## Warmup-2 string_times
+- https://codingbat.com/prob/p193507
+```py
+# Given a string and a non-negative int n, return a larger string that is n copies of the original string.
+# string_times('Hi', 2) → 'HiHi'
+# string_times('Hi', 3) → 'HiHiHi'
+# string_times('Hi', 1) → 'Hi'
+def string_times(str, n):
+  return str * n;
+
+# ALTERNATE
+def string_times(str, n):
+  result = ""
+  for i in range(n):  # range(n) is [0, 1, 2, .... n-1]
+    result = result + str  # could use += here
+  return result
+```
+
+## Warmup-2 front_times
+- https://codingbat.com/prob/p165097
+```py
+# Given a string and a non-negative int n, we'll say that the front of the string is the first 3 chars, or whatever is there if the string is less than length 3. Return n copies of the front;
+# front_times('Chocolate', 2) → 'ChoCho'
+# front_times('Chocolate', 3) → 'ChoChoCho'
+# front_times('Abc', 3) → 'AbcAbcAbc'
+def front_times(str, n):
+  return str[:3]*n
+
+# ALTERNATE
+def front_times(str, n):
+  front_len = 3
+  if front_len > len(str):
+    front_len = len(str)
+  front = str[:front_len]
+  
+  result = ""
+  for i in range(n):
+    result = result + front
+  return result
+```
+
+## Warmup-2 string_bits
+- https://codingbat.com/prob/p113152
+```py
+# Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
+# string_bits('Hello') → 'Hlo'
+# string_bits('Hi') → 'H'
+# string_bits('Heeololeo') → 'Hello'
+def string_bits(str):
+  result = ""
+  if len(str) < 1:
+    return ''
+  elif len(str) < 3:
+    result = str[0]
+  else:
+    for i in range(len(str)):
+      if i % 2 == 0:
+        result += str[i]
+      else:
+        continue
+  return result
+
+# ALTERNATE
+def string_bits(str):
+  result = ""
+  # Many ways to do this. This uses the standard loop of i on every char,
+  # and inside the loop skips the odd index values.
+  for i in range(len(str)):
+    if i % 2 == 0:
+      result = result + str[i]
+  return result
+```
