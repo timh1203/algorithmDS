@@ -1,7 +1,320 @@
 # Free Code Camp
 - https://www.freecodecamp.org/
 
-## Diff Two Arrays
+# 2) Javascript Algorithms And Data Structures Certification (300 hours)
+
+## A) Basic Javascript
+
+---
+
+## B) ES6
+
+---
+
+## C) Regular Expressions
+
+---
+
+## D) Debugging
+
+---
+
+## E) Basic Data Structures
+
+---
+
+## F) Basic Algorithm Scripting
+
+---
+
+### Convert Celsius to Fahrenheit
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/convert-celsius-to-fahrenheit
+```js
+// The algorithm to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.
+// You are given a variable celsius representing a temperature in Celsius. Use the variable fahrenheit already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the algorithm mentioned above to help convert the Celsius temperature to Fahrenheit.
+// Don't worry too much about the function and return statements as they will be covered in future challenges. For now, only use operators that you have already learned.
+function convertToF(celsius) {
+  let fahrenheit = (celsius * 9 / 5) + 32;
+  return fahrenheit;
+}
+
+convertToF(30);
+```
+
+---
+
+### Reverse a String
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/reverse-a-string
+```js
+// Reverse the provided string.
+// You may need to turn the string into an array before you can reverse it.
+// Your result must be a string.
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+
+reverseString("hello");
+```
+
+---
+
+### Factorialize a Number
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/factorialize-a-number/
+```js
+// Return the factorial of the provided integer.
+// If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.
+// Factorials are often represented with the shorthand notation n!
+// For example: 5! = 1 * 2 * 3 * 4 * 5 = 120
+// Only integers greater than or equal to zero will be supplied to the function.
+// Remember to use Read-Search-Ask if you get stuck. Write your own code.
+function factorialize(num) {
+  if (n === 0) return 1;
+  return num * factorialize(num - 1);
+}
+
+factorialize(5);
+```
+
+---
+
+### Find the Longest Word in a String
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/find-the-longest-word-in-a-string
+```js
+// Return the length of the longest word in the provided sentence.
+// Your response should be a number.
+function findLongestWordLength(str) {
+  let longestLength = 0;
+  str.split(' ').forEach(word => {
+    if (word.length > longestLength) longestLength = word.length;
+  })
+  return longestLength;
+}
+
+findLongestWordLength("The quick brown fox jumped over the lazy dog");
+```
+
+---
+
+### Return Largest Numbers in Arrays
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/return-largest-numbers-in-arrays
+```js
+// Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
+// Remember, you can iterate through an array with a simple for loop, and access each member with array syntax arr[i].
+function largestOfFour(arr) {
+  return arr.map(subArr => Math.max(...subArr));
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+```
+
+---
+
+### Confirm the Ending
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/confirm-the-ending
+```js
+// Check if a string (first argument, str) ends with the given target string (second argument, target).
+
+// This challenge can be solved with the .endsWith() method, which was introduced in ES2015. But for the purpose of this challenge, we would like you to use one of the JavaScript substring methods instead.
+function confirmEnding(str, target) {
+  if ((str.substring(str.length - target.length)) === target) return true;
+  return false;
+}
+
+confirmEnding("Bastian", "n");
+```
+
+---
+
+### Repeat a String Repeat a String
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/repeat-a-string-repeat-a-string
+```js
+// Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a positive number.
+function repeatStringNumTimes(str, num) {
+  let newStr = "";
+
+  while (num > 0) {
+    newStr += str;
+    num--;
+  }
+
+  return newStr;
+}
+
+repeatStringNumTimes("abc", 3);
+```
+
+---
+
+### Truncate a String
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/truncate-a-string
+```js
+// Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
+function truncateString(str, num) {
+  if (str.length <= num) return str;
+  return str.slice(0, num) + '...';
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+```
+
+---
+
+### Finders Keepers
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/finders-keepers
+```js
+// Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument). If no element passes the test, return undefined.
+function findElement(arr, func) {
+  return arr.find(ele => func(ele));
+}
+
+findElement([1, 2, 3, 4], num => num % 2 === 0);
+```
+
+---
+
+### Boo who
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/boo-who
+```js
+// Check if a value is classified as a boolean primitive. Return true or false.
+// Boolean primitives are true and false.
+function booWho(bool) {
+  return (typeof bool === "boolean") ? true : false;
+}
+
+booWho(null);
+```
+
+---
+
+### Title Case a Sentence
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/title-case-a-sentence
+```js
+// Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+// For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+function titleCase(str) {
+  return str.split(' ').map(word => word[0].toUpperCase() + word.slice(1).toLocaleLowerCase()).join(' ');
+}
+
+titleCase("I'm a LITTLE tea pot");
+```
+
+---
+
+### Slice and Splice
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/slice-and-splice
+```js
+// You are given two arrays and an index.
+// Use the array methods slice and splice to copy each element of the first array into the second array, in order.
+// Begin inserting elements at index n of the second array.
+// Return the resulting array. The input arrays should remain the same after the function runs.
+function frankenSplice(arr1, arr2, n) {
+  let newArr = arr2.slice();
+  newArr.splice(n, 0, ...arr1);
+  return newArr;
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+```
+
+---
+
+### Falsy Bouncer
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/falsy-bouncer
+```js
+// Remove all falsy values from an array.
+// Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+// Hint: Try converting each value to a Boolean.
+function bouncer(arr) {
+  return arr.filter(item => !!item == true);
+}
+
+bouncer([7, "ate", "", false, 9]);
+```
+
+---
+
+### Where do I Belong
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/where-do-i-belong
+```js
+// Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
+// For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
+// Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
+
+function getIndexToIns(arr, num) {
+  const sorted = arr.sort((a, b) => a - b);
+  const found = sorted.findIndex(item => item >= num)
+  if (arr.length === 0 || num === sorted[0]) return 0
+  else if (found > 0) return found
+  else return sorted.length;
+}
+
+getIndexToIns([5, 3, 20, 3], 5);
+getIndexToIns([10, 20, 30, 40, 50], 35);
+getIndexToIns([2, 5, 10], 15); // 3
+getIndexToIns([], 35); // 0
+getIndexToIns([3, 10, 5], 3); // 0
+```
+
+---
+
+### Mutations
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/mutations
+```js
+// Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+// For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
+// The arguments ["hello", "hey"] should return false because the string "hello" does not contain a "y".
+// Lastly, ["Alien", "line"], should return true because all of the letters in "line" are present in "Alien".
+function mutation(arr) {
+  const root = arr[0].toLowerCase();
+  const check = arr[1].toLowerCase();
+  for (let letter of check) {
+    if (!root.includes(letter)) return false;
+  }
+  return true;
+}
+
+mutation(["hello", "hey"]);
+mutation(["Alien", "line"]);
+mutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"])
+```
+
+---
+
+### Chunky Monkey
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/chunky-monkey
+```js
+// Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+// Chunky Monkey
+function chunkArrayInGroups(arr, size) {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i += size) {
+    newArr.push(arr.slice(i, i + size));
+  }
+  return newArr;
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2);
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3);
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4);
+```
+
+---
+
+## G) Object Oriented Programming
+
+---
+
+## H) Functional Programing
+
+---
+
+## I) Intermediate Algorithm Scripting
+
+---
+
+### Diff Two Arrays
 - https://www.freecodecamp.org/challenges/diff-two-arrays
 ```js
 // Method 1
@@ -30,7 +343,9 @@ function difference(arr1, arr2) {
 }
 ```
 
-## Roman Numeral Converter
+---
+
+### Roman Numeral Converter
 - https://www.freecodecamp.org/challenges/roman-numeral-converter
 ```js
 // Attempt 1
@@ -129,7 +444,9 @@ function convertToRoman(num) {
 }
 ```
 
-## Wherefore art thou (12/23/2017)
+---
+
+### Wherefore art thou (12/23/2017)
 - https://www.freecodecamp.org/challenges/wherefore-art-thou
 ```js
 // My unsuccessful tries
@@ -199,7 +516,9 @@ function whatIsInAName(collection, source) {
 // We return false if the above if statement is correct. Otherwise, we return true;
 ```
 
-## Search and Replace (12/24/2017)
+---
+
+### Search and Replace (12/24/2017)
 - https://www.freecodecamp.org/challenges/search-and-replace
 ```js
 // My sucessful tries
@@ -221,7 +540,9 @@ myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 myReplace("He is Sleeping on the couch", "Sleeping", "sitting");
 ```
 
-## Pig Latin (12/26/2017)
+---
+
+### Pig Latin (12/26/2017)
 - https://www.freecodecamp.org/challenges/pig-latin
 ```js
 // Translate the provided string to pig latin.
@@ -251,7 +572,9 @@ translatePigLatin("paragraphs");
 translatePigLatin("eight");
 ```
 
-## DNA Pairing (12/27/2017)
+---
+
+### DNA Pairing (12/27/2017)
 - https://www.freecodecamp.org/challenges/dna-pairing
 ```js
 // The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.
@@ -289,7 +612,9 @@ pairElement("TTGAG")
 pairElement("CTCTA")
 ```
 
-## Missing Letters (12/27/2017)
+---
+
+### Missing Letters (12/27/2017)
 - https://www.freecodecamp.org/challenges/missing-letters
 ```js
 // Find the missing letter in the passed letter range and return it.
@@ -323,7 +648,9 @@ fearNotLetter("bcd")
 fearNotLetter("yz")
 ```
 
-## Boo Who (12/28/2017)
+---
+
+### Boo Who (12/28/2017)
 - https://www.freecodecamp.org/challenges/boo-who
 ```js
 // Check if a value is classified as a boolean primitive. Return true or false.
@@ -342,7 +669,9 @@ booWho([1, 2, 3]);
 booWho("true")
 ```
 
-## Sorted Union (1/19/2017)
+---
+
+### Sorted Union (1/19/2017)
 - https://www.freecodecamp.org/challenges/sorted-union
 ```js
 // Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
@@ -369,7 +698,9 @@ uniteUnique([1, 2, 3], [5, 2, 1]);
 uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]);
 ```
 
-## Convert HTML Entities (1/19/2017)
+---
+
+### Convert HTML Entities (1/19/2017)
 - https://www.freecodecamp.org/challenges/convert-html-entities
 ```js
 // Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
@@ -385,7 +716,9 @@ function convertHTML(str) {
 convertHTML("Dolce & Gabbana");
 ```
 
-## Spinal Tap Case (1/20/2017)
+---
+
+### Spinal Tap Case (1/20/2017)
 - https://www.freecodecamp.org/challenges/spinal-tap-case
 ```js
 // Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
@@ -403,7 +736,9 @@ spinalCase('The_Andy_Griffith_Show');
 spinalCase('AllThe-small Things');
 ```
 
-## Sum All Odd Fibonacci Numbers (1/21/2017)
+---
+
+### Sum All Odd Fibonacci Numbers (1/21/2017)
 - https://www.freecodecamp.org/challenges/sum-all-odd-fibonacci-numbers
 ```js
 // Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
@@ -443,7 +778,9 @@ sumFibs(10); // 10
 sumFibs(1000); // 1785
 ```
 
-## Sum All Primes (1/22/2017)
+---
+
+### Sum All Primes (1/22/2017)
 - https://www.freecodecamp.org/challenges/sum-all-primes
 ```js
 // Sum all the prime numbers up to and including the provided number.
@@ -476,7 +813,9 @@ sumPrimes(10);
 sumPrimes(977);
 ```
 
-## Smallest Common Multiple (1/24/2018)
+---
+
+### Smallest Common Multiple (1/24/18)
 - https://www.freecodecamp.org/challenges/smallest-common-multiple
 ```js
 // Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
@@ -520,7 +859,9 @@ smallestCommons([1, 13]) // 360360
 smallestCommons([23, 18]) // 6056820
 ```
 
-## Finders Keepers (1/25/2018)
+---
+
+### Finders Keepers (1/25/18)
 - https://www.freecodecamp.org/challenges/finders-keepers
 ```js
 // Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument).
@@ -534,7 +875,9 @@ findElement([1, 2, 3, 4], function (num) { return num % 2 === 0; });
 findElement([1, 3, 5, 8, 9, 10], function (num) { return num % 2 === 0; });
 ```
 
-## Drop it (1/25/2018)
+---
+
+### Drop it (1/25/18)
 - https://www.freecodecamp.org/challenges/drop-it
 ```js
 // Drop the elements of an array (first argument), starting from the front, until the predicate (second argument) returns true.
@@ -560,7 +903,9 @@ dropElements([0, 1, 0, 1], function (n) { return n === 1; }) // [1,0,1]
 dropElements([1, 2, 3, 4], function (n) { return n > 5; }) // []
 ```
 
-## Steamroller (1/27/2018)
+---
+
+### Steamroller (1/27/18)
 - https://www.freecodecamp.org/challenges/steamroller
 ```js
 // Flatten a nested array. You must account for varying levels of nesting.
@@ -576,7 +921,9 @@ steamrollArray([1, [], [3, [[4]]]]) // [1, 3, 4]
 steamrollArray([1, {}, [3, [[4]]]]) // [1, {}, 3, 4]
 ```
 
-## Binary Agents (1/29/2018)
+---
+
+### Binary Agents (1/29/18)
 - https://www.freecodecamp.org/challenges/binary-agents
 ```js
 // Return an English translated sentence of the passed binary string.
@@ -798,7 +1145,9 @@ binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 0110
 binaryAgent("01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001"); // "I love FreeCodeCamp!"
 ```
 
-## Everything Be True (1/29/2018)
+---
+
+### Everything Be True (1/29/18)
 - https://www.freecodecamp.org/challenges/everything-be-true
 ```js
 // Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
@@ -832,7 +1181,9 @@ truthCheck([{ "single": "double" }, { "single": undefined }], "single") // false
 truthCheck([{ "single": "double" }, { "single": NaN }], "single") // false
 ```
 
-## Arguments Optional (1/30/2018)
+---
+
+### Arguments Optional (1/30/18)
 - https://www.freecodecamp.org/challenges/arguments-optional
 ```js
 // Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
@@ -867,245 +1218,6 @@ addTogether(2, "3"); // undefined
 addTogether(2)([3]) // undefined
 ```
 
-## Basic Algorithm Scripting: Convert Celsius to Fahrenheit
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/convert-celsius-to-fahrenheit
-```js
-// The algorithm to convert from Celsius to Fahrenheit is the temperature in Celsius times 9/5, plus 32.
-// You are given a variable celsius representing a temperature in Celsius. Use the variable fahrenheit already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the algorithm mentioned above to help convert the Celsius temperature to Fahrenheit.
-// Don't worry too much about the function and return statements as they will be covered in future challenges. For now, only use operators that you have already learned.
-function convertToF(celsius) {
-  let fahrenheit = (celsius * 9 / 5) + 32;
-  return fahrenheit;
-}
+---
 
-convertToF(30);
-```
-
-## Basic Algorithm Scripting: Reverse a String
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/reverse-a-string
-```js
-// Reverse the provided string.
-// You may need to turn the string into an array before you can reverse it.
-// Your result must be a string.
-// Remember to use Read-Search-Ask if you get stuck. Write your own code.
-function reverseString(str) {
-  return str.split('').reverse().join('');
-}
-
-reverseString("hello");
-```
-
-## Basic Algorithm Scripting: Factorialize a Number
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/factorialize-a-number/
-```js
-// Return the factorial of the provided integer.
-// If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.
-// Factorials are often represented with the shorthand notation n!
-// For example: 5! = 1 * 2 * 3 * 4 * 5 = 120
-// Only integers greater than or equal to zero will be supplied to the function.
-// Remember to use Read-Search-Ask if you get stuck. Write your own code.
-function factorialize(num) {
-  if (n === 0) return 1;
-  return num * factorialize(num - 1);
-}
-
-factorialize(5);
-```
-
-## Basic Algorithm Scripting: Find the Longest Word in a String
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/find-the-longest-word-in-a-string
-```js
-// Return the length of the longest word in the provided sentence.
-// Your response should be a number.
-function findLongestWordLength(str) {
-  let longestLength = 0;
-  str.split(' ').forEach(word => {
-    if (word.length > longestLength) longestLength = word.length;
-  })
-  return longestLength;
-}
-
-findLongestWordLength("The quick brown fox jumped over the lazy dog");
-```
-
-## Basic Algorithm Scripting: Return Largest Numbers in Arrays
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/return-largest-numbers-in-arrays
-```js
-// Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
-// Remember, you can iterate through an array with a simple for loop, and access each member with array syntax arr[i].
-function largestOfFour(arr) {
-  return arr.map(subArr => Math.max(...subArr));
-}
-
-largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
-```
-
-## Basic Algorithm Scripting: Confirm the Ending
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/confirm-the-ending
-```js
-// Check if a string (first argument, str) ends with the given target string (second argument, target).
-
-// This challenge can be solved with the .endsWith() method, which was introduced in ES2015. But for the purpose of this challenge, we would like you to use one of the JavaScript substring methods instead.
-function confirmEnding(str, target) {
-  if ((str.substring(str.length - target.length)) === target) return true;
-  return false;
-}
-
-confirmEnding("Bastian", "n");
-```
-
-## Basic Algorithm Scripting: Repeat a String Repeat a String
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/repeat-a-string-repeat-a-string
-```js
-// Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a positive number.
-function repeatStringNumTimes(str, num) {
-  let newStr = "";
-
-  while (num > 0) {
-    newStr += str;
-    num--;
-  }
-
-  return newStr;
-}
-
-repeatStringNumTimes("abc", 3);
-```
-
-## Basic Algorithm Scripting: Truncate a String
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/truncate-a-string
-```js
-// Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
-function truncateString(str, num) {
-  if (str.length <= num) return str;
-  return str.slice(0, num) + '...';
-}
-
-truncateString("A-tisket a-tasket A green and yellow basket", 8);
-```
-
-## Basic Algorithm Scripting: Finders Keepers
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/finders-keepers
-```js
-// Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument). If no element passes the test, return undefined.
-function findElement(arr, func) {
-  return arr.find(ele => func(ele));
-}
-
-findElement([1, 2, 3, 4], num => num % 2 === 0);
-```
-
-## Basic Algorithm Scripting: Boo who
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/boo-who
-```js
-// Check if a value is classified as a boolean primitive. Return true or false.
-// Boolean primitives are true and false.
-function booWho(bool) {
-  return (typeof bool === "boolean") ? true : false;
-}
-
-booWho(null);
-```
-
-## Basic Algorithm Scripting: Title Case a Sentence
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/title-case-a-sentence
-```js
-// Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
-// For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
-function titleCase(str) {
-  return str.split(' ').map(word => word[0].toUpperCase() + word.slice(1).toLocaleLowerCase()).join(' ');
-}
-
-titleCase("I'm a LITTLE tea pot");
-```
-
-## Basic Algorithm Scripting: Slice and Splice
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/slice-and-splice
-```js
-// You are given two arrays and an index.
-// Use the array methods slice and splice to copy each element of the first array into the second array, in order.
-// Begin inserting elements at index n of the second array.
-// Return the resulting array. The input arrays should remain the same after the function runs.
-function frankenSplice(arr1, arr2, n) {
-  let newArr = arr2.slice();
-  newArr.splice(n, 0, ...arr1);
-  return newArr;
-}
-
-frankenSplice([1, 2, 3], [4, 5, 6], 1);
-```
-
-## Basic Algorithm Scripting: Falsy Bouncer
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/falsy-bouncer
-```js
-// Remove all falsy values from an array.
-// Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
-// Hint: Try converting each value to a Boolean.
-function bouncer(arr) {
-  return arr.filter(item => !!item == true);
-}
-
-bouncer([7, "ate", "", false, 9]);
-```
-
-## Basic Algorithm Scripting: Where do I Belong
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/where-do-i-belong
-```js
-// Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
-// For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
-// Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
-
-function getIndexToIns(arr, num) {
-  const sorted = arr.sort((a, b) => a - b);
-  const found = sorted.findIndex(item => item >= num)
-  if (arr.length === 0 || num === sorted[0]) return 0
-  else if (found > 0) return found
-  else return sorted.length;
-}
-
-getIndexToIns([5, 3, 20, 3], 5);
-getIndexToIns([10, 20, 30, 40, 50], 35);
-getIndexToIns([2, 5, 10], 15); // 3
-getIndexToIns([], 35); // 0
-getIndexToIns([3, 10, 5], 3); // 0
-```
-
-## Basic Algorithm Scripting: Mutations
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/mutations
-```js
-// Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
-// For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
-// The arguments ["hello", "hey"] should return false because the string "hello" does not contain a "y".
-// Lastly, ["Alien", "line"], should return true because all of the letters in "line" are present in "Alien".
-function mutation(arr) {
-  const root = arr[0].toLowerCase();
-  const check = arr[1].toLowerCase();
-  for (let letter of check) {
-    if (!root.includes(letter)) return false;
-  }
-  return true;
-}
-
-mutation(["hello", "hey"]);
-mutation(["Alien", "line"]);
-mutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"])
-```
-
-## Chunky Monkey
-- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/basic-algorithm-scripting/chunky-monkey
-```js
-// Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
-// Basic Algorithm Scripting: Chunky Monkey
-function chunkArrayInGroups(arr, size) {
-  const newArr = [];
-  for (let i = 0; i < arr.length; i += size) {
-    newArr.push(arr.slice(i, i + size));
-  }
-  return newArr;
-}
-
-chunkArrayInGroups(["a", "b", "c", "d"], 2);
-chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2);
-chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3);
-chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4);
-```
+### J) JavaScript Algorithms and Data Structures Projects
