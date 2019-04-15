@@ -1,6 +1,8 @@
 # Coding Bat
 - https://codingbat.com/python
 
+---
+
 ## Warmup-1 sleep_in
 - https://codingbat.com/prob/p173401
 ```py
@@ -19,6 +21,8 @@ def sleep_in(weekday, vacation):
   
   else: return True
 ```
+
+---
 
 ## Warmup-1 monkey_trouble
 - https://codingbat.com/prob/p120546
@@ -39,6 +43,8 @@ def monkey_trouble(a_smile, b_smile):
   else: return True
 ```
 
+---
+
 ## Warmup-1 sum_double
 - https://codingbat.com/prob/p141905
 ```py
@@ -54,6 +60,8 @@ def sum_double(a, b):
     return a + b
 ```
 
+---
+
 ## Warmup-1 diff21
 - https://codingbat.com/prob/p197466
 ```py
@@ -68,6 +76,8 @@ def diff21(n):
   else:
     return (n-21) * 2
 ```
+
+---
 
 ## Warmup-1 parrot_trouble
 - https://codingbat.com/prob/p166884
@@ -93,6 +103,8 @@ def parrot_trouble(talking, hour):
   return (talking and (hour < 7 or hour > 20))
 ```
 
+---
+
 ## Warmup1 makes10
 - https://codingbat.com/prob/p124984
 ```py
@@ -109,6 +121,8 @@ def makes10(a, b):
   else:
     return False
 ```
+
+---
 
 ## Warmup1 near_hundred
 - https://codingbat.com/prob/p124676
@@ -128,6 +142,8 @@ def near_hundred(n):
   return (abs(100-n) <= 10) or (abs(200-n) <= 10)
 ```
 
+---
+
 ## Warmup1 pos_neg
 - https://codingbat.com/prob/p162058
 ```py
@@ -141,6 +157,8 @@ def pos_neg(a, b, negative):
   else:
     return (a<0 and b>0) or (a>0 and b<0)
 ```
+
+---
 
 ## Warmup1 not_string
 - https://codingbat.com/prob/p189441
@@ -164,6 +182,8 @@ def not_string(str):
   # including index 3
 ```
 
+---
+
 ## Warmup1 missing_char
 - https://codingbat.com/prob/p149524
 ```py
@@ -180,6 +200,8 @@ def missing_char(str, n):
   back = str[n+1:]  # n+1 through end of string
   return front + back
 ```
+
+---
 
 ## Warmup1 front_back
 - https://codingbat.com/prob/p153599
@@ -207,6 +229,8 @@ def front_back(str):
   return str[len(str)-1] + mid + str[0]
 ```
 
+---
+
 ## Warmup1 front3
 - https://codingbat.com/prob/p147920
 ```py
@@ -233,7 +257,9 @@ def front3(str):
   # since the slice is silent about out-of-bounds conditions.
 ```
 
-## Warmup-2 string_times
+---
+
+## Warmup2 string_times
 - https://codingbat.com/prob/p193507
 ```py
 # Given a string and a non-negative int n, return a larger string that is n copies of the original string.
@@ -251,7 +277,9 @@ def string_times(str, n):
   return result
 ```
 
-## Warmup-2 front_times
+---
+
+## Warmup2 front_times
 - https://codingbat.com/prob/p165097
 ```py
 # Given a string and a non-negative int n, we'll say that the front of the string is the first 3 chars, or whatever is there if the string is less than length 3. Return n copies of the front;
@@ -274,7 +302,9 @@ def front_times(str, n):
   return result
 ```
 
-## Warmup-2 string_bits
+---
+
+## Warmup2 string_bits
 - https://codingbat.com/prob/p113152
 ```py
 # Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
@@ -305,3 +335,5 @@ def string_bits(str):
       result = result + str[i]
   return result
 ```
+
+---
