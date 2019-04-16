@@ -7,6 +7,7 @@
 ---
 
 ### Introducing Practical Guide to Algorithms (4/13/19)
+- https://frontendmasters.com/courses/practical-algorithms/introducing-practical-guide-to-algorithms/
 - TOPICS: self-introduction, why algorithms are essential
 - [Slides](https://slides.com/bgando/intro-to-algorithms)
 
@@ -27,6 +28,7 @@
 ---
 
 ### Introducing Space & Time Complexity (4/13/19)
+https://frontendmasters.com/courses/practical-algorithms/introducing-space-time-complexity/
 - TOPICS: time complexity, space complexity, algorithmic speed
 
 - time complexity is how we reason about the speed of an algorithm
@@ -66,6 +68,7 @@
 ---
 
 ### Native Methods & Javascript (4/13/19)
+- https://frontendmasters.com/courses/practical-algorithms/native-methods-javascript/
 - TOPICS: Time Complexity, JS Methods, Property Access, Loops, Native Array Methods
 - sort is nlogn, we will visit this more
 ```js
@@ -86,6 +89,7 @@ obj.a //-> 1, constant time
 ---
 
 ### Big O Notation (4/13/19)
+- https://frontendmasters.com/courses/practical-algorithms/big-o-notation/
 - TOPICS: constant, linear, quadratic, logarithmic, and exponential
 
 - *what if we have multiple expressions/loops/etc?*
@@ -109,6 +113,7 @@ obj.a //-> 1, constant time
 ---
 
 ### Space Complexity & Review (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/space-complexity-review/
 - [GfG Asymptomatic Notation](https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/)
 - TOPICS: space complexity, big O notation, time complexity
 
@@ -126,6 +131,7 @@ obj.a //-> 1, constant time
 ---
 
 ### Big O: Loop (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/big-o-loop/
 - [Big O Cheatsheet](http://bigocheatsheet.com/)
 - TOPICS: dissection of a loop
 
@@ -150,6 +156,7 @@ countChars("walkreallyfast"); // runs through for loop 14 times
 ---
 
 ### Big O: Property Lookup (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/big-o-property-lookup/
 - TOPICS: time complexity, array length method
 
 - **WHAT IS THE TIME COMPLEXITY?**
@@ -169,6 +176,7 @@ countChars("walkreallyfast");
 ---
 
 ### Big O: Push, Shift, & Unshift (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/big-o-push-shift-unshift/
 - TOPICS: time complexity, array methods
 
 ```js
@@ -185,6 +193,7 @@ myList.shift(); // linear time
 ---
 
 ### Faster Algorithms (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/faster-algorithms/
 - TOPICS: speed up algorithms, caching, breadcrumbs
 
 - How can we speed this up?
@@ -243,6 +252,7 @@ console.log(isUnique([1,2,3]) === true);
 ---
 
 ### Unique Sort Exercise (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/unique-sort-exercise/
 - TOPICS: removes duplicates
 ```js
 //Task: Transform this simple sorting algorithm into a unique sort. 
@@ -274,6 +284,7 @@ uniqSort([4,2,2,3,2,2,2]); // => [2,3,4]
 ---
 
 ### Unique Sort Solution (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/unique-sort-solution/
 - TOPICS: JSON.stringify
 - this solution speeds up quadratic to linear time
 - sorting can be generally though of as `nlogn` operation
@@ -311,6 +322,7 @@ uniqSort([4,2,2,3,2,2,2]); // => [2,3,4]
 ---
 
 ### Caching with Memoization (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/caching-with-memoization/
 - TOPICS: differences of breadcrumbs vs memoization
 
 - memoization is caching the result of a function
@@ -333,6 +345,7 @@ factorial(36); // factorial(36) = factorial(35) * 36;
 ---
 
 ### Basic Memoization Exercize (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/basic-memoization-exercise/
 - TOPICS: global cache, memoize
 
 -
@@ -372,7 +385,8 @@ console.log('Task 2 cached value:', memoTimes10(9));	// cached
 ---
 
 ### Basic Memoization Solution (4/15/19)
-
+- https://frontendmasters.com/courses/practical-algorithms/basic-memoization-solution/
+- TOPICS:
 ```js
 // Task 1: Write a function, times10, that takes an argument, n, and multiples n times 10
 // a simple multiplication fn
@@ -408,6 +422,7 @@ console.log('Task 2 cached value:', memoTimes10(9));	// cached
 ---
 
 ### Memoization with Closure Exercise (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/memoization-with-closure-exercise/
 - TOPICS: cache in closure
 
 - hint: use closure to return a function that you can call later
@@ -438,6 +453,7 @@ try {
 ---
 
 ### Memoization with Closure Solution (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/memoization-with-closure-solution/
 - TOPICS: cache in closure, separate cache concept
 
 - this helps prevent global scope of cache where multiple functions interact with it that creates side effects
@@ -512,7 +528,8 @@ const memoClosureTimes5 = memoizedClosureTimes10(5);
 ---
 
 ### Generic Memoize Function Exercise (4/15/19)
-- TOPICS: 
+- https://frontendmasters.com/courses/practical-algorithms/generic-memoize-function-exercise/
+- TOPICS:
 
 - building off previous exercise
 - we are going to make the `times10` even more generic
@@ -554,6 +571,7 @@ try {
 ---
 
 ### Generic Memoize Function Solution (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/generic-memoize-function-solution/
 - TOPICS: memoize
 
 - to make it further generic, you could also use `...args` instead of `n`
@@ -588,6 +606,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Reviewing Optimization (4/15/19)
+- https://frontendmasters.com/courses/practical-algorithms/reviewing-optimization/
 - TOPICS: different caching techniques, trade-offs
 
 - trading time complexity for space complexity
@@ -602,6 +621,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Introducing Recursion
+- https://frontendmasters.com/courses/practical-algorithms/introducing-recursion/
 - TOPICS:
 ```js
 ```
@@ -609,6 +629,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Call Stack Walkthrough
+- https://frontendmasters.com/courses/practical-algorithms/call-stack-walkthrough/
 - TOPICS:
 ```js
 ```
@@ -616,6 +637,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Looping with Recursion
+- https://frontendmasters.com/courses/practical-algorithms/looping-with-recursion/
 - TOPICS:
 ```js
 ```
@@ -623,6 +645,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Factorial with a Loop
+- https://frontendmasters.com/courses/practical-algorithms/factorial-with-a-loop/
 - TOPICS:
 ```js
 ```
@@ -630,6 +653,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Looping Review
+- https://frontendmasters.com/courses/practical-algorithms/looping-review/
 - TOPICS:
 ```js
 ```
@@ -637,6 +661,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Wrapper Functions
+- https://frontendmasters.com/courses/practical-algorithms/wrapper-functions/
 - TOPICS:
 ```js
 ```
@@ -644,6 +669,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Accumulators
+- https://frontendmasters.com/courses/practical-algorithms/accumulators/
 - TOPICS:
 ```js
 ```
@@ -651,6 +677,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Iterative Loop Exercise
+- https://frontendmasters.com/courses/practical-algorithms/iterative-loop-exercise/
 - TOPICS:
 ```js
 ```
@@ -658,6 +685,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Iterative Loop Solution
+- https://frontendmasters.com/courses/practical-algorithms/iterative-loop-solution/
 - TOPICS:
 ```js
 ```
@@ -665,6 +693,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Recursive Factorial & Memoize Exercise
+- https://frontendmasters.com/courses/practical-algorithms/recursive-factorial-memoize-exercise/
 - TOPICS:
 ```js
 ```
@@ -672,6 +701,7 @@ const memoizedTimes10 = memoize(times10);
 ---
 
 ### Recursive Factorial & Memoize Solution
+- https://frontendmasters.com/courses/practical-algorithms/recursive-factorial-memoize-solution/
 - TOPICS:
 ```js
 ```
