@@ -407,6 +407,196 @@ console.log('Task 2 cached value:', memoTimes10(9));	// cached
 
 ---
 
+### Memoization with Closure Exercise (4/15/19)
+- TOPICS: cache in closure
+
+- hint: use closure to return a function that you can call later
+- hint: we store that closure to a variable, then we use the variable name to call it later
+- hint: important that return a function, and not a primitive value, so we can call it later
+- hint: in the closure, we retain access to variables that were passed in before and you can "remember" prior values
+
+```js
+const times10 = (n) => (n * 10);
+
+// Task 3: Clean up your global scope by moving your cache inside your function.
+// protip: Use a closure to return a function that you can call later.
+
+const memoizedClosureTimes10 = () => {
+  const cache = {}
+};
+
+const memoClosureTimes10 = memoizedClosureTimes10();
+console.log('~~~~~~~~~~~~~~TASK 3~~~~~~~~~~~~~~');
+try {
+  console.log('Task 3 calculated value:', memoClosureTimes10(9));	// calculated
+  console.log('Task 3 cached value:', memoClosureTimes10(9));	// cached
+} catch(e) {
+  console.error('Task 3:', e);
+}
+```
+
+---
+
+### Memoization with Closure Solution (4/15/19)
+- TOPICS: cache in closure, separate cache concept
+
+- this helps prevent global scope of cache where multiple functions interact with it that creates side effects
+- because of closure, now we can reference variables declared in the parent scope IE the cache
+- now the cache persists across calls and not wiped
+
+- when we call `memoClosureTimes10(9)`, we are calling the return function of `memoizedClosureTimes10`, not the whole `memoizedClosureTimes10` function
+- `n` parameter represents the the argument being passed in from `memoClosureTimes10(9)` IE 9
+- if you want to add a 2nd argument or more you have to use `(n,m)` or `(n, ...args)`
+
+```js
+const times10 = (n) => (n * 10);
+
+// Task 3: Clean up your global scope by moving your cache inside your function.
+// protip: Use a closure to return a function that you can call later.
+
+const memoizedClosureTimes10 = () => {
+  const cache = {}
+  return (n) => {
+    if (n in cache) {
+      console.log('Fetching from cache: ', n);
+      return cache[n];
+    }
+    else {
+      console.log('Calculating result');
+      let result = times10(n);
+      cache[n] = result;
+      return result;
+    }
+  }
+};
+
+const memoClosureTimes10 = memoizedClosureTimes10();
+console.log('~~~~~~~~~~~~~~TASK 3~~~~~~~~~~~~~~');
+try {
+  console.log('Task 3 calculated value:', memoClosureTimes10(9));	// calculated
+  console.log('Task 3 cached value:', memoClosureTimes10(9));	// cached
+} catch(e) {
+  console.error('Task 3:', e);
+}
+```
+
+- **SEPARATE CACHE CONCEPT**
+- everytime you call a new function, you create a new execution environment complete with it's own cache
+- `memoClosureTimes10` and `memoClosureTimes5` will each have it's own cache now
+```js
+const times10 = (n) => (n * 10);
+
+// Task 3: Clean up your global scope by moving your cache inside your function.
+// protip: Use a closure to return a function that you can call later.
+
+const memoizedClosureTimesM = (m) => {
+  const cache = {}
+  return (n) => {
+    if (n in cache) {
+      console.log('Fetching from cache: ', n);
+      return cache[n];
+    }
+    else {
+      console.log('Calculating result');
+      let result = n * m;
+      cache[n] = result;
+      return result;
+    }
+  }
+};
+
+const memoClosureTimes10 = memoizedClosureTimes10(10);
+const memoClosureTimes5 = memoizedClosureTimes10(5);
+```
+
+---
+
+### Generic Memoize Function Exercise (4/15/19)
+- TOPICS: 
+
+- building off previous exercise
+- we are going to make the `times10` even more generic
+- we want to be able to make it so you can pass the `times10` function, or any other function that we create, into the `memoize` function
+- what if we want to pass in an `add5` function or `subtract 2` function as a callback?
+
+```js
+const times10 = (n) => (n * 10);
+// Task 4: Make your memo function generic and accept the times10 function as a callback rather than defining the n * 10 logic inside the if/else or pulling it in from the global scope.
+
+// protip: Take advantage of the fact that parameters are saved in the closure as well, just like the cache from the previous example.
+const memoize = (cb) => {
+  const cache = {}
+  return (n) => {
+    if (n in cache) {
+      console.log('Fetching from cache: ', n);
+      return cache[n];
+    }
+    else {
+      console.log('Calculating result');
+      let result = cb(n);
+      cache[n] = result;
+      return result;
+    }
+  }
+}
+
+// returned function from memoizedAdd
+const memoizedTimes10 = memoize(times10);
+console.log('~~~~~~~~~~~~~~TASK 4~~~~~~~~~~~~~~');
+try {
+  console.log('Task 4 calculated value:', memoizedTimes10(9));	// calculated
+  console.log('Task 4 cached value:', memoizedTimes10(9));	// cached
+} catch(e) {
+  console.error('Task 4:', e)
+}
+```
+
+---
+
+### Generic Memoize Function Solution (4/15/19)
+- TOPICS: memoize
+
+- to make it further generic, you could also use `...args` instead of `n`
+- DISTINCTION: `cache` and `cb` will stay the same the second time `memoizedTimes10` is called
+- however the `...args` will be a fresh set aka all the variables in that return function is going to be reinitialized IE it will be a new 9
+- the time complexity remains unchanged, but this helps us by saving us expensive operations by storing the results in a cache
+```js
+const times10 = (n) => (n * 10);
+// Task 4: Make your memo function generic and accept the times10 function as a callback rather than defining the n * 10 logic inside the if/else or pulling it in from the global scope.
+
+// protip: Take advantage of the fact that parameters are saved in the closure as well, just like the cache from the previous example.
+const memoize = (cb) => {
+  const cache = {}
+  return (...args) => {
+    if (n in cache) {
+      console.log('Fetching from cache: ', n);
+      return cache[n];
+    }
+    else {
+      console.log('Calculating result');
+      let result = cb(...args);
+      cache[n] = result;
+      return result;
+    }
+  }
+}
+
+// returned function from memoizedAdd
+const memoizedTimes10 = memoize(times10);
+```
+
+---
+
+### Reviewing Optimization (4/15/19)
+- TOPICS: different caching techniques, trade-offs
+
+- trading time complexity for space complexity
+- we are increasing space complexity to decrease time complexity
+- usually this process is fine when your function calls or operations is expensive
+- you might hear this as "using a hash table to optimize", this is what they mean
+
+---
+
 ## D) Recursion
 
 ---
