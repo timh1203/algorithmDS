@@ -601,6 +601,83 @@ const memoizedTimes10 = memoize(times10);
 
 ---
 
+### Introducing Recursion
+- TOPICS:
+```js
+```
+
+---
+
+### Call Stack Walkthrough
+- TOPICS:
+```js
+```
+
+---
+
+### Looping with Recursion
+- TOPICS:
+```js
+```
+
+---
+
+### Factorial with a Loop
+- TOPICS:
+```js
+```
+
+---
+
+### Looping Review
+- TOPICS:
+```js
+```
+
+---
+
+### Wrapper Functions
+- TOPICS:
+```js
+```
+
+---
+
+### Accumulators
+- TOPICS:
+```js
+```
+
+---
+
+### Iterative Loop Exercise
+- TOPICS:
+```js
+```
+
+---
+
+### Iterative Loop Solution
+- TOPICS:
+```js
+```
+
+---
+
+### Recursive Factorial & Memoize Exercise
+- TOPICS:
+```js
+```
+
+---
+
+### Recursive Factorial & Memoize Solution
+- TOPICS:
+```js
+```
+
+---
+
 ## E) Divide and Conquer
 
 ---
