@@ -621,50 +621,253 @@ const memoizedTimes10 = memoize(times10);
 
 ---
 
-### Introducing Recursion
+### Introducing Recursion (4/16/19)
 - https://frontendmasters.com/courses/practical-algorithms/introducing-recursion/
 - TOPICS:
-```js
-```
+
+- Recursion is simply when a function calls itself; however it doesn't stop there
+- it's an elegant solution to keep your code D.R.Y.
+- sometimes recursion is easier than iterative approach
 
 ---
 
-### Call Stack Walkthrough
+### Call Stack Walkthrough (4/16/19)
 - https://frontendmasters.com/courses/practical-algorithms/call-stack-walkthrough/
-- TOPICS:
+- TOPICS: call stack game
+
+- you have to add a return or else we'll get a `stack overflow`
+- also add a `base case`
+
+- **RULES**
+1. Push called Fn on stack.
+2. Execute Fn body.
+- until...
+- ... another fn is called:
+  - Pause the current execution and start at step 1.
+- ... a return is hit:
+  - Pop the current Fn off the stack.
+  - Resume executing the previous Fn.
 ```js
+// INFINITE LOOP
+var callMe = function() {
+  callMe();
+  callMe();
+  callMe('anytime');
+}
+callMe();
+
+// ALSO INFINITE LOOP
+var callMe = function() {
+  return callMe();
+  callMe();
+  callMe('anytime');
+}
+callMe();
+```
+
+- **RETURNS ARE IMPORTANT**
+- notice that we get an undefined since 2nd call doesn't pass on "loops!"
+- if we want to pass it on, we can add `return` to `return callMe('anytime')`
+- we can trace the base case all the way back up
+
+- next time if we call the function again, `tracker = 3`
+- we can reset this in the base case by setting `tracker = 0`
+```js
+var tracker = 0;
+var callMe = function() { // 1st CALL
+  tracker++
+  if (tracker === 3) {
+      return 'loops!';
+  }
+  callMe('anytime'); //=> returns undefined
+  ~~~~~
+};
+
+var callMe = function() { // 2nd CALL
+  tracker++
+  if (tracker === 3) {
+      return 'loops!';
+  }
+  callMe('anytime'); //=> returns 'loops!'
+  ~~~~~
+};
+
+var callMe = function() { // 3rd CALL
+  tracker++
+  if (tracker === 3) {
+      return 'loops!';
+  }
+  callMe('anytime');
+};
+
+callMe();
 ```
 
 ---
 
-### Looping with Recursion
+### Looping with Recursion (4/16/19)
 - https://frontendmasters.com/courses/practical-algorithms/looping-with-recursion/
 - TOPICS:
+
+- **Recursion in 4 Steps**
+1. Identify base case(s).
+2. Identify recursive case(s).
+3. Return where appropriate.
+4. Write procedures for each case that bring you closer to the base case(s).
 ```js
+var callMyself = function() {
+  if() {
+    // base case
+    return;
+  } else {
+    // recursive case
+    callMyself();
+  }
+  return;
+};
+```
+
+- child can interact with parent but not vice versa
+```js
+const loopNTimes = (n) => {
+
+  console.log('n ===', n);
+
+  if (n <= 1) {
+      return 'complete';
+  }
+  return loopNTimes(n-1);
+};
+
+loopNTimes(3);
 ```
 
 ---
 
-### Factorial with a Loop
+### Factorial with a Loop (4/16/19)
 - https://frontendmasters.com/courses/practical-algorithms/factorial-with-a-loop/
 - TOPICS:
+
+- what pattern do you notice?
 ```js
+// ITERATIVE APPROACH
+function computeFactorial(num) {
+  var result = 1;
+
+  for(var i = 2; i <= num; i++) {
+    console.log(`result = ${result} * ${i} (${result * i})`);
+    result *= i;
+  }
+
+  return result;
+}
+
+computeFactorial(5);
+
+// RECURSIVE APPROACH
+function computeFactorial(num) {
+  var result = 1;
+
+  for(var i = 2; i <= num; i++) {
+    result *= i;
+  }
+
+  return result;
+}
+
+// WITH RECURSION
+function computeFactorial(num) {
+  
+  if(num === 1) {
+    console.log('hitting the base case');
+    return 1;
+  } else {
+    console.log(`returning ${num} * computeFactorial(${num - 1})`);
+    return num * computeFactorial(num - 1);
+  }
+}
+computeFactorial(5);
+
+// EXAMPLE A: Iterative Approach
+function logNumbers(start, end) {
+  
+  console.log(`iteratively looping from ${start} until ${end}`);
+  
+  for(var i = start; i <= end; i++) {
+    console.log('hitting index', i);
+  }
+}
+console.log('~~~ logNumbers ~~~')
+logNumbers(1,2);
+
+// EXAMPLE A: Recursion Approach
+function logNumbersRecursively(start, end) {
+  
+  console.log(`recursively looping from ${start} until ${end}`);
+  
+  function recurse(i) {
+    console.log('hitting index', i);
+
+    if(i < end) {
+      recurse(i + 1);
+    }
+  }
+
+  recurse(start); // where the function actually starts
+}
+
+console.log('~~~ logNumbersRecursively ~~~')
+logNumbersRecursively(1,3);
 ```
 
 ---
 
-### Looping Review
+### Looping Review (4/16/19)
 - https://frontendmasters.com/courses/practical-algorithms/looping-review/
 - TOPICS:
-```js
-```
+- recursion can always be implemented as a loop, but in some situations, believe it or not, it is simpler to use recursion
+
+- `tail-call optimization` - ES6 offers TCO, which allows some functions to be called without growing the call stack
+- [Tail call optimization in ECMAScript 6](http://2ality.com/2015/06/tail-call-optimization.html)
 
 ---
 
-### Wrapper Functions
+### Wrapper Functions (4/16/19)
 - https://frontendmasters.com/courses/practical-algorithms/wrapper-functions/
 - TOPICS:
+
+- **COMMON PATTERNS FOR RECURSION**
+1) Wrapper Functions - has a base case check
+2) Accumulators - next lesson
 ```js
+// WRAPPER FUNCTION 1
+// Utilizes a closure
+// When we access end from the inner function, we are accessing a closure scoped variable
+function wrapperFnLoop(start, end) {
+  function recurse(i) {
+    console.log(`looping from ${start} until ${end}`);
+
+    if(i < end) {
+      recurse(i + 1);
+    }
+  }
+
+  recurse(start);
+}
+
+// WRAPPER FUNCTION 2
+// Does not utilize a closure
+function MemoFnLoop(i, end) {
+  console.log(`looping from ${i} until ${end}`);
+  if(i < end) {
+    MemoFnLoop(i + 1, end);
+  }
+}
+
+console.log('~~~ wrapperFnLoop ~~~')
+wrapperFnLoop(1,5);
+console.log('~~~ MemoFnLoop ~~~')
+MemoFnLoop(1, 6);
 ```
 
 ---
