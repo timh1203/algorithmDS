@@ -670,7 +670,7 @@ callMe();
 - if we want to pass it on, we can add `return` to `return callMe('anytime')`
 - we can trace the base case all the way back up
 
-- next time if we call the function again, `tracker = 3`
+- EDGE CASE: next time if we call the function again, `tracker = 3`
 - we can reset this in the base case by setting `tracker = 0`
 ```js
 var tracker = 0;
@@ -728,6 +728,7 @@ var callMyself = function() {
 ```
 
 - child can interact with parent but not vice versa
+- notice subsequent calls can still access `n`
 ```js
 const loopNTimes = (n) => {
 
@@ -764,7 +765,7 @@ function computeFactorial(num) {
 
 computeFactorial(5);
 
-// RECURSIVE APPROACH
+// CONDENSED ITERATIVE APPROACH
 function computeFactorial(num) {
   var result = 1;
 
@@ -777,7 +778,6 @@ function computeFactorial(num) {
 
 // WITH RECURSION
 function computeFactorial(num) {
-  
   if(num === 1) {
     console.log('hitting the base case');
     return 1;
@@ -790,7 +790,6 @@ computeFactorial(5);
 
 // EXAMPLE A: Iterative Approach
 function logNumbers(start, end) {
-  
   console.log(`iteratively looping from ${start} until ${end}`);
   
   for(var i = start; i <= end; i++) {
@@ -802,12 +801,10 @@ logNumbers(1,2);
 
 // EXAMPLE A: Recursion Approach
 function logNumbersRecursively(start, end) {
-  
   console.log(`recursively looping from ${start} until ${end}`);
   
   function recurse(i) {
     console.log('hitting index', i);
-
     if(i < end) {
       recurse(i + 1);
     }
