@@ -306,6 +306,491 @@ chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4);
 
 ---
 
+### Create a Basic JavaScript Object (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/create-a-basic-javascript-object
+```js
+let dog = {
+  name: "Brian",
+  numLegs: 4
+};
+```
+
+---
+
+### Use Dot Notation to Access the Properties of an Object (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/use-dot-notation-to-access-the-properties-of-an-object
+```js
+let dog = {
+  name: "Spot",
+  numLegs: 4
+};
+// Add your code below this line
+console.log(dog.name);
+console.log(dog.numLegs);
+```
+
+---
+
+### Create a Method on an Object (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/create-a-method-on-an-object
+```js
+let dog = {
+  name: "Spot",
+  numLegs: 4,
+  sayLegs: function() { return "This dog has " + dog.numLegs + " legs."}
+};
+
+dog.sayLegs();
+```
+
+---
+
+### Make Code More Reusable with the this Keyword (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/make-code-more-reusable-with-the-this-keyword
+- we use `this` keyword instead because the variable name can change
+```js
+let dog = {
+  name: "Spot",
+  numLegs: 4,
+  sayLegs: function() {return "This dog has " + this.numLegs + " legs.";}
+};
+
+dog.sayLegs();
+```
+
+---
+
+### Define a Constructor Function (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/define-a-constructor-function
+- Constructors follow conventions:
+1) Names are capitalize
+2) Use `this` to set properties and refer to the new object that was created
+3) Defines properties and behaviors instead of returning a value like other functions
+```js
+function Dog() {
+  this.name = "Brian";
+  this.color = "White";
+  this.numLegs = 4;
+}
+```
+
+---
+
+### Use a Constructor to Create Objects (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/use-a-constructor-to-create-objects
+```js
+function Dog() {
+  this.name = "Rupert";
+  this.color = "brown";
+  this.numLegs = 4;
+}
+// Add your code below this line
+const hound = new Dog();
+```
+
+---
+
+### Extend Constructors to Receive Arguments (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/extend-constructors-to-receive-arguments
+```js
+function Dog(name, color) {
+  this.name = name;
+  this.color = color;
+  this.numLegs = 4;
+}
+
+const terrier = new Dog("York", "Gray");
+```
+
+---
+
+### Verify an Object's Constructor with instanceof (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/verify-an-objects-constructor-with-instanceof
+```js
+function House(numBedrooms) {
+  this.numBedrooms = numBedrooms;
+}
+
+// Add your code below this line
+const myHouse = new House(4)
+myHouse instanceof House;
+```
+
+---
+
+### Understand Own Properties (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/understand-own-properties
+```js
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
+}
+
+let canary = new Bird("Tweety");
+let ownProps = [];
+// Add your code below this line
+for (let prop in canary) {
+  if (canary.hasOwnProperty(prop)) {
+    ownProps.push(prop);
+  }
+}
+```
+
+---
+
+### Use Prototype Properties to Reduce Duplicate Code (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/use-prototype-properties-to-reduce-duplicate-code
+```js
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.numLegs = 4;
+
+// Add your code above this line
+let beagle = new Dog("Snoopy");
+```
+
+---
+
+### Iterate Over All Properties (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/iterate-over-all-properties
+```js
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.numLegs = 4;
+
+let beagle = new Dog("Snoopy");
+
+let ownProps = [];
+let prototypeProps = [];
+
+// Add your code below this line 
+for (let prop in beagle) {
+  if (beagle.hasOwnProperty(prop)) {
+    ownProps.push(prop);
+  }
+  else {
+    prototypeProps.push(prop);
+  }
+}
+```
+
+---
+
+### Understand the Constructor Property (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/understand-the-constructor-property
+- better to use `instanceOf` than `constructor` (this can be overwritten)
+```js
+function Dog(name) {
+  this.name = name;
+}
+
+// Add your code below this line
+function joinDogFraternity(candidate) {
+  if (candidate.constructor === Dog) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+```
+
+---
+
+### Change the Prototype to a New Object (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/change-the-prototype-to-a-new-object
+```js
+function Dog(name) {
+  this.name = name; 
+}
+
+Dog.prototype = {
+  // Add your code below this line
+  numLegs: 4,
+  eat: function() {
+    console.log("eating");
+  },
+  describe: function() {
+    console.log("describing");
+  }
+};
+```
+
+---
+
+### Remember to Set the Constructor Property when Changing the Prototype (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/remember-to-set-the-constructor-property-when-changing-the-prototype
+- you have to redefine the constructor since setting the prototype erases the constructor property
+```js
+function Dog(name) {
+  this.name = name; 
+}
+
+// Modify the code below this line
+Dog.prototype = {
+  constructor: Dog, // You need to add constructor back in
+  numLegs: 2, 
+  eat: function() {
+    console.log("nom nom nom"); 
+  }, 
+  describe: function() {
+    console.log("My name is " + this.name); 
+  }
+};
+```
+
+---
+
+### Understand Where an Object’s Prototype Comes From (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/understand-where-an-objects-prototype-comes-from
+```js
+function Dog(name) {
+  this.name = name;
+}
+
+let beagle = new Dog("Snoopy");
+
+// Add your code below this line
+Dog.prototype.isPrototypeOf(beagle);
+
+```
+
+---
+
+### Understand the Prototype Chain (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/understand-the-prototype-chain
+- `supertype` and `subtype` are classifications
+```js
+function Dog(name) {
+  this.name = name;
+}
+
+let beagle = new Dog("Snoopy");
+
+Dog.prototype.isPrototypeOf(beagle);  // => true
+
+// Fix the code below so that it evaluates to true
+Object.prototype.isPrototypeOf(Dog.prototype);
+```
+
+---
+
+### Use Inheritance So You Don't Repeat Yourself (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/use-inheritance-so-you-dont-repeat-yourself
+```js
+function Cat(name) {
+  this.name = name; 
+}
+
+function Bear(name) {
+  this.name = name; 
+}
+
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom")
+  },
+};
+```
+
+---
+
+### Inherit Behaviors from a Supertype (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/inherit-behaviors-from-a-supertype
+- using `new` is once way to create an instance but there are some disadvantages when using this syntax for inheritance
+- instead, use `Object.create(obj)` to create a new object, and sets obj as the new object's prototype.
+```js
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal, 
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+// Add your code below this line
+
+let duck = Object.create(Animal.prototype); // Change this line
+let beagle = Object.create(Animal.prototype); // Change this line
+
+duck.eat(); // Should print "nom nom nom"
+beagle.eat(); // Should print "nom nom nom" 
+```
+
+---
+
+### Set the Child's Prototype to an Instance of the Parent (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/set-the-childs-prototype-to-an-instance-of-the-parent
+```js
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Dog() { }
+
+// Add your code below this line
+Dog.prototype = Object.create(Animal.prototype);
+
+let beagle = new Dog();
+beagle.eat();  // Should print "nom nom nom"
+```
+
+---
+
+### Reset an Inherited Constructor Property (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/reset-an-inherited-constructor-property
+- When an object inherits its `prototype` from another object, it also inherits the `supertype`'s constructor property.
+```js
+function Animal() { }
+function Bird() { }
+function Dog() { }
+
+Bird.prototype = Object.create(Animal.prototype);
+Dog.prototype = Object.create(Animal.prototype);
+
+// Add your code below this line
+Bird.prototype.constructor = Bird;
+Dog.prototype.constructor = Dog;
+
+let duck = new Bird();
+let beagle = new Dog();
+```
+
+---
+
+### Add Methods After Inheritance (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/add-methods-after-inheritance
+```js
+function Animal() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+
+function Dog() { }
+
+// Add your code below this line
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+Dog.prototype.bark = function() {
+    console.log("Woof!");
+}
+// Add your code above this line
+
+let beagle = new Dog();
+
+beagle.eat(); // Should print "nom nom nom"
+beagle.bark(); // Should print "Woof!"
+```
+
+---
+
+### Override Inherited Methods (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/override-inherited-methods
+- JS searches along the prototype chain for a method starting with the child
+- even if there is the same method higher up on the chain, JS will stop once it finds the first
+```js
+function Bird() { }
+
+Bird.prototype.fly = function() { return "I am flying!"; };
+
+function Penguin() { }
+Penguin.prototype = Object.create(Bird.prototype);
+Penguin.prototype.constructor = Penguin;
+
+// Add your code below this line
+Penguin.prototype.fly = function() {
+    return "Alas, this is a flightless bird."
+}
+// Add your code above this line
+
+let penguin = new Penguin();
+console.log(penguin.fly());
+```
+
+---
+
+### Use a Mixin to Add Common Behavior Between Unrelated Objects (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/use-a-mixin-to-add-common-behavior-between-unrelated-objects
+```js
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
+
+let boat = {
+  name: "Warrior",
+  type: "race-boat"
+};
+
+// Add your code below this line
+const glideMixin = function(obj) {
+    obj.glide = function() {
+        console.log("gliding!")
+    }
+}
+
+glideMixin(bird);
+glideMixin(boat);
+```
+
+---
+
+### Use Closure to Protect Properties Within an Object from Being Modified Externally (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/use-closure-to-protect-properties-within-an-object-from-being-modified-externally
+```js
+function Bird() {
+  const weight = 15;
+  
+  this.getWeight = function() {
+    return weight;
+  }
+}
+```
+
+---
+
+### Understand the Immediately Invoked Function Expression (IIFE) (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/understand-the-immediately-invoked-function-expression-iife
+```js
+(function () {
+    console.log("A cozy nest is ready");
+})();
+```
+
+---
+
+### Use an IIFE to Create a Module (4/16/19)
+- https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/object-oriented-programming/use-an-iife-to-create-a-module
+```js
+const funModule = (function() {
+  return {
+    isCuteMixin: function(obj) {
+      obj.isCute = function() {
+        return true;
+      }
+    },
+    singMixin: function(obj) {
+      obj.sing = function() {
+        console.log("Singing to an awesome tune");
+      }
+    },
+  }
+})()
+```
+
+---
+
 ## H) Functional Programing
 
 ---
