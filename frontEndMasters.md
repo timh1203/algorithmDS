@@ -18,7 +18,7 @@
 1) how fast an algorithm is
 2) techniques to optimize certain types of algorithms
 3) getting comfortable with recursion
-4) impllement a couple sorting and searching algorithms
+4) implement a couple sorting and searching algorithms
 5) understand difference between Divide & Conquer and Dynamic Programming
 6) pros and cons of Greedy technique
 7) recursive brute force algorithm
@@ -33,7 +33,7 @@ https://frontendmasters.com/courses/practical-algorithms/introducing-space-time-
 
 - time complexity is how we reason about the speed of an algorithm
 - this allows us to process more data
-- we can measure time exactly but we have a general 
+- we can measure time exactly but we have a general nomenclature
 
 - *space complexity* is how much memory is used
 - *time complexity* is how many primitive operations are executed with respect to input size and assuming worst case scenarios
@@ -83,7 +83,7 @@ arr.unshift() // linear time
 
 const obj = {a: 1}
 obj.a //-> 1, constant time
-1 +  n // constant time
+1 + n // constant time
 ```
 
 ---
@@ -93,8 +93,8 @@ obj.a //-> 1, constant time
 - TOPICS: constant, linear, quadratic, logarithmic, and exponential
 
 - *what if we have multiple expressions/loops/etc?*
-- if we don't have them in a loop, we add them
-- if there is a loop in a loop, we multiple it but have to also consider what's inside (IE recursion)
+- if we don't have them in a loop, we add them together
+- if there is a loop in a loop, we multiply it but have to also consider what's inside (IE recursion)
 
 - *what about O(logn)?*
 - logarithm can have difference bases, it depends on what you're dividing by
@@ -161,9 +161,10 @@ countChars("walkreallyfast"); // runs through for loop 14 times
 
 - **WHAT IS THE TIME COMPLEXITY?**
 - The real question is how does the str get the length?
-- JS is smart because it keeps the length as we go along
+- does it run through all the characters when we call `length`?
+- ANSWER: Nope, JS is smart because it keeps the length as we go along
 - ANSWER: It will always be a `constant time` algorithm
-- if the method goes through every character, it would be linear time
+- if the method goes through every character, it would be `linear time`
 ```js
 var countChars = function(str){
   return str.length;
@@ -223,9 +224,9 @@ console.log(isUnique([1,2,3]) === true);
 
 - **METHOD 1: BREADCRUMB**
 - we store the values in an object to have quicker access
-- we keep track of what we've already see and we cache it in an object
+- we keep track of what we've already seen and we cache it in an object
 - object property look ups are always constant time
-- we can take a quadratic time function and make it linear time
+- we can take a `quadratic time` function and make it `linear time`
 
 - ANSWER: linear time operation because only 1 loop
 ```js
@@ -255,7 +256,7 @@ console.log(isUnique([1,2,3]) === true);
 - https://frontendmasters.com/courses/practical-algorithms/unique-sort-exercise/
 - TOPICS: removes duplicates
 ```js
-//Task: Transform this simple sorting algorithm into a unique sort. 
+// Task: Transform this simple sorting algorithm into a unique sort.
 // It should not return any duplicate values in the sorted array.
 
 //input: [1,5,2,1] => output: [1,2,5]
@@ -286,13 +287,13 @@ uniqSort([4,2,2,3,2,2,2]); // => [2,3,4]
 ### Unique Sort Solution (4/15/19)
 - https://frontendmasters.com/courses/practical-algorithms/unique-sort-solution/
 - TOPICS: JSON.stringify
-- this solution speeds up quadratic to linear time
-- sorting can be generally though of as `nlogn` operation
+- this solution speeds up `quadratic` to `linear` time
+- javascript sort method can be generally though of as `nlogn` operation
 
 - **BUG**
 - in this solution, there's a bug because we introduced the first element into result but not into breadcrumbs
 - subsquently, other 4's will get pushed into results
-- we can solve this by:
+- we can solve this by 1 of 2 ways:
 1) starting i at 0
 2) initiating breadcrumbs with element 0 to be true
 
@@ -329,9 +330,10 @@ uniqSort([4,2,2,3,2,2,2]); // => [2,3,4]
 - in the previous example, breadcrumbs did not store results from the function but from the for loop
 - memoization is a type of caching
 - caching in javascript is generally saving to an object or array
-- for javascript engineers, we live in the browser where time complexity is more important
+- for javascript engineers, we live in the browser where time complexity is more important than space complexity
 
 - **FACTORIAL**
+- we store the `factorial(35)` results since it is an expensive operation
 ```js
 const factorial = (n) => {
     // Calculations: n * (n-1) * (n-2) * ... (2) * (1)
@@ -359,7 +361,7 @@ const times10 = (n) => {
 console.log('~~~~~~~~~~~~~~TASK 1~~~~~~~~~~~~~~');
 console.log('times10 returns:', times10(9));
 
-// Task 2: Use an object to cache the results of your times10 function. 
+// Task 2: Use an object to cache the results of your times10 function.
 // protip 1: Create a function that checks if the value for n has been calculated before.
 // protip 2: If the value for n has not been calculated, calculate and then save the result in the cache object.
 
@@ -521,8 +523,8 @@ const memoizedClosureTimesM = (m) => {
   }
 };
 
-const memoClosureTimes10 = memoizedClosureTimes10(10);
-const memoClosureTimes5 = memoizedClosureTimes10(5);
+const memoClosureTimes10 = memoizedClosureTimesM(10);
+const memoClosureTimes5 = memoizedClosureTimesM(5);
 ```
 
 ---
@@ -534,7 +536,7 @@ const memoClosureTimes5 = memoizedClosureTimes10(5);
 - building off previous exercise
 - we are going to make the `times10` even more generic
 - we want to be able to make it so you can pass the `times10` function, or any other function that we create, into the `memoize` function
-- what if we want to pass in an `add5` function or `subtract 2` function as a callback?
+- what if we want to pass in an `add5` function or `subtract2` function as a callback?
 
 ```js
 const times10 = (n) => (n * 10);
@@ -609,9 +611,8 @@ const memoizedTimes10 = memoize(times10);
 - https://frontendmasters.com/courses/practical-algorithms/reviewing-optimization/
 - TOPICS: different caching techniques, trade-offs
 
-- trading time complexity for space complexity
 - we are increasing space complexity to decrease time complexity
-- usually this process is fine when your function calls or operations is expensive
+- usually this process is fine if your function calls or operations are expensive
 - you might hear this as "using a hash table to optimize", this is what they mean
 
 ---
