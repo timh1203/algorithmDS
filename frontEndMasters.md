@@ -538,6 +538,10 @@ const memoClosureTimes5 = memoizedClosureTimesM(5);
 - we want to be able to make it so you can pass the `times10` function, or any other function that we create, into the `memoize` function
 - what if we want to pass in an `add5` function or `subtract2` function as a callback?
 
+- general steps to memoizing:
+1) Call the `memoize` function with an argument of a function (`memoize` could be stored in a variable)
+2) The `memoize` function should have a `cb` parameter, a `cache`, and a `return function`
+
 ```js
 const times10 = (n) => (n * 10);
 // Task 4: Make your memo function generic and accept the times10 function as a callback rather than defining the n * 10 logic inside the if/else or pulling it in from the global scope.
@@ -869,42 +873,176 @@ MemoFnLoop(1, 6);
 
 ---
 
-### Accumulators
+### Accumulators (4/17/19)
 - https://frontendmasters.com/courses/practical-algorithms/accumulators/
 - TOPICS:
+- this technique employs passing the accumulator along with each recursive call to build this string
 ```js
+function joinElements(array, joinString) {
+
+  function recurse(index, resultSoFar) {
+    resultSoFar += array[index];
+
+    if(index === array.length - 1) {
+      return resultSoFar;
+    } else {
+      return recurse(index + 1, resultSoFar + joinString);
+    }
+  }
+
+  return recurse(0, '');
+}
+
+joinElements(['s','cr','t cod', ' :) :)'], 'e');
 ```
 
 ---
 
-### Iterative Loop Exercise
+### Iterative Loop Exercise (4/17/19)
 - https://frontendmasters.com/courses/practical-algorithms/iterative-loop-exercise/
 - TOPICS:
+- translation between recursion and iterative approach is key for dynamic programming approach
+- don't forget to add the smiley faces at end since our loop does not take care of that
 ```js
+// Task: rewrite this function so that it uses a loop rather than recursion
+function joinElements(array, joinString) {
+  let resultSoFar = ''
+
+  for (let i = 0; i < array.length-1; i++) {
+		resultSoFar += (array[i] + joinString)
+  }
+
+  return resultSoFar + array[array.length-1];
+}
+
+joinElements(['s','cr','t cod', ' :) :)'], 'e');
 ```
 
 ---
 
-### Iterative Loop Solution
+### Iterative Loop Solution (4/17/19)
 - https://frontendmasters.com/courses/practical-algorithms/iterative-loop-solution/
 - TOPICS:
-```js
-```
+- I was able to get the same solution and wrote it the same way
+- solution in previous lesson
 
 ---
 
-### Recursive Factorial & Memoize Exercise
+### Recursive Factorial & Memoize Exercise (4/17/19)
 - https://frontendmasters.com/courses/practical-algorithms/recursive-factorial-memoize-exercise/
 - TOPICS:
+- recommends we write code so we can avoid the "false understanding" fallacy because we are being explained the process
+- we can look at the iterative solution for hints
+- try to write out the whole code and reason through it without running the code at every step
 ```js
+// =======================================
+// Task 1: Without peeking, write your own recursive factorial method
+function recurse(num) {
+  if (num === 1) {
+    return 1;
+  }
+  return num * recurse(num-1);
+}
+recurse(5);
+// return 5 * recurse(4); // 120
+// return 4 * recurse(3); // 24
+// return 3 * recurse(2); // 6
+// return 2 * recurse(1); // 2
+
+// =======================================
+// Task 2: Use your memo function from the previous exercise to memoize your factorial method
+function factorial(num) {
+  if (num === 1) {
+    return 1;
+  }
+  return num * memoRecurse(num-1)
+}
+
+function memoRecurse(num) {
+  const cache = {}
+
+  if (num in cache) {
+    return cache[num]
+  }
+  else {
+    cache[num] = factorial(num)
+    return factorial(num)
+  }
+}
+memoRecurse(5)
 ```
 
 ---
 
-### Recursive Factorial & Memoize Solution
+### Recursive Factorial & Memoize Solution (4/17/19)
 - https://frontendmasters.com/courses/practical-algorithms/recursive-factorial-memoize-solution/
 - TOPICS:
 ```js
+// MY SOLUTION
+// Closer to Generic Memoize Function Exercise on 4/15/19
+// Only difference is I abstracted out the calculate function, like the times10 function
+// calling it `cb` makes it easier for me to recognize
+const calculate = (x) => {
+	if (x === 1) {
+		return 1
+	}
+	else {
+		return x * factorial(x-1);
+	}
+}
+
+const memoize = (cb) => {
+	const cache = {}
+	
+	return (m) => {
+		if (m in cache) {
+			return cache[m];
+		}
+		else {
+			const result = cb(m);
+			cache[m] = result;
+			return result;
+		}
+	}
+}
+
+const factorial = memoize(calculate);
+
+console.log(factorial(5)); // calculated
+console.log(factorial(5)); // results already in cache now and quicker to return
+
+// LECTURE SOLUTION
+// the function is passed
+const memoize = (fn) => {
+  let cache = {};
+  return (...args) => {
+    let n = args[0];
+    if (n in cache) {
+      console.log('Fetching from cache', n);
+      return cache[n];
+    }
+    else {
+      console.log('Calculating result', n);
+      let result = fn(n);
+      cache[n] = result;
+      return result;
+    }
+  }
+}
+
+const factorial = memoize(
+  (x) => {
+    if (x === 0) {
+      return 1;
+    }
+    else {
+      return x * factorial(x - 1);
+    }
+  }
+);
+
+console.log(factorial(5)); // calculated
+console.log(factorial(5)); // cached for 5
 ```
 
 ---
