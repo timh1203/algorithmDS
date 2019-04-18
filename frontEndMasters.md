@@ -1051,8 +1051,110 @@ console.log(factorial(5)); // cached for 5
 
 ---
 
+### Introduction to Divide & Conquer (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/introducing-divide-conquer/
+- TOPICS:
+
+---
+
+### Linear Search Exercise (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/linear-search-exercise/
+- TOPICS:
+
+---
+
+### Linear Search Solution (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/linear-search-solution/
+- TOPICS:
+
+---
+
+### Binary Search (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/binary-search/
+- TOPICS:
+
+---
+
+### Divide & Conquer Review (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/divide-conquer-review/
+- TOPICS:
+
+---
+
+### Sorting Types (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/sorting-types/
+- TOPICS:
+
+---
+
+### Merge Sort (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/merge-sort/
+- TOPICS:
+
+---
+
+### Merge Sort Walkthrough (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/merge-sort-walkthrough/
+- TOPICS:
+
+---
+
+### Bubble Sort & Merge Sort Exercise (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/bubble-sort-merge-sort-exercise/
+- TOPICS:
+
+---
+
+### Bubble Sort Solution (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/bubble-sort-solution/
+- TOPICS:
+
+---
+
+### Merge Sort Solution (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/merge-sort-solution/
+- TOPICS:
+
+---
+
 ## F) Greedy Algorithms
 
 ---
 
+### Introducing Greedy (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/introducing-greedy/
+- TOPICS:
+
+---
+
+### Greedy Algorithms Walkthrough (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/greedy-algorithms-walkthrough/
+- TOPICS:
+
+---
+
+### Brute Force (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/brute-force/
+- TOPICS:
+
+---
+
 ## G) Dynamic Algorithms
+
+---
+
+### Introducing Dynamic Programming (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/introducing-dynamic-programming/
+- TOPICS:
+
+---
+
+### Memoization with Recursion (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/memoization-with-recursion/
+- TOPICS:
+
+---
+
+### The Landscape of Data Structures & Algorithms (4//19)
+- https://frontendmasters.com/courses/practical-algorithms/the-landscape-of-data-structures-algorithms/
+- TOPICS:
