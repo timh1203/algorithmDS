@@ -637,7 +637,7 @@ const memoizedTimes10 = memoize(times10);
 
 ### Call Stack Walkthrough (4/16/19)
 - https://frontendmasters.com/courses/practical-algorithms/call-stack-walkthrough/
-- TOPICS: call stack game
+- TOPICS: call stack game, recursion rules, returns are important
 
 - you have to add a return or else we'll get a `stack overflow`
 - also add a `base case`
@@ -711,7 +711,7 @@ callMe();
 
 ### Looping with Recursion (4/16/19)
 - https://frontendmasters.com/courses/practical-algorithms/looping-with-recursion/
-- TOPICS:
+- TOPICS: how to build recursion, scope of child
 
 - **Recursion in 4 Steps**
 1. Identify base case(s).
@@ -751,7 +751,7 @@ loopNTimes(3);
 
 ### Factorial with a Loop (4/16/19)
 - https://frontendmasters.com/courses/practical-algorithms/factorial-with-a-loop/
-- TOPICS:
+- TOPICS: iterative vs recursive approach
 
 - what pattern do you notice?
 ```js
@@ -766,7 +766,6 @@ function computeFactorial(num) {
 
   return result;
 }
-
 computeFactorial(5);
 
 // CONDENSED ITERATIVE APPROACH
@@ -779,10 +778,11 @@ function computeFactorial(num) {
 
   return result;
 }
+computeFactorial(5);
 
 // WITH RECURSION
 function computeFactorial(num) {
-  if(num === 1) {
+  if (num === 1) {
     console.log('hitting the base case');
     return 1;
   } else {
@@ -816,7 +816,6 @@ function logNumbersRecursively(start, end) {
 
   recurse(start); // where the function actually starts
 }
-
 console.log('~~~ logNumbersRecursively ~~~')
 logNumbersRecursively(1,3);
 ```
@@ -826,7 +825,9 @@ logNumbersRecursively(1,3);
 ### Looping Review (4/16/19)
 - https://frontendmasters.com/courses/practical-algorithms/looping-review/
 - TOPICS:
-- recursion can always be implemented as a loop, but in some situations, believe it or not, it is simpler to use recursion
+
+- recursion can always be implemented as an iterative loop
+- but in some situations believe it or not, it is simpler to use recursion
 
 - `tail-call optimization` - ES6 offers TCO, which allows some functions to be called without growing the call stack
 - [Tail call optimization in ECMAScript 6](http://2ality.com/2015/06/tail-call-optimization.html)
@@ -835,7 +836,7 @@ logNumbersRecursively(1,3);
 
 ### Wrapper Functions (4/16/19)
 - https://frontendmasters.com/courses/practical-algorithms/wrapper-functions/
-- TOPICS:
+- TOPICS: wrapper, accumulators, closure
 
 - **COMMON PATTERNS FOR RECURSION**
 1) Wrapper Functions - has a base case check
@@ -843,7 +844,7 @@ logNumbersRecursively(1,3);
 ```js
 // WRAPPER FUNCTION 1
 // Utilizes a closure
-// When we access end from the inner function, we are accessing a closure scoped variable
+// When we access `end` from the inner function, we are accessing a closure scoped variable
 function wrapperFnLoop(start, end) {
   function recurse(i) {
     console.log(`looping from ${start} until ${end}`);
@@ -875,7 +876,8 @@ MemoFnLoop(1, 6);
 
 ### Accumulators (4/17/19)
 - https://frontendmasters.com/courses/practical-algorithms/accumulators/
-- TOPICS:
+- TOPICS: accumulator passing
+
 - this technique employs passing the accumulator along with each recursive call to build this string
 ```js
 function joinElements(array, joinString) {
@@ -900,7 +902,8 @@ joinElements(['s','cr','t cod', ' :) :)'], 'e');
 
 ### Iterative Loop Exercise (4/17/19)
 - https://frontendmasters.com/courses/practical-algorithms/iterative-loop-exercise/
-- TOPICS:
+- TOPICS: recursion and iterative translation
+
 - translation between recursion and iterative approach is key for dynamic programming approach
 - don't forget to add the smiley faces at end since our loop does not take care of that
 ```js
@@ -931,9 +934,12 @@ joinElements(['s','cr','t cod', ' :) :)'], 'e');
 ### Recursive Factorial & Memoize Exercise (4/17/19)
 - https://frontendmasters.com/courses/practical-algorithms/recursive-factorial-memoize-exercise/
 - TOPICS:
-- recommends we write code so we can avoid the "false understanding" fallacy because we are being explained the process
+
+- recommends we write code so we can avoid the "false understanding" fallacy because we are being explained the process and it seems easy
 - we can look at the iterative solution for hints
 - try to write out the whole code and reason through it without running the code at every step
+
+- my task 2 wasn't a memoize function but it worked
 ```js
 // =======================================
 // Task 1: Without peeking, write your own recursive factorial method
@@ -976,7 +982,8 @@ memoRecurse(5)
 
 ### Recursive Factorial & Memoize Solution (4/17/19)
 - https://frontendmasters.com/courses/practical-algorithms/recursive-factorial-memoize-solution/
-- TOPICS:
+- TOPICS: generic memoization
+
 ```js
 // MY SOLUTION
 // Closer to Generic Memoize Function Exercise on 4/15/19
@@ -1012,7 +1019,7 @@ console.log(factorial(5)); // calculated
 console.log(factorial(5)); // results already in cache now and quicker to return
 
 // LECTURE SOLUTION
-// the function is passed
+// the function is passed directly instead of spliting out like my solution
 const memoize = (fn) => {
   let cache = {};
   return (...args) => {
