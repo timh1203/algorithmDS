@@ -1058,39 +1058,148 @@ console.log(factorial(5)); // cached for 5
 
 ---
 
-### Introduction to Divide & Conquer (4//19)
+### Introduction to Divide & Conquer (4/18/19)
 - https://frontendmasters.com/courses/practical-algorithms/introducing-divide-conquer/
-- TOPICS:
+- TOPICS: binary search, sorted array
+
+- a recursive strategy to break down huge problems into smaller ones so we can come up with a solution
+- a common example is sorted `binary search` by cutting the side of the search area in half of a sorted array
+- we start by dividing in half and then searching one side or the other, but NOT both
+- it's progressively search halves to find the value but it MUST be sorted
+- it takes `linear time` and decreased it to `logarithmic time`
+- `binary search` = logarithmic time, search for a value in a **sorted** array by cutting the side of the search area in half
+- `linear search` = linear time, search for a value in an array by checking each value in order
+```
+Initial: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], search for 7
+Step 1: [1, 2, 3, 4, ~~5~] [6, 7, 8, 9, 10], is 7 < 5? No, we drop the first half
+Step 2: [6, 7, ~~8~~, 9, 10], is 7 < 8? Yes, we drop the last half
+Step 3: [6, ~~7~~, 8] is 7 <= 7? Yes, we found our answer
+```
 
 ---
 
-### Linear Search Exercise (4//19)
+### Linear Search Exercise (4/18/19)
 - https://frontendmasters.com/courses/practical-algorithms/linear-search-exercise/
-- TOPICS:
+- TOPICS: linear search
+
+- can do this many ways: forEach, forIn, forOf, some, includes, filter
+- questions to ask:
+1) what do you want to return if found and not found?
+2) what if there are multiple item's?
+3) what if the list is empty?
+```js
+// TASK: Implement linear search.
+function linearSearch(list, item) {
+  // method 1
+  return list.includes(item) ? item : '';
+
+  // method 2
+  // return list.filter(n => item === n)[0];
+}
+
+linearSearch([2,6,7,90,103], 90);
+```
 
 ---
 
-### Linear Search Solution (4//19)
+### Linear Search Solution (4/18/19)
 - https://frontendmasters.com/courses/practical-algorithms/linear-search-solution/
 - TOPICS:
 
+- this is `linear time` in the worst case, item is at the end of the array
+```js
+// TASK: Implement binary search.
+function binarySearch(list, item) {
+  let index = -1
+  list.forEach((listItem, i) => {
+    if (listItem === i) {
+      index = i;
+    }
+  })
+  return index;
+}
+
+binarySearch([2,6,7,90,103], 90);
+```
+
 ---
 
-### Binary Search (4//19)
+### Binary Search (4/18/19)
 - https://frontendmasters.com/courses/practical-algorithms/binary-search/
 - TOPICS:
 
+- with `binary search`, common implementation is the start in the middle
+- `quicksort` on the other hand, could start at difference places like at the end
+- this algorithm cuts the array and searches either left half or right half
+```js
+function binarySearch(list, item) {
+  let min = 0;
+  let max = list.length -1;
+  let guess;
+
+  while (min <= max) {
+    guess = Math.floor((min+max) / 2)
+
+    if (list[guess] == item) {
+      return guess;
+    }
+    else {
+      if (list[guess] < item) {
+        min = guess + 1; 
+      }
+      else {
+        max = guess - 1;
+      }
+    }
+  }
+
+  return -1;
+}
+
+binarySearch([2,6,7,90,103], 90);
+```
+
 ---
 
-### Divide & Conquer Review (4//19)
+### Divide & Conquer Review (4/18/19)
 - https://frontendmasters.com/courses/practical-algorithms/divide-conquer-review/
 - TOPICS:
 
+- it's a recursive calls to a subset of a problem
+- steps are:
+```
+0. Recognize base case
+1. Divide: Break problem down during each call
+2. Conquer: Do work on each subset
+3. Combine: Solutions
+```
+
+- the combine steps can look different between sort types
+- it would be clear in a `merge sort` but is kind of skipped in `binary search`
+
 ---
 
-### Sorting Types (4//19)
+### Sorting Types (4/18/19)
 - https://frontendmasters.com/courses/practical-algorithms/sorting-types/
 - TOPICS:
+
+- there are `searches` and `sorts`, we are covering sorts in this lesson
+- there are also noncomparison sorts but we are not covering it in this course
+
+- there are often data structures that combines well with `searches`
+- like `binary tree` with `binary search`
+
+- **2 CLASSES OF COMPARISON SORTS**
+- [David Galles Sort Animations](http://rebootjeff.github.io/comparisonsort/)
+
+1) **Naive Sorts** - keep looping and comparing values until the list is sorted, quadratic time
+a) *bubble sort* - loop through an array, comparing adjacent indices and swapping the greater value to the end
+b) *insertion sort*
+c) *selection sort*
+
+2) **Divide & Conquer Sorts** - recursively divide lists and sort smaller parts of list until entire list is sorted, nlogn time
+a) *merge sort* - recursively merge sorted sub-lists
+b) *quick sort*
 
 ---
 
