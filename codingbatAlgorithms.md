@@ -1172,6 +1172,178 @@ def make_chocolate(small, big, goal):
 
 ---
 
+## String2 double_char (4/20/19)
+- https://codingbat.com/prob/p170842
+```py
+# Given a string, return a string where for every char in the original, there are two chars.
+# double_char('The') → 'TThhee'
+# double_char('AAbb') → 'AAAAbbbb'
+# double_char('Hi-There') → 'HHii--TThheerree'
+def double_char(str):
+	newStr = ''
+	for i in str:
+		newStr += (i + i)
+	return newStr
+
+print(double_char('The')) # 'TThhee`
+print(double_char('AAbb')) # 'AAAAbbbb'
+print(double_char('Hi-There')) # 'HHii--TThheerree'
+
+# ALTERNATE
+def double_char(str):
+  result = ""
+  for i in range(len(str)):
+    result += str[i] + str[i]
+  return result
+```
+
+---
+
+## String2 count_hi (4/20/19)
+- https://codingbat.com/prob/p167246
+```py
+# Return the number of times that the string "hi" appears anywhere in the given string.
+# count_hi('abc hi ho') → 1
+# count_hi('ABChi hi') → 2
+# count_hi('hihi') → 2
+def count_hi(str):
+	count = 0
+	for i in range(len(str)-1):
+		if (str[i] + str[i+1]) == 'hi':
+			count += 1
+	return count
+
+print(count_hi('abc hi ho'))
+print(count_hi('ABChi hi'))
+print(count_hi('hihi'))
+
+# ALTERNATE
+def count_hi(str):
+  sum = 0
+  ## Loop to length-1 and access index i and i+1
+  ## in the loop.
+  for i in range(len(str)-1):
+    if str[i:i+2] == 'hi':
+      sum = sum + 1
+  return sum
+```
+
+---
+
+## String2 cat_dog (4/20/19)
+- https://codingbat.com/prob/p164876
+```py
+# Return True if the string "cat" and "dog" appear the same number of times in the given string.
+# cat_dog('catdog') → True
+# cat_dog('catcat') → False
+# cat_dog('1cat1cadodog') → True
+def cat_dog(str):
+	catCount = 0
+	dogCount = 0
+
+	for i in range(len(str)-1):
+		if str[i:i+3] == 'cat':
+			catCount += 1
+		if str[i:i+3] == 'dog':
+			dogCount += 1
+
+	return catCount == dogCount
+
+print(cat_dog('catdog')) # True
+print(cat_dog('catcat')) # False
+print(cat_dog('1cat1cadodog')) # True
+```
+
+---
+
+## String2 count_code (4/20/19)
+- https://codingbat.com/prob/p186048
+```py
+# Return the number of times that the string "code" appears anywhere in the given string, except we'll accept any letter for the 'd', so "cope" and "cooe" count.
+# count_code('aaacodebbb') → 1
+# count_code('codexxcode') → 2
+# count_code('cozexxcope') → 2
+def count_code(str):
+	count = 0
+	for i in range(len(str)-1):
+		co = str[i:i+2] == 'co'
+		d = str[i+2:i+3].isalpha()
+		e = str[i+3:i+4] == 'e'
+		if co and d and e:
+			count += 1
+	return count
+
+print(count_code('aaacodebbb')) # 1
+print(count_code('codexxcode')) # 2
+print(count_code('cozexxcope')) # 2
+
+# ALTERNATE
+import re
+
+def count_code(str):
+	result = re.compile('co.e')
+	return len(result.findall(str))
+
+print(count_code('aaacodebbb')) # 1
+print(count_code('codexxcode')) # 2
+print(count_code('cozexxcope')) # 2
+```
+
+---
+
+## String2 end_other (4/20/19)
+- https://codingbat.com/prob/p174314
+```py
+# Given two strings, return True if either of the strings appears at the very end of the other string, ignoring upper/lower case differences (in other words, the computation should not be "case sensitive"). Note: s.lower() returns the lowercase version of a string.
+# end_other('Hiabc', 'abc') → True
+# end_other('AbC', 'HiaBc') → True
+# end_other('abc', 'abXabc') → True
+def end_other(a, b):
+	sliceA = a[-(len(b)):].lower()
+	sliceB = b[-(len(a)):].lower()
+	if sliceA == b.lower() or sliceB == a.lower():
+		return True
+	return False
+
+print(end_other('Hiabc', 'abc')) # True
+print(end_other('AbC', 'HiaBc')) # True
+print(end_other('abc', 'abXabc')) # True
+print(end_other('Hiabc', 'bc')) # True
+
+# ALTERNATE
+def end_other(a, b):
+  a = a.lower()
+  b = b.lower()
+  return (b.endswith(a) or a.endswith(b))
+```
+
+---
+
+## String2 xyz_there (4/20/19)
+- https://codingbat.com/prob/p149391
+```py
+# Return True if the given string contains an appearance of "xyz" where the xyz is not directly preceeded by a period (.). So "xxyz" counts but "x.xyz" does not.
+# xyz_there('abcxyz') → True
+# xyz_there('abc.xyz') → False
+# xyz_there('xyz.abc') → True
+def xyz_there(str):
+	if str[:3] == 'xyz':
+		return True
+	for i in range(len(str)-1):
+		checkAlphaDigit = (str[i]).isalpha() or (str[i]).isdigit()
+		checkStr = str[i+1:i+4] == 'xyz'
+		if checkAlphaDigit and checkStr:
+			return True
+	return False
+
+print(xyz_there('abcxyz')) #True
+print(xyz_there('abc.xyz')) #False
+print(xyz_there('xyz.abc')) #True
+print(xyz_there('12xyz')) #True
+```
+
+---
+
 ## 
 - https://codingbat.com/prob/
 ```py
