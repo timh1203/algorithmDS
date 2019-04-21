@@ -1193,31 +1193,165 @@ binarySearch([2,6,7,90,103], 90);
 - [David Galles Sort Animations](http://rebootjeff.github.io/comparisonsort/)
 
 1) **Naive Sorts** - keep looping and comparing values until the list is sorted, quadratic time
-a) *bubble sort* - loop through an array, comparing adjacent indices and swapping the greater value to the end
+a) *bubble sort* - Loop through an array, comparing adjacent indices and swapping the greater value to the end
 b) *insertion sort*
 c) *selection sort*
 
 2) **Divide & Conquer Sorts** - recursively divide lists and sort smaller parts of list until entire list is sorted, nlogn time
-a) *merge sort* - recursively merge sorted sub-lists
+a) *merge sort* - Recursively merge sorted sub-lists.
 b) *quick sort*
 
 ---
 
-### Merge Sort (4//19)
+### Merge Sort (4/20/19)
 - https://frontendmasters.com/courses/practical-algorithms/merge-sort/
 - TOPICS:
+- [David Galles Sorting Comparisons](http://rebootjeff.github.io/comparisonsort/)
+- [Merge-sort Dance](https://www.youtube.com/watch?v=XaqR3G_NVoo)
+
+- the merge step is the conquer part
+- it compares the 2 final arrays and compares values starting from the left and then `shift` it out to `insert` into a new array
+
+- **PSEUDOCODE**
+```js
+// [3,27] //[9,10] => [3,9,10,27]
+// PSEUDOCODE
+mergeSort(list)
+  // 1. base case: if list.length < 2, return (Divide input array into 'n' single element subarrays)
+  // 2. break the list into halves L & R
+  // 3. Lsorted = mergeSort(L)
+  // 4. Rsorted = mergeSort(R)
+  // 5. return merge(Lsorted, Rsorted) (Repeatedly merge subarrays and sort on each merge)
+
+merge(L,R)
+// 1. initialize empty array
+// 2. compare the first index of the left array
+// to the first index of the right array
+// 3. push the lower value to empty array
+// 4. shift the array with the lower value
+// 5. repeat until both arrays are empty
+```
 
 ---
 
-### Merge Sort Walkthrough (4//19)
+### Merge Sort Walkthrough (4/20/19)
 - https://frontendmasters.com/courses/practical-algorithms/merge-sort-walkthrough/
 - TOPICS:
 
+- went over another case of merge sort
+- Recursion `O(logn)` to divide the list, and the linear portion `O(n)` to merge the list together again, final time complexity is `O(n * logn)`
+
+- **MORE PSEUDOCODE**
+```js
+mergeSort(list)
+  initialize n to the length of the list
+
+  base case is if n < 2, just return
+
+  initialize mid to n/2
+
+  left = left slice of array to mid - 1
+
+  right = right slice of array mid to n - 1
+
+  mergeSort(left)
+  mergeSort(right)
+
+  merge(left, right)
+```
+
 ---
 
-### Bubble Sort & Merge Sort Exercise (4//19)
+### Bubble Sort & Merge Sort Exercise (4/20/19)
 - https://frontendmasters.com/courses/practical-algorithms/bubble-sort-merge-sort-exercise/
 - TOPICS:
+`[9, 2, 5, 6, 4, 3, 7, 10, 1, 8];`
+`[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];`
+`[10, 9, 8, 7, 6, 5, 4, 3, 2, 1];`
+
+- **BASIC BUBBLE SORT**
+- without comments
+```js
+function bubbleSort(arr) {
+	for (let i = 0; i < arr.length; i++) {
+		for (let j = 0; j <arr.length; j++) {
+			if (arr[j] > arr[j+1]) {
+				[arr[j], arr[j+1]] = [arr[j+1], arr[j]];
+			}
+		}
+	}
+	return arr;
+}
+
+console.log(bubbleSort([9, 2, 5, 6, 4, 3, 7, 10, 1, 8]))
+console.log(bubbleSort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+console.log(bubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
+```
+
+- **REFINED BUBBLE SORT**
+- without comments
+```js
+function bubbleSort(arr) {
+	let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] && arr[i + 1] && arr[i] > arr[i + 1]) {
+        [arr[i], arr[i+1]] = [arr[i+1], arr[i]]
+        swapped = true;
+      }
+    }
+  } while(swapped);
+
+  return arr;
+}
+
+console.log(bubbleSort([9, 2, 5, 6, 4, 3, 7, 10, 1, 8]))
+console.log(bubbleSort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+console.log(bubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
+```
+
+- **MERGE SORT**
+- TASK: implement mergesort!
+- protip: Split the array into halves and merge them recursively 
+- protip: return once we hit an array with a single item. That is a sorted array of size 1!
+- protip: compare the arrays item by item and return the concatenated result
+- without comments
+```js
+function mergeSort (arr) {
+  if (arr.length === 1) {
+    return arr
+  }
+
+  const mid = Math.floor(arr.length / 2)
+  const left = arr.slice(0, mid)
+  const right = arr.slice(mid)
+  const sortedLeft = mergeSort(left);
+  const sortedRight = mergeSort(right);
+  return merge(sortedLeft, sortedRight);
+}
+
+function merge(left, right) {
+  let result = []
+  let indexLeft = 0
+  let indexRight = 0
+
+  while (indexLeft < left.length && indexRight < right.length) {
+    if (left[indexLeft] < right[indexRight]) {
+      result.push(left[indexLeft])
+      indexLeft++
+    } else {
+      result.push(right[indexRight])
+      indexRight++
+    }
+  }
+	
+  return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
+}
+
+const list = [2, 5, 1, 3, 7, 2, 3, 8, 6, 3]
+console.log(mergeSort(list)) // [ 1, 2, 2, 3, 3, 3, 5, 6, 7, 8 ]
+```
 
 ---
 
@@ -1225,11 +1359,159 @@ b) *quick sort*
 - https://frontendmasters.com/courses/practical-algorithms/bubble-sort-solution/
 - TOPICS:
 
+- Bubble sort is a `quadratic` time complexity
+- If you're dealing with a mostly sorted list, than it's an okay sort
+- if the list is reversed, it's terrible
+
+- TIPS: the variables `countInner`, `countOuter`, and `countSwap` are only there to be instructive to how many times the algorithm hit it, so if they are confusing you, you can delete them
+
+- **BASIC SORT**
+- we have to run `arr[j-1] > arr[j]` in order to pull the value from the previous j-loop interation up
+- I didn't use this in my code since it's confusing
+- if we don't do that, the highest number would never bubble to the far right
+```js
+//TASK: Implement bubblesort!
+// sample of arrays to sort
+var arrayRandom = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
+var arrayOrdered = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var arrayReversed = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+function swap(array, i, j) {
+  var temp = array[i];
+  array[i] = array[j];
+  array[j] = temp;
+}
+
+// BASIC
+// arrayRandom => outer: 10, inner: 90, swap: 21
+// arrayOrdered => outer: 10, inner: 90, swap: 0
+// arrayReversed => outer:10, inner: 90, swap: 45
+function bubbleSortBasic(array) {
+  var countOuter = 0;
+  var countInner = 0;
+  var countSwap = 0;
+  for(var i = 0; i < array.length; i++) {
+    countOuter++;
+    for(var j = 1; j < array.length; j++) {
+      countInner++;
+      if(array[j - 1] > array[j]) {
+        countSwap++;
+        swap(array, j - 1, j);
+      }
+    }
+  }
+
+  console.log('outer:', countOuter, 'inner:', countInner, 'swap:', countSwap);
+  return array;
+}
+console.log('~~~ ~~~ BASIC ~~~ ~~~');
+
+console.log('\n~~~ basic: arrayRandom ~~~');
+bubbleSortBasic(arrayRandom.slice());
+
+console.log('\n~~~ basic: arrayOrdered ~~~');
+bubbleSortBasic(arrayOrdered.slice());
+
+console.log('\n~~~ basic: arrayReversed ~~~')
+bubbleSortBasic(arrayReversed.slice());
+```
+
+- **OPTIMIZED BUBBLE SORT**
+- solution gets rid of any extra looping if array is already sorted
+- notice the less amount of loopings compared to basic bubble sort
+```js
+// OPTIMIZED
+// arrayRandom => outer: 9, inner: 90, swap: 21
+// arrayOrdered => outer: 1, inner: 10, swap: 0
+// arrayReversed => outer:10, inner: 100, swap: 45
+function bubbleSort(array) {
+  var countOuter = 0;
+  var countInner = 0;
+  var countSwap = 0;
+
+  var swapped;
+  do {
+    countOuter++;
+    swapped = false;
+    for(var i = 0; i < array.length; i++) {
+      countInner++;
+      if(array[i] && array[i + 1] && array[i] > array[i + 1]) {
+        countSwap++;
+        swap(array, i, i + 1);
+        swapped = true;
+      }
+    }
+  } while(swapped);
+
+  console.log('outer:', countOuter, 'inner:', countInner, 'swap:', countSwap);
+  return array;
+}
+
+console.log('\n\n~~~ ~~~ OPTIMIZED ~~~ ~~~');
+
+console.log('\n~~~ optimized: arrayRandom ~~~');
+bubbleSort(arrayRandom.slice());
+
+console.log('\n~~~ optimized: arrayOrdered ~~~');
+bubbleSort(arrayOrdered.slice());
+
+console.log('\n~~~ optimized: arrayReversed ~~~');
+bubbleSort(arrayReversed.slice());
+```
+
 ---
 
 ### Merge Sort Solution (4//19)
 - https://frontendmasters.com/courses/practical-algorithms/merge-sort-solution/
 - TOPICS:
+
+- **INTERVIEW STRATEGY**
+1) generally ask you how would you sort an unsorted array of numbers
+2) implement bubble sort since it's quicker and maybe reference mergesort if you're really good at it
+3) tell them you're aware that bubble sort is quadratic time and mergesort is nlogn time but for the time constraints, bubble sort is faster to implement without all the mistakes that can make your code not work in mergesort
+- merge sort is a lot of code and many points in the algorithm that can go wrong
+- javascript engine uses quicksort, or mergesort, depending on the situation
+
+```js
+//TASK: implement mergesort!
+
+// Split the array into halves and merge them recursively 
+function mergeSort (arr) {
+  if (arr.length === 1) {
+    // return once we hit an array with a single item
+    return arr
+  }
+
+  const middle = Math.floor(arr.length / 2) // get the middle item of the array rounded down
+  const left = arr.slice(0, middle) // items on the left side
+  const right = arr.slice(middle) // items on the right side
+  const sortedLeft = mergeSort(left);
+  const sortedRight = mergeSort(right);
+  return merge(sortedLeft, sortedRight);
+}
+
+// compare the arrays item by item and return the concatenated result
+function merge (left, right) {
+  let result = []
+  let indexLeft = 0
+  let indexRight = 0
+
+  while (indexLeft < left.length && indexRight < right.length) {
+    if (left[indexLeft] < right[indexRight]) {
+      result.push(left[indexLeft])
+      indexLeft++
+    } else {
+      result.push(right[indexRight])
+      indexRight++
+    }
+  }
+
+  return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
+}
+
+const list = [2, 5, 1, 3, 7, 2, 3, 8, 6, 3]
+console.log(mergeSort(list)) // [ 1, 2, 2, 3, 3, 3, 5, 6, 7, 8 ]
+```
 
 ---
 
