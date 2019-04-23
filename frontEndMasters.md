@@ -1365,6 +1365,7 @@ console.log(mergeSort(list)) // [ 1, 2, 2, 3, 3, 3, 5, 6, 7, 8 ]
 
 - TIPS: the variables `countInner`, `countOuter`, and `countSwap` are only there to be instructive to how many times the algorithm hit it, so if they are confusing you, you can delete them
 
+- BIG O: Bubble sort is a `quadratic` time complexity
 - **BASIC SORT**
 - we have to run `arr[j-1] > arr[j]` in order to pull the value from the previous j-loop interation up
 - I didn't use this in my code since it's confusing
@@ -1519,9 +1520,17 @@ console.log(mergeSort(list)) // [ 1, 2, 2, 3, 3, 3, 5, 6, 7, 8 ]
 
 ---
 
-### Introducing Greedy (4//19)
+### Introducing Greedy (4/22/19)
 - https://frontendmasters.com/courses/practical-algorithms/introducing-greedy/
 - TOPICS:
+
+- it takes the short solution at that time without looking at the big picture
+- `Greedy Algorithm` always makes the locally optimal choice
+- we are talking about the general approach, not in a mathematical sense
+
+- greedy algorithm helps you get a solution, albeit not the most practical
+- there was a weight-gragh as an example
+- a graph was shown about how to get from A to B
 
 ---
 
@@ -1529,11 +1538,112 @@ console.log(mergeSort(list)) // [ 1, 2, 2, 3, 3, 3, 5, 6, 7, 8 ]
 - https://frontendmasters.com/courses/practical-algorithms/greedy-algorithms-walkthrough/
 - TOPICS:
 
+- **PROBLEM**
+```
+You are the banker in Monopoly with your family who has lost many of the game pieces so you only have bills in these denominations: 
+
+$5 $10 $25
+
+You need only pay out your family in the least number of bills possible so you don't run out before the game is over. Write a function that calculates the least number of bills required for any given dollar amount that is divisible by 5.
+```
+
+- **MY CODE SOLUTION**
+- Was not specified there was an array type of coins
+```js
+// Write a function, makeChange, that returns an integer that represents the least number of coins that add up to an amount where the amount is always divisible by 5.
+// coin values: 5, 10, 25
+// input amount: 40 , output # of coins: 3 (25, 10, 5)
+// input amount: 35, output # of coins: 2 (25, 10)
+function makeChange(n) {
+	let count = 0;
+
+	if (n % 25 >= 0) {
+		let divided = Math.floor(n/25);
+		n -= (divided*25);
+		count += divided;
+	}
+	if (n % 10 >= 0) {
+		let divided = Math.floor(n/10);
+		n -= (divided*10);
+		count += divided;
+	}
+	if (n % 5 == 0 || n / 5 > 1) {
+		let divided = Math.floor(n/5);
+		n -= (divided*5);
+		count += divided;
+	}
+
+	return count;
+}
+
+console.log(makeChange(40)); // 3
+console.log(makeChange(35)); // 2
+```
+
+- **OFFICIAL GREEDY SOLUTION**
+```js
+const makeChange = (coins, amount) => {
+  coins.sort((a, b) => b - a);
+  let coinTotal = 0;
+  let i = 0;
+  while (amount > 0) {
+    if (coins[i] <= amount) {
+      amount -= coins[i];
+      coinTotal++;
+    } else {
+      i++;
+    }
+  }
+  return coinTotal;
+};
+
+makeChange([5, 10, 25], 50);
+```
+
 ---
 
 ### Brute Force (4//19)
 - https://frontendmasters.com/courses/practical-algorithms/brute-force/
 - TOPICS:
+
+- `Greedy Approach` - always subtract the largest coin possible from the current amount.
+- isn't always the best approach because we can say for sure the short solution is the overall best
+
+- Would these values work with your greedy solution?
+- coin values: 1,6,10
+- input: 12
+- the `greedy` method will break down here because it doesn't test all the paths as a big picture
+- `greedy` is also hard to prove that it is correct since it is so short-sighted
+
+- `Brute Force Approach` - calculate every single combination possible and keep track of the minimum.
+- we would go through every possibility and use recursion
+
+- **OFFICIAL BRUTE FORCE SOLUTION**
+- this would be `exponential` time so `greedy` solution would be faster in some cases
+- even with a moderate data set, this would take up a lot of time
+```js
+// Write a function, makeChange, that returns an integer that represents the least number of coins that add up to the amount, n.
+let recursionCounter = 0;
+const coins = [10, 6, 1];
+
+const makeChange = (value, i) => {
+  recursionCounter++;
+  console.log(`${recursionCounter}: calling ${value} at ${i}`)
+  if (value === 0) return 0;
+  let minCoins;
+  coins.forEach((coin, i) => {
+    if (value - coin >= 0) {
+      let currMinCoins = makeChange(value - coin, i);
+      if(minCoins === undefined || currMinCoins < minCoins) {
+        minCoins = currMinCoins;
+      }
+    }
+  });
+  return minCoins + 1;
+};
+
+makeChange(12);
+```
 
 ---
 
