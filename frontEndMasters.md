@@ -1651,18 +1651,74 @@ makeChange(12);
 
 ---
 
-### Introducing Dynamic Programming (4//19)
+### Introducing Dynamic Programming (4/23/19)
 - https://frontendmasters.com/courses/practical-algorithms/introducing-dynamic-programming/
 - TOPICS:
 
+- `dynamic programming` is an optimization technique
+- the challenge with dynamic programming is more with the recursion than the memoization
+- it's being able to trace through how the code executes to solve these problems
+- improve your mental model and practice recursion
+
+- *qualities*: optimal substructure (recursive usually), overlapping subproblems
+
+- *DP vs Divide & Conquer*:
+- DP recursion results are something you can cache
+- DC recursion are something you have to go through every time
+
+- *approaches*: Top Down and Bottom Up
+- cache values to avoid repeated calculations
+- there are many ways to cache your solution
+- `top-down (recursive) technique`is one method
+- `bottom-up (iterative) technique` is another
 ---
 
-### Memoization with Recursion (4//19)
+### Memoization with Recursion (4/23/19)
 - https://frontendmasters.com/courses/practical-algorithms/memoization-with-recursion/
 - TOPICS:
 
+- our makeChange brute-force function only needs a cache for dynamic programming
+- there is a better way than to keep the global cache and memoize but not the aim of this lesson
+- also better if you pass in `coins` array as arguments rather than a global variable
+
+```js
+const cache = {};
+const coins = [10, 6, 1];
+
+const makeChange = (c) => {
+  // Return the value if it’s in the cache
+  if (cache[c]) return cache[c];
+
+  let minCoins = -1;
+
+  // Find the best coin
+  coins.forEach(coin => {
+    if (c - coin >= 0) {
+      let currMinCoins = makeChange(c - coin);
+      if (minCoins === -1 || currMinCoins < minCoins) {
+        minCoins = currMinCoins
+      }
+    }
+  })
+
+  // Save the value into the cache
+  cache[c] = minCoins + 1;
+  return cache[c];
+}
+
+console.log(makeChange(12));
+```
+
 ---
 
-### The Landscape of Data Structures & Algorithms (4//19)
+### The Landscape of Data Structures & Algorithms (4/23/19)
 - https://frontendmasters.com/courses/practical-algorithms/the-landscape-of-data-structures-algorithms/
 - TOPICS:
+
+- there's a mindmap of what we covered in this course and future plans
+- part 2: basic data structures
+- stack/queues, linked list, hash tables
+
+- learning algorithms is a lifelong process
+- next steps: to practice with algorithms
+- Open Moocs, Princeton, MIT, CS50 Harvard, geekforgeeks.org
