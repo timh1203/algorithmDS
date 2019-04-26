@@ -1725,23 +1725,100 @@ console.log(makeChange(12));
 
 # Testing React Applications v4 /w Kent C. Dodds
 
-## A) Introduction
+## A) Introduction 
 
 ---
 
-### Course Overview
+### Course Overview (4/25/19)
+- https://frontendmasters.com/courses/testing-react/course-overview/
+
+- **COURSE COVERAGE**
+- Learn the fundamentals of what a test is and what role testing frameworks play
+- configure Jest for a client-side React project
+- Learn what Code Coverage is and how to properly use that metric
+- Write unit tests for JavaScript utilities and React components
+- Learn what snapshot testing is and how to use it effectively
+- Write integration tests for a React application
+- Configure Cypress for a web application
+- Write E2E (end-to-end) tests with Cypress
+
+- **NOT COVERED**
+- no mocha, no jasmine
+- not using enzyme
+- not covering all form of testings
+
+- **SETUP**
+- [Course github repo](https://github.com/kentcdodds/testing-workshop/tree/fem-2018)
+- [Slides](https://slides.com/kentcdodds/testing-react-apps#/)
+- [Jest](https://jestjs.io/)
+- [Cypress](https://www.cypress.io/)
+---
+
+### Testing Fundamentals (4/25/19)
+- https://frontendmasters.com/courses/testing-react/testing-fundamentals/
+- [But really, what is a JavaScript test](https://kentcdodds.com/blog/but-really-what-is-a-javascript-test/)
+
+- **STATIC CODE ANALYSIS**
+- `ESLint` can be really helpful
+- `Flow` is a static type checker
+- `Prettier` is to format and make code more readable
+- don't enforce ESLint styles rules other than syntax corrections, we have Prettier for that
+
+- these run in the background and you don't have to configure them
+- we are not using these tools today
+- Kent recommends Flow or TypeScript
+
+- **UNIT TESTING**
+- can use `ReactDOM`, DOM elements, and make assertions in Jest
+- usually straightforward and smaller
+
+- **INTEGRATION TESTING**
+- bigger experience and you have to render out the entire application
+- you get more coverage than an unit test
+- can be a little bit slower and harder to integrate like network requests
+
+- **END-TO-END TESTS**
+- treating app as black box and take in user inputs and 
+
+- **WHAT IS A JAVASCRIPT TEST?**
+- essentially when an error is thrown when something is wrong
 
 ---
 
-### Testing Fundamentals
+### Writing a React Test & Exercise (4/26/19)
+- https://frontendmasters.com/courses/testing-react/writing-a-react-test-exercise/
+
+- started with `other` > `simple-react`
+- use testing -> `item-list.todo.js` to start
+- run updates with `npm run setup --silent`
+- use `npm run test:react` to have testing CLI running
+- this is a warmup
+- follow arrange, act, assert steps
 
 ---
 
-### Writing a React Test & Exercise
+### Writing a React Test Solution (4/26/19)
+- https://frontendmasters.com/courses/testing-react/writing-a-react-test-solution/
+- [JEST expect documentation](https://jestjs.io/docs/en/expect)
 
----
+- **1ST TEST**
+- instead of testing for `expect(container.innerHTML).toBe('no items')`
+- this test might change whether you have a `div` or a `span` wrapping around that texts
 
-### Writing a React Test Solution
+- a more appropriate test would be `expect(container.textContent).toMatch('no items')`
+- this test checks for the text but doesn't concern with the DOM structure
+- it just verifies the user experience remains the same
+- `toMatch()` is a regex match, not an exact text match
+
+- there are multiple tools to test for `visual regression testing`
+- it has been easier now with newer tools but testing UI is inherently difficult
+- like Cypress (screenshotting) or Jest (Puppeteer)
+
+- **2ND TEST**
+- not a high fidelity test because item order can change, ul & li might change
+- this will at least test that those items will render
+- if you're more concern with specific HTML tags like `ol` or `ul`, you can use `snapshot testing`
+- testing higher fidelity and snapshot testing to come
 
 ---
 
