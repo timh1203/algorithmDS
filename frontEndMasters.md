@@ -1722,3 +1722,49 @@ console.log(makeChange(12));
 - learning algorithms is a lifelong process
 - next steps: to practice with algorithms
 - Open Moocs, Princeton, MIT, CS50 Harvard, geekforgeeks.org
+
+# Testing React Applications v4 /w Kent C. Dodds
+
+## A) Introduction
+
+---
+
+### Course Overview
+
+---
+
+### Testing Fundamentals
+
+---
+
+### Writing a React Test & Exercise
+
+---
+
+### Writing a React Test Solution
+
+---
+
+## B) Test Configurations
+
+---
+
+## C) Unit Testing React Components
+
+---
+
+## D) Snapshot Testing
+
+---
+
+## E) Integration Testing Pages
+
+---
+
+## F) Configuring Cypress
+
+---
+
+## G) Wrapping Up
+
+---
