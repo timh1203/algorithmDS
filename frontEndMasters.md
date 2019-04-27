@@ -1996,6 +1996,55 @@ module.exports = {
 
 ---
 
+### Course Project Overview (4/27/19)
+- https://frontendmasters.com/courses/testing-react/course-project-overview/
+
+---
+
+### Unit Testing a React Component (4/27/19)
+- https://frontendmasters.com/courses/testing-react/unit-testing-a-react-component/
+
+---
+
+### Test a Form Component Exercise
+- https://frontendmasters.com/courses/testing-react/test-a-form-component-exercise/
+
+---
+
+### Test a Form Component Solution
+- https://frontendmasters.com/courses/testing-react/test-a-form-component-solution/
+
+---
+
+### Enzyme Limitations
+- https://frontendmasters.com/courses/testing-react/enzyme-limitations/
+
+---
+
+### react-testing-library
+- https://frontendmasters.com/courses/testing-react/react-testing-library/
+
+---
+
+### react-testing-library Solution
+- https://frontendmasters.com/courses/testing-react/react-testing-library-solution/
+
+---
+
+### Using DOM Events Exercise
+- https://frontendmasters.com/courses/testing-react/using-dom-events-exercise/
+---
+
+### Using DOM Events Solution
+- https://frontendmasters.com/courses/testing-react/using-dom-events-solution/
+
+---
+
+### Component Testing Q&A
+- https://frontendmasters.com/courses/testing-react/component-testing-q-a/
+
+---
+
 ## D) Snapshot Testing
 
 ---
