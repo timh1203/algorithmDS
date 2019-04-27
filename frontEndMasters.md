@@ -1826,6 +1826,172 @@ console.log(makeChange(12));
 
 ---
 
+### Configuring Jest & Babel (4/26/19)
+- https://frontendmasters.com/courses/testing-react/configuring-jest-babel/
+
+- working with other > configuration > calculator directory
+- `npm run dev`
+- `npm install --save-dev jest`
+- added to scripts `"test": "jest"`
+
+- jest has a lot of features and takes some time to install
+
+- in real world, your babel should compile everything except imports because webpack supports ES modules (tree shaking)
+
+- spoke about `tree shaking` and babelrc file which I don't understand quite yet
+- Kent also converts his babelrc file to a JS file from JSON and declares it in package.json
+
+- **babelrc.js file**
+```js
+const isTest = String(process.env.NODE_ENV) === 'test'
+
+module.exports = {
+  presets: [['env', {modules: isTest ? 'commonjs' : false}], 'react'],
+  plugins: [
+    'syntax-dynamic-import',
+    'transform-class-properties',
+    'transform-object-rest-spread',
+  ],
+}
+```
+
+---
+
+### Jest JSDOM (4/26/19)
+- https://frontendmasters.com/courses/testing-react/jest-jsdom/
+
+- `JSDOM` runs by default but if we don't need to access things like the window
+- it's heavy memory wise so adds to the start time
+- if you are doing pure node or javascript, you can remove it
+
+- there are various test environments but node and jsdom are pre-installed with Jest
+```js
+  "jest": {
+    "testEnvironment": "node" // can be shortened
+    // "testEnvironment": "jests-environment-node"
+  },
+```
+
+
+---
+
+### CSS Imports (4/26/19)
+- https://frontendmasters.com/courses/testing-react/css-imports/
+
+- worked with auto-scaling file
+- node can't import CSS so it will either do JSON or javascript module
+- added another `jest.config.js`, Jest will pick it up by default
+- Usually run in the client since it's more complex than the server
+- you can also run 2 separate test environments in parallel and should all work
+
+- installed `npm install --save-dev indetity-obj-proxy`
+- this module mapper concept is useful when you're also using graphQL or loaders
+- we are using CSS modules here
+
+---
+
+### CSS Modules (4/27/19)
+- https://frontendmasters.com/courses/testing-react/css-modules/
+
+- in a real world application, you'll have `dynamic imports`
+- Node doesn't support ES modules or dynamic imports
+- we can use `npm install --save-dev babel-plugin-dynamic-import-node` to convert dynamic import to the node equivalent
+
+- hard to simulate local storage in node but now we have proxies
+
+---
+
+### Handling Dynamic Imports (4/27/19)
+- https://frontendmasters.com/courses/testing-react/handling-dynamic-imports/
+
+- `local storage` is similar to `session storage` so you will also support it due to similar api
+- as long as you're using the `removeItem`, `setItem`, `getItem` methods then it will work okay for mocks
+- we can also use `setupTestFrameworkScriptFile` when we need to run something before out tests run
+---
+
+### Adding Code Coverage Reports (4/27/19)
+- https://frontendmasters.com/courses/testing-react/adding-code-coverage-reports/
+
+- `code coverage` usually required installing multiple dev dependencies
+- now we can just add `"test": "jest --coverage" in our package.json
+
+- we are also recording our test coverage files and can bring our overall results higher than it should be
+- usually Kent has 2% lower than the original
+- sometimes the highlight request is not always perfect
+- we can fix this by adjusting our jest configuration using `collectCoverageFrom:`
+- we can set the coverage by adding:
+```js
+coverageThreshold: {
+  global: {
+    statements: 18,
+    branches: 10,
+    functions: 19,
+    lines: 18
+  }
+}
+```
+---
+
+### Jest Watch Mode (4/27/19)
+- https://frontendmasters.com/courses/testing-react/jest-watch-mode/
+
+- add this watch mode by adding `"test:watch": "jest --watch"`
+- Jest by default runs tests only on changed file since the last commit so helps saves time
+
+- you can also filter out specific tests based on file name, test name, failed test, and other names
+
+---
+
+### Jest Config Review (4/27/19)
+- https://frontendmasters.com/courses/testing-react/jest-config-review/
+
+- Jest creates a test coverage folder called `lcov-report`, make sure to add to .gitignore
+
+- Engineers should be responsible for testing their code but usually it's the QA role that helps set it up
+
+- Jest also can run a client and server folder in a single repo with the command in parallel using `./node_modules/.bin/jest`
+- you can set different coverage threshold for each
+
+- **TO DO LIST TO CONFIG JEST**
+1) Add Jest as dependency
+2) Add `babel-plugin-dynamic-import-node` as dev dependency
+3) Added `"test": "jest --coverage"` an `"test:watch": "jest --watch"` scripts
+4) Add a couple tests
+5) Add `jest.config.js`
+```js
+module.exports = {
+  displayName: 'calculator',
+  testEnvironment: 'jsdom',
+  setupTestFrameworkScriptFile: require.resolve(
+    './test/setup-test-framework.js',
+  ),
+  moduleNameMapper: {
+    // module must come first
+    '\\.module\\.css$': 'identity-obj-proxy',
+    '\\.css$': require.resolve('./test/style-mock.js'),
+    // can also map files that are loaded by webpack with the file-loader
+  },
+  // normally you'd put this here
+  // collectCoverageFrom: ['**/src/**/*.js'],
+}
+```
+
+6) Update `.babelrc.js` for tree shaking
+```js
+const isTest = String(process.env.NODE_ENV) === 'test'
+module.exports = {
+  presets: [['env', {modules: isTest ? 'commonjs' : false}], 'react'],
+  plugins: [
+    'syntax-dynamic-import',
+    'transform-class-properties',
+    'transform-object-rest-spread',
+    isTest ? 'dynamic-import-node' : null,
+  ].filter(Boolean),
+}
+```
+
+---
+
 ## C) Unit Testing React Components
 
 ---
