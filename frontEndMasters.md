@@ -1999,25 +1999,317 @@ module.exports = {
 ### Course Project Overview (4/27/19)
 - https://frontendmasters.com/courses/testing-react/course-project-overview/
 
+- working on root directory and ran `npm run dev`
+- we are testing this form component
+- login is `til`/`til`
+
 ---
 
 ### Unit Testing a React Component (4/27/19)
 - https://frontendmasters.com/courses/testing-react/unit-testing-a-react-component/
+- [But Really, What is a Javascript Mock?](https://kentcdodds.com/blog/but-really-what-is-a-javascript-mock/)
 
+- we are working in `client>scr>screens/__tests__/editor.todo.js`
+- run `npm run test:client` to run tests
+- the only react item is the `ReactDOM.render(<Editor />, container)`, otherwise you can run with Vuejs
+
+- **NAIVE METHOD**
+- naive method is long way to do it, used refined method in practice
+- we rendered the container with content
+- then we fired a submit event 
+- we use `jest.mock` to mock APIs
+- we also create fake users and history during mocks
+
+- `flushPromises` helps to deal with async nature
+- we use utilsMock to mock the data being sent in the API request
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import * as utilsMock from '../../utils/api'
+import Editor from '../editor.todo'
+
+jest.mock('../../utils/api', () => {
+  return {
+    posts: {
+      create: jest.fn(() => Promise.resolve()),
+    }
+  }
+})
+
+const flushPromises = () => {
+  return new Promise(resolve => {
+    setTimeout(resolve, 0)
+  })
+}
+
+test('calls onSubmit with the username and password when submitted', async () => {
+  const container = document.createElement('div')
+  const fakeUser = { id: 'foobar' }
+  const fakeHistory = {
+    push: jest.fn(),
+  }
+  ReactDOM.render(<Editor user={fakeUser} history={fakeHistory} />, container)
+  const form = container.querySelector('form')
+  const { title, content, tags } = form.elements
+
+  title.value = 'I like twix'
+  content.value = 'Like a lot..sorta'
+  tags.value = 'twix,      my      , likes'
+
+  const submit = new window.Event('submit')
+  form.dispatchEvent(submit)
+
+  await flushPromises()
+
+  expect(fakeHistory.push).toHaveBeenCalledTimes(1)
+  expect(fakeHistory.push).toHaveBeenCalledWith('/')
+  expect(utilsMock.posts.create).toHaveBeenCalledTimes(1)
+  expect(utilsMock.posts.create).toHaveBeenCalledWith({
+    authorId: fakeUser.id,
+    title: title.value,
+    content: content.value,
+    tags: ['twix', 'my', 'likes'],
+    date: expect.any(String),
+  })
+  // Arrange
+  // create a fake user, post, history, and api
+  //
+  // use ReactDOM.render() to render the editor to a div
+  //
+  // fill out form elements with your fake post
+  //
+  // Act
+  // submit form
+  //
+  // wait for promise to settle
+  //
+  // Assert
+  // ensure the create function was called with the right data
+})
+
+// TODO later...
+test('snapshot', () => { })
+```
+
+- **JS MOCK EXERCISE**
+- in `testingWorkshop/other/whats-a-mock/__tests__/tumb-war-1.todo.js`
+```js
+// // FIRST ITERATION
+// // monkey-patching
+// import thumbWar from '../thumb-war'
+// // import the utils module (see hint #1 at the bottom of the file)
+// import * as utils from '../utils'
+
+// test('returns winner', () => {
+//   // keep track of the original `getWinner` utility function (see hint #2)
+//   const originalGetWinner = utils.getWinner
+
+//   // overwrite the utils.getWinner function with
+//   // our own that always returns the second player (see hint #3)
+//   utils.getWinner = (p1, p2) => p2
+
+//   const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
+//   // change this assertion to be more for a specific player
+//   // (like 'Kent C. Dodds', see hint #4):
+//   expect(winner).toBe('Kent C. Dodds')
+
+//   // restore the originalGetWinner function so other tests don't break
+//   // (see hint #5)
+//   utils.getWinner = originalGetWinner
+// })
+
+
+
+// // SECOND ITERATION
+// import thumbWar from '../thumb-war'
+// import * as utils from '../utils'
+
+// test('returns winner', () => {
+//   const originalGetWinner = utils.getWinner
+
+//   utils.getWinner = (...args) => {
+//     utils.getWinner.mock.calls.push(args)
+//     return args[1]
+//   }
+//   utils.getWinner.mock = { calls: [] }
+
+//   const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
+//   expect(utils.getWinner.mock.calls).toHaveLength(2)
+//   utils.getWinner.mock.calls.forEach(args => {
+//     expect(args).toEqual(['Ken Wheeler', 'Kent C. Dodds'])
+//   })
+
+//   utils.getWinner = originalGetWinner
+// })
+
+
+
+// // THIRD ITERATION
+// import thumbWar from '../thumb-war'
+// import * as utils from '../utils'
+
+// test('returns winner', () => {
+//   const originalGetWinner = utils.getWinner
+
+//   utils.getWinner = jest.fn((p1, p2) => p2)
+
+//   const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
+//   expect(winner).toBe('Kent C. Dodds')
+//   expect(utils.getWinner).toHaveBeenCalledTimes(2)
+//   utils.getWinner.mock.calls.forEach(args => {
+//     expect(args).toEqual(['Ken Wheeler', 'Kent C. Dodds'])
+//   })
+
+//   utils.getWinner = originalGetWinner
+// })
+
+
+
+// // FOURTH ITERATION
+// import thumbWar from '../thumb-war'
+// import * as utils from '../utils'
+
+// test('returns winner', () => {
+//   jest.spyOn(utils, 'getWinner')
+//   utils.getWinner = jest.fn((p1, p2) => p2)
+
+//   const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
+//   expect(winner).toBe('Kent C. Dodds')
+//   expect(utils.getWinner).toHaveBeenCalledTimes(2)
+//   utils.getWinner.mock.calls.forEach(args => {
+//     expect(args).toEqual(['Ken Wheeler', 'Kent C. Dodds'])
+//   })
+// })
+
+
+
+// FIFTH ITERATION
+import thumbWar from '../thumb-war'
+import * as utilsMock from '../utils'
+
+jest.mock('../utils', () => {
+  return {
+    getWinner: jest.fn((p1, p2) => p2),
+  }
+})
+
+test('returns winner', () => {
+  const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
+  expect(winner).toBe('Kent C. Dodds')
+  expect(utilsMock.getWinner).toHaveBeenCalledTimes(2)
+  utilsMock.getWinner.mock.calls.forEach(args => {
+    expect(args).toEqual(['Ken Wheeler', 'Kent C. Dodds'])
+  })
+})
+```
 ---
 
-### Test a Form Component Exercise
+### Test a Form Component Exercise (4/28/19)
 - https://frontendmasters.com/courses/testing-react/test-a-form-component-exercise/
+- [How Jest mocking works](https://github.com/kentcdodds/how-jest-mocking-works)
+- In `client/src/components/__tests__/login.step-1.todo.js`
+
+- **MY ATTEMPT**
+- solution is more clean
+
+```js
+// Basic unit test
+import React from 'React'
+import ReactDOM from 'react-dom'
+import Login from '../login'
+
+test('calls onSubmit with the username and password when submitted', () => {
+  // Arrange
+  // 🐨 create a fake object to hold the form field values (username and password)
+  const fakeUser = {
+    username: 'johndoe',
+    password: 'fake',
+  }
+  // 🐨 create a jest.fn() for your submit handler
+  const handleSubmit = jest.fn()
+
+  // 🐨 render the Login component to a div
+  // 💰 const div = document.createElement('div')
+  const div = document.createElement('div')
+  ReactDOM.render(<Login onSubmit={handleSubmit} />, div)
+
+  // 🐨 get the field nodes
+  // 💰 const inputs = div.querySelectorAll('input')
+  // 💰 const form = div.querySelector('form')
+  const formNode = div.querySelector('form')
+  const inputs = div.querySelectorAll('input')
+  const usernameNode = inputs[0]
+  const passwordNode = inputs[1]
+  const submitButtonNode = div.querySelector('button')
+
+  // 🐨 fill in the field values
+  usernameNode.value = fakeUser.username
+  passwordNode.value = fakeUser.password
+
+  // Act
+  // 🐨 submit the form:
+  // 💰 formNode.dispatchEvent(new window.Event('submit'))
+  const event = new window.Event('submit')
+  formNode.dispatchEvent(event)
+
+  // Assert
+  // 🐨 ensure your submit handler was called properly
+  expect(handleSubmit).toHaveBeenCalledTimes(1)
+  expect(handleSubmit).toHaveBeenCalledWith(fakeUser)
+  expect(submitButtonNode.type).toBe('submit')
+})
+```
 
 ---
 
-### Test a Form Component Solution
+### Test a Form Component Solution (4/28/19)
 - https://frontendmasters.com/courses/testing-react/test-a-form-component-solution/
 
+- question about using refs in react testing situation
+- we will have a better method soon but usings refs can get to be a pain really quickly
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Login from '../login'
+
+test('calls onSubmit with the username and password when submitted', () => {
+  const handleSubmit = jest.fn()
+  const container = document.createElement('div')
+  ReactDOM.render(<Login onSubmit={handleSubmit} />, container)
+
+  const form = container.querySelector('form')
+  const { username, password } = form.elements
+  username.value = "chucknorris"
+  password.value = "nopassword"
+
+  form.dispatchElement(new window.Event('submit'))
+
+  expect(handleSubmit).toHaveBeenCalledTimes(1)
+  expect(handleSubmit).tohaveBeenCalledWith({
+    username: username.value,
+    password: password.value,
+  })
+}
+```
+
 ---
 
-### Enzyme Limitations
+### Enzyme Limitations (4/28/19)
 - https://frontendmasters.com/courses/testing-react/enzyme-limitations/
+
+- `react-testing-library` came about from FEM workshop
+- `dom-testing-library` came from react-testing-library and it was just general dom stuff
+
+- **ENZYME CONS**
+- testing tool for react with mount, render, shallow render
+- problems with enzyme:
+1) Enzyme provides utilities to test things that are not being used in reality like shallow rendering
+- shallow rendering doesn't render all the components and you have to make separate unit tests to tests other smaller forms, inputs, etc.
+- shallow rendering bottom line: makes you code to an implemetation and not behavior, which is bad
+2) Users don't care what you name your component and the amount of components
+- The name of the function is not component because the user doesn't care what the name of it is
+- if you go to change the name, your tests breaks
+- doesn't matter if you have 1 or 5 length in a div
 
 ---
 
