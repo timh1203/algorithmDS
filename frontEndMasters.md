@@ -2016,7 +2016,7 @@ module.exports = {
 - **NAIVE METHOD**
 - naive method is long way to do it, used refined method in practice
 - we rendered the container with content
-- then we fired a submit event 
+- then we fired a submit event
 - we use `jest.mock` to mock APIs
 - we also create fake users and history during mocks
 
@@ -2092,94 +2092,94 @@ test('snapshot', () => { })
 ```
 
 - **JS MOCK EXERCISE**
-- in `testingWorkshop/other/whats-a-mock/__tests__/tumb-war-1.todo.js`
+- in `testingWorkshop/other/whats-a-mock/__tests__/thumb-war-1.todo.js`
 ```js
 // // FIRST ITERATION
-// // monkey-patching
-// import thumbWar from '../thumb-war'
-// // import the utils module (see hint #1 at the bottom of the file)
-// import * as utils from '../utils'
+// monkey-patching
+import thumbWar from '../thumb-war'
+// import the utils module (see hint #1 at the bottom of the file)
+import * as utils from '../utils'
 
-// test('returns winner', () => {
-//   // keep track of the original `getWinner` utility function (see hint #2)
-//   const originalGetWinner = utils.getWinner
+test('returns winner', () => {
+  // keep track of the original `getWinner` utility function (see hint #2)
+  const originalGetWinner = utils.getWinner
 
-//   // overwrite the utils.getWinner function with
-//   // our own that always returns the second player (see hint #3)
-//   utils.getWinner = (p1, p2) => p2
+  // overwrite the utils.getWinner function with
+  // our own that always returns the second player (see hint #3)
+  utils.getWinner = (p1, p2) => p2
 
-//   const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
-//   // change this assertion to be more for a specific player
-//   // (like 'Kent C. Dodds', see hint #4):
-//   expect(winner).toBe('Kent C. Dodds')
+  const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
+  // change this assertion to be more for a specific player
+  // (like 'Kent C. Dodds', see hint #4):
+  expect(winner).toBe('Kent C. Dodds')
 
-//   // restore the originalGetWinner function so other tests don't break
-//   // (see hint #5)
-//   utils.getWinner = originalGetWinner
-// })
+  // restore the originalGetWinner function so other tests don't break
+  // (see hint #5)
+  utils.getWinner = originalGetWinner
+})
 
 
 
 // // SECOND ITERATION
-// import thumbWar from '../thumb-war'
-// import * as utils from '../utils'
+import thumbWar from '../thumb-war'
+import * as utils from '../utils'
 
-// test('returns winner', () => {
-//   const originalGetWinner = utils.getWinner
+test('returns winner', () => {
+  const originalGetWinner = utils.getWinner
 
-//   utils.getWinner = (...args) => {
-//     utils.getWinner.mock.calls.push(args)
-//     return args[1]
-//   }
-//   utils.getWinner.mock = { calls: [] }
+  utils.getWinner = (...args) => {
+    utils.getWinner.mock.calls.push(args)
+    return args[1]
+  }
+  utils.getWinner.mock = { calls: [] }
 
-//   const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
-//   expect(utils.getWinner.mock.calls).toHaveLength(2)
-//   utils.getWinner.mock.calls.forEach(args => {
-//     expect(args).toEqual(['Ken Wheeler', 'Kent C. Dodds'])
-//   })
+  const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
+  expect(utils.getWinner.mock.calls).toHaveLength(2)
+  utils.getWinner.mock.calls.forEach(args => {
+    expect(args).toEqual(['Ken Wheeler', 'Kent C. Dodds'])
+  })
 
-//   utils.getWinner = originalGetWinner
-// })
+  utils.getWinner = originalGetWinner
+})
 
 
 
 // // THIRD ITERATION
-// import thumbWar from '../thumb-war'
-// import * as utils from '../utils'
+import thumbWar from '../thumb-war'
+import * as utils from '../utils'
 
-// test('returns winner', () => {
-//   const originalGetWinner = utils.getWinner
+test('returns winner', () => {
+  const originalGetWinner = utils.getWinner
 
-//   utils.getWinner = jest.fn((p1, p2) => p2)
+  utils.getWinner = jest.fn((p1, p2) => p2)
 
-//   const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
-//   expect(winner).toBe('Kent C. Dodds')
-//   expect(utils.getWinner).toHaveBeenCalledTimes(2)
-//   utils.getWinner.mock.calls.forEach(args => {
-//     expect(args).toEqual(['Ken Wheeler', 'Kent C. Dodds'])
-//   })
+  const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
+  expect(winner).toBe('Kent C. Dodds')
+  expect(utils.getWinner).toHaveBeenCalledTimes(2)
+  utils.getWinner.mock.calls.forEach(args => {
+    expect(args).toEqual(['Ken Wheeler', 'Kent C. Dodds'])
+  })
 
-//   utils.getWinner = originalGetWinner
-// })
+  utils.getWinner = originalGetWinner
+})
 
 
 
 // // FOURTH ITERATION
-// import thumbWar from '../thumb-war'
-// import * as utils from '../utils'
+import thumbWar from '../thumb-war'
+import * as utils from '../utils'
 
-// test('returns winner', () => {
-//   jest.spyOn(utils, 'getWinner')
-//   utils.getWinner = jest.fn((p1, p2) => p2)
+test('returns winner', () => {
+  jest.spyOn(utils, 'getWinner')
+  utils.getWinner = jest.fn((p1, p2) => p2)
 
-//   const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
-//   expect(winner).toBe('Kent C. Dodds')
-//   expect(utils.getWinner).toHaveBeenCalledTimes(2)
-//   utils.getWinner.mock.calls.forEach(args => {
-//     expect(args).toEqual(['Ken Wheeler', 'Kent C. Dodds'])
-//   })
-// })
+  const winner = thumbWar('Ken Wheeler', 'Kent C. Dodds')
+  expect(winner).toBe('Kent C. Dodds')
+  expect(utils.getWinner).toHaveBeenCalledTimes(2)
+  utils.getWinner.mock.calls.forEach(args => {
+    expect(args).toEqual(['Ken Wheeler', 'Kent C. Dodds'])
+  })
+})
 
 
 
@@ -2210,7 +2210,7 @@ test('returns winner', () => {
 - In `client/src/components/__tests__/login.step-1.todo.js`
 
 - **MY ATTEMPT**
-- solution is more clean
+- lecture solution is more clean
 
 ```js
 // Basic unit test
@@ -2300,12 +2300,15 @@ test('calls onSubmit with the username and password when submitted', () => {
 - `react-testing-library` came about from FEM workshop
 - `dom-testing-library` came from react-testing-library and it was just general dom stuff
 
+
 - **ENZYME CONS**
-- testing tool for react with mount, render, shallow render
+- your tests should resemble the way that your software is used
+- Enzyme is testing tool for react with mount, render, shallow render
 - problems with enzyme:
 1) Enzyme provides utilities to test things that are not being used in reality like shallow rendering
 - shallow rendering doesn't render all the components and you have to make separate unit tests to tests other smaller forms, inputs, etc.
-- shallow rendering bottom line: makes you code to an implemetation and not behavior, which is bad
+- it will not render custom components
+- shallow rendering bottom line: makes you code to an implementation and not behavior, which is bad
 2) Users don't care what you name your component and the amount of components
 - The name of the function is not component because the user doesn't care what the name of it is
 - if you go to change the name, your tests breaks
@@ -2313,27 +2316,303 @@ test('calls onSubmit with the username and password when submitted', () => {
 
 ---
 
-### react-testing-library
+### react-testing-library (4/29/19)
 - https://frontendmasters.com/courses/testing-react/react-testing-library/
+- [react-testing-library repo](https://github.com/testing-library/react-testing-library)
+- [babel-plugin-react-remove-properties](https://www.npmjs.com/package/babel-plugin-react-remove-properties)
+
+- `dom-testing-library` is just javascript testing, not react/angular/vue specific
+- we use the `getByText()` because that's how our users would find a button as well
+
+- **getByLabelText**
+- similar to how a user would search for a field to enter information
+- uses `for=` in javascript and `htmlFor=` in react
+- we can use `for`, `aria-labelledby`, or `aria-label` (not recommended)
+- you can still use snapshot with this type of testing
+
+- `getByPlaceholderText` not recommended either for accessibility reasons
+
+- **getByTestId**
+- `getByTestId` is useful for testing specific components and does no harm to your application (pairs with `data-testid=` element attribute)
+- using data-testid helps communicate that this is a testable element, unlike using classes where tests can break if someone changes from `btn-disabled` to `btn-success`
+- `await wait(() => getByTestId('greeting-text'))` waits for the promise to come back without error, this returns a dom node
+
+- `babel-plugin-react-remove-properties` is a package that can help remove this data-testid attribute if you're really uncomfortable with it
+- although you are shipping this to production code, it won't be a bottleneck, other places to optimize file size, and users won't know the difference if you use this extra attribute
+
+- `cleanup` method will remove all things that were inserted into the document
 
 ---
 
-### react-testing-library Solution
+### react-testing-library Exercise (4/29/19)
+- https://frontendmasters.com/courses/testing-react/react-testing-library-exercise/
+- [ReactJS simulate](https://reactjs.org/docs/test-utils.html#simulate)
+
+- **ADDITIONAL TEST METHODS**
+- `simulate` is a re-export from react dom (DEPRECATED)
+- you would use this when you need to do a left click on a react-dom-router link
+
+- `wait` accepts a callback
+
+- `waitForElement` will give you back element you are waiting for
+
+- **STEP 2 TESTING**
+- now on `client/src/components/__tests__/login.step-2.todo.js`
+- my attempt:
+
+```js
+// using helpful utilities
+import React from 'react'
+import ReactDOM from 'react-dom'
+// 🐨 you'll need these:
+import { generate } from 'til-client-test-utils'
+import { render, fireEvent } from 'react-testing-library'
+
+// note that til-client-test-utils is found in `client/test/til-client-test-utils`
+// note also that the client/test/setup-test-framework.js file takes care of
+// `import react-testing-library/cleanup-after-each'` for us.
+import Login from '../login'
+
+test('calls onSubmit with the username and password when submitted', () => {
+  // Arrange
+  // 🐨 use generate.loginForm() here instead of assigning fakeUser to an object
+  // const fakeUser = { username: 'chucknorris', password: '(╯°□°）╯︵ ┻━┻' }
+  generate.loginForm()
+  const handleSubmit = jest.fn()
+  // 🐨 use: render(<Login onSubmit={handleSubmit} />)
+  // It'll give you back an object with
+  // `getByLabelText` and `getByText` functions
+  // so you don't need a div anymore!
+  // 💰 const {getByLabelText, getByText} = render(<Login onSubmit={handleSubmit} />)
+  const { getByLabelText, getByText } = render(<Login onSubmit={handleSubmit} />)
+
+  const usernameNode = getByLabelText('Username')
+  const passwordNode = getByLabelText('Password')
+  const submitButtonNode = getByText('Submit')
+  // const div = document.createElement('div')
+  // ReactDOM.render(<Login onSubmit={handleSubmit} />, div)
+  // const inputs = div.querySelectorAll('input')
+  // const usernameNode = inputs[0]
+  // const passwordNode = inputs[1]
+  // const formNode = div.querySelector('form')
+  // const submitButtonNode = div.querySelector('button')
+
+  usernameNode.value = 'chucknorris'
+  passwordNode.value = '╯°□°）╯︵ ┻━┻'
+
+  // Act
+  // 🐨 Use fireEvent.click(submitButtonNode) instead of these two lines
+  // const event = new window.Event('submit')
+  // formNode.dispatchEvent(event)
+  fireEvent.click(submitButtonNode)
+
+  // Assert
+  expect(handleSubmit).toHaveBeenCalledTimes(1)
+  expect(handleSubmit).toHaveBeenCalledWith({ usernameNode, passwordNode})
+  // 🐨 this assertion is no longer necessary:
+  // expect(submitButtonNode.type).toBe('submit')
+})
+```
+
+---
+
+### react-testing-library Solution (4/29/19)
 - https://frontendmasters.com/courses/testing-react/react-testing-library-solution/
 
+- `generate` function actually generates a username and password for you
+- having an actual username like "chucknorris" and password can be distracting
+- `getByLabelText` doesn't care if it's lowercase or not either, so "Username" === "username"
+- or you can use a regex
+
+- **LABEL & INPUT LINKAGE**
+- the label element `htmlFor` attribute is linked with the input element `name` attribute
+- the label element `id` attribute is linked with the input element `arialabelledby` attribute
+
+- if there are multiple labels with the same name, it won't create an array
+- POSSIBLE APPROACH: just create container and target label in that
+
+- **VALID SOLUTION 1**
+```js
+import React from 'react'
+import {generate} from 'til-client-test-utils'
+import {render, fireEvent} from 'react-testing-library'
+import Login from '../login'
+
+test('calls onSubmit with the username and password when submitted', () => {
+  // Arrange
+  const fakeUser = generate.loginForm()
+  const handleSubmit = jest.fn()
+  const {getByLabelText, getByText} = render(<Login onSubmit={handleSubmit} />)
+
+  const usernameNode = getByLabelText(/username/i)
+  const passwordNode = getByLabelText(/password/i)
+  const submitButtonNode = getByText(/submit/i)
+
+  // Act
+  usernameNode.value = fakeUser.username
+  passwordNode.value = fakeUser.password
+  fireEvent.click(submitButtonNode)
+
+  // Assert
+  expect(handleSubmit).toHaveBeenCalledTimes(1)
+  expect(handleSubmit).toHaveBeenCalledWith(fakeUser)
+})
+```
+
+- **VALID SOLUTION 2**
+- we must be aware that the `submitButtonNode` must have a type of "submit" on it or this test will not work
+- `Simulate` is deprecated
+```
+BREAKING CHANGE: `renderIntoDocument` replaces `render` and `Simulate` is no longer exported (use `fireEvent` instead).
+
+https://github.com/testing-library/react-testing-library/commit/52575005579307bcfbe7fbe4ef4636147c03c6fb
+```
+
+```js
+import React from 'react'
+import { generate } from 'til-client-test-utils'
+import { render, fireEvent } from 'react-testing-library'
+import Login from '../login'
+
+test('calls onSubmit with the username and password when submitted', () => {
+  // Arrange
+  const fakeUser = generate.loginForm()
+  const handleSubmit = jest.fn()
+  const { container, getByLabelText, getByText } = render(<Login onSubmit={handleSubmit} />)
+
+  const usernameNode = getByLabelText('Username')
+  const passwordNode = getByLabelText('Password')
+
+  const formNode = container.querySelector('form')
+  const submitButtonNode = getByText('Submit')
+
+  usernameNode.value = fakeUser.username
+  passwordNode.value = fakeUser.password
+
+  // Act
+  // Simulate.submit(formNode) // no longer works, use fireEvent instead
+  fireEvent.click(submitButtonNode)
+
+  // Assert
+  expect(handleSubmit).toHaveBeenCalledTimes(1)
+  expect(handleSubmit).toHaveBeenCalledWith(fakeUser)
+  expect(submitButtonNode.type).toBe('submit')
+})
+```
+
 ---
 
-### Using DOM Events Exercise
+### Using DOM Events Exercise (4/29/19)
 - https://frontendmasters.com/courses/testing-react/using-dom-events-exercise/
+
+- **STEP 3 TESTING**
+- now on `client/src/components/__tests__/login.step-3.todo.js`
+- my attempt:
+```js
+// snapshot testing
+import React from 'react'
+import {generate} from 'til-client-test-utils'
+import {render, cleanup} from 'react-testing-library'
+import Login from '../login'
+
+afterEach(cleanup)
+
+test('calls onSubmit with the username and password when submitted', () => {
+  // Arrange
+  const fakeUser = generate.loginForm()
+  const handleSubmit = jest.fn()
+  const {getByLabelText, getByText} = render(<Login onSubmit={handleSubmit} />)
+
+  const usernameNode = getByLabelText(/username/i)
+  const passwordNode = getByLabelText(/password/i)
+
+  // Act
+  usernameNode.value = fakeUser.username
+  passwordNode.value = fakeUser.password
+  getByText(/submit/i).click()
+
+  // Assert
+  expect(handleSubmit).toHaveBeenCalledTimes(1)
+  expect(handleSubmit).toHaveBeenCalledWith(fakeUser)
+})
+
+test('snapshot', () => {
+  // render the login, this will give you back an object with a `container` property
+  const {container} = render(<Login />)
+  // expect the `container` property to match a snapshot
+  expect(container).toMatchSnapshot()
+})
+```
+
 ---
 
-### Using DOM Events Solution
+### Using DOM Events Solution (4/29/19)
 - https://frontendmasters.com/courses/testing-react/using-dom-events-solution/
 
+- `renderIntoDocument` is deprecated, `render` is default
+
+```
+BREAKING CHANGE: `renderIntoDocument` replaces `render` and `Simulate` is no longer exported (use `fireEvent` instead).
+
+https://github.com/testing-library/react-testing-library/commit/52575005579307bcfbe7fbe4ef4636147c03c6fb
+```
+
+- `unmount` also doesn't work, use `afterEach(cleanup)` instead
+
+- **SOLUTION**
+- `getByText(/submit/i).click()` works the same as `fireEvent.click(submitButtonNode`
+
+```js
+// snapshot testing
+import React from 'react'
+import {generate} from 'til-client-test-utils'
+import {render, cleanup} from 'react-testing-library'
+import Login from '../login'
+
+afterEach(cleanup)
+
+test('calls onSubmit with the username and password when submitted', () => {
+  // Arrange
+  const fakeUser = generate.loginForm()
+  const handleSubmit = jest.fn()
+  const {getByLabelText, getByText} = render(<Login onSubmit={handleSubmit} />)
+
+  const usernameNode = getByLabelText(/username/i)
+  const passwordNode = getByLabelText(/password/i)
+
+  // Act
+  usernameNode.value = fakeUser.username
+  passwordNode.value = fakeUser.password
+  getByText(/submit/i).click()
+
+  // Assert
+  expect(handleSubmit).toHaveBeenCalledTimes(1)
+  expect(handleSubmit).toHaveBeenCalledWith(fakeUser)
+})
+
+test('snapshot', () => {
+  // render the login, this will give you back an object with a `container` property
+  const {container} = render(<Login />)
+  // expect the `container` property to match a snapshot
+  expect(container).toMatchSnapshot()
+})
+```
+
 ---
 
-### Component Testing Q&A
+### Component Testing Q&A (4/29/19)
 - https://frontendmasters.com/courses/testing-react/component-testing-q-a/
+
+- **QUESTION ON USING UI EFFECTS AND SETTIMEOUT**
+- `jest.useFakeTimer` and `jest.runAllTimers()` in case you need to wait for a blur effect or something
+- `wait` or `waitForElement` also works for APIs
+
+- **QUESTION ABOUT TESTING STATE**
+- not necessarily needed because it could potentially break
+- if we have a spinner loader after a button is clicked, then just test that it shows up
+- we dont need to check if the boolean in the state is switched on of off
+
+- BOTTOM LINE: we want to make overarching tests that don't break on refactors, then user smaller tests on edge cases
 
 ---
 
