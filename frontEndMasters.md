@@ -2620,23 +2620,119 @@ test('snapshot', () => {
 
 ---
 
-### Introducing Snapshot Testing
+### Introducing Snapshot Testing (4/30/19)
 - https://frontendmasters.com/courses/testing-react/introducing-snapshot-testing/
+- [import-all.macro](https://github.com/kentcdodds/import-all.macro)
+
+- in `other/jest-epect/__tests__/expect-assertions.js`
+- use `npm run test:expect`
+
+- you can run a `manual snapshot` or `automatic snapshot`
+- Kent would `console.log(flyingHeros)` and then copy paste in `.toEqual()`
+- instead of use `.toEqual()`, you can use `toMatchSnapshot()`
+```js
+
+test('manual "snapshot"', () => {
+  const flyingHeros = getFlyingSuperHeros()
+  expect(flyingHeros).toEqual([
+    {name: 'Dynaguy', powers: ['disintegration ray', 'fly']},
+    {name: 'Apogee', powers: ['gravity control', 'fly']},
+  ])
+})
+
+test('automatic snapshot', () => {
+  const flyingHeros = getFlyingSuperHeros()
+  expect(flyingHeros).toMatchSnapshot()
+})
+```
+
+- snapshots will be in the in `__snapshots__` folder and can be updated with "u" key
+- we'll commit snapshots to source control, any changes will be recognized, updated, and commited
+
+- **SERIALIZED SNAPSHOTS**
+- the snapshot file will serialize all the html elements
+- it will also do other elements like DOM nodes and react elements
+```js
+test('snapshot examples', () => {
+  const object = {
+    mixedArray: [1, [2, 3], {four: 5, six: [7, 8]}],
+    regex: /do-not-try-to-regex-an-email/,
+    date: new Date('1988-10-18'),
+    error: new Error('some error'),
+    someFunction: () => {},
+    symbol: Symbol('symbol description'),
+    set: new Set([1, 2, 3]),
+    map: new Map([[{}, []], [[], {}]]),
+    // and more!
+  }
+  expect(object).toMatchSnapshot()
+
+  // AND DOM NODES!!!
+  const div = document.createElement('div')
+  const title = '<h2 class="title">Super Heros are great!</h2>'
+  const content =
+    '<p class="content">We can each be a super hero for someone</p>'
+  div.innerHTML = `<section>${title}${content}</section>`
+  expect(div).toMatchSnapshot('title of a snapshot!')
+
+  // And react elements!
+  const onClick = () => {}
+  const element = React.createElement('button', {onClick}, 'Hello World')
+  expect(element).toMatchSnapshot('react element')
+
+  // and rendered elements
+  const rendered = renderer.create(element)
+  expect(rendered).toMatchSnapshot('rendered')
+
+  // and DOM nodes rendered via react
+  const app = document.createElement('div')
+  ReactDOM.render(element, app)
+  expect(app).toMatchSnapshot('react-dom')
+})
+```
+
+- snapshots are also a good way to test babble plugins
+- `import-all.macro` repo on kentcdodds github helps with "A babel-macro that allows you to import all files that match a glob"
 
 ---
 
-### Snapshot Testing Exercise
+### Snapshot Testing Exercise (4/30/19)
 - https://frontendmasters.com/courses/testing-react/snapshot-testing-exercise/
 
+- you can also do customized manners that snapshots are serialized like taking out `h2` or `paths`
+- if you want to do a certain snapshot serialize, you just pass the name of it IE `jest-glamour-react`
+- there's one for styled components as well
+
 ---
 
-### Snapshot Testing Solution
+### Snapshot Testing Solution (4/30/19)
 - https://frontendmasters.com/courses/testing-react/snapshot-testing-solution/
 
+- looks like we did this exercise in previous video already
+- Kent wrote a little differently
+```js
+test('snapshot', () => {
+  // render the login, this will give you back an object with a `container` property
+  const {container} = render(<Login />)
+  // expect the `container` property to match a snapshot
+  expect(container.firstChild).toMatchSnapshot()
+})
+```
+
 ---
 
-### Snapshot Q&A
+### Snapshot Q&A (4/30/19)
 - https://frontendmasters.com/courses/testing-react/snapshot-q-a/
+- [Effective Snapshot Testing](https://blog.kentcdodds.com/effective-snapshot-testing-e0d1a2c28eca)
+
+- `toMatchSnapshot()` will generate the initial snapshot if there are none
+- it might not be worth it to snapshot something that's pure HTML
+- if you want to undo a snapshot, you have to do a git reset
+- snapshot is not useful for TDD
+
+- Kent's stance on snapshot testing is that it should supplement solid, complete unit tests
+- If a small change in snapshot testing, then it shouldn't matter too much IE font-size change
+- Kent also uses `.toThrowErrorMatchingSnapshot()` to expect it to throw a certain error matching a regex
 
 ---
 
