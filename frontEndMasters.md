@@ -2620,7 +2620,47 @@ test('snapshot', () => {
 
 ---
 
+### Introducing Snapshot Testing
+- https://frontendmasters.com/courses/testing-react/introducing-snapshot-testing/
+
+---
+
+### Snapshot Testing Exercise
+- https://frontendmasters.com/courses/testing-react/snapshot-testing-exercise/
+
+---
+
+### Snapshot Testing Solution
+- https://frontendmasters.com/courses/testing-react/snapshot-testing-solution/
+
+---
+
+### Snapshot Q&A
+- https://frontendmasters.com/courses/testing-react/snapshot-q-a/
+
+---
+
 ## E) Integration Testing Pages
+
+---
+
+### Integreation Tests Demo
+- https://frontendmasters.com/courses/testing-react/integration-tests-demo/
+
+---
+
+### Integration Tests Exercise
+- https://frontendmasters.com/courses/testing-react/integration-tests-exercise/
+
+---
+
+### Integration Tests Solution
+- https://frontendmasters.com/courses/testing-react/integration-tests-solution/
+
+---
+
+### Integration Testing Q&A
+- https://frontendmasters.com/courses/testing-react/integration-testing-q-a/
 
 ---
 
@@ -2628,6 +2668,31 @@ test('snapshot', () => {
 
 ---
 
+### Cypress
+- https://frontendmasters.com/courses/testing-react/cypress/
+
+---
+
+### Cypress Q&A
+- https://frontendmasters.com/courses/testing-react/cypress-q-a/
+
+---
+
+### Configuring Cypress Exercise
+- https://frontendmasters.com/courses/testing-react/configuring-cypress-exercise/
+
+---
+
+### Configuring Cypress Solution
+- https://frontendmasters.com/courses/testing-react/configuring-cypress-solution/
+
+---
+
 ## G) Wrapping Up
+
+---
+
+### Testing Trophy
+- https://frontendmasters.com/courses/testing-react/testing-trophy/
 
 ---
