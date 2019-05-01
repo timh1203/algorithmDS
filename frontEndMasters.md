@@ -3025,23 +3025,164 @@ test('login as an existing user', async () => {
 
 ---
 
-### Cypress
+### Cypress (5/1/19)
 - https://frontendmasters.com/courses/testing-react/cypress/
 
+- `npm install --save-dev cypress`
+- cypress installs and app and sticks in node_modules
+- Cypress exposes a binary which we can run with `npx cypress open`
+
+- working in `other/calculator/cypress/`
+- `fixtures` are where we keep default user info in DB
+- `integration` are where all the tests are, Kent renames to E2E
+- `plugins` has purposes but not covered in course
+- `support` has commands that we will use later
+
+- **support/index.js**
+- need to install `npm install --save-dev cypress-testing-library`
+- we add the configs in `support/index.js` file
+```js
+import 'cypress-testing-library/add-commands'
+```
+
+- **cypress.json**
+```js
+{
+  "baseUrl": "http://localhost:8080/",
+  "integrationFolder": "cypress/e2e"
+}
+```
+
+- we used `npm install --save-dev npm-run-all` is a script that lets you run multiple scripts in parallel
+- you have to do `npm run build` first
+- we add some scripts to package.json, 
+1) `"test:e2e:dev": "npm-run-all --parallel dev cy:open"`
+2) `"cy:open": "cypress open"`
+3) `"test:e2e": "npm-run-all --parallel --race start cy:run"`
+4) `cy:run: "cypress run"`
+
 ---
 
-### Cypress Q&A
+### Cypress Q&A (5/1/19)
 - https://frontendmasters.com/courses/testing-react/cypress-q-a/
 
+- Cypress doesnt work well in other browser execpt Chrome but the benefits outweigh the cons
+- Cypress is a lot faster overall than Selenium
+- It's best to have a couple selenium tests and cover the rest with Cypress
+- the development process is faster overall wth Cypress
+
 ---
 
-### Configuring Cypress Exercise
+### Configuring Cypress Exercise (5/1/19)
 - https://frontendmasters.com/courses/testing-react/configuring-cypress-exercise/
 
+- We are going to focus on commands `test:e2e` in package.json
+- run `npm run test:e2e` to start running tests
+
+- in `./cypress/support/commands.js`
+- there's a command that lets you login as a fresh user every time
+- it's for registration and login purposes called `loginAsNewUser`
+- you can also expose redux store as a global variable and cypress can pick up at a certain state
+
+- in `cypress/e2e/auth.register.js`
+- cypress can be used for integration and unit tests as well
+- Cypress commands can looks sequential because it carries out synchronous operations and just how it is written
+
+- **MY ATTEMPT**
+- in `cypress/integration/auth.login.todo.js`
+
+```js
+// Normally you shouldn't need to break your tests up this much.
+// Normally I'd just have a file called `auth` and have all my tests
+// in that file. But I've split them up like this to make the workshop
+// flow nicer with the demo and exercises.
+// eslint-disable-next-line
+import {generate} from '../utils'
+
+describe('authentication', () => {
+  beforeEach(() => cy.logout())
+
+  it('should allow existing users to login', () => {
+    // you'll want to first create a new user.
+    // This custom cypress command is similar to a promise, so you can do:
+    // cy.createNewUser().then(user => {
+    //   more cy commands here
+    // })
+
+    // With the user created, go ahead and use the cy commands to:
+    // 1. visit the app: visitApp
+    // 2. Click the login link
+    // 3. type the user's username in the username field
+    // 4. type the user's password in the password field
+    // 5. submit the form by clicking the submit button
+
+    // Finally assert the route changed to '/'
+    // and verify that the display name contains user.username
+    cy.createNewUser().then(user => {
+      const newUser = generate.loginForm()
+
+      cy.getByText(/login/i)
+        .click()
+        .getByLabelText(/username/i)
+        .type(newUser.username)
+        .getByLabelText(/password/i)
+        .type(newUser.password)
+        .getByText(/submit/i)
+        .click()
+        .assertRoute('/')
+
+      cy.getTestById('username-display').should('contain', newUser.username)
+    })
+  })
+})
+```
+
 ---
 
-### Configuring Cypress Solution
+### Configuring Cypress Solution (5/1/19)
 - https://frontendmasters.com/courses/testing-react/configuring-cypress-solution/
+
+- **SOLUTION**
+- `getByLabelText` and `getByText` is also case insensitive
+- or you can use regex
+
+- without Cypress, you can still use DOM selection by using `.get('.some-class-name', <action)`
+
+- Cypress is completely open source and the pricing is for the dashboard
+
+```js
+// Normally you shouldn't need to break your tests up this much.
+// Normally I'd just have a file called `auth` and have all my tests
+// in that file. But I've split them up like this to make the workshop
+// flow nicer with the demo and exercises.
+// eslint-disable-next-line
+import {generate} from '../utils'
+
+describe('authentication', () => {
+  let user
+
+  beforeEach(() => {
+    cy.logout()
+      .createNewUser()
+      .then(u => (user = u))
+      .visit('/')
+  })
+
+  it('should allow existing users to login', () => {
+    cy.getByText(/login/i)
+      .click()
+      .getByLabelText(/username/i)
+      .type(user.username)
+      .getByLabelText(/password/i)
+      .type(user.password)
+      .getByText(/submit/i)
+      .click()
+      .assertRoute('/')
+
+    cy.getTestById('username-display').should('contain', user.username)
+  })
+})
+```
 
 ---
 
