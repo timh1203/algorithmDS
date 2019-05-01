@@ -2740,23 +2740,284 @@ test('snapshot', () => {
 
 ---
 
-### Integreation Tests Demo
+### Integration Tests Demo (4/30/19)
 - https://frontendmasters.com/courses/testing-react/integration-tests-demo/
 
+- tests from unit tests are very similar to integration tests
+- Kent will do solution for register form and we will do login form
+
+- we're in `client/src/__tests__/app.register.js`
+- we run `axiosMock.__mock.reset()` to clear the state
+- we will be doing async function since most will be asynchronous operations
+- we are using `renderWithRouter(<App />)` to configure with any components that has a redux or router provider
+
+```js
+import React from 'react'
+import axiosMock from 'axios'
+import {renderWithRouter, fireEvent, generate} from 'til-client-test-utils'
+import {init as initAPI} from '../utils/api'
+import App from '../app'
+
+beforeEach(() => {
+  window.localStorage.removeItem('token')
+  axiosMock.__mock.reset()
+  initAPI()
+})
+
+test('register a new user', async () => {
+  const {
+    container,
+    getByTestId,
+    getByText,
+    finishLoading,
+    getByLabelText,
+  } = renderWithRouter(<App />)
+```
+
 ---
 
-### Integration Tests Exercise
+### Integration Tests Exercise (4/30/19)
 - https://frontendmasters.com/courses/testing-react/integration-tests-exercise/
 
+- Kent recommends we have a testing file that has testing utility modules like `til-client-test-utils`
+- `renderWithRouter` is just like `render` method and exposes `getByText`, `getByLabelText`, etc.
+- see more comments below
+
+- **REGISTER FORM WALKTHROUGH**
+```js
+import React from 'react'
+import axiosMock from 'axios'
+import {renderWithRouter, fireEvent, generate} from 'til-client-test-utils'
+import {init as initAPI} from '../utils/api'
+import App from '../app'
+
+beforeEach(() => {
+  window.localStorage.removeItem('token') // clears any tokens
+  axiosMock.__mock.reset() // resets any api calls
+  initAPI()
+})
+
+test('register a new user', async () => {
+  const {
+    container,
+    getByTestId,
+    getByText,
+    finishLoading,
+    getByLabelText,
+  } = renderWithRouter(<App />) // method exposes just like render
+
+  // wait for the app to finish loading the mocked requests
+  await finishLoading()
+
+  // navigate to register
+  const leftClick = {button: 0}
+  fireEvent.click(getByText(/register/i), leftClick)
+  expect(window.location.href).toContain('register') // check if we are on the right url path
+
+  // fill out form
+  const fakeUser = generate.loginForm()
+  const usernameNode = getByLabelText('Username')
+  const passwordNode = getByLabelText('Password')
+  const formWrapper = container.querySelector('form')
+  usernameNode.value = fakeUser.username
+  passwordNode.value = fakeUser.password
+
+  // submit form (we are mocking out post implementation)
+  const {post} = axiosMock.__mock.instance
+  const token = generate.token(fakeUser)
+  post.mockImplementationOnce(() =>
+    Promise.resolve({
+      data: {user: {...fakeUser, token}},
+    }),
+  )
+  fireEvent.submit(formWrapper)
+
+  // wait for the mocked requests to finish
+  await finishLoading()
+
+  // assert calls
+  expect(axiosMock.__mock.instance.post).toHaveBeenCalledTimes(1)
+  expect(axiosMock.__mock.instance.post).toHaveBeenCalledWith(
+    '/auth/register', // correct endpoint
+    fakeUser, // correct user
+  )
+
+  // assert the state of the world
+  expect(window.localStorage.getItem('token')).toBe(token)
+  expect(window.location.href).not.toContain('register')
+  expect(getByTestId('username-display').textContent).toEqual(fakeUser.username)
+  expect(getByText(/logout/i)).toBeTruthy()
+})
+```
+
+- **MY ATTEMPT FOR LOGIN FORM**
+- run `npm run test:client`
+```js
+import React from 'react'
+import axiosMock from 'axios'
+import {renderWithRouter, fireEvent, generate} from 'til-client-test-utils'
+import {init as initAPI} from '../utils/api'
+import App from '../app/'
+
+// add a beforeEach for cleaning up state and intitializing the API
+beforeEach(() => {
+  window.localStorage.removeItem('token')
+  axiosMock.__mock.reset()
+  initAPI()
+})
+
+test('login as an existing user', async () => {
+  // 🐨 render the app with the router provider and custom history
+  // 💰 const utils = renderWithRouter(<App />)
+  const {
+    container,
+    getByText,
+    getByLabelText,
+    finishLoading,
+    getByTestId,
+  } = renderWithRouter(<App />)
+
+  // 🐨 wait for the app to finish loading the mocked requests
+  // 💰 await utils.finishLoading()
+  await finishLoading()
+
+  // 🐨 navigate to login by clicking login-link
+  // 💰 the link has text that matches /login/i
+  // 💰 when you fireEvent.click on the login link, react-router will ignore
+  // the click unless it's a "left click" which is based on the `button`
+  // property. So as a second argument to `fireEvent.click`, pass `{button: 0}`
+  fireEvent.click(getByText(/login/i), {button: 0})
+
+  // 🐨 assert that window.location.href contains 'login'
+  expect(window.location.href).toContain('login')
+
+  // 🐨 fill out the form
+  // 💰 generate.loginForm()
+  // 💰 get the username and password fields and set their values
+  const fakeUser = generate.loginForm()
+  const usernameNode = getByLabelText(/username/i)
+  const passwordNode = getByLabelText(/password/i)
+  const formNode = container.querySelector('form')
+
+  usernameNode.value = fakeUser.username
+  passwordNode.value = fakeUser.password
+
+  // Now we need to prepare our axios mock to handle the form submission properly:
+  // use the axiosMock.__mock.instance
+  // to mock out the post implementation
+  // it should return the fake user + a token
+  // which you can generate with generate.token(fakeUser)
+  // 💰 you may want to look at the final version for this one...
+  const {post} = axiosMock.__mock.instance
+  const token = generate.token(fakeUser)
+
+  // 🐨 submit form by clicking on the submit button
+  post.mockImplementationOnce(() =>
+    Promise.resolve({
+      data: {user: {...fakeUser, token}},
+    }),
+  )
+  fireEvent.submit(formNode)
+
+  // 🐨 wait for the mocked requests to finish
+  // 💰 await utils.finishLoading()
+  await finishLoading()
+
+  // 🐨 now make some assertions:
+  // assert post was called correctly
+  expect(post).toHaveBeenCalledTimes(1)
+  // assert localStorage is correct
+  expect(window.localStorage.getItem('token')).toBe(token)
+  // assert the user was redirected (window.location.href)
+  expect(window.location.href).not.toContain('login')
+  // assert the username display is the fake user's username
+  expect(getByTestId('username-display').textContent).toContain(
+    fakeUser.username,
+  )
+  // assert the logout button exists
+  expect(getByText(/logout/i)).toBeTruthy()
+})
+```
+
 ---
 
-### Integration Tests Solution
+### Integration Tests Solution (4/30/19)
 - https://frontendmasters.com/courses/testing-react/integration-tests-solution/
 
+- **LECTURE SOLUTION**
+- if we wanted to test a specific URL path we can use:
+`expect(window.location.href).toBe('<url>')`
+```js
+import React from 'react'
+import axiosMock from 'axios'
+import {renderWithRouter, generate, fireEvent} from 'til-client-test-utils'
+import {init as initAPI} from '../utils/api'
+import App from '../app'
+
+beforeEach(() => {
+  window.localStorage.removeItem('token')
+  axiosMock.__mock.reset()
+  initAPI()
+})
+
+test('login as an existing user', async () => {
+  const {
+    getByTestId,
+    getByText,
+    getByLabelText,
+    finishLoading,
+  } = renderWithRouter(<App />)
+
+  // wait for the app to finish loading the mocked requests
+  await finishLoading()
+
+  // navigate to login
+  const leftClick = {button: 0}
+  fireEvent.click(getByText(/login/i), leftClick)
+  expect(window.location.href).toContain('login')
+
+  // fill out form
+  const fakeUser = generate.loginForm()
+  const usernameNode = getByLabelText(/username/i)
+  const passwordNode = getByLabelText(/password/i)
+  usernameNode.value = fakeUser.username
+  passwordNode.value = fakeUser.password
+
+  // submit form
+  const {post} = axiosMock.__mock.instance
+  const token = generate.token(fakeUser)
+  post.mockImplementationOnce(() =>
+    Promise.resolve({
+      data: {user: {...fakeUser, token}},
+    }),
+  )
+  fireEvent.click(getByText(/submit/i))
+
+  // wait for the mocked requests to finish
+  await finishLoading()
+
+  // assert calls
+  expect(axiosMock.__mock.instance.post).toHaveBeenCalledTimes(1)
+  expect(axiosMock.__mock.instance.post).toHaveBeenCalledWith(
+    '/auth/login',
+    fakeUser,
+  )
+
+  // assert the state of the world
+  expect(window.localStorage.getItem('token')).toBe(token)
+  expect(window.location.href).not.toContain('login')
+  expect(getByTestId('username-display').textContent).toEqual(fakeUser.username)
+  expect(getByText(/logout/i)).toBeTruthy()
+})
+```
+
 ---
 
-### Integration Testing Q&A
+### Integration Testing Q&A (4/30/19)
 - https://frontendmasters.com/courses/testing-react/integration-testing-q-a/
+
+- the prevailing theme has been to test the component as a black box and test the public facing API and not the implementation details
+- someone mentioned `jest/no-large-snapshot` which is a ESLint rule to limit the amount of lines of a snapshot
 
 ---
 
