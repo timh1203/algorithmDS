@@ -3190,7 +3190,20 @@ describe('authentication', () => {
 
 ---
 
-### Testing Trophy
+### Testing Trophy (5/1/19)
 - https://frontendmasters.com/courses/testing-react/testing-trophy/
+
+- **HOW DO YOU KNOW YOU SHOULD USE E2E, INTEGRATION, UNIT, STATIC**
+- there's a `Testing Trophy` image
+- Top to bottom: end to end, integration, unit, static
+- static is like typescript, eslint, or flow type
+
+- generally, tests at the top are more expensive and slower to run and vice versa heading to the bottom
+- why not just run all unit tests? because you get more confidence and catch bigger problems when using tests at the top of the trophy
+- you should spend most of the time doing integration testing, it gives you a lot of bang for your buck
+
+- **BOUNDARY FOR JEST VS CYPRESS**
+- when we have a server request and an actual live server to test from, we want to use to Cypress
+- if the test doesn't need the server, we can just do integration tests with Jest
 
 ---
