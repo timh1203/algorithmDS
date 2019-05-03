@@ -3214,21 +3214,76 @@ describe('authentication', () => {
 
 ## A) Foundations of Relational Databases
 ---
-### Welcome & Tech Check
+### Welcome & Tech Check (5/2/19)
 - https://frontendmasters.com/courses/sql-fundamentals/welcome-tech-check/
+- lines between frontend and backend continue to blur
+
+- progressive web apps are becoming "thick clients" and becoming more like a mobile web app
+
+- mechanical sympathy is valuable for improving performance
+- learning what's easy and hard for the database and to adjust resources
+
+- SQL fundamentals is a primer for developers who "use" databases
+- similarities across all DBs
+
+- Professional SQL is a deeper course for developers who wish to "design and maintain" a database
+- tackles topics treated differently depending on RDBMS
+- covering MySQL and PostgreSQL
 
 ---
-### Relational Algebra & Codds Relational Model
+### Relational Algebra & Codds Relational Model (5/2/19)
 - https://frontendmasters.com/courses/sql-fundamentals/relational-algebra-codds-relational-model/
+
+- a database is an organized collection of persisted data
+- very diverse kind of family:
+1) Relational Stores: SQLite, PostgreSQL, MySQL, Google Spanner
+2) Key-Value Stores: Redis (IE Amazon Dynamo DB), Voldemort (LinkedIn Open Source)
+3) Column Stores: Cassandra, Apache Hbase
+4) Graph Databases: Neo4j
+5) Document Databases: mongoDB
+
+- we are covering the PostgreSQL, SQLite, and MySQL and what we learn in this course can be used with these
+
+- **Codd's Relational Model**
+- a relation (table) is a set of tuples (rows)
+- each element in a tuple (cell value) dj is a member of Dj, a data domain (set of allowed values)
+- these elements are called attribute values (cell value), and are associated with an attribute (column name + type)
+
+- **SCHEMA**
+- greek for shape
+- it's the shape or structure of your data
+- tables, column names, types and constraints
+
+- **RELATIONAL ALGEBRA VS RELATIONAL CALCULUS**
+- algebra: join movie and actor over `actorId`, filter results to only include Jeff Goldblum
+- select the `movieTitle` and `year` columns
+
+- calculus: get `movieTitle` and `year` for movie such that there exists an actor a who was in the movie and has the name Jeff Goldblum.
+
+- **STRUCTURED QUERY LANGUAGE**
+- we use Relational Database Management System (RDBMS)
+- declarative, unlike predecessors
+- can also be procedural (PL/SQL)
+- inspired by Codd's Relational Model
+
+- a statement is made up of:
+- clauses: SELECT, WHERE
+- predicate: something returns true or false
+- expression: something that produces values
+
+- you can run command line SQL
+- `psql northwind -c` to run a command (northwind is the name of db)
+- `createdb northwind` for creating in PostgresQL
+- `dropdb northwind` for dropping in PostgresQL
 
 ---
 ## B) Retrieving Data
 ---
-### Using the Command Line & Simple SELECT queries
+### Using the Command Line & Simple SELECT queries (5/2/19)
 - https://frontendmasters.com/courses/sql-fundamentals/using-the-command-line-simple-select-queries/
 
 ---
-### Project Overview
+### Project Overview (5/2/19)
 - https://frontendmasters.com/courses/sql-fundamentals/project-overview/
 
 ---
