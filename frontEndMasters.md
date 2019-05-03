@@ -3207,3 +3207,158 @@ describe('authentication', () => {
 - if the test doesn't need the server, we can just do integration tests with Jest
 
 ---
+
+# SQL Fundamentals /w Mike North
+- https://frontendmasters.com/courses/sql-fundamentals/
+- [Slides and Code](https://github.com/mike-works/sql-fundamentals)
+
+## A) Foundations of Relational Databases
+---
+### Welcome & Tech Check
+- https://frontendmasters.com/courses/sql-fundamentals/welcome-tech-check/
+
+---
+### Relational Algebra & Codds Relational Model
+- https://frontendmasters.com/courses/sql-fundamentals/relational-algebra-codds-relational-model/
+
+---
+## B) Retrieving Data
+---
+### Using the Command Line & Simple SELECT queries
+- https://frontendmasters.com/courses/sql-fundamentals/using-the-command-line-simple-select-queries/
+
+---
+### Project Overview
+- https://frontendmasters.com/courses/sql-fundamentals/project-overview/
+
+---
+### SELECTing Columns Exercise
+- https://frontendmasters.com/courses/sql-fundamentals/selecting-columns-exercise/
+
+---
+### SELECTing Columns Solution
+- https://frontendmasters.com/courses/sql-fundamentals/selecting-columns-solution/
+
+---
+### Filtering via WHERE clauses
+- https://frontendmasters.com/courses/sql-fundamentals/filtering-via-where-clauses/
+
+---
+### Filtering via WHERE Exercise
+- https://frontendmasters.com/courses/sql-fundamentals/filtering-via-where-exercise/
+
+---
+### Filtering via WHERE Solution
+- https://frontendmasters.com/courses/sql-fundamentals/filtering-via-where-solution/
+
+---
+### LIMITing and ORDERing the result set
+- https://frontendmasters.com/courses/sql-fundamentals/limiting-and-ordering-the-result-set/
+
+---
+### LIMIT AND ORDER EXERCISE
+- https://frontendmasters.com/courses/sql-fundamentals/limit-and-order-exercise/
+
+---
+### LIMIT And ORDER Solution
+- https://frontendmasters.com/courses/sql-fundamentals/limit-and-order-solution/
+
+---
+## C) Querying Across Tables
+---
+### Relationships & Joins
+- https://frontendmasters.com/courses/sql-fundamentals/relationships-joins/
+
+---
+### JOIN Exercise
+- https://frontendmasters.com/courses/sql-fundamentals/join-exercise/
+
+---
+### JOIN Solution
+- https://frontendmasters.com/courses/sql-fundamentals/join-solution/
+
+---
+### Aggregate Functions and GROUP BY
+- https://frontendmasters.com/courses/sql-fundamentals/aggregate-functions-and-group-by/
+
+---
+### Aggregate Functions and GROUP BY Exercise
+- https://frontendmasters.com/courses/sql-fundamentals/aggregate-functions-and-group-by-exercise/
+
+---
+### Aggregate Functions and GROUP BY Solution
+- https://frontendmasters.com/courses/sql-fundamentals/aggregate-functions-and-group-by-solution/
+
+---
+## D) Creating, Updating, and Deleting
+---
+### Creating & Deleting Records
+- https://frontendmasters.com/courses/sql-fundamentals/creating-deleting-records/
+
+---
+### Creating & Deleting Records Exercise
+- https://frontendmasters.com/courses/sql-fundamentals/creating-deleting-records-exercise/
+
+---
+### Creating & Delting Records Solution
+- https://frontendmasters.com/courses/sql-fundamentals/creating-deleting-records-solution/
+
+---
+### Transactions & Isolation
+- https://frontendmasters.com/courses/sql-fundamentals/transactions-isolation/
+
+---
+### Transactions Exercise
+- https://frontendmasters.com/courses/sql-fundamentals/transactions-exercise/
+
+---
+### Transactions Solution
+- https://frontendmasters.com/courses/sql-fundamentals/transactions-solution/
+
+---
+### Updating Records
+- https://frontendmasters.com/courses/sql-fundamentals/updating-records/
+
+---
+### Updating Records Exercise
+- https://frontendmasters.com/courses/sql-fundamentals/updating-records-exercise/
+
+---
+### Updating Records Solution
+- https://frontendmasters.com/courses/sql-fundamentals/updating-records-solution/
+
+---
+## E) The Schema Evolves
+---
+### Migrations
+- https://frontendmasters.com/courses/sql-fundamentals/migrations/
+
+---
+### Indices
+- https://frontendmasters.com/courses/sql-fundamentals/indices/
+
+---
+### Add Indices Exercise
+- https://frontendmasters.com/courses/sql-fundamentals/add-indices-exercise/
+
+---
+### Add Indices Solution
+- https://frontendmasters.com/courses/sql-fundamentals/add-indices-solution/
+
+---
+### Column Contraints
+- https://frontendmasters.com/courses/sql-fundamentals/column-constraints/
+
+---
+### Column Contraints Exercise
+- https://frontendmasters.com/courses/sql-fundamentals/column-constraints-exercise/
+
+---
+### Column Constraints Solution
+- https://frontendmasters.com/courses/sql-fundamentals/column-constraints-solution/
+
+---
+### F) Wrapping Up SQL Fundamentals
+---
+## Wrap Up and Q&A
+- https://frontendmasters.com/courses/sql-fundamentals/wrap-up-and-q-a/
