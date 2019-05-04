@@ -3282,17 +3282,100 @@ describe('authentication', () => {
 ### Using the Command Line & Simple SELECT queries (5/2/19)
 - https://frontendmasters.com/courses/sql-fundamentals/using-the-command-line-simple-select-queries/
 
+- `SELECT * FROM Employee`
+- FROM allos one or more elements to be returned from a relation
+
+- `SELECT id, firstname, lastname FROM Employee`
+- returns the order they are asked for
+
+- **QUOTES**
+- different in different SQL
+- table names, column names, and keywords are case insensitive usually
+- 'single quotes' are used for string literals
+- "double quotes" (SQLite or PostgreSQL) or `backticks` (MySQL only) for words that conflict with SQL keywords, or when case sensitivity is desired
+
+- TIP: use either `id` or `Id`
+
+- **AS keyword**
+- helps alias a column, only impacts current query
+- `p.productname AS title`
+- `Product AS p`
+
 ---
 ### Project Overview (5/2/19)
 - https://frontendmasters.com/courses/sql-fundamentals/project-overview/
 
----
-### SELECTing Columns Exercise
-- https://frontendmasters.com/courses/sql-fundamentals/selecting-columns-exercise/
+- we are working on a project to keep a supply for a restaurant company
+- customers, employees, customer orders, products, suppliers
+
+- the SQL tagged template literal can be used to syntax highlight
+"let query = sql`SELECT * FROM Employee`"
+
+- **SCRIPTS**
+- setup a database: `npm run db:setup:pg`
+- run tests that match a filter: `npm run test EX01`, `npm run test:watch EX01`
+- run an exercise's tests, and all tests from previous exercises: `npm run tests:ex 4`, `npm run test:ex:watch 4`
+
+- run on localhost 3000: `npm run watch`
+- run tests with a database other than SQLite `DB_TYPE=pg npm run watch`
 
 ---
-### SELECTing Columns Solution
+### SELECTing Columns Exercise (5/3/19)
+- https://frontendmasters.com/courses/sql-fundamentals/selecting-columns-exercise/
+
+- in `./src/data/customers.js`
+- we are basically running a query that selects all customers
+- start the server first with `npm start`
+- then `npm run test:ex:watch 1` to see all the tests
+- the goal is to get all the tests to pass
+
+- **MYATTEMPT**
+```js
+// customers
+const ALL_CUSTOMERS_COLUMNS = ['id, contactname, companyname'];
+
+// employees
+const ALL_EMPLOYEES_COLUMNS = [
+  'id',
+  'firstname',
+  'lastname',
+  'region',
+  'hiredate',
+  'title',
+  'reportsto'
+];
+
+// orders
+export const ALL_ORDERS_COLUMNS = [
+  'id',
+  'customerid',
+  'employeeid',
+  'shipcity',
+  'shipcountry',
+  'shippeddate'
+];
+
+// suppliers
+const ALL_SUPPLIERS_COLUMNS = ['id, contactname, companyname'];
+```
+
+---
+### SELECTing Columns Solution (5/3/19)
 - https://frontendmasters.com/courses/sql-fundamentals/selecting-columns-solution/
+
+- the solutions are the same
+
+
+- there's a VSCode extension: `SQLTools`
+- lets you connect to different databases IE PG, MySQL
+- lets you see simple data in vscode tab
+
+- he showed how to see tables with the extension in VSCode
+- then also in pgAdmin4
+- if you want to a custom query, you can do `Schemas > Public > Clikc Query Tool`
+
+- *Recommended to use more dedicated tools like PgAdmin4 for advance queries*
+- *Otherwise just use the SQLtools*
 
 ---
 ### Filtering via WHERE clauses
