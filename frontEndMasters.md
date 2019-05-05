@@ -3210,7 +3210,8 @@ describe('authentication', () => {
 
 # SQL Fundamentals /w Mike North
 - https://frontendmasters.com/courses/sql-fundamentals/
-- [Slides and Code](https://github.com/mike-works/sql-fundamentals)
+- [Code Repo](https://github.com/mike-works/sql-fundamentals)
+- [Slides](https://drive.google.com/file/d/17DckYclE6PJ2b42dMO-zVB_5WAk-bYYj/view)
 
 ## A) Foundations of Relational Databases
 ---
@@ -3372,34 +3373,295 @@ const ALL_SUPPLIERS_COLUMNS = ['id, contactname, companyname'];
 
 - he showed how to see tables with the extension in VSCode
 - then also in pgAdmin4
-- if you want to a custom query, you can do `Schemas > Public > Clikc Query Tool`
+- if you want to a custom query, you can do `Schemas > Public > Click Query Tool`
 
 - *Recommended to use more dedicated tools like PgAdmin4 for advance queries*
 - *Otherwise just use the SQLtools*
 
 ---
-### Filtering via WHERE clauses
+### Filtering via WHERE clauses (5/4/19)
 - https://frontendmasters.com/courses/sql-fundamentals/filtering-via-where-clauses/
 
+- **WHERE CLAUSE**
+- used to filter result set with a condition
+`SELECT firstname, lastname FROM Employee WHERE lastname = 'Leverling'`
+- the condition aka predicate is `lastname = 'Leverling'
+- be careful not to use Double quote because that would mean special characters or column
+
+- **Other conditions**
+- `>, <, >=, <=, =`
+- Not equal: `<>` or `!=`
+- `BETWEEN` is within a range
+- `IN` is member of a set
+- `LIKE` matches a string
+- string ends with `email LIKE '%.gov'`
+- string includes `summary LIKE '%spicy%'`
+- string length `billing_state LIKe '__'`
+
+- *Postgres includes ILIKE which is case insensitive LIKE*
+
+- **AND, OR, NOT**
+- `AND`, `OR`, `NOT`
+- boolean operators we can use in predicate
+`SELECT productname FROM product WHERE (unitprice > 60 AND unitsinstock > 20)`
+
+- **CORE FUNCTIONS**
+- each DB has own set of core functions but all slightly different
+- some are synonymous (lower, max, min, count, substr, etc...)
+- we can use them in a comparison or as an additional column
+- `AS` helps create an alias
+`SELECT productname FROM Product WHERE lower(productname) LIKE '%dried%'`
+`SELECT lower(productname) AS label FROM Product`
+
+- **DEBUGGING CONDITIONS**
+- conditions can be evaluated directly with a SELECT statement
+- so it doesn't only have to be used with tables but also with testing statements
+`SELECT 'mike@example.com' LIKE '%@example.com'; -- TRUE`
+`SELECT 'mike@gmail.com' LIKE '%@example.com'; --FALSE`
+
 ---
-### Filtering via WHERE Exercise
+### Filtering via WHERE Exercise (5/4/19)
 - https://frontendmasters.com/courses/sql-fundamentals/filtering-via-where-exercise/
+
+- in `./src/data/products.js`
+- `npm run test:ex:watch 2`
+
+- **TASKS**
+- we need add filters for
+1) discontinued products
+2) to reorder when (Product.unitsinstock + Product.unitsonorder) < Product.reorderlevel
+- I did not know how to do this
 
 ---
 ### Filtering via WHERE Solution
 - https://frontendmasters.com/courses/sql-fundamentals/filtering-via-where-solution/
 
+- **PRODUCTS SOLUTION**
+- in `./src/data/products`
+- we added a whereClause variable to hold a string to add on our query call
+```js
+/*
+ getAllProducts();
+ getAllProducts({ filter: { inventory: 'discontinued' } });
+ getAllProducts({ filter: { inventory: 'needs-reorder' } });
+ */
+export async function getAllProducts(opts = {}) {
+  const db = await getDb();
+  let whereClause = '';
+  if (opts.filter && opts.filter.inventory) {
+    switch (opts.filter.inventory) {
+      case 'discontinued':
+        whereClause = 'WHERE discontinued = 1';
+        break;
+      case 'needs-reorder':
+        whereClause = 'WHERE discontinued = 0 AND ((unitsinstock + unitsonorder) < reorderlevel)';
+        break;
+    }
+  }
+  return await db.all(sql`
+SELECT ${ALL_PRODUCT_COLUMNS.join(',')}
+FROM Product ${whereClause}`);
+}
+```
+
+- **CUSTOMER SOLUTION**
+- in `./src/data/customers`
+- where need to use lower to lowercase both the string and the column name to standardize with database
+- we use `%` in order to match where strings include
+- else, we would be searching for strings with those exact letters
+```js
+/*
+  getAllCustomers();
+  getALLCustomers({ filter: 'Mike' })
+*/
+export async function getAllCustomers(options = {}) {
+  const db = await getDb();
+  let whereClause = '';
+  if (options.filter) {
+    whereClause = `WHERE lower(companyname) LIKE lower('%${options.filter}%')
+    OR lower(contactname) LIKE lower('%${options.filter}%')`;
+  }
+
+  return await db.all(sql`
+SELECT ${ALL_CUSTOMERS_COLUMNS.join(',')}
+FROM Customer ${whereClause}`);
+}
+```
+
 ---
-### LIMITing and ORDERing the result set
+### LIMITing and ORDERing the result set (5/5/19)
 - https://frontendmasters.com/courses/sql-fundamentals/limiting-and-ordering-the-result-set/
 
----
-### LIMIT AND ORDER EXERCISE
-- https://frontendmasters.com/courses/sql-fundamentals/limit-and-order-exercise/
+- **ORDER BY CLAUSE**
+- `ORDER BY` clauase declares desired sorting of the result set
+- `ASC`, `DESC` specifies sort direction
+- `SELECT productname, unitprice FROM Product ORDER BY unitprice DESC`
+
+- multiple sorts and directions can be done with separated commas
+- `SELECT productname, unitprice FROM WHERE unitprice BETWEEN 9.6 AND 11 ORDER BY unitprice ASC, productname DESC`
+
+- **LIMIT CLAUSE**
+- when dealing with large data, we can limit amount of results
+- the limiting process can be performant if we don't sort results
+- limiting & sorting does reduce performance because DB still needs to run through all results and limit the results you specified
+`SELECT productname, unitprice FROM Product ORDER BY unitprice DESC LIMIT 3`
+
+- **OFFSET CLAUSE**
+- we can start with Nth result
+- we can paginate by using LIMIT and OFFSET
+- think of limit as the window of data you are looking at
+- think of offset as the shift of that window to specific data set
 
 ---
-### LIMIT And ORDER Solution
+### LIMIT AND ORDER EXERCISE (5/5/19)
+- https://frontendmasters.com/courses/sql-fundamentals/limit-and-order-exercise/
+
+- we need to:
+- click on column header to sort orders
+- take `opts.sort` and `opts.order` into account
+- fix `getCustomerOrders`
+
+- in `./src/data/orders.js`
+- `npm run test:ex:watch 3`
+
+- **MY ATTEMPT**
+```js
+/*
+getAllOrders({ sort: 'shippeddate', order: 'desc'});
+getAllOrders({ sort: 'customerid', order: 'asc' });
+*/
+export async function getAllOrders(opts = {}) {
+  // Combine the options passed into the function with the defaults
+
+  /** @type {OrderCollectionOptions} */
+  let options = {
+    ...DEFAULT_ORDER_COLLECTION_OPTIONS,
+    ...opts
+  };
+  let sortClause = '';
+  let orderClause = '';
+  let limitClause = '';
+  let offsetClause = '';
+  if (opts && opts.sort) {
+    sortClause = `ORDER BY ${opts.sort}`;
+  }
+  if (opts && opts.order) {
+    orderClause = `${opts.order}`;
+  }
+  if (opts && opts.perPage) {
+    limitClause = `LIMIT ${opts.perPage}`;
+  }
+  if (opts && opts.perPage && opts.page) {
+    offsetClause = `OFFSET ${opts.perPage * opts.page}`;
+  }
+
+  const db = await getDb();
+  return await db.all(sql`
+SELECT ${ALL_ORDERS_COLUMNS.join(',')}
+FROM CustomerOrder ${sortClause} ${orderClause} ${limitClause} ${offsetClause}`);
+}
+
+/**
+ * Retrieve a list of CustomerOrder records associated with a particular Customer
+ * @param {string} customerId Customer id
+ * @param {Partial<OrderCollectionOptions>} opts Options for customizing the query
+ */
+/*
+getAllOrders({ page: 3, perPage: 25 });
+getCustomerOrders('ALFKI', { page: 5, perPage: 10 });
+*/
+export async function getCustomerOrders(customerId, opts = {}) {
+  // ! This is going to retrieve ALL ORDERS, not just the ones that belong to a particular customer. We'll need to fix this
+  if (customerId) {
+    opts.sort = `WHERE customerid=${customerId}`;
+  }
+  return getAllOrders(opts);
+}
+```
+
+---
+### LIMIT And ORDER Solution (5/5/19)
 - https://frontendmasters.com/courses/sql-fundamentals/limit-and-order-solution/
+
+- **LECTURE SOLUTION**
+- think of adding variables: `whereClause`, `sortClause`, and `paginationClause`
+- *the clause ordering of the query is important*
+- think that `orderby` and then `limit/offset` is the right order to tack them on
+
+- notice that we also have default sorts for different functions
+- `getAllOrders` by id, asc
+- `getCustomerOrders` by shippeddate, asc
+
+- I had to also add `/** @type {OrderCollectionOptions} */` to the `getCustomerOrders` function because it's a typescript thing
+
+```js
+const DEFAULT_ORDER_COLLECTION_OPTIONS = Object.freeze(
+  /** @type {OrderCollectionOptions}*/ ({
+    order: 'asc',
+    page: 1,
+    perPage: 20,
+    sort: 'id'
+  })
+);
+
+/**
+ * Retrieve a collection of "all orders" from the database.
+ * NOTE: This table has tens of thousands of records, so we'll probably have to apply
+ *    some strategy for viewing only a part of the collection at any given time
+ * @param {Partial<OrderCollectionOptions>} opts Options for customizing the query
+ * @returns {Promise<Order[]>} the orders
+ */
+/*
+getAllOrders();
+getAllOrders({ sort: 'shippeddate', order: 'desc'});
+getAllOrders({ sort: 'customerid', order: 'asc' });
+getAllOrders({ page: 3, perPage: 25 });
+getCustomerOrders('ALFKI', { page: 5, perPage: 10 });
+*/
+export async function getAllOrders(opts = {}, whereClause = '') {
+  // Combine the options passed into the function with the defaults
+
+  /** @type {OrderCollectionOptions} */
+  let options = {
+    ...DEFAULT_ORDER_COLLECTION_OPTIONS,
+    ...opts
+  };
+
+  const db = await getDb();
+  let sortClause = '';
+  let paginationClause = '';
+
+  if (options.sort && options.order) {
+    sortClause = `ORDER BY ${options.sort} ${options.order.toUpperCase()}`;
+  }
+  if (typeof options.page !== 'undefined' && options.perPage) {
+    paginationClause = `LIMIT ${options.perPage} OFFSET ${(options.page - 1) * options.perPage}`;
+  }
+
+  return await db.all(sql`
+SELECT ${ALL_ORDERS_COLUMNS.join(',')}
+FROM CustomerOrder ${whereClause}
+${sortClause}
+${paginationClause}`);
+}
+
+/**
+ * Retrieve a list of CustomerOrder records associated with a particular Customer
+ * @param {string} customerId Customer id
+ * @param {Partial<OrderCollectionOptions>} opts Options for customizing the query
+ */
+export async function getCustomerOrders(customerId, opts = {}) {
+  /** @type {OrderCollectionOptions} */
+
+  // ! This is going to retrieve ALL ORDERS, not just the ones that belong to a particular customer. We'll need to fix this
+  let options = {
+    ...{ page: 1, perPage: 20, sort: 'shippeddate', order: 'asc' },
+    ...opts
+  };
+
+  return getAllOrders(options, `WHERE customerid = '${customerId}'`);
+}
+```
 
 ---
 ## C) Querying Across Tables
