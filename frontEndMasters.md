@@ -3836,16 +3836,177 @@ WHERE od.orderid = $1`,
 ```
 
 ---
-### Aggregate Functions and GROUP BY
+### Aggregate Functions and GROUP BY (5/7/19)
 - https://frontendmasters.com/courses/sql-fundamentals/aggregate-functions-and-group-by/
 
----
-### Aggregate Functions and GROUP BY Exercise
-- https://frontendmasters.com/courses/sql-fundamentals/aggregate-functions-and-group-by-exercise/
+- perform a calculation on a set of values
+- each RDBMS has its own functions
+- like SUM, COUNT, MIN/MAX, AVG
+
+- we could GROUP BY situations:
+1) total spent by customerid
+```sql
+select c.id, c.name, sum(o.amount)
+FROM CustomerOrder AS o
+INNER JOIN Customer AS c
+  ON o.customerid = c.id
+GROUP BY c.id
+```
+2) total spent by month
+```sql
+SELECT month, sum(amount)
+FROM CustomerOrder
+GROUP BY month
+```
+3) total spent by customerid, by month
+```sql
+SELECT customerid, month, sum(amount)
+FROM CustomerOrder
+GROUP BY month, customerid
+```
+
+- **CAUTION**
+- you need to tie in the `customerid` in this example since it doesn't know how it relates to the data
+```sql
+SELECT month, customerid, sum(amount)
+FROM CustomerOrder
+GROUP BY month
+
+/* ERROR: column
+"CustomerOrder.customerid"
+must appear in the GROUP BY
+clause or be used in an
+aggregate function
+*/
+```
+
+- there are many aggregate functions in different databases IE [PG Aggregate](https://www.postgresql.org/docs/current/functions-aggregate.html)
+- beware that some DB like MySQL doesn't aggregate in the same order so you have to set the order also
+
+- **WHERE VS HAVING**
+- `WHERE` clause is to examine individual row. It can't be used with an aggregate function.
+- `HAVING` clause should be used instead and happens after the `GROUP BY`
+- it's a 2nd filtering step essentially
+- you can use both clauses in 1 query
+
+```sql
+-- Bad usage
+SELECT month,
+sum(amount) AS month_sum
+FROM CustomerOrder
+WHERE month_sum >= 300
+GROUP BY month
+
+-- Good usage
+SELECT month,
+sum(amount) AS month_sum
+FROM CustomerOrder
+GROUP BY month
+HAVING sum(amount) >= 300
+```
+
+- **SUBQUERY**
+- a select query that is nested in another query
+- can't mutate data and can only select
+- some RDBMS doesn't support ORDER BY within subquery
 
 ---
-### Aggregate Functions and GROUP BY Solution
+
+### Aggregate Functions and GROUP BY Exercise (5/7/19)
+- https://frontendmasters.com/courses/sql-fundamentals/aggregate-functions-and-group-by-exercise/
+
+- `npm run test:ex:watch 5`
+- use aggregate function and GROUP BY to calculate
+1) Order: subtotal
+2) Supplier: productlist (concatenate Product.productname strings)
+3) Employee: ordercount
+4) Customer: ordercount
+
+---
+### Aggregate Functions and GROUP BY Solution (5/7/19)
 - https://frontendmasters.com/courses/sql-fundamentals/aggregate-functions-and-group-by-solution/
+
+- **ORDERS SOLUTION**
+```js
+export async function getOrder(id) {
+  const db = await getDb();
+  return await db.get(
+    sql`
+SELECT co.*,
+  c.companyname AS customername,
+  e.lastname AS employeename,
+  sum( (1-od.discount) * od.unitprice * od.quantity) AS subtotal
+FROM CustomerOrder as co
+LEFT JOIN Customer AS c ON co.customerid = c.id
+LEFT JOIN Employee AS e ON co.employeeid = e.id
+LEFT JOIN OrderDetail AS od ON od.orderid = co.id
+WHERE co.id = $1
+GROUP BY co.id, c.companyname, e.lastname`,
+    id
+  );
+}
+```
+
+- **CUSTOMERS SOLUTION**
+```js
+export async function getAllCustomers(options = {}) {
+  const db = await getDb();
+  let whereClause = '';
+  if (options.filter) {
+    whereClause = `WHERE lower(companyname) LIKE lower('%${options.filter}%') OR
+    lower(contactname) LIKE lower('%${options.filter}%')`;
+  }
+  return await db.all(sql`
+SELECT ${ALL_CUSTOMERS_COLUMNS.map(x => `c.${x}`).join(',')},
+  count(co.id) as ordercount
+FROM Customer AS c
+LEFT JOIN CustomerOrder AS co ON co.customerid = c.id
+${whereClause}
+GROUP BY c.id`);
+}
+```
+
+- **EMPLOYEES SOLUTION**
+```js
+export async function getAllEmployees() {
+  const db = await getDb();
+  return await db.all(sql`
+SELECT
+  ${ALL_EMPLOYEES_COLUMNS.map(x => `e.${x}`).join(',')},
+  count(co.id) AS ordercount
+FROM Employee AS e
+LEFT JOIN CustomerOrder AS co ON co.employeeid = e.id
+GROUP BY e.id`);
+}
+```
+
+- **SUPPLIES SOLUTION**
+```js
+export async function getAllSuppliers() {
+  const db = await getDb();
+  let productList = '';
+
+  switch (process.env.DB_TYPE) {
+    case 'mysql':
+      productList = sql`group_concat(p.productname ORDER BY p.productname DESC SEPARATOR ', ')`;
+      break;
+    case 'pg':
+      productList = sql`string_agg(p.productname, ', ')`;
+      break;
+    case 'sqlite':
+    default:
+      productList = sql`group_concat(p.productname, ', ')`;
+      break;
+  }
+
+  return await db.all(sql`
+SELECT ${ALL_SUPPLIERS_COLUMNS.map(x => `s.${x}`).join(',')},
+  ${productList} AS productlist
+FROM Supplier AS s
+LEFT JOIN (SELECT * FROM Product ORDER BY productname DESC) AS p ON p.supplierid = s.id
+GROUP BY s.id`);
+}
+```
 
 ---
 ## D) Creating, Updating, and Deleting
