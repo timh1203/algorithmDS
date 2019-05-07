@@ -3664,18 +3664,176 @@ export async function getCustomerOrders(customerId, opts = {}) {
 ```
 
 ---
-## C) Querying Across Tables
+## C) Querying Across Tables (5/6/19)
 ---
 ### Relationships & Joins
 - https://frontendmasters.com/courses/sql-fundamentals/relationships-joins/
 
----
-### JOIN Exercise
-- https://frontendmasters.com/courses/sql-fundamentals/join-exercise/
+- he gave the examples of the orders, customers, employees
+- the orders belongs to the customer and the customer has many orders
+- the orders also belong to employee and employee has many orders
+
+- the orders table would be a junction table containing the customerid and the employeeid
+
+- *relational databases do not come from these relationships but from the relational algebra we covered at the beginning*
+
+- **JOINS**
+- the joining is done on a related column between the tables
+- four types of join, that differ in terms of how "incomplete" matches are handled
+
+- *INNER JOIN*
+- TAKEAWAY: when we need exact matches of both the left table  and right table IE orders and customers
+- only rows that have "both ends" of the match will be selected
+- incomplete matches are completely omitted
+- inner join will only give you complete matches
+
+```sql
+SELECT *
+FROM CustomerOrder AS o
+INNER JOIN Customer AS c
+  ON o.customerid = c.id
+```
+
+- *LEFT JOIN*
+- TAKEAWAY: appropriate when you're trying to resolve something on the left table
+- rows from left of join will be selected no matter what
+
+- *RIGHT JOIN*
+- rows from right of join will be selected no matter what
+- SQLite does not support right join because you can just do it with left joins from the other side
+
+- *FULL JOIN*
+- TAKEAWAY: good if you want to audit
+- will include everything
+- there will be gaps for ones that are incomplete
+- we will use a foreign key to validate if a value exists, more to come
+
+- **OUTER JOINS**
+- LEFT, RIGHT, and FULL are referred as outer joins because one or more rows may be partially empty, due to not having a corresponding match in the other table
+
+
+- **JOIN - SELECTING COLUMNS***
+- important for us to use aliases since columns from different tables might have the same column name like `id`
+- SELECT * is generally a bad idea, and it's particularly dangerous in the context of a JOIN
+- choose columns with care, and alias any duplicates
+```sql
+SELECT o.id, o.customerid, o.amount, c.name
+FROM CustomerORDER AS o
+INNER JOIN Customer AS c
+  on o.customerid = c.id
+```
 
 ---
-### JOIN Solution
+### JOIN Exercise (5/6/19)
+- https://frontendmasters.com/courses/sql-fundamentals/join-exercise/
+
+- `npm run test:ex:watch 4`
+- product list: suppliers, categories (replace supplier ids and category ids to suppliername and categoryname)
+- order list: customers and employees (we want names instead of ids)
+- order: customer, employee and products (replace customer id, employee id, and product ids to customer name, employeename, and productname)
+
+- Alter the relevant queries to include one or more JOINs so that these Ids are replaced with the relevant human-readable name
+
+- I didn't know how to do the exercise
+
+---
+### JOIN Solution (5/6/19)
 - https://frontendmasters.com/courses/sql-fundamentals/join-solution/
+
+- **PRODUCTS SOLUTION**
+- `p.*` means select all columns from p
+```js
+// products.js
+export async function getAllProducts(opts = {}) {
+  const db = await getDb();
+  let whereClause = '';
+  if (opts.filter && opts.filter.inventory) {
+    switch (opts.filter.inventory) {
+      case 'discontinued':
+        whereClause = 'WHERE discontinued = 1';
+        break;
+      case 'needs-reorder':
+        whereClause = 'WHERE discontinued = 0 AND ((unitsinstock + unitsonorder) < reorderlevel)';
+        break;
+    }
+  }
+  return await db.all(sql`
+SELECT ${ALL_PRODUCT_COLUMNS.map(x => `p.${x}`).join(',')},
+  s.contactname AS suppliername,
+  c.categoryname
+FROM Product AS p
+LEFT JOIN Supplier AS s
+  ON p.supplierid = s.id
+LEFT JOIN Category as c
+  ON p.categoryid = c.id
+  ${whereClause}`);
+}
+```
+
+- **ORDERS SOLUTION**
+- there were a lot of things going on here, so rewatch the video
+- it started failing ex 3 again
+- the `map()` is a higher order function to tack on co. so it can clarify which table was aliased
+```js
+// orders.js
+export async function getAllOrders(opts = {}, whereClause = '') {
+  /** @type {OrderCollectionOptions} */
+  let options = {
+    ...DEFAULT_ORDER_COLLECTION_OPTIONS,
+    ...opts
+  };
+
+  const db = await getDb();
+  let sortClause = '';
+  let paginationClause = '';
+
+  if (options.sort && options.order) {
+    sortClause = `ORDER BY co.${options.sort} ${options.order.toUpperCase()}`;
+  }
+  if (typeof options.page !== 'undefined' && options.perPage) {
+    paginationClause = `LIMIT ${options.perPage} OFFSET ${(options.page - 1) * options.perPage}`;
+  }
+
+  return await db.all(sql`
+SELECT ${ALL_ORDERS_COLUMNS.map(x => `co.${x}`).join(',')},
+  c.companyname AS customername,
+  e.lastname AS employeename
+FROM CustomerOrder AS co
+${whereClause}
+LEFT JOIN Customer AS c ON co.customerid = c.id
+LEFT JOIN Employee AS e ON co.employeeid = e.id
+${sortClause}
+${paginationClause}`);
+}
+
+export async function getOrder(id) {
+  const db = await getDb();
+  return await db.get(
+    sql`
+SELECT co.*,
+  c.companyname AS customername,
+  e.lastname AS employeename
+FROM CustomerOrder as co
+LEFT JOIN Customer AS c ON co.customerid = c.id
+LEFT JOIN Employee AS e ON co.employeeid = e.id
+WHERE co.id = $1`,
+    id
+  );
+}
+
+export async function getOrderDetails(id) {
+  const db = await getDb();
+  return await db.all(
+    sql`
+SELECT od.*, od.unitprice * od.quantity as price,
+    p.productname
+FROM OrderDetail AS od
+LEFT JOIN Product AS p ON od.productid = p.id
+WHERE od.orderid = $1`,
+    id
+  );
+}
+```
 
 ---
 ### Aggregate Functions and GROUP BY
