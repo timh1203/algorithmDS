@@ -4081,3 +4081,148 @@ GROUP BY s.id`);
 ---
 ## Wrap Up and Q&A
 - https://frontendmasters.com/courses/sql-fundamentals/wrap-up-and-q-a/
+
+---
+
+# Introduction to Node.js /w Scott Moss
+- [Github Repo](https://github.com/FrontendMasters/intro-node-js)
+- [Slides](https://slides.com/scotups/deck/fullscreen)
+- [Course Transcript](https://static.frontendmasters.com/assets/courses/2018-11-28-node-js/transcripts.zip)
+
+## A) Introduction
+---
+### Course Overview (5/7/19)
+- https://frontendmasters.com/courses/node-js/course-overview/
+
+- course is based on javascript
+- his approach is very practical
+
+---
+### What is Node.js (5/7/19)
+- https://frontendmasters.com/courses/node-js/what-is-node-js/
+
+- node.js is an environment to run javascript outside a browser
+- open source runtime
+- built on Chrome's V8 JS engine (like Mozilla's SpiderMonkey or Safari's WebKit)
+- created by Ryan Dhal in 2009
+- has evolved and has a huge community
+- 90% of the packages exist already, cohesive environment with javascript
+- it's not a complete package like ruby but most of the community has built similar packages in Node already
+
+- **SINGLE THREAD**
+- nodejs is not great for high CPU intense operations like large arithmetic, machine learning, or reading file systems synchronously
+- single threaded with an event loop and asynchronous
+- Python in comparison is multi-thread and blocking
+- makes node good for high concurrency but bad on high CPU bound task
+
+---
+### Creating with Node.js (5/7/19)
+- https://frontendmasters.com/courses/node-js/creating-with-node-js/
+
+- pretty much anything a scripting language that Python or Ruby can, except with Javascript
+
+- Tooling (build, automation, etc)
+- API's (REST, Realtime, etc)
+- can create REST APIs, GraphQL APIs, Web Sockets
+- CDNs, use to be in a lower level language
+- Shareable libraries, some people maintain libraries as their main job
+- desktop applications
+- IOT, raspberry pie and you can make anything
+- Pretty much anything because node is on everything now
+
+- **USING IN PRODUCTION AND SECURITY**
+- Node have internal modules 
+- You have to rely on the community for other features
+- takeway, if a package has a healthy following, it can be trustworthy
+- big companies do you use NPMs
+- other companies won't
+- some people will fork it to add their own code
+- you can also lock to current versions if you choose to
+
+---
+### Installing Node.js (5/7/19)
+- https://frontendmasters.com/courses/node-js/installing-node-js/
+
+- Install from node version manager
+- Scott recommends use NVM going forward
+- it allows you to have many versions of nodes and cause problem with permissions errors
+- you need to be able to switch different versions for testing, deployment, etc.
+
+- you can also use docker, another way to download everything
+
+---
+### Running Node.js Code (5/7/19)
+- https://frontendmasters.com/courses/node-js/running-node-js-code/
+
+- 2 ways to eval code
+1) Interactive REPL - just for testing and playing around
+- you just type `node` to start it
+- then you can start writing javascript
+
+2) CLI Executable - use to execute your node apps
+- `node <path to your file>`
+
+---
+### Installing Node.js from the source (5/7/19)
+- https://frontendmasters.com/courses/node-js/installing-node-js-from-the-source/
+
+- recommends we use LTS or even versions since they have features that will be kept
+- current node version in this video is 10
+
+- he went through the website and showed how to install from the website
+
+---
+### Installing Node.js with NVM (5/7/19)
+- https://frontendmasters.com/courses/node-js/installing-node-js-with-nvm/
+- [Node Version Manager](https://github.com/nvm-sh/nvm#installation)
+
+- **INSTALL NVM**
+- You just have to run the install script from that repo IE `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`
+
+- **INSTALL LATEST NODE**
+- `nvm install node` to install node
+- `nvm alias default node` helps you from having to type node <version #> everytime (I didn't have to do this)
+- I installed v 12.2.0 and it also created default node version for me
+
+---
+### Install and Run Node.js Exercise (5/7/19)
+- https://frontendmasters.com/courses/node-js/install-and-run-node-js-exercise/
+
+1) Install nodejs
+2) Verify Installation
+3) Use the Node REPL and write some JS
+4) Use the node CLI executable against a .js file
+
+---
+### Checking Install & Running Node.js Solution (5/7/19)
+- https://frontendmasters.com/courses/node-js/checking-install-running-node-js-solution/
+
+- use `which node` to see if you're using the nvm, it should have .nvm in the path
+- by default, NVM should have deleted the other source Node installation for you
+- he doesn't recommend using the older version of node
+
+- `.bashrc` and `.bashprofile` are config files
+
+- I had to add to my `.zshrc` file to make it run the scripts on every run for iTerm:
+```
+export NVM_DIR=~/.nvm
+source ~/.nvm/nvm.sh
+```
+
+- `touch` to create a new empty file
+- `code` to open up the file
+
+---
+## B) Node.js Modules
+
+---
+## C)Internal Modules & npm
+
+---
+## D) Asynchronous Node
+
+---
+## E) Debugging & Testing
+
+---
+## F) Publishing and Deploying
