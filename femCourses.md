@@ -4214,6 +4214,215 @@ source ~/.nvm/nvm.sh
 
 ---
 ## B) Node.js Modules
+---
+### Browser JavaScript vs Node.js (5/8/19)
+- https://frontendmasters.com/courses/node-js/browser-javascript-vs-node-js/
+- [Can I Use](https://caniuse.com/)
+
+- **BROWSER VS NODEJS**
+- *BROWSER*
+- Browser builds interactive apps for the web
+- DOM
+- Window
+- Fragmentation (Doesn't work on some browsers)
+- optional modules (es6)
+- cannot access filesystem
+- async
+
+- *NODE*
+- Node build server side apps and scripts
+- Nope, no GUI (can virtualize)
+- No window, but does have a global
+- Versioned, so no fragmentation
+- required modules (commonjs+)
+- can access filesystem
+- async
+- no browser based api
+
+---
+### Globals in Node.js (5/8/19)
+- https://frontendmasters.com/courses/node-js/globals-in-node-js/
+
+- node doesn't have a window but has a global
+- do not create your own
+
+- **POPULAR GLOBALS**
+- *process* - has information about the environment that the program is running in
+- *require* = function to find and use modules in current module, how you pull in packages aka import
+- *__dirname* = the current directory path
+- *module* = sibling of require, information about current module, methods for making module consumable, it's how you export packages
+- *global* - like window, its the "global" object. Almost NEVER use this
+- many more...
+
+---
+### Node.js Modules (5/8/19)
+- https://frontendmasters.com/courses/node-js/node-js-modules/
+- [CommonJS docs](https://requirejs.org/docs/commonjs.html)
+- modules is packaged javascript and is encapsulated code
+- there use to be the past about building modules in the past, now we have COMMONJS, AMD, ES6 Modules
+
+- there more than 5 globals but the 5 most common ones that are wrapped with each files are: `exports`, `require`, `module`, `__filename`, `__dirname`
+- these are injected to each file and there are specific to each instance of the file where are the other globals exist on the global scope like setTimout(),etc.
+
+- You don't have to master commonjs because node is is moving over to es6
+- modules is the only way to share code between files since we don't have script tags like in the browser
+
+- **OTHER MODULES**
+- ESM (exmascript modules) but needs a transpiler and it's the new standard going to replace commonjs
+- AMD (pretty much dead)
+- there are otheres but don't matter
+
+---
+### Creating Node Modules (5/8/19)
+- https://frontendmasters.com/courses/node-js/creating-node-modules/
+
+- all your node.js codes is already a module since it gets wrapped automatically like we talked in the previous lesson
+- as the author, you decide how and what to expose from your modules, to other modules
+- except when you test, you have to export everything
+
+- **EXPORT EXAMPLE**
+- you do this with the module global object provided you by the Nodejs runtime
+- don't ever use `export` export
+- there is no specific default export way to export everything but is possible
+- can't export multiple modules in a file, the latest will overwrite previous
+- but you can use `module.exports.more`
+
+```js
+const add = (num, num2) => {}
+const notPublic = () => {}
+
+module.exports = {add, thing() {}, value: 1}
+```
+
+---
+### Importing Node Modules (5/8/19)
+- https://frontendmasters.com/courses/node-js/importing-node-modules/
+
+- use `require` to consume the modules
+- Nodejs runtime injects another global you can use
+- takes the relative path to the module and synchronously loads whatever the target module exports
+
+- **EXAMPLE REQUIRE**
+- the modules that you make, you have to put `./` in front of it
+- node will create a tree to pull in needed modules and pulls everything needed before it runs `lib.action()` function
+- usually there is only one entry point in your app, usually `app.js`
+
+```js
+//lib.js
+module.exports = {
+  value: 1,
+  userIds: [1,2,3],
+  action() {
+    console.log('action')
+  }
+}
+
+// app.js
+const lib = require('./lib')
+lib.action()
+```
+
+---
+### Q&A: ES Modules & Latest JS Features (5/8/19)
+- https://frontendmasters.com/courses/node-js/q-a-es-modules-latest-js-features/
+
+- you can use `webpack`, `parcel`, `browserify`, or `rollup` as a bundling tool to convert code for the web to understand for different browsers
+- Scott said that most of the time you only need `babel` and `typescript` with node but you can also use webpack with it
+- most of the time you don't need a bundled app with node
+
+- io.js was the predecessor to Node since they supported all the latest javascript updates, then io.js got merged into node.js
+- the problem now is having Node converted over to ES modules from commonjs modules without break past apps
+
+---
+### Convert Browser JavaScript Exercise (5/8/19)
+- https://frontendmasters.com/courses/node-js/convert-browser-javascript-exercise/
+
+- fork the repo
+- checkout `start` branch
+- check README on how to run test on exerise 2
+- task: fix and convert 3 js files in the exercises/modules/browser to Nodejs JavaScript and place them in exercises/modules/node
+- ensure all the tests pass
+
+- *hints*
+- order of scripts matter in html file: data, api, app
+- paste code in browser folder files into node folder files
+- use `npx jest` to run to test, add `--verbose` if you want to see the name of the tests
+- npx shipped with node
+
+- **MY ATTEMPT**
+- 6 tests passed
+```js
+// data.js
+module.exports = {
+	users: [{ id: 1, name: 'Weezy' }],
+	posts: [
+		{ title: 'yo', body: 'I ate today', createdBy: 1 },
+		{ title: 'Me', body: 'Look at my selfie', createdBy: 1 },
+		{ title: 'My doggy', body: 'my dog is better than yours', createdBy: 1 }
+	]
+};
+
+// api.js
+const data = require('./data');
+
+const getUserById = (id, cb) => {
+	// simulate API call
+	setTimeout(() => {
+		const user = data.users.find(user => user.id === id);
+		cb(user);
+	}, 150);
+};
+
+const getPostsForUser = (userId, cb) => {
+	// simulate API call
+	setTimeout(() => {
+		const posts = data.posts.filter(post => post.createdBy === userId);
+		cb(posts);
+	}, 150);
+};
+
+module.exports = { getUserById, getPostsForUser };
+
+// app.js
+const { getUserById, getPostsForUser } = require('./api');
+
+const showPostsForCurrentUser = (userId, cb) => {
+	getPostsForUser(userId, posts => {
+		const postTemplates = posts.map(post => {
+			return `
+      <div class="post">
+        ${post.title}
+        ${post.body}
+        ${post.createdBy}
+      </div>`;
+		});
+		cb(postTemplates);
+	});
+};
+
+const showUserProfile = (userId, cb) => {
+	getUserById(userId, user => {
+		const profile = `
+      <div>
+        ${user.name}
+      </div>
+    `;
+		cb(user);
+	});
+};
+
+module.exports = { showPostsForCurrentUser, showUserProfile };
+```
+
+---
+### Convert Browser JavaScript Solution (5/8/19)
+- https://frontendmasters.com/courses/node-js/convert-browser-javascript-solution/
+
+- we ran `npx jest` but we didn't learn npm yet
+- we just used a remote module called `jest`
+- node ships with NPM binary and NPX binary
+- npx allows you to run locally cli files installed in the project as global cli
+- so instead of typing the FULL path to the jest module in the node_modules directory, they built `npx` command to search and run it
 
 ---
 ## C)Internal Modules & npm
