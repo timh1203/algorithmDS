@@ -4425,7 +4425,85 @@ module.exports = { showPostsForCurrentUser, showUserProfile };
 - so instead of typing the FULL path to the jest module in the node_modules directory, they built `npx` command to search and run it
 
 ---
-## C)Internal Modules & npm
+## C) Internal Modules & npm
+---
+### The fs Module (5/9/19)
+- https://frontendmasters.com/courses/node-js/the-fs-module/
+
+- **COMMON SHIPPED MODULES**
+- there are modules that come shipped with Node
+- `fs` - how to interact with files
+- to reference them as an internal module, you use `require` and there's no dot
+```js
+const fs = require('fs');
+
+const file = fs.readFileSynce('./lib.js', {encoding: 'utf-8'}).toString() // reading a file
+
+fs.writeFileSync('./lib.js', 'var me= "me"') // writing a file
+```
+
+- *reading vs requiring it with a module system is that requiring will execute the file where as reading is just getting the string*
+- behavior of Node for synchronous vs async is the same as the browser
+- however, async is more important in Node 
+
+- there are a lot of CLIs that are being made with FS
+- there are many other things to do especially if you're going to do automation tools
+
+---
+### Other Internal Node Modules (5/9/19)
+- https://frontendmasters.com/courses/node-js/other-internal-node-modules/
+
+- *modules work differently depending on what version of Node you're using*
+
+- `http` - low level-ish mdule for creating network based programs, like APIS
+- you will never almost never use this directly but might use other modules that use this
+- it's very difficult to manage
+- 
+
+- `path` - useful for manipulating path strings and handling differenes across many OS's
+- you use it basically any time you are using a path in a file other than the require module
+- the problem is that mac, windows, linux has different ways to write paths
+- works hand in hand with fs module
+- add `const path = require('path')`
+
+### Remote Modules (5/9/19)
+- https://frontendmasters.com/courses/node-js/remote-modules/
+
+- modules downloaded from the internet that someone else has made
+- the community has contributed tremendous growth to share/consume modules
+- apps can be built quickly by reusing public modules
+- beware of malicious code
+- you need a system to help with management of remote modules (downloading, publishing, updating, etc.)
+
+### Modules Recap (5/9/19)
+- https://frontendmasters.com/courses/node-js/modules-recap/
+
+- we talked about self-created modules, shipped modules, and remote modules
+- *CAUTION: don't use remote modules that have the same name as internal modules because they probably contain malicious code*
+
+- **EXAMPLES OF USING MODULES**
+```js
+var lib = require('../rel/path/to/lib') // for custom local modules, make sure to use "." first
+
+var lib require('lib') // remote module
+
+var fs = require('fs') // internal module
+```
+
+### NPM (5/9/19)
+- https://frontendmasters.com/courses/node-js/npm/
+- [Left Pad Article](https://www.theregister.co.uk/2016/03/23/npm_left_pad_chaos/)
+
+- NPM is node package manager
+- ships with nodes by default
+- allows you to publish, download, and update modules
+- uses `package.json` file in your Nodejs project to determine dependencies, basically contains all the meta info
+- `node_modules` is the directory where all your packages are kept
+
+- we went over strategies to make sure a module is legitimate
+- you shouldn't ever check in node modules into git, only the `package.json`
+- you would also have to use `--save` flag to save a package to save it to package.json for other users
+- `npm install` to install all the packages
 
 ---
 ## D) Asynchronous Node
