@@ -203,7 +203,7 @@ myList.shift(); // linear time
 ```js
 const isUnique = (arr) => {
   let result = true;
-  
+
   for (let i = 0; i < arr.length; i++) {
     console.log(`~~~~ OUTER LOOP ~~~~ i === ${i}`);
 
@@ -214,7 +214,7 @@ const isUnique = (arr) => {
       }
     }
   }
-  
+
   return result;
 };
 
@@ -233,7 +233,7 @@ console.log(isUnique([1,2,3]) === true);
 isUnique = (arr) => {
   const breadcrumbs = {};
   let result = true;
-  
+
   for (let i = 0; i < arr.length; i++) {
     console.log(`~~~~ LOOP ~~~~ i === ${i}`);
     if (breadcrumbs[arr[i]]) {
@@ -242,7 +242,7 @@ isUnique = (arr) => {
       breadcrumbs[arr[i]] = true;
     }
   }
-  
+
   return result;
 };
 
@@ -307,7 +307,7 @@ uniqSort([4,2,2,3,2,2,2]); // => [2,3,4]
 const uniqSort = function(arr) {
     const breadcrumbs = {};
     const result = [arr[0]];
-    
+
     for (let i = 0; i < arr.length; i++) { // start loop at 1 as element 0 can never be a duplicate
         if (!breadcrumbs[arr[i]]) { // constant
             result.push(arr[i]); // constant
@@ -397,7 +397,7 @@ const times10 = (n) => n * 10;
 console.log('~~~~~~~~~~~~~~TASK 1~~~~~~~~~~~~~~');
 console.log('times10 returns:', times10(9));
 
-// Task 2: Use an object to cache the results of your times10 function. 
+// Task 2: Use an object to cache the results of your times10 function.
 // protip 1: Create a function that checks if the value for n has been calculated before.
 // protip 2: If the value for n has not been calculated, calculate and then save the result in the cache object.
 
@@ -795,7 +795,7 @@ computeFactorial(5);
 // EXAMPLE A: Iterative Approach
 function logNumbers(start, end) {
   console.log(`iteratively looping from ${start} until ${end}`);
-  
+
   for(var i = start; i <= end; i++) {
     console.log('hitting index', i);
   }
@@ -806,7 +806,7 @@ logNumbers(1,2);
 // EXAMPLE A: Recursion Approach
 function logNumbersRecursively(start, end) {
   console.log(`recursively looping from ${start} until ${end}`);
-  
+
   function recurse(i) {
     console.log('hitting index', i);
     if(i < end) {
@@ -1000,7 +1000,7 @@ const calculate = (x) => {
 
 const memoize = (cb) => {
 	const cache = {}
-	
+
 	return (m) => {
 		if (m in cache) {
 			return cache[m];
@@ -1145,7 +1145,7 @@ function binarySearch(list, item) {
     }
     else {
       if (list[guess] < item) {
-        min = guess + 1; 
+        min = guess + 1;
       }
       else {
         max = guess - 1;
@@ -1313,7 +1313,7 @@ console.log(bubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
 
 - **MERGE SORT**
 - TASK: implement mergesort!
-- protip: Split the array into halves and merge them recursively 
+- protip: Split the array into halves and merge them recursively
 - protip: return once we hit an array with a single item. That is a sorted array of size 1!
 - protip: compare the arrays item by item and return the concatenated result
 - without comments
@@ -1345,7 +1345,7 @@ function merge(left, right) {
       indexRight++
     }
   }
-	
+
   return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
 }
 
@@ -1476,7 +1476,7 @@ bubbleSort(arrayReversed.slice());
 ```js
 //TASK: implement mergesort!
 
-// Split the array into halves and merge them recursively 
+// Split the array into halves and merge them recursively
 function mergeSort (arr) {
   if (arr.length === 1) {
     // return once we hit an array with a single item
@@ -1540,7 +1540,7 @@ console.log(mergeSort(list)) // [ 1, 2, 2, 3, 3, 3, 5, 6, 7, 8 ]
 
 - **PROBLEM**
 ```
-You are the banker in Monopoly with your family who has lost many of the game pieces so you only have bills in these denominations: 
+You are the banker in Monopoly with your family who has lost many of the game pieces so you only have bills in these denominations:
 
 $5 $10 $25
 
@@ -1725,7 +1725,7 @@ console.log(makeChange(12));
 
 # Testing React Applications v4 /w Kent C. Dodds
 
-## A) Introduction 
+## A) Introduction
 
 ---
 
@@ -1778,7 +1778,7 @@ console.log(makeChange(12));
 - can be a little bit slower and harder to integrate like network requests
 
 - **END-TO-END TESTS**
-- treating app as black box and take in user inputs and 
+- treating app as black box and take in user inputs and
 
 - **WHAT IS A JAVASCRIPT TEST?**
 - essentially when an error is thrown when something is wrong
@@ -3055,7 +3055,7 @@ import 'cypress-testing-library/add-commands'
 
 - we used `npm install --save-dev npm-run-all` is a script that lets you run multiple scripts in parallel
 - you have to do `npm run build` first
-- we add some scripts to package.json, 
+- we add some scripts to package.json,
 1) `"test:e2e:dev": "npm-run-all --parallel dev cy:open"`
 2) `"cy:open": "cypress open"`
 3) `"test:e2e": "npm-run-all --parallel --race start cy:run"`
@@ -4131,7 +4131,7 @@ GROUP BY s.id`);
 - Pretty much anything because node is on everything now
 
 - **USING IN PRODUCTION AND SECURITY**
-- Node have internal modules 
+- Node have internal modules
 - You have to rely on the community for other features
 - takeway, if a package has a healthy following, it can be trustworthy
 - big companies do you use NPMs
@@ -4437,14 +4437,14 @@ module.exports = { showPostsForCurrentUser, showUserProfile };
 ```js
 const fs = require('fs');
 
-const file = fs.readFileSynce('./lib.js', {encoding: 'utf-8'}).toString() // reading a file
+const file = fs.readFileSync('./lib.js', {encoding: 'utf-8'}).toString() // reading a file
 
 fs.writeFileSync('./lib.js', 'var me= "me"') // writing a file
 ```
 
 - *reading vs requiring it with a module system is that requiring will execute the file where as reading is just getting the string*
 - behavior of Node for synchronous vs async is the same as the browser
-- however, async is more important in Node 
+- however, async is more important in Node
 
 - there are a lot of CLIs that are being made with FS
 - there are many other things to do especially if you're going to do automation tools
@@ -4458,7 +4458,7 @@ fs.writeFileSync('./lib.js', 'var me= "me"') // writing a file
 - `http` - low level-ish mdule for creating network based programs, like APIS
 - you will never almost never use this directly but might use other modules that use this
 - it's very difficult to manage
-- 
+-
 
 - `path` - useful for manipulating path strings and handling differenes across many OS's
 - you use it basically any time you are using a path in a file other than the require module
@@ -4485,7 +4485,7 @@ fs.writeFileSync('./lib.js', 'var me= "me"') // writing a file
 ```js
 var lib = require('../rel/path/to/lib') // for custom local modules, make sure to use "." first
 
-var lib require('lib') // remote module
+var lib = require('lib') // remote module
 
 var fs = require('fs') // internal module
 ```
@@ -4504,6 +4504,136 @@ var fs = require('fs') // internal module
 - you shouldn't ever check in node modules into git, only the `package.json`
 - you would also have to use `--save` flag to save a package to save it to package.json for other users
 - `npm install` to install all the packages
+
+---
+### YARN (5/10/19)
+- https://frontendmasters.com/courses/node-js/yarn/
+
+- Yarn is the same tool as NPM and easier to use
+- made by facebook
+- you use `yarn add` instead
+- Yarn also had CDN to cache things, now NPM is doing it too
+- Yarn at the time also had version locking mechanism
+- it's related to yarnlock and npmlock files
+
+---
+### CLI with Node Exercise (5/10/19)
+- https://frontendmasters.com/courses/node-js/cli-with-node-exercise/
+
+- we are going to create a CLI program
+- it saves and retrieves contacts from and address book
+
+1) ✅ checkout to start branch
+2) ✅ install all remote modules (hint: use npm)
+3) ✅ Check the README on how to run your CLI
+4) ✅ Fix the CLI so that the "new" command works by saving contacts to contacts.json
+5) ✅ Fix the CLI so that the "list" command works by listing all contacts and allowing you to select one, the prints out the selected contact
+
+- `node exercises/cli/index.js new`
+- `node exercises/cli/index.js list`
+- we have to type out of the full path since we haven't packaged it up yet
+
+- **MY ATTEMPT**
+```js
+const fs = require('fs');
+const path = require('path');
+
+// this path needs to be relative to work with fs
+const contactsLocation = './contacts.json';
+
+/**
+ * should read the contacts at the
+ * @contactsLocation path and convert
+ * it to a js object
+ */
+const getContacts = () => {
+	const file = fs
+		.readFileSync(contactsLocation, { encoding: 'utf-8' })
+		.toString();
+	return JSON.parse(file);
+};
+
+/**
+ * takes a contacts object, converts it to JSON
+ * and saves it at the @contactsLocation path
+ * @param {Object} contacts contacts object
+ */
+const saveContacts = contacts => {
+	const newContacts = JSON.stringify(contacts);
+	return fs.writeFileSync(contactsLocation, newContacts);
+};
+
+module.exports = {
+	contactsLocation,
+	getContacts,
+	saveContacts
+};
+```
+
+---
+### CLI with Node Solution (5/10/19)
+- https://frontendmasters.com/courses/node-js/cli-with-node-solution/
+- [JSON Stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+- [Path internal module docs](https://nodejs.org/dist/latest-v10.x/docs/api/path.html#path_path_join_paths)
+
+- Talked about `SymVer` for node packages
+- it is a system that open source developers use to release their packages
+`^1.18.3` = 1st num means major change, 2nd means additional or fix change, 3 means patches or minors
+
+- we had to make sure to install `commander` and `inquirer` packages in `./cli/index.js` file
+- then we had to fix `utils.js`
+
+- path.join will connect the full path and file name for you so no relative paths are needed
+- a small trick to get JSON to format nicely is to use `JSON.stringify(contacts, null, 2)`
+
+- the difference between `path.resolve` vs `path.join`
+- resolve will look many levels upwards to find the correct path
+- join will help only to correct a generally correct path for you
+
+```js
+const fs = require('fs');
+const path = require('path');
+
+// this path needs to be relative to work with fs
+const contactsLocation = path.join(__dirname, 'contacts.json');
+
+/**
+ * should read the contacts at the
+ * @contactsLocation path and convert
+ * it to a js object
+ */
+const getContacts = () => {
+	const contacts = fs.readFileSync(contactsLocation).toString();
+	return JSON.parse(contacts);
+};
+
+/**
+ * takes a contacts object, converts it to JSON
+ * and saves it at the @contactsLocation path
+ * @param {Object} contacts contacts object
+ */
+const saveContacts = contacts => {
+	return fs.writeFileSync(contactsLocation, JSON.stringify(contacts, null, 2));
+};
+
+module.exports = {
+	contactsLocation,
+	getContacts,
+	saveContacts
+};
+```
+
+---
+### Commander Module for Building CLIs (5/10/19)
+- https://frontendmasters.com/courses/node-js/commander-module-for-building-clis/
+
+- `commander` is a hack around process and helps build out your CLI commands
+- `inquirer` is the package that ask you all the questions
+- inquirer uses the `prompts.js` to load up the question
+- argv are all the arguments you passed in
+- the 1st argument is always the path to the executable
+- the 2nd argument is always the path that is currently executing
+- after that is basically all the arguments you passed in
 
 ---
 ## D) Asynchronous Node
