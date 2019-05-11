@@ -4637,8 +4637,207 @@ module.exports = {
 
 ---
 ## D) Asynchronous Node
+---
+### Asynchronous Code in Node.js (5/11/19)
+- https://frontendmasters.com/courses/node-js/commander-module-for-building-clis/
+
+- ruby or python is multi-threaded
+- javascript is single-threaded and a single event loop just like a browser, and allows for high concurrency
+- callbacks, promises, async/await are ways we get notified of the results and dealing with this async behavior
+- nodejs app with be shared by all clients
+- now you have consider event loops that are CPU-intensive that block a single thread
 
 ---
+### Asynchronous Patterns (5/11/19)
+- https://frontendmasters.com/courses/node-js/asynchronous-patterns/
+- [Promises.all MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+
+- use async/await and it works great
+- async/await needs a try/catch block for handling errors
+- async/await is not truly blocking because if other requests were to come in and the current async/await request won't block that one
+- so it is still an asynchronous operation
+
+- the general patterns are:
+```js
+// CALLBACKS
+// callback takes error as first arg, and result as second
+doAsyncThing((error, result) => {})
+
+// PROMISES
+doAsyncThing()
+  .then(result => {})
+  .catch(error => {})
+
+// ASYNC/AWAIT
+const run = async () => {
+  const results = await doAsyncThing() // must return a promise
+  console.log('hello')
+}
+```
+- `promise.all` is a really good control flow for a group of promises
+- `bluebird` and other libraries are useful for promise controls also
+
+---
+### Error Handling (5/11/19)
+- https://frontendmasters.com/courses/node-js/error-handling/
+
+- any thrown or unhandled errors will cause the process to crash and exit
+- think of a server and if it crashes, all the users can't access your app
+
+- you app may have errors that should not cause a crash, so you must handle accordingly
+- so if there's an invalid authentication token or something from a user, you don't want your whole app to crash and notify the user
+
+---
+### Servers (5/11/19)
+- https://frontendmasters.com/courses/node-js/servers/
+
+- a server's job is to handle a request from some sort of client (browser, mobile app, another server, etc)
+
+- without considering scaling, one server instance will handle many client requests.
+
+- nodejs has built in and community packages for building all types of servers (API's, static, realtime, etc.)
+
+---
+### Asynchronous Server Exercise (5/11/19)
+- https://frontendmasters.com/courses/node-js/asynchronous-server-exercise/
+
+- Exercise 4: refactoring and fixing a simple static asset server
+- ✅ install all remote modules (hint: use npm)
+- ✅ Check the README on how to run your server
+- ✅ refactor the sync file reading code to be async with a callback, promise, or async await
+- ✅ prevent the server from crashing when an assets is not found. Instead, respond with a 404 status code
+- ✅ create some sort of router logic to handle incoming requests for assets
+
+- we are in `./exercises/api/server.js` and exercise 4
+- we need to turn the findAsset function to be async
+- it won't seem like it's blocking since we don't have many operations going on like a big server
+- start the server with `node exercises/api/server.js`
+
+- **MY ATTEMPT**
+- doesn't work, just an attempt
+```js
+const http = require('http');
+const url = require('url');
+const fs = require('fs');
+const path = require('path');
+
+/**
+ * this function is blocking, fix that
+ * @param {String} name full file name of asset in asset folder
+ */
+const findAsset = async name => {
+	const assetPath = await path.join(__dirname, 'assets', name);
+	return fs.readFileSync(assetPath, { encoding: 'utf-8' }).toString();
+};
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+// log incoming request coming into the server. Helpful for debugging and tracking
+const logRequest = (method, route, status) =>
+	console.log(method, route, status);
+
+const server = http.createServer(async (req, res) => {
+	const method = req.method;
+	const route = await url.parse(req.url).pathname;
+	// this is sloppy, espcially with more assets, create a "router"
+	try {
+		switch (route) {
+			case '/':
+				res.writeHead(200, { 'Content-Type': 'text/html' });
+				res.write(findAsset('index.html'));
+				logRequest(method, route, 200);
+				res.end();
+				break;
+		}
+	} catch (err) {
+		res.status(404).json(err);
+		return res.end();
+	}
+	// most important part, send down the asset
+});
+
+server.listen(port, hostname, () => {
+	console.log(`Server running at http://${hostname}:${port}/`);
+});
+```
+
+---
+### Asynchronous Server Solution (5/11/19)
+- https://frontendmasters.com/courses/node-js/asynchronous-server-solution/
+
+- a mime type is the information about what type of file is being serve so the browser can interpret it
+- `mime` npm package is a useful way to figure out what mime type something is
+- installed it and use `.getType()` to determine file type in code
+
+- TIP: server your static assets from a CDN
+
+- You can also use promisify utility
+- [util promisify](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original)
+```js
+const http = require('http');
+const url = require('url');
+const fs = require('fs');
+const path = require('path');
+const mime = require('mime');
+
+/**
+ * this function is blocking, fix that
+ * @param {String} name full file name of asset in asset folder
+ */
+const findAsset = name => {
+	const assetPath = path.join(__dirname, 'assets', name);
+	return new Promise((resolve, reject) => {
+		fs.readFile(assetPath, { encoding: 'utf-8' }, (error, result) => {
+			if (error) {
+				reject(error);
+			} else {
+				resolve(result);
+			}
+		});
+	});
+};
+
+const hostname = '127.0.0.1';
+const port = 3000;
+const router = {
+	'/ GET': {
+		asset: 'index.html',
+		mime: mime.getType('html')
+	},
+	'/style.css GET': {
+		asset: 'style.css',
+		mime: mime.getType('css')
+	}
+};
+
+// log incoming request coming into the server. Helpful for debugging and tracking
+const logRequest = (method, route, status) =>
+	console.log(method, route, status);
+
+const server = http.createServer(async (req, res) => {
+	const method = req.method;
+	const route = url.parse(req.url).pathname;
+	const match = router[`${route} ${method}`];
+
+	// this is sloppy, espcially with more assets, create a "router"
+	if (!match) {
+		res.writeHead(404);
+		logRequest(method, route, 404);
+		return res.end();
+	}
+	res.writeHead(200, { 'Content-Type': match.mime });
+	res.write(await findAsset(match.asset));
+	logRequest(method, route, 200);
+	res.end();
+	// most important part, send down the asset
+});
+
+server.listen(port, hostname, () => {
+	console.log(`Server running at http://${hostname}:${port}/`);
+});
+```
+
 ## E) Debugging & Testing
 
 ---
