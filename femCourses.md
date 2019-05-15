@@ -4838,7 +4838,77 @@ server.listen(port, hostname, () => {
 });
 ```
 
+---
 ## E) Debugging & Testing
+---
+### Debugging Node (5/14/19)
+- https://frontendmasters.com/courses/node-js/debugging-node/
+
+- debugging is just like chrome
+- LEVEL 1: console.log your way through and record your logs
+- there are a lot of tools for it
+- you would use this locally
+
+- LEVEL 2: use your node inspector when starting your app and debug like you would a browser app in chrome
+- add `--inspect` to your terminal like `node --inspect exercises/api/server.js`
+- the debugger will listen on the websocket
+- you can type in `chrome://inspect`, you can see Remote Target, click on inspect
+- you can use it to debug live
+
+- LEVEL 3: Text editor integration offers the most seamless experience
+- set it up in like VS Code, Atom, Webstorm
+- you can use `debugger`
+
+---
+### Testing Node Libraries (5/14/19)
+- https://frontendmasters.com/courses/node-js/testing-node-libraries/
+
+- Node testing has become a lot easier!
+- tests themselves are executed in Nodejs
+
+- you still have to export modules if you want to test them
+- there are other concerns specific to what libraries and frameworks you use like mocks, spies, stubs
+
+- you can test everything in node, even a browser app that test stuff on the DOM
+- Browser apps, API's, CLI's, scripts, tools, etc.
+- `js-dom` is another package that mocks DOM out
+- you can even test animations
+
+---
+### Anatomy of Tests (5/14/19)
+- https://frontendmasters.com/courses/node-js/anatomy-of-tests/
+
+- there's your code to be tested
+- `test suite` helps organize tests, provide hooks, and overall environments
+- `assertion library` does actual comparison in your tests
+- `mocks and spies` are tools to test your code without testing other code or actually running your code
+- spies is a way to test an internal function or a callback function
+- really advance concepts and might not need to get to this point
+
+---
+### Types of Tests (5/14/19)
+- https://frontendmasters.com/courses/node-js/types-of-tests/
+- [PhantomJS](https://github.com/ariya/phantomjs)
+- [Headless Chrome](https://developers.google.com/web/updates/2017/06/headless-karma-mocha-chai)
+
+- if you can write it, you can test it
+
+- `unit` is testing small blocks of code and not how all the code works as a whole
+- easiest to do and force you to write clean code
+- writing good unit tests can go far
+
+- `integration` is testing how things work with each other
+
+- `end to end` is testing the whole process from the client to the server and back
+- depends on your education
+
+- `UI` is like e2e but for the user interface
+
+- `snapshot` is take a picture of the DOM
+
+- `performance` is testing speed and ability like load testing
+
+- there are many more...
 
 ---
 ## F) Publishing and Deploying
