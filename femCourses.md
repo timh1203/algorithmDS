@@ -4911,4 +4911,62 @@ server.listen(port, hostname, () => {
 - there are many more...
 
 ---
+### Debugging & Testing Exercise (5/14/19)
+- https://frontendmasters.com/courses/node-js/debugging-testing-exercise/
+- [HTTPie](https://httpie.org/)
+
+- use debug to track down issues in small app
+- use logging and inspector
+- try to fix and write tests to make sure it stays fixed
+
+- **EXERCISE 5 TASKS**
+1) ✅ checkout to start branch
+2) ✅ check the README on how to execute this program and run test
+3) ✅ there are 3 bugs, find them and fix them
+4) ✅ write some unit test with Jest to make sure those bugs stay fixed. Refactor the code if you have to
+
+- **MY ATTEMPT**
+- open `exercise/testing/users.js`
+- there are some problems here
+- run server with `node exercises/testing/index.js`
+- tried but did not know
+
+---
+### Debugging & Testing Solution (5/15/19)
+- https://frontendmasters.com/courses/node-js/debugging-testing-solution/
+
+- it's difficult to debug another person's code
+- walk through every single line of code
+
+- can throw `debugger` and run `node --inspect exercises/testing/index.js`
+- we can click on inspect
+- now run a query and debug through it
+
+- first error was `req.id` needed a `.params`
+- second error was passing `user => user.id === _id` into the `findUser()` function which takes in an id
+- third error was was that id is a string by default so we needed to parseInt with the `fixId()` function
+```js
+// api.js
+app.get('/user/:id', async (req, res) => {
+	const id = req.params.id; // ERROR 1
+	// should ge user by given id in route param
+	const user = await users.findUser(id); // ERROR 2
+	res.status(200).send(user);
+});
+
+// user.js
+const fixId = id => parseInt(id);
+// simulate async db call with promise
+const findUser = id =>
+	new Promise((resolve, reject) => {
+		const _id = fixId(id);
+		const user = users.find(user => user.id === _id); // ERROR 3
+		if (user) {
+			return resolve(user);
+		}
+		reject(new Error(`No user with id "${_id}"`));
+	});
+```
+
+---
 ## F) Publishing and Deploying
