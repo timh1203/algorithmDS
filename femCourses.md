@@ -5101,7 +5101,117 @@ const findUser = id =>
 - perfect for eCommerce applications
 - you can store data any way you want and validate too
 
+---
 ## B) Mongoose
+---
+### Schemas & Why Mongoose (5/18/19)
+- https://frontendmasters.com/courses/mongodb/schemas-why-mongoose/
+- [Mongoose ORM](https://mongoosejs.com/)
+- schemas are a way to validate data and keep your data consistent
+- it does not make it a relational database
+
+- **HOW TO CONNECT TO MONGO FROM NODE APP**
+- 1) native MongoDB driver or 2) Mongoose
+- Mongoose is Object Relational Mapper (ORM), synonymous like Sequelize or Bookshelf for PostgresQL
+- Mongoose is the de facto ORM for Mongo and supports newer features than MongoDB driver
+- Mongoose is better than DynomoDB
+
+---
+### Connecting to the Database (5/18/19)
+- https://frontendmasters.com/courses/mongodb/connecting-to-the-database/
+
+- make a new `test.js` in the root of the practice repo
+- returns a promise by default
+- there are other options but dependent on your needs
+- you might get a lot of warnings about deprecation warnings because mongoose is lagging behind
+- try your best to adhere to the warnings
+```js
+const mongoose = require('mongoose')
+
+const connect = () => {
+  return mongoose.connect('mongodb://localhost:27017/whatever') // the protocol for URL, hostname, explicit port with 27017 being default, name of the database
+}
+```
+
+---
+### Creating Schemas & Models (5/18/19)
+- https://frontendmasters.com/courses/mongodb/creating-schemas-models/
+
+- **CREATING A COLLECTION**
+- a schema doesn't do any but just a scaffold
+- can use javascript primitives in Mongo
+- models will help set up out database
+- CONVENTION:first argument in `mongoose.model` should be lower-cased and singular since mongoose will pluralrize it for us
+- CONVENTION: capitalize first lete for models
+```js
+const mongoose = require('mongoose')
+
+const connect = () => {
+  return mongoose.connect('mongodb://localhost:27017/whatever')
+}
+
+const student = new mongoose.Schema({
+  firstName: String
+})
+
+const Student = mongoose.model('student', student) // collection, schema
+```
+
+---
+### Creating a Mongo Document (5/18/19)
+- https://frontendmasters.com/courses/mongodb/creating-a-mongo-document/
+- [Launch Rocket](https://github.com/jimbojsb/launchrocket)
+
+- **INSERTING SOME QUERIES**
+- connect to a database before interacting
+- create a new student by declaring it
+```js
+const mongoose = require('mongoose')
+
+const connect = () => {
+  return mongoose.connect('mongodb://localhost:27017/whatever')
+}
+
+const student = new mongoose.Schema({
+  firstName: String
+})
+
+const Student = mongoose.model('student', student)
+
+connect()
+  .then(async connection => {
+    const student = await Student.create({firstName: 'Tim'})
+    console.log(student)
+  })
+  .catch(e => console.error(e))
+```
+
+- **RUNNING YOUR SERVER & LAUNCH ROCKET**
+- Launch Rocket is a GUI that lists all your services and you can start it
+- works only if you install with brew
+- you can still run your server by running `mongod`
+- execute the file with `node test.js`
+
+---
+### Deconstructing the Mongoose Document (5/18/19)
+- https://frontendmasters.com/courses/mongodb/deconstructing-the-mongoose-document/
+
+- `_id` is created by default for every document created, value is an `object id` (from BSON, its an object representation of id)
+- object id's are very recognizable
+
+- `firstName` was our schema
+
+- `__v` is the version of your schema
+- you will never have to use it really
+- it doesn't really have a point
+- you can also strip it out of migration
+
+- a `mongoose document` is not a javascript object and has methods on it,  but we won't be able to see it
+- there are other properties because those properties won't log and not enumerable
+- later we will learn to convert it to JSON
+- passing around regular javascript objects is faster than mongoose document
+- mongo just uses JSON, mongoose provides tools/methods/helpers that is added on top of JSON
+
 ---
 ## C) Associations
 ---
