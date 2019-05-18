@@ -5042,3 +5042,15 @@ const findUser = id =>
 - GatsbyJS is just a static site generator
 - NextJS and Nuxt are more for dynamic applications
 - Nuxt also allows static site generation
+
+# Introduction to MongoDB w/ Scott Moss
+
+## A) Introduction
+---
+## B) Mongoose
+---
+## C) Associations
+---
+## D) Viruals, Hooks & Indexes
+---
+## E) APIs
