@@ -4970,3 +4970,75 @@ const findUser = id =>
 
 ---
 ## F) Publishing and Deploying
+---
+### Sharing Modules (5/15/19)
+- https://frontendmasters.com/courses/node-js/sharing-modules/
+
+- **SHARING YOUR MODULES IS EASY**
+- TLDR: you publish it to github and npm
+
+- add node_modules to gitignore
+- declare remote modules as devDependencies if you only need them to develop with (like Jest)
+
+- think about how your module is being used and if it needs dependencies
+- if it does, think about how your host app might already have it (NPM tries to fix versions for you, but don't rely on this always working)
+- most of the time, just make it a devDependency
+
+- think is it private or public
+- if it's private, you might need a token
+
+---
+### Deploying Your Servers (5/15/19)
+- https://frontendmasters.com/courses/node-js/deploying-your-servers/
+- [Process Env Docs](https://nodejs.org/api/process.html#process_process_env)
+
+- follow cloud provider instructions, and never hard code environment variables
+- most cloud providers have their own method of deploying apps and integrate with Github/CLI assistant
+
+- **THINGS TO REMEMBER**
+- setup a CI flow for your app
+- remove secretes and use env vars
+- make sure you are developing with same version of node locally and on your server
+- this is where NVM comes in
+
+- **STATIC SITE GENERATOR VS STATIC SITE SERVER**
+- SSG's takes data from server/JSON/markdown and outputs html/css with a templating engine (React, Angular, GatsbyJS)
+- SSS's is a server on the cloud that serves files
+- this is much slower than a CDN
+- don't recommend that we read a file with node and try to cache it (basically you're just building a cdn)
+---
+### Deploying to Heroku (5/15/19)
+- https://frontendmasters.com/courses/node-js/deploying-to-heroku/
+- [Getting started with heroku and node](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
+
+- he walked through deploying to heroku
+- he was using the REST API
+- heroku also has a procfile to how to start things
+
+- `npm publish` will try to publish a package to NPM
+- there's a lot of work beforehand
+
+- if it's a private/scoped module, it is usually prefaced with `@name/lodash` for example
+- all private modules are scoped by default
+
+---
+### Further Tools & Resources (5/15/19)
+- https://frontendmasters.com/courses/node-js/further-tools-resources/
+
+- learn Babel
+- if you're trying to build APIs, learn express
+- if you're trying to learn some front end tools and optimizations, learn Webpack
+- if you're trying to build CLIs, learn Commander
+- explore npm and contribute to npm
+
+---
+### Final Q&A (5/15/19)
+- https://frontendmasters.com/courses/node-js/final-q-a/
+
+- tipe.io is a CMS that is built with node
+- CMSs are difficult because of the data model and database choice
+- node on the server is good now because you would be able to do things from PHP/Wordpress world like A/B testing
+
+- GatsbyJS is just a static site generator
+- NextJS and Nuxt are more for dynamic applications
+- Nuxt also allows static site generation
