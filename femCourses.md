@@ -5047,6 +5047,60 @@ const findUser = id =>
 
 ## A) Introduction
 ---
+### Course Setup (5/18/19)
+- https://frontendmasters.com/courses/mongodb/course-setup/
+- [Course Repo](https://github.com/FrontendMasters/intro-mongo-db)
+- [MongoDB Setup](https://docs.mongodb.com/manual/administration/install-community/)
+- [MongDB Compass](https://www.mongodb.com/download-center/compass)
+
+- Download the repo
+
+- **MONGODB SETUP**
+- pick Community Server and use homebrew to install
+- run `mongod` to check if it runs
+- run `mongo` to open up the MongoDB shell
+
+- **MONGO SHELL COMMANDS**
+- `show dbs` shows all the databases existing on your computer
+- default are admin, config, and local
+- `use todos` will create and switch to a new database
+- `show collections` should not show errors if you have installed correctly
+- `db.help()` shows you all available methods
+- `db.createCollection('items')` to create a new collection
+
+- **MONGODB COMPASS SETUP**
+- this is the GUI and download the community version for free
+- open the GUI
+- connect to local host by default and shows all the local databases that you have
+
+---
+### Mongo Q&A (5/18/19)
+- https://frontendmasters.com/courses/mongodb/mongo-q-a/
+- [MongDB repository](https://github.com/mongodb/mongo)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+
+- mostly written in C++
+
+- **PROS**
+- Mongo was easier to start with
+- it's very flexible
+- data is JSON by default but querying is much easier
+- built with javascript/node in mind, takes advantage of event base architecture
+- it's promise based
+- now becoming ASIC compliant
+
+- **CONS**
+- SQL and PostgreSQL performs better at the top level
+- has not been out as long
+
+- **WHY MONGO VS RELATIONAL DB**
+- Mongo is good for simple app
+- Mongo is more forgiving for CMS apps since you don't have to run tons of migration
+- Good for real time applications for chatting
+- You shouldn't use it for a social network, a graph, time-series
+- perfect for eCommerce applications
+- you can store data any way you want and validate too
+
 ## B) Mongoose
 ---
 ## C) Associations
