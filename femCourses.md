@@ -5327,9 +5327,82 @@ connect()
 ---
 ## E) APIs
 
-# Complete Intro to React, v5 w/ Brian Holt
+# Complete Intro to React, v5 w/ Brian Holt *HEAD
 
 ## A) Introduction
+---
+### Introduction (6/12/19)
+- https://frontendmasters.com/courses/complete-react-v5/introduction/
+
+- [Code Repository](https://github.com/btholt/complete-intro-to-react-v5)
+- [Course Website](https://btholt.github.io/complete-intro-to-react-v5/)
+- [Course Transcript](https://static.frontendmasters.com/assets/courses/2019-06-04-complete-react-v5/transcripts.zip)
+- [Sourcetree](https://www.sourcetreeapp.com/)
+- [Git In Depth FEM course](https://frontendmasters.com/courses/git-in-depth/)
+- [File issue](https://github.com/btholt/complete-intro-to-react-v5/issues)
+- [PR for errors](https://github.com/btholt/complete-intro-to-react-v5/tree/gh-pages-src)
+- [Front End Happy Hour Podcast](https://frontendhappyhour.com/)
+
+- [Vets Who Code](https://vetswhocode.io/)
+- [Concatenate](https://concatenate.io/)
+
+- [Twitter](https://twitter.com/holtbt)
+- [Instagram](https://www.instagram.com/briantholt/)
+- [Github](https://github.com/btholt)
+- [LinkedIn](https://www.linkedin.com/in/btholt/)
+
+- course is meant to be modular, you can jump to commits
+- use Source tree as a useful to change commits
+- "Add theme context" is the last commit in this course, after is for intermediate react
+
+---
+### Project Setup (6/12/19)
+- https://frontendmasters.com/courses/complete-react-v5/project-setup/
+
+- [Emmet Cheatsheet](https://docs.emmet.io/cheat-sheet/)
+- [Prewritten CSS file](https://raw.githubusercontent.com/btholt/complete-intro-to-react-v5/master/src/style.css)
+
+- he is showing us pure javascript react so you can understand them
+- if you understand the tools your using and the problems they solve, then you can appreciate the complexity to learn it
+
+- emmet `html:5` gets you boilerplate
+- emmet `#root` div with id of root
+- there is react and react-dom package because , react native and react dom share the react package
+- there is some prewritten CSS for us
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./style.css">
+  <title>Adopt Me</title>
+</head>
+
+<body>
+  <div id="root">not rendered</div>
+  <script src="https://unpkg.com/react@16.8.4/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.8.4/umd/react-dom.development.js"></script>
+  <script>
+    // Your code is going to go here
+  </script>
+</body>
+
+</html>
+```
+
+---
+### A Note on the Course Font (6/12/19)
+- https://frontendmasters.com/courses/complete-react-v5/a-note-on-the-course-font/
+
+- [Dank Mono Paid Font](https://dank.sh/)
+- [Fira Code Free Font](https://github.com/tonsky/FiraCode)
+
+- Course ligature called Dank Mono
+- Fira Code is free font
 ---
 ## B) Pure React
 ---
