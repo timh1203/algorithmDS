@@ -5213,8 +5213,144 @@ connect()
 - mongo just uses JSON, mongoose provides tools/methods/helpers that is added on top of JSON
 
 ---
+### Mongoose Schemas (6/11/19)
+- https://frontendmasters.com/courses/mongodb/mongoose-schemas/
+
+- **VALIDATION**
+- `required` is a validation, `unique` is an index
+```js
+// test.js
+const mongoose = require('mongoose');
+
+const connect = () => {
+	return mongoose.connect('mongodb://localhost:27017/whatever');
+};
+
+const student = new mongoose.Schema({ // added firstName, favFoods, and info validations
+	firstName: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  favFoods: [{type: String}],
+  info: {
+    school: {
+      type: String
+    },
+    shoeSize: {
+      type: Number
+    }
+  }
+});
+
+const Student = mongoose.model('student', student);
+
+connect()
+	.then(async connection => {
+		const student = await Student.create({ firstName: 'Tim' });
+		console.log(student);
+	})
+	.catch(e => console.error(e));
+
+```
+
+---
+### Basic Query Methods (6/11/19)
+- https://frontendmasters.com/courses/mongodb/basic-query-methods/
+
+- **METHODS**
+- `.find()` returns a list
+- mongo doesn't return an error, just return a null if something doesn't exist
+- `findByIdAndRemove`, `findByIdAndUpdate`, `findByIdAndDelete` are helpful for CRUD operations
+- you can also make your own methods but there are many already
+- leave object empty if you want to search by wildcard
+- text index is an advance search method but there are better tools out there
+- by default, mongo doesn't have timestamps but mongoose does the timestamps if you pass the command
+```js
+// test.js
+const mongoose = require('mongoose');
+
+const connect = () => {
+	return mongoose.connect('mongodb://localhost:27017/whatever');
+};
+
+const student = new mongoose.Schema({
+	firstName: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  favFoods: [{type: String}],
+  info: {
+    school: {
+      type: String
+    },
+    shoeSize: {
+      type: Number
+    }
+  }
+}, {timestamps: true}); // tells you when was created and deleted
+
+const Student = mongoose.model('student', student);
+
+connect()
+	.then(async connection => {
+    const student = await Student.create({ firstName: 'Tim' });
+    const found = await Student.find({firstName: 'this'}) // returns a list
+    const foundById = await Student.findById('asdfasdfasdf') // searches by id
+    const updated = await Student.findByIdAndUpdate('asdfads', {}) // 2nd object is what to update
+		console.log(student);
+	})
+	.catch(e => console.error(e));
+
+```
+
+---
+### Schema & CRUD Exercise (6/11/19)
+- https://frontendmasters.com/courses/mongodb/schema-crud-exercise/
+
+- we are in `./exercises/models` folder
+- under the readme, there are additional commands to run tests
+- NOTE: tests will only run for this exercise and not all others
+
+- *commands*
+- test: `yarn test exercises/models/__test__/` or `npm test exercises/models/__test__/`
+
+- this exercise will help you connection logic, write some methods, and do basic CRUD operations
+- use the test files to help you figure out what the tests are looking for
+- you should have 2 passed tests and 2 passed suites
+
+---
 ## C) Associations
 ---
 ## D) Viruals, Hooks & Indexes
 ---
 ## E) APIs
+
+# Complete Intro to React, v5 w/ Brian Holt
+
+## A) Introduction
+---
+## B) Pure React
+---
+## C) Tools
+---
+## D) JSX
+---
+## E) Hooks
+---
+## F) Effects
+---
+## G) Dev Tools
+---
+## H) Async & Routing
+---
+## I) Class Components
+---
+## J) Error Boundaries
+---
+## K) Context
+---
+## L) Portals
+---
+## M) Wrapping Up
