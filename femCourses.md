@@ -5403,8 +5403,31 @@ connect()
 
 - Course ligature called Dank Mono
 - Fira Code is free font
+
 ---
+
 ## B) Pure React
+
+---
+### Getting Started with Pure
+-
+
+---
+### createElement Arguments
+-
+
+---
+### Reusable Components
+-
+
+---
+### Passing in Component Props
+-
+
+---
+### Destructuring Props
+-
+
 ---
 ## C) Tools
 ---
