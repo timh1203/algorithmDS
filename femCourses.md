@@ -5586,7 +5586,50 @@ ReactDOM.render(React.createElement(App), document.getElementById("root"));
 ```
 
 ---
+
 ## C) Tools
+
+---
+### npm & Generating a package.json file
+-
+
+---
+### Prettier
+-
+
+---
+### npm scripts
+-
+
+---
+### Prettier Setup
+-
+
+---
+### ESLint Setup
+-
+
+---
+### ESLint Configuration
+-
+
+---
+### gitignore
+-
+
+---
+### Parcel
+-
+
+---
+### Installing React & ReactDom
+-
+
+---
+### Separate App into Modules
+-
+
+
 ---
 ## D) JSX
 ---
