@@ -5409,24 +5409,181 @@ connect()
 ## B) Pure React
 
 ---
-### Getting Started with Pure
--
+### Getting Started with Pure (6/15/19)
+- https://frontendmasters.com/courses/complete-react-v5/getting-started-with-pure-react/
+
+- We add `React.createElement` component
+- This is like a template and it just simply returns markup
+- we need to render it to the DOM also
+- the power of this is composibility model and can use it in other places
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./style.css">
+  <title>Adopt Me</title>
+</head>
+
+<body>
+  <div id="root">not rendered</div>
+  <script src="https://unpkg.com/react@16.8.4/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.8.4/umd/react-dom.development.js"></script>
+  <script>
+    // Your code is going to go here
+    const App = () => {
+      return React.createElement(
+        "div",
+        {},
+        React.createElement("h1", {}, "Adopt Me!")
+      )
+    }
+
+    ReactDOM.render(React.createElement(App),
+    document.getElementById("root")
+  </script>
+</body>
+
+</html>
+```
 
 ---
-### createElement Arguments
--
+### createElement Arguments (6/15/19)
+- https://frontendmasters.com/courses/complete-react-v5/createelement-arguments/
+
+- we called `React.createElement` 3 times
+
+- 3 parameters are needed for `React.createElement`
+- the 3rd can be array with many other children
+```js
+  return React.createElement(
+    "div", // 1st: Tag type
+    { id: "something important" }, // 2nd: Attributes
+    [
+      React.createElement("h1", {}, "Adopt Me!"), // 3rd: Children
+      React.createElement("h1", {}, "Adopt Me!")
+    ]
+  )
+```
 
 ---
-### Reusable Components
--
+### Reusable Components (6/15/19)
+- https://frontendmasters.com/courses/complete-react-v5/reusable-components/
+
+- React is extremely flexible and we can order our product however we want
+- we then split code out to App.js
+- Add script tag in `index.html` to link to App.js
+
+- Brian has now created a Pet "stamp" but has not used it yet
+- He uses it when he adds `React.createElement(Pet)`
+
+```js
+// App.js
+const Pet = () => {
+  return React.createElement("div", {}, [
+    React.createElement("h1", {}, "Luna"),
+    React.createElement("h2", {}, "Dog"),
+    React.createElement("h2", {}, "Havanese")
+  ]);
+};
+
+const App = () => {
+  return React.createElement("div", {}, [
+    React.createElement("h1", {}, "Adopt Me!"),
+    React.createElement(Pet), // used Pet stamp 3 times
+    React.createElement(Pet),
+    React.createElement(Pet)
+  ]);
+};
+
+ReactDOM.render(React.createElement(App), document.getElementById("root"));
+```
 
 ---
-### Passing in Component Props
--
+### Passing in Component Props (6/15/19)
+- https://frontendmasters.com/courses/complete-react-v5/passing-in-components-props/
+
+- we are now passing attributes into the component
+
+```js
+const Pet = props => {
+ return React.createElement("div", {}, [
+   React.createElement("h1", {}, props.name),
+   React.createElement("h2", {}, props.animal),
+   React.createElement("h2", {}, props.breed)
+ ]);
+};
+
+const App = () => {
+ return React.createElement("div", {}, [
+  React.createElement("h1", {}, "Adopt Me!"),
+  React.createElement(Pet, {
+    name: "Luna",
+    animal: "Dog",
+    breed: "Havanese"
+  }),
+  React.createElement(Pet, {
+    name: "Pepper",
+    animal: "Bird",
+    breed: "Cockatiel"
+  }),
+  React.createElement(Pet, {
+    name: "Doink",
+    animal: "Cat",
+    breed: "Mix"
+  })
+ ]);
+};
+
+ReactDOM.render(React.createElement(App), document.getElementById("root"));
+```
 
 ---
-### Destructuring Props
--
+### Destructuring Props (6/15/19)
+- https://frontendmasters.com/courses/complete-react-v5/destructuring-props
+
+- we used destructuring right in the parameter field
+- this is a concept native to vanilla javascript, not specifically React
+- this is the first commit point in the repo
+
+- we don't want to write react like this and now introducing tools
+
+```js
+const Pet = ({ name, animal, breed }) => {
+ return React.createElement("div", {}, [
+   React.createElement("h1", {}, name),
+   React.createElement("h2", {}, animal),
+   React.createElement("h2", {}, breed)
+ ]);
+};
+
+const App = () => {
+ return React.createElement("div", {}, [
+  React.createElement("h1", {}, "Adopt Me!"),
+  React.createElement(Pet, {
+    name: "Luna",
+    animal: "Dog",
+    breed: "Havanese"
+  }),
+  React.createElement(Pet, {
+    name: "Pepper",
+    animal: "Bird",
+    breed: "Cockatiel"
+  }),
+  React.createElement(Pet, {
+    name: "Doink",
+    animal: "Cat",
+    breed: "Mix"
+  })
+ ]);
+};
+
+ReactDOM.render(React.createElement(App), document.getElementById("root"));
+```
 
 ---
 ## C) Tools
