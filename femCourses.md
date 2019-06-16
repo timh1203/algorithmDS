@@ -5742,17 +5742,95 @@ coverage/
 ## D) JSX
 
 ---
-### Converting to JSX
--
+### Converting to JSX (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/converting-to-jsx/
+
+- current commit: `git checkout 6963d65a8808e3d342fb005e42ab2317193c7065`
+
+- parcel is using bable to convert JSX code
+- JSX helps convert javascript code that renders HTML
+- react core team doesn't think .jsx extension is necessary, just use .js
+- you can configure to jsx file by changing the filename or setting type in bottom right of vscode
+
+- this is essentially running `React.createElement` calls
+- there's a rule that you can only return one enclosing tag
+
+```js
+import React from "react";
+
+const Pet = props => {
+  return (
+    <div>
+      <h1>{props.name}</h1>
+      <h2>{props.animal}</h2>
+      <h2>{props.breed}</h2>
+    </div>
+  );
+};
+
+export default Pet;
+```
 
 ---
-### Configuring ESLint for React
--
+### Configuring ESLint for React (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/configuring-eslint-for-react/
+
+- `npm install -D babel-eslint eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react`
+- this helps to understand JSX correctly
+
+- 2 rules prettier extends have to be last in package.json
+- we turned off prop-types and learn typescript later
+- [Intermediate React](https://frontendmasters.com/courses/intermediate-react-v2/)
+- `no-console` will warn us instead of breaking the app
+- `eslint:recommended` rules are pretty great, some `react/recommended` is questionable
+
+```js
+// .eslintrc.json
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "rules": {
+    "react/prop-types": 0
+  },
+  "plugins": ["react", "import", "jsx-a11y"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
+```
 
 ---
-### JSX Composite Components & Expressions
--
+### JSX Composite Components & Expressions (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/jsx-composite-components-expressions/
 
+- JSX requires trailing slash to know to end a component
+- curly braces in the return means that is a javascript expression
+
+- **EXPRESSION VS STATEMENT**
+- `const x = name.toUpperCase();` is a statement
+- `name.toUpperCase()` is an expression
+
+---
 ## E) Hooks
 ---
 ## F) Effects
