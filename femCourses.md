@@ -5831,7 +5831,42 @@ export default Pet;
 - `name.toUpperCase()` is an expression
 
 ---
+
 ## E) Hooks
+
+---
+### Creating a Search Component
+-
+
+---
+### Setting State with Hooks
+-
+
+---
+### Best Practices for Hooks
+-
+
+---
+### Configuring ESLint for Hooks
+-
+
+---
+### Calling the Pet API
+-
+
+---
+### Unique List Item Keys
+-
+
+---
+### Breed Dropdown
+-
+
+---
+### Custom Hooks
+-
+
+
 ---
 ## F) Effects
 ---
