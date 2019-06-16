@@ -5738,8 +5738,21 @@ coverage/
 - typescript is being run against your code and what is doing that
 
 ---
+
 ## D) JSX
+
 ---
+### Converting to JSX
+-
+
+---
+### Configuring ESLint for React
+-
+
+---
+### JSX Composite Components & Expressions
+-
+
 ## E) Hooks
 ---
 ## F) Effects
