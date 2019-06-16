@@ -5590,45 +5590,152 @@ ReactDOM.render(React.createElement(App), document.getElementById("root"));
 ## C) Tools
 
 ---
-### npm & Generating a package.json file
--
+### npm & Generating a package.json file (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/npm-generating-a-package-json-file/
+
+- `node -v` make sure you have node 8+
+- use lastest stable version
+- `npm init` creates a new project
+- `-y` flag to skip the questions
+- dependencies will be stored in `package.json`
 
 ---
-### Prettier
--
+### Prettier (6/16/19)
+- https:// https://frontendmasters.com/courses/complete-react-v5/prettier/
+
+- installed Prettier to make code look better
+- `yarn add prettier` or `npm i -D prettier`
+- this helps standardize the same formatting for everyone but at least it's all the same
 
 ---
-### npm scripts
--
+### npm scripts (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/npm-scripts/
+
+- scripts help us run different commands to do something to the repo
+- like running tests
+- we added a script to run prettier
+- we are doing this so everyone is on the same page for code format
+
+```json
+"scripts": {
+	"format": "prettier --write \"src/**/*.{js,jsx}\"",
+},
+```
 
 ---
-### Prettier Setup
--
+### Prettier Setup (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/prettier-setup/
+
+- You can also download the vscode extension called "Prettier - Code formatter"
+- go to settings and turn on `format on save` and `require config`
+
+- have a `.prettierrc` file in the root directory
 
 ---
-### ESLint Setup
--
+### ESLint Setup (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/eslint-setup/
+
+- prettier is strictly concerned with code formatted but doesn't care about style
+- `npm install -D eslint eslint-config-prettier`
+- make a `.eslintrc.json` file in the root
+
+- the package-lock.json will install exactly the packages exactly and the installation order
+- package-lock and yarn-lock do the same thing
 
 ---
-### ESLint Configuration
--
+### ESLint Configuration (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/eslint-configuration/
+
+- [ESlint](https://eslint.org/)
+
+- There are many type of configs like Airbnb, eslint:recommended
+- we added to `eslintrc.json` and the lint script in package.json
+- you can also write custom eslint rules
+- eslint is very much the standard nowadays
+
+```json
+{
+  "extends": ["eslint:recommended", "prettier", "prettier/react"],
+  "plugins": [],
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  }
+}
+```
 
 ---
-### gitignore
--
+### gitignore (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/gitignore/
+
+- create `.gitignore` in root directory
+- there's another commit point here
+- `git checkout 1e101fd784ddc83cdea395963d333decfa3249a4`
+
+```js
+// .gitignore
+node_modules
+.cache/
+dist/
+.env
+.DS_Store
+coverage/
+.vscode/
+```
 
 ---
-### Parcel
--
+### Parcel (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/parcel/
+
+- in the past, taught with webpack (git checkout 1e101fd784ddc83cdea395963d333decfa3249a4)
+- [FEM Webpack Course](https://frontendmasters.com/courses/webpack-fundamentals/)
+- [React V3 course](https://frontendmasters.com/courses/react/)
+- [Parcel](https://parceljs.org/)
+
+- Webpack is powerful but hard to setup
+- Parcel is more hands off
+- today we are going to use parcel
+- parcel knows to crawl through the files and find the paths
+
+- `npm install -D parcel-bundler`
+- `"dev": "parcel src/index.html"` added to scripts
+- `npm run dev`
+- it will create a `.cache` and `dist` folders which you can ignore
+- you don't have to configure it any more than that
 
 ---
-### Installing React & ReactDom
--
+### Installing React & ReactDom (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/installing-react-reactdom/
+
+- `npm i react react-dom`
+- `import React from 'react';`
+- `import { render } from 'react=dom';`
+- `npm run dev`
+
+- npm intellisense to complete paths
+- parcel does tree-shaking, recommends we include only methods imported
+- it helps us to be more explicit but some packages are not built for tree-shaking
+- don't worry about file sizes until we do production build
 
 ---
-### Separate App into Modules
--
+### Separate App into Modules (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/separate-app-into-modules/
 
+- *Alternative to Parcel*
+- [Browserify](http://browserify.org/)
+- [Rollup](https://rollupjs.org/guide/en/)
+
+- There's a lightbulb icon in vscode which lets you move code to a new file
+- the lightbulb is called a "code action"
+- typescript is being run against your code and what is doing that
 
 ---
 ## D) JSX
