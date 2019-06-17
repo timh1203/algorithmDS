@@ -5835,37 +5835,244 @@ export default Pet;
 ## E) Hooks
 
 ---
-### Creating a Search Component
--
+### Creating a Search Component (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/creating-a-search-component/
+
+- CHECKPOINT: git checkout 0f7977ae3ce923ecf7094b82056a809fcaf1e905
+- [HOOKS IN DEPTH](https://btholt.github.io/complete-intro-to-react-v5/hooks-in-depth)
+
+- Hooks available as of 16.8 and it's totally optional
+
+- created a new component: `SearchParams.js`
+- you have to use `className` instead of `class`
+- `htmlFor` for HTML's `for`
+- It's good to have `input` inside the `label` for accessibility reasons
+- we also have to import `SearchParams` component in `App.js`
+```js
+// SearchParams.js
+const SearchParams = () => {
+  const location = "Seattle, WA";
+
+  return (
+    <div className="search-params">
+      <form>
+        <label htmlFor="location">
+          Location
+          <input id="location" value={location}
+          placeholder="Location" />
+        </label>
+        <button>Submit</button>
+      </form>
+    </div>
+  )
+}
+
+expot default SearchParams
+```
 
 ---
-### Setting State with Hooks
--
+### Setting State with Hooks (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/setting-state-with-hooks/
+
+- The value is always Seattle, WA since a component re-render sees that nothing has changed the value
+- The two-way data binding is not free in react
+- Now you are forced to think about how you write your code and understand the code you wrote
+
+- The first state in `useState()` is the default state
+- All hooks start with the word "use"
+- you can call `updateLocation` as `setLocation`
+- there is no current industry practice
+
+```js
+// in SearchParams.js
+import React, { useState } from "react";
+
+// replace location
+const [location, updateLocation] = useState("Seattle, WA");
+
+// replace input
+<input
+  id="location"
+  value={location}
+  placeholder="Location"
+  onChange={e => updateLocation(e.target.value)}
+/>;
+```
 
 ---
-### Best Practices for Hooks
--
+### Best Practices for Hooks (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/best-practices-for-hooks/
+
+- **Hooks NEVER go inside an if statement/for loop/conditionals**
+- the order of hooks is important to how they are loaded
+- this is a convention for ALL hooks
+- make sure to use the word "use" since it will help with your ES linting
 
 ---
-### Configuring ESLint for Hooks
--
+### Configuring ESLint for Hooks (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/configuring-eslint-for-hooks/
+
+- `npm i -D eslint-plugin-react-hooks`
+- this is official rules for writing hooks from the react team
+- add rules in .eslintrc.json
+
+- `react-hooks/exhaustive-deps` deals with effects
+- 1 means warning, 2 means throw an error
+```json
+{
+  "rules": {
+    …,
+    "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 1
+  },
+  "plugins": [
+    …,
+    "react-hooks"
+    ],
+}
+```
 
 ---
-### Calling the Pet API
--
+### Calling the Pet API (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/calling-the-pet-api/
+
+- we added `import { ANIMALS } from "@frontendmasters/pet";`
+- parcel is smart enough to grab packages for you too
+
+- `onBlur` is needed if you have `onChange`, this is accessibility issue
+- it involves screen readers and tapping across buttons and it won't save changes
+- here we are using implicit return from the map function
+- this means we don't have to use curly braces and add `return` keyword
+- the parentheses knows that we want to return that `<option>` element
+
+```js
+// under React import
+import { ANIMALS } from "@frontendmasters/pet";
+
+// under location
+const [animal, updateAnimal] = useState("");
+
+// under input
+<label htmlFor="animal">
+  Animal
+  <select
+    id="animal"
+    value={animal}
+    onChange={e => updateAnimal(e.target.value)}
+    onBlur={e => updateAnimal(e.target.value)}
+  >
+    <option />
+    {ANIMALS.map(animal => (
+      <option key={animal} value={animal}>
+        {animal}
+      </option>
+    ))}
+  </select>
+</label>;
+```
 
 ---
-### Unique List Item Keys
--
+### Unique List Item Keys (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/unique-list-item-keys/
+
+- react needs a `key` from a map so it can keep track of the items from say a `map` function
+- make sure the key is something unique to each object
 
 ---
-### Breed Dropdown
--
+### Breed Dropdown (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/breed-dropdown/
+
+- Now we are doing a hook for breed also
+- the `disabled={!options.length}` means that it will disable this option if something doesn't have a length
+- we are adding:
+
+```js
+import React, { useState } from "react";
+
+const useDropdown = (label, defaultState, options) => {
+  const [state, updateState] = useState(defaultState);
+  const id = `use-dropdown-${label.replace(" ", "").toLowerCase()}`;
+  const Dropdown = () => (
+    <label htmlFor={id}>
+      {label}
+      <select
+        id={id}
+        value={state}
+        onChange={e => updateState(e.target.value)}
+        onBlur={e => updateState(e.target.value)}
+        disabled={!options.length}
+      >
+        <option />
+        {options.map(item => (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+  return [state, Dropdown];
+};
+
+export default useDropdown;
+```
 
 ---
-### Custom Hooks
--
+### Custom Hooks (6/16/19)
+- https://frontendmasters.com/courses/complete-react-v5/custom-hooks/
 
+- now we can make out custom hooks as well
+- we can make a reusuable bit that maintains the dropdown
+- we made `useDropdown.js` component since we had 2 dropdowns
+
+```js
+// useDropdown.js
+import React, { useState } from "react";
+
+const useDropdown = (label, defaultState, options) => {
+  const [state, updateState] = useState(defaultState);
+  const id = `use-dropdown-${label.replace(" ", "").toLowerCase()}`;
+  const Dropdown = () => (
+    <label htmlFor={id}>
+      {label}
+      <select
+        id={id}
+        value={state}
+        onChange={e => updateState(e.target.value)}
+        onBlur={e => updateState(e.target.value)}
+        disabled={!options.length}
+      >
+        <option />
+        {options.map(item => (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+  return [state, Dropdown, updateState];
+};
+
+export default useDropdown;
+```
+
+- We also have to update
+```js
+// SearchParams.js
+// import at the top
+import useDropdown from "./useDropdown";
+
+// delete the animal and breed useState calls
+
+// under breeds useState
+const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+const [breed, BreedDropdown] = useDropdown("Breed", "", breeds);
+
+// replace animal and breed label
+<AnimalDropdown />
+<BreedDropdown />
+```
 
 ---
 ## F) Effects
