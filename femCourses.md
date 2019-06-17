@@ -6075,7 +6075,29 @@ const [breed, BreedDropdown] = useDropdown("Breed", "", breeds);
 ```
 
 ---
+
 ## F) Effects
+
+---
+### Effects
+-
+
+---
+### Declaring Effect Dependencies
+-
+
+---
+### Effect Lifecycle Walkthrough
+-
+
+---
+### Run Only Once
+-
+
+---
+### Hooks Review and Q&A
+-
+
 ---
 ## G) Dev Tools
 ---
