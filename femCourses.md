@@ -6079,24 +6079,177 @@ const [breed, BreedDropdown] = useDropdown("Breed", "", breeds);
 ## F) Effects
 
 ---
-### Effects
--
+### Effects (6/19/19)
+- https://frontendmasters.com/courses/complete-react-v5/effects/
+
+- current commit = git checkout 3c42e352230a758143fd528fbbe3084eae8a8e67
+
+- we are going to pull live data from an api
+- [Petfinder API](https://www.petfinder.com/)
+
+- `useEffect` takes the place of some lifecycle hooks
+- replaces `componentDidMount` `componentWillUnmount`, `componentDidUpdate`
+- useEffect here is schedule to run after the component has rendered
+- we are doing this because we want the user to be able to see something for UX
+- we are pulling in the `pet` api client in
+- `.then(console.log, console.error)` is a shortcut
+```js
+import React, { useEffect } from "react";
+import pet, { ANIMALS } from "@frontendmasters/pet";
+
+// inside render method, below useDropdown calls
+useEffect(() => {
+  pet.breeds("dog").then(console.log, console.error); // returns a promise
+});
+```
+
+- now we are update the useEffect now that it works
+- we are initially setting the states to 0 since we might pull from cats or dogs api
+- then we are making an api request to pull from the dog api
+- we get back a name and we see it as the breed
+- we are also destructuring here to get `breeds` and `name`
+```js
+// SearchParams.js
+// replace effect
+useEffect(() => {
+  setBreeds([]);
+  setBreed("");
+  pet.breeds(animal).then(({ breeds }) => {
+    const breedStrings = breeds.map(({ name }) => name);
+    setBreeds(breedStrings); // returns all the breeds of that animal "dog"
+  }, console.error); // same as error => console.error(error);
+}, [animal]);
+```
 
 ---
-### Declaring Effect Dependencies
--
+### Declaring Effect Dependencies (6/19/19)
+- https://frontendmasters.com/courses/complete-react-v5/declaring-effect-dependencies/
+
+- from the `useDropdown` component, it returns `[state, Dropdown, updateState]`
+- we can use this in our hook
+- you have to specify the dependencies for the useEffect too
+- basically if we don't, it will run useEffect after every render like when we type a letter in a field
+- we put `animal` at the end of useEffect to tell it to only update when that hook changes
+- you also have to add `setBreed, setBreeds` even though it never changes
+- in discussion with the react team, that's what they have decided
+
+```js
+const [theme, setTheme] = useContext(ThemeContext);
+const [location, updateLocation] = useState("Seattle, WA");
+const [breeds, updateBreeds] = useState([]);
+const [pets, setPets] = useState([]);
+const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
+
+  useEffect(() => {
+    updateBreeds([]);
+    updateBreed("");
+
+    pet.breeds(animal).then(({ breeds }) => {
+      const breedStrings = breeds.map(({ name }) => name);
+      updateBreeds(breedStrings);
+    }, console.error);
+}, [animal, setBreed, setBreeds]);
+```
 
 ---
-### Effect Lifecycle Walkthrough
--
+### Effect Lifecycle Walkthrough (6/19/19)
+- https://frontendmasters.com/courses/complete-react-v5/effect-lifecycle-walkthrough/
+
+- we are working through the entire cycle again
+- when you go to type in a form for location, useEffect will check if that hook is in the dependency
+- it will only run if it is, which location is NOT in this case
+- if we make a change to the animal hook, it will useEffect
+```js
+// SearchParams.js
+import React, { useState, useEffect, useContext } from "react";
+import pet, { ANIMALS } from "@frontendmasters/pet";
+import useDropdown from "./useDropdown";
+import Results from "./Results";
+import ThemeContext from "./ThemeContext";
+
+const SearchParams = () => {
+  const [theme, setTheme] = useContext(ThemeContext);
+  const [location, updateLocation] = useState("Seattle, WA");
+  const [breeds, updateBreeds] = useState([]);
+  const [pets, setPets] = useState([]);
+  const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+  const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
+
+  // runs after the render completes
+  // after the first render, it runs this function
+  useEffect(() => {
+    updateBreeds([]);
+    updateBreed("");
+
+    pet.breeds(animal).then(({ breeds }) => {
+      const breedStrings = breeds.map(({ name }) => name);
+      updateBreeds(breedStrings);
+    }, console.error);
+  }, [animal, setBreed, setBreeds]);
+
+  // users see this render first, then useEffect runs after this
+  return (
+    <div className="search-params">
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          requestPets();
+        }}
+      >
+        <label htmlFor="location">
+          Location
+          <input
+            id="location"
+            value={location}
+            placeholder="Location"
+            onChange={e => updateLocation(e.target.value)}
+          />
+        </label>
+        <AnimalDropdown />
+        <BreedDropdown />
+        <label htmlFor="location">
+          Theme
+          <select
+            value={theme}
+            onChange={e => setTheme(e.target.value)}
+            onBlur={e => setTheme(e.target.value)}
+          >
+            <option value="peru">Peru</option>
+            <option value="darkblue">Dark Blue</option>
+            <option value="chartreuse">Chartreuse</option>
+            <option value="mediumorchid">Medium Orchid</option>
+          </select>
+        </label>
+        <button style={{ backgroundColor: theme }}>Submit</button>
+      </form>
+      <Results pets={pets} />
+    </div>
+  );
+};
+
+export default SearchParams;
+```
 
 ---
-### Run Only Once
--
+### Run Only Once (6/19/19)
+- https://frontendmasters.com/courses/complete-react-v5/run-only-once/
+
+- **What if you only want the useEffect to run ONLY once?**
+- just insert `[]` in the dependency
+- this is the whole reason behind the dependencies so you don't run into an infinite loop
 
 ---
-### Hooks Review and Q&A
--
+### Hooks Review and Q&A (6/19/19)
+- https://frontendmasters.com/courses/complete-react-v5/hooks-review-and-q-a/
+
+- hooks was believed to be easier to learn than context, lifecycle hooks
+- people think this is easier but you can be the judge once you've learned both
+- there are no inherent problems with class components
+- hooks do have some limitations compared to class components at the current time
+- `useEffect` and `useState` are going to be your 2 more commonly used hooks
+- `useRef` may be used sometimes
+- there are other hooks that you may never have to know
 
 ---
 ## G) Dev Tools
