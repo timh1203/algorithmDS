@@ -6295,6 +6295,30 @@ return (
 ---
 ## H) Async & Routing
 ---
+### Asynchronous API Requests
+- https://frontendmasters.com/courses/complete-react-v5/asynchronous-api-requests/
+
+---
+### Using the Fallback Mock API
+- https://frontendmasters.com/courses/complete-react-v5/using-the-fallback-mock-api/
+
+---
+### One-Way Data Flow
+- https://frontendmasters.com/courses/complete-react-v5/one-way-data-flow/
+
+---
+### Reformatting the Pet Component
+- https://frontendmasters.com/courses/complete-react-v5/reformatting-the-pet-component/
+
+---
+### Reach Router
+- https://frontendmasters.com/courses/complete-react-v5/reach-router/
+
+---
+### Debugging & Reach Router Link
+- https://frontendmasters.com/courses/complete-react-v5/debugging-reach-router-link/
+
+---
 ## I) Class Components
 ---
 ## J) Error Boundaries
