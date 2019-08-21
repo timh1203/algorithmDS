@@ -6256,6 +6256,14 @@ export default SearchParams;
 ---
 ## G) Dev Tools
 ---
+### Environmental Variables & Strict Mode
+- https://frontendmasters.com/courses/complete-react-v5/environment-variables-strict-mode/
+
+---
+### React Browser Dev Tools
+- https://frontendmasters.com/courses/complete-react-v5/react-browser-dev-tools/
+
+---
 ## H) Async & Routing
 ---
 ## I) Class Components
