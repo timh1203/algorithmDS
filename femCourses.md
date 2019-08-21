@@ -6090,7 +6090,7 @@ const [breed, BreedDropdown] = useDropdown("Breed", "", breeds);
 - `useEffect` takes the place of some lifecycle hooks
 - replaces `componentDidMount` `componentWillUnmount`, `componentDidUpdate`
 - useEffect here is schedule to run after the component has rendered
-- we are doing this because we want the user to be able to see something for UX
+- we are doing this because we want the user to be able to immediately see something for UX
 - we are pulling in the `pet` api client in
 - `.then(console.log, console.error)` is a shortcut
 ```js
@@ -6157,9 +6157,10 @@ const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
 - https://frontendmasters.com/courses/complete-react-v5/effect-lifecycle-walkthrough/
 
 - we are working through the entire cycle again
+- you can have as many effects as you like
 - when you go to type in a form for location, useEffect will check if that hook is in the dependency
 - it will only run if it is, which location is NOT in this case
-- if we make a change to the animal hook, it will useEffect
+- if we make a change to the animal hook, it will run useEffect
 ```js
 // SearchParams.js
 import React, { useState, useEffect, useContext } from "react";
@@ -6238,6 +6239,7 @@ export default SearchParams;
 - **What if you only want the useEffect to run ONLY once?**
 - just insert `[]` in the dependency
 - this is the whole reason behind the dependencies so you don't run into an infinite loop
+- you might need this if you're implementing with a D3 plugin
 
 ---
 ### Hooks Review and Q&A (6/19/19)
@@ -6247,7 +6249,7 @@ export default SearchParams;
 - people think this is easier but you can be the judge once you've learned both
 - there are no inherent problems with class components
 - hooks do have some limitations compared to class components at the current time
-- `useEffect` and `useState` are going to be your 2 more commonly used hooks
+- `useEffect` and `useState` are going to be your 2 more commonly used hooks, more than 90% of your use cases
 - `useRef` may be used sometimes
 - there are other hooks that you may never have to know
 
