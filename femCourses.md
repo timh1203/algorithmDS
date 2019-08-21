@@ -6256,12 +6256,41 @@ export default SearchParams;
 ---
 ## G) Dev Tools
 ---
-### Environmental Variables & Strict Mode
+### Environmental Variables & Strict Mode (8/21/19)
 - https://frontendmasters.com/courses/complete-react-v5/environment-variables-strict-mode/
 
+- **NODE_ENV**
+- set `NODE_ENV=development`
+- parcel does this automatically, but webpack and browserify needs your to set this
+- it's a lot larger in file size and slower if you ship the development build than a production build
+
+- **STRICT MODE**
+- react has a new strict mode and help future proof your application
+- the code doesn't do anything in production but only stop you from features in React will be deprecated soon or using legacy features
+- this is useful in legacy applications
+- this is a component so you can apply strict modes in certain components or sections
+
+```
+return (
+  <React.StrictMode>
+    <div>
+      <h1>Hello</h1>
+    </div>
+  </React.StrictMode>
+)
+```
+
 ---
-### React Browser Dev Tools
+### React Browser Dev Tools (8/21/19)
 - https://frontendmasters.com/courses/complete-react-v5/react-browser-dev-tools/
+
+- **DEV TOOLS**
+- there are react developer tools for chrome and firefox
+- there will be a react tab when you do inspect element
+- there's a dom explorer and you can see state and props
+
+- `$r` will be whatever is selected on dev tools to interact with it
+- `$0` works for the normal inspector
 
 ---
 ## H) Async & Routing
