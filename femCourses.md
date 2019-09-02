@@ -6295,28 +6295,176 @@ return (
 ---
 ## H) Async & Routing
 ---
-### Asynchronous API Requests
+### Asynchronous API Requests (9/2/19)
 - https://frontendmasters.com/courses/complete-react-v5/asynchronous-api-requests/
 
+- async function always returns a promise
+- we try to make it work for the latest 2 versions for each browser type
+- if async/await doesn't get transpiled properly, we get regenerators which is not something we want to deal with
+
+```js
+// inside render
+const [pets, setPets] = useState([])
+
+// below state declarations
+async function requestPets() {
+  const { animals } = await pet.animals({
+    location,
+    breed,
+    type: animal
+  })
+
+  setPets(animals || []);
+}
+
+// replace <form>
+<form onSubmit={e => {
+  e.preventDefault(); // helps from submitting the form
+  requestPets();
+}}
+>
+```
+
 ---
-### Using the Fallback Mock API
+### Using the Fallback Mock API (9/2/19)
 - https://frontendmasters.com/courses/complete-react-v5/using-the-fallback-mock-api/
 
+- you can do this project close to offline if you wanted to
+- install with `npm install -D cross-env`, makes sure commands work cross platforms
+- add `"dev:mock": "cross-env PET_MOCK=mock npm run dev"` to package.json
+- running `npm run dev:mock` gets you mock data
+- if you can't get mock data to work, try deleting cache and dist folders
+
 ---
-### One-Way Data Flow
+### One-Way Data Flow (9/2/19)
 - https://frontendmasters.com/courses/complete-react-v5/one-way-data-flow/
 
+- now we are iterating through the pet results coming from the parent
+- passing data down to children from pattern is a common react pattern
+- it is intentionally difficult to pass data upwards with the library
+```js
+import React from "react";
+import Pet from "./Pet";
+
+const Results = ({ pets }) => {
+  return (
+    <div className="search">
+      {!pets.length ? (
+        <h1>No Pets Found</h1>
+      ) : (
+        pets.map(pet => {
+          return (
+            <Pet
+              animal={pet.type}
+              key={pet.id}
+              name={pet.name}
+              breed={pet.breeds.primary}
+              media={pet.photos}
+              location={`${pet.contact.address.city}, ${
+                pet.contact.address.state
+              }`}
+              id={pet.id}
+            />
+          );
+        })
+      )}
+    </div>
+  );
+};
+
+export default Results;
+```
+
 ---
-### Reformatting the Pet Component
+### Reformatting the Pet Component (9/2/19)
 - https://frontendmasters.com/courses/complete-react-v5/reformatting-the-pet-component/
 
----
-### Reach Router
-- https://frontendmasters.com/courses/complete-react-v5/reach-router/
+- Now we are refactoring the component
+- [Placecorgi](http://placecorgi.com/) to get placeholder images
+
+- CURRENT COMMIT: git checkout 3c42e352230a758143fd528fbbe3084eae8a8e67
+
+
+```js
+import React from "react";
+
+const Pet = props => {
+  const { name, animal, breed, media, location, id } = props;
+
+  let hero = "http://placecorgi.com/300/300";
+  if (media.length) {
+    hero = media[0].small;
+  }
+
+  return (
+    <a href={`/details/${id}`} className="pet">
+      <div className="image-container">
+        <img src={hero} alt={name} />
+      </div>
+      <div className="info">
+        <h1>{name}</h1>
+        <h2>{`${animal} — ${breed} — ${location}`}</h2>
+      </div>
+    </a>
+  );
+};
+
+export default Pet;
+```
 
 ---
-### Debugging & Reach Router Link
+### Reach Router (9/2/19)
+- https://frontendmasters.com/courses/complete-react-v5/reach-router/
+
+- [Reach Router](https://reach.tech/router)
+- 3 routers now: React Router, Reach Router, Knobby
+- reach router is very accessibility focused
+- it handles most of the tasks for you and takes away the complications
+- this is a great project to replacement for react router
+- reach router can haves mutiple routers on the page
+
+```js
+// at top
+import { Router } from "@reach/router";
+import Details from "./Details";
+
+// replace <Results />
+<Router>
+  <SearchParams path="/" />
+  <Details path="/details/:id" />
+</Router>;
+```
+
+- **ROUTE SPECIFICITY**
+- `/details/1` is more specific than `/details/:id`
+- reach has a specificity scoring algorithm that will choose the 1 over :id
+
+---
+### Debugging & Reach Router Link (9/2/19)
 - https://frontendmasters.com/courses/complete-react-v5/debugging-reach-router-link/
+
+- **PRE/CODE/JSON DEBUGGING TRICK**
+- pre tells it to format, code tells this will be code
+```js
+<pre>
+  <code>{JSON.stringify(props, null, 4)}</code>
+</pre>
+```
+
+- **USING LINK**
+- using `Link` will take care of all the routing under the hood
+
+```js
+// import Link too
+import { Router, Link } from "@reach/router";
+
+// replace h1
+<header>
+  <Link to="/">Adopt Me!</Link>
+</header>;
+```
+
+- CURRENT COMMIT POINT: `git checkout https://github.com/btholt/complete-intro-to-react-v5/commit/f5b834761f642fdd408708b3b88febfac4ff2a68`
 
 ---
 ## I) Class Components
