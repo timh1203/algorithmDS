@@ -6469,6 +6469,34 @@ import { Router, Link } from "@reach/router";
 ---
 ## I) Class Components
 ---
+### Class Components
+- https://frontendmasters.com/courses/complete-react-v5/class-components/
+
+---
+### Rendering the Component
+- https://frontendmasters.com/courses/complete-react-v5/rendering-the-component/
+
+---
+### Configuring Babel for Parcel
+- https://frontendmasters.com/courses/complete-react-v5/configuring-babel-for-parcel/
+
+---
+### Creating an Image Carousel
+- https://frontendmasters.com/courses/complete-react-v5/creating-an-image-carousel/
+
+---
+### Context
+- https://frontendmasters.com/courses/complete-react-v5/context/
+
+---
+### Index Click Q&A
+- https://frontendmasters.com/courses/complete-react-v5/index-click-q-a/
+
+---
+### Caousel Implementation
+- https://frontendmasters.com/courses/complete-react-v5/carousel-implementation/
+
+---
 ## J) Error Boundaries
 ---
 ## K) Context
