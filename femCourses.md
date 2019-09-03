@@ -6469,16 +6469,103 @@ import { Router, Link } from "@reach/router";
 ---
 ## I) Class Components
 ---
-### Class Components
+### Class Components (9/3/19)
 - https://frontendmasters.com/courses/complete-react-v5/class-components/
 
----
-### Rendering the Component
-- https://frontendmasters.com/courses/complete-react-v5/rendering-the-component/
+- stateless functional components or functional components are the same thing
+
+- **CLASS COMPONENTS**
+- we are covering class components here
+- classes must have a render() method
+- you can't use hooks with classes
+- componentDidMount() is useful for ajax requests
+
+```js
+// replace Details.js
+import React from "react";
+import pet from "@frontendmasters/pet";
+
+class Details extends React.Component {
+  state = { loading: true };
+  componentDidMount() {
+    pet
+      .animal(this.props.id)
+      .then(({ animal }) => {
+        this.setState({
+          name: animal.name,
+          animal: animal.type,
+          location: `${animal.contact.address.city}, ${
+            animal.contact.address.state
+          }`,
+          description: animal.description,
+          media: animal.photos,
+          breed: animal.breeds.primary,
+          loading: false
+        });
+      })
+      .catch(err => this.setState({ error: err }));
+  }
+  render() {
+    if (this.state.loading) {
+      return <h1>loading … </h1>;
+    }
+
+    const { animal, breed, location, description, name } = this.state;
+
+    return (
+      <div className="details">
+        <div>
+          <h1>{name}</h1>
+          <h2>{`${animal} — ${breed} — ${location}`}</h2>
+          <button>Adopt {name}</button>
+          <p>{description}</p>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Details;
+```
+
+- **CONSTRUCTOR**
+- You use to have to put the constructor to extend methods
+- Don't really have to do this any longer
+```js
+constructor(props) {
+  super(props);
+
+  this.state = {
+    loading: true
+  }
+}
+```
+
+- [Error Handling Course](https://frontendmasters.com/courses/debugging-javascript/)
 
 ---
-### Configuring Babel for Parcel
+### Rendering the Component (9/3/19)
+- https://frontendmasters.com/courses/complete-react-v5/rendering-the-component/
+
+- we don't use hooks and use setState
+- hooks and classes are going to stay around along time
+- notice how he writes if statement for the loading portion
+
+---
+### Configuring Babel for Parcel (9/3/19)
 - https://frontendmasters.com/courses/complete-react-v5/configuring-babel-for-parcel/
+
+- the constructor portion is burdensome
+- typescript can't figure it out
+- you can rewrite the constructor as:
+```js
+state = { loading: true};
+```
+- this feature is working in 2019 so ignore having to do this parcel fix
+- a preset is a group of plugins
+- preset-react has transpilation around jsx
+- preset-env transpiles code for environment you specify
+- `npm install -D babel-eslint @babel/core @babel/preset-env @babel/plugin-proposal-class-properties @babel/preset-react`
 
 ---
 ### Creating an Image Carousel
