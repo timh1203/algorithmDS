@@ -6596,6 +6596,27 @@ state = { loading: true};
 
 ## A) Big O & Recursion
 ---
+### Introduction
+- https://frontendmasters.com/courses/computer-science/introduction/
+---
+### Big O
+- https://frontendmasters.com/courses/computer-science/big-o/
+---
+### Finding Big O
+- https://frontendmasters.com/courses/computer-science/finding-big-o/
+---
+### Recursion
+- https://frontendmasters.com/courses/computer-science/recursion/
+---
+### Recursion Example
+- https://frontendmasters.com/courses/computer-science/recursion-example/
+---
+### Exercise: Recursion
+- https://frontendmasters.com/courses/computer-science/exercise-1-recursion/
+---
+### Exercise 1 Solution
+- https://frontendmasters.com/courses/computer-science/exercise-1-solution/
+---
 ## B) Sorting Algorithms
 ---
 ## C) Data Structure Interfaces
