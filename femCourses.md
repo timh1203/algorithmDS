@@ -6596,26 +6596,180 @@ state = { loading: true};
 
 ## A) Big O & Recursion
 ---
-### Introduction
+### Introduction (9/14/19)
 - https://frontendmasters.com/courses/computer-science/introduction/
+
+- [Coures Page](http://btholt.github.io/four-semesters-of-cs/)
+
+- The course comes from interview coding challenges
+- 90% of code should be more readable
+- it's meant more for the person going to read it later than the computer
+
+- [Cormen's Intro to Algorithms](https://ms.sapientia.ro/~kasa/Algorithms_3rd.pdf)
+- available for free, thanks to MIT
+- just read it once and it will help serve you for the rest of your career
+
 ---
-### Big O
+### Big O (9/14/19)
 - https://frontendmasters.com/courses/computer-science/big-o/
+
+- Big O is the way we measure how efficient how an algorithm is
+- It's a mathematical concept and the most we'll go into is algebra
+- We care more about big order of magnitudes IE 300ms versus 30 seconds
+- You can also use big O for spatial analysis
+
+- It's very similar to the polynomial equation where we only care about the x^2
+
 ---
-### Finding Big O
+### Finding Big O (9/14/19)
 - https://frontendmasters.com/courses/computer-science/finding-big-o/
+
+- we normally look at the worse case scenario to get Big O
+- it's very rare that you will get an O(n^3) algorithm
+- If we have no loops and just do something and exit/return, then it's said we're doing it in constant time, or O(1)
+- you can also have O(log n) if a code employs a divide-and-conquer strategy (often recursive,) meaning as you add more terms, the increases in time as you add input diminishes. This is in merge and quick sort.
+
+- we call this O(n) because we go through all the inputs once in a loop
+```js
+function crossAdd(input) {
+    var answer = [];
+    for (var i = 0; i < input.length; i++) {
+        var goingUp = input[i];
+        var goingDown = input[input.length-1-i];
+        answer.push(goingUp + goingDown);
+    }
+    return answer;
+}
+```
+
+- Also O(n)
+```js
+function find(needle, haystack) {
+    for (var i = 0; i < haystack.length; i++) {
+        if (haystack[i] === needle) return true;
+    }
+}
+```
+
+- O(n^2)
+- we have inner loop and outer loop
+- you basically look for loops
+```js
+function makeTuples(input) {
+    var answer = [];
+    for (var i = 0; i < input.length; i++) {
+        for (var j = 0; j < input.length; j++) {
+            answer.push([input[i], input[j]]);
+        }
+    }
+    return answer;
+}
+```
+
+- QUESTION: If you have multiple for loops after one another but NOT nested, it would still be considered O(n) since the coefficient doesn't matter as much here
+
 ---
-### Recursion
+### Recursion (9/14/19)
 - https://frontendmasters.com/courses/computer-science/recursion/
+
+- recursion is using the definition to define itself
+- carries a big cost to memory which adds more functions to the stack
+- there are more complicated, efficient ways of iteration (loops)
+- sometimes recursion makes it more readability than the iterative approach
+- favor readability so don't be clever unless you have to be
+
 ---
-### Recursion Example
+### Recursion Example (9/14/19)
 - https://frontendmasters.com/courses/computer-science/recursion-example/
+
+- [Example](https://codepen.io/btholt/pen/rxwEVQ?editors=001)
+
+- Sign up for codepen
+
+- **EXAMPLE**
+- always write the base case first or else you get stack overflow
+- base case is `if (current > max) return;`
+
+- fibonacci sequence is a more practical application of recursion
+- the sequence is basically the previous 2 terms added together
+- the `if (n <= 2) return 1;` is always the base case and meant to be aggresive in the terminating condition
+- while this solution is easy to read, it's not efficient
+- the function is called 6,765 times for n=20
+- the loop version of this sequence is better
+```js
+let wr = (msg='--------') => document.write(`<br>${msg}`);
+
+function basicRecursion(max, current) {
+  if (current > max) return;
+  wr(current);
+  basicRecursion(max, current+1);
+}
+
+basicRecursion(5,1);
+wr();
+wr();
+
+function fibonacci(n) {
+    if(n <= 2) {
+        return 1;
+    }
+    else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+};
+
+for (var i = 1; i <= 20; i++) {
+  wr(`${i}. ${fibonacci(i)}`);
+}
+```
+
+- QUESTION: if we have n(logn), do we drop the n in front? No, it's not a coefficient
+
 ---
-### Exercise: Recursion
+### Exercise: Recursion (9/14/19)
 - https://frontendmasters.com/courses/computer-science/exercise-1-recursion/
+- [Exercise](http://codepen.io/btholt/pen/QyMjNa?editors=001)
+
+- they are the usual examples of recursion:  factorial and fibonacci
+- we are going to do factorial today
+
+- codepen can use babel to compile ES6 but has problems with ES6's generators
+
+```js
+/*
+  Make a function that computes a factorial recursively.
+  A factorial is when you take a number n and multiply by each preceding integer until you hit one.
+  n * (n-1) * (n-2) ... * 3 * 2 * 1
+
+  Call the function factorial
+
+  factorial(1) = 1
+  factorial(2) = 2
+  factorial(3) = 6
+*/
+
+function factorial (n) {
+  if (n < 2) return 1;
+  return n * factorial(n-1);
+}
+
+// unit tests
+// do not modify the below code
+describe('factorial', function() {
+  xit('should do factorials', () => {
+    expect(factorial(1)).toEqual(1);
+    expect(factorial(2)).toEqual(2);
+    expect(factorial(3)).toEqual(6);
+    expect(factorial(10)).toEqual(3628800);
+  });
+});
+```
+
 ---
-### Exercise 1 Solution
+### Exercise 1 Solution (9/14/19)
 - https://frontendmasters.com/courses/computer-science/exercise-1-solution/
+- [Answer](http://codepen.io/btholt/pen/obwrOB?editors=001)
+
 ---
 ## B) Sorting Algorithms
 ---
