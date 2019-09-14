@@ -6773,6 +6773,46 @@ describe('factorial', function() {
 ---
 ## B) Sorting Algorithms
 ---
+### Bubble Sort
+- https://frontendmasters.com/courses/computer-science/bubble-sort/
+---
+### Exercise 2: Bubble Sort
+- https://frontendmasters.com/courses/computer-science/exercise-2-bubble-sort/
+---
+### Exercise 2 Solution
+- https://frontendmasters.com/courses/computer-science/exercise-2-solution/
+---
+### Insertion Sort
+- https://frontendmasters.com/courses/computer-science/insertion-sort/
+---
+### Exercise 3: Insertion Sort
+- https://frontendmasters.com/courses/computer-science/exercise-3-insertion-sort/
+---
+### Exercise 3 Solution
+- https://frontendmasters.com/courses/computer-science/exercise-3-solution/
+---
+### Merge Sort
+- https://frontendmasters.com/courses/computer-science/merge-sort/
+---
+### Exercise 4: Merge Sort
+- https://frontendmasters.com/courses/computer-science/exercise-4-merge-sort/
+---
+### Exercise 4 Solution
+- https://frontendmasters.com/courses/computer-science/exercise-4-solution/
+---
+### Median Values
+- https://frontendmasters.com/courses/computer-science/median-values/
+---
+### Quick Sort
+- https://frontendmasters.com/courses/computer-science/quick-sort/
+---
+### Exercise 5: Quick Sort
+- https://frontendmasters.com/courses/computer-science/exercise-5-quick-sort/
+---
+### Exercise 5 Solution
+- https://frontendmasters.com/courses/computer-science/exercise-5-solution/
+
+---
 ## C) Data Structure Interfaces
 ---
 ## D) Implementing Data Structures
