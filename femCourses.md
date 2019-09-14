@@ -380,8 +380,8 @@ const memoTimes10 = (n) => {
 }
 
 console.log('~~~~~~~~~~~~~~TASK 2~~~~~~~~~~~~~~');
-console.log('Task 2 calculated value:', memoTimes10(9));	// calculated
-console.log('Task 2 cached value:', memoTimes10(9));	// cached
+console.log('Task 2 calculated value:', memoTimes10(9));  // calculated
+console.log('Task 2 cached value:', memoTimes10(9));  // cached
 ```
 
 ---
@@ -417,8 +417,8 @@ const memoTimes10 = (n) => {
 }
 
 console.log('~~~~~~~~~~~~~~TASK 2~~~~~~~~~~~~~~');
-console.log('Task 2 calculated value:', memoTimes10(9));	// calculated
-console.log('Task 2 cached value:', memoTimes10(9));	// cached
+console.log('Task 2 calculated value:', memoTimes10(9));  // calculated
+console.log('Task 2 cached value:', memoTimes10(9));  // cached
 ```
 
 ---
@@ -445,8 +445,8 @@ const memoizedClosureTimes10 = () => {
 const memoClosureTimes10 = memoizedClosureTimes10();
 console.log('~~~~~~~~~~~~~~TASK 3~~~~~~~~~~~~~~');
 try {
-  console.log('Task 3 calculated value:', memoClosureTimes10(9));	// calculated
-  console.log('Task 3 cached value:', memoClosureTimes10(9));	// cached
+  console.log('Task 3 calculated value:', memoClosureTimes10(9)); // calculated
+  console.log('Task 3 cached value:', memoClosureTimes10(9)); // cached
 } catch(e) {
   console.error('Task 3:', e);
 }
@@ -491,8 +491,8 @@ const memoizedClosureTimes10 = () => {
 const memoClosureTimes10 = memoizedClosureTimes10();
 console.log('~~~~~~~~~~~~~~TASK 3~~~~~~~~~~~~~~');
 try {
-  console.log('Task 3 calculated value:', memoClosureTimes10(9));	// calculated
-  console.log('Task 3 cached value:', memoClosureTimes10(9));	// cached
+  console.log('Task 3 calculated value:', memoClosureTimes10(9)); // calculated
+  console.log('Task 3 cached value:', memoClosureTimes10(9)); // cached
 } catch(e) {
   console.error('Task 3:', e);
 }
@@ -567,8 +567,8 @@ const memoize = (cb) => {
 const memoizedTimes10 = memoize(times10);
 console.log('~~~~~~~~~~~~~~TASK 4~~~~~~~~~~~~~~');
 try {
-  console.log('Task 4 calculated value:', memoizedTimes10(9));	// calculated
-  console.log('Task 4 cached value:', memoizedTimes10(9));	// cached
+  console.log('Task 4 calculated value:', memoizedTimes10(9));  // calculated
+  console.log('Task 4 cached value:', memoizedTimes10(9));  // cached
 } catch(e) {
   console.error('Task 4:', e)
 }
@@ -912,7 +912,7 @@ function joinElements(array, joinString) {
   let resultSoFar = ''
 
   for (let i = 0; i < array.length-1; i++) {
-		resultSoFar += (array[i] + joinString)
+    resultSoFar += (array[i] + joinString)
   }
 
   return resultSoFar + array[array.length-1];
@@ -990,27 +990,27 @@ memoRecurse(5)
 // Only difference is I abstracted out the calculate function, like the times10 function
 // calling it `cb` makes it easier for me to recognize
 const calculate = (x) => {
-	if (x === 1) {
-		return 1
-	}
-	else {
-		return x * factorial(x-1);
-	}
+  if (x === 1) {
+    return 1
+  }
+  else {
+    return x * factorial(x-1);
+  }
 }
 
 const memoize = (cb) => {
-	const cache = {}
+  const cache = {}
 
-	return (m) => {
-		if (m in cache) {
-			return cache[m];
-		}
-		else {
-			const result = cb(m);
-			cache[m] = result;
-			return result;
-		}
-	}
+  return (m) => {
+    if (m in cache) {
+      return cache[m];
+    }
+    else {
+      const result = cb(m);
+      cache[m] = result;
+      return result;
+    }
+  }
 }
 
 const factorial = memoize(calculate);
@@ -1273,14 +1273,14 @@ mergeSort(list)
 - without comments
 ```js
 function bubbleSort(arr) {
-	for (let i = 0; i < arr.length; i++) {
-		for (let j = 0; j <arr.length; j++) {
-			if (arr[j] > arr[j+1]) {
-				[arr[j], arr[j+1]] = [arr[j+1], arr[j]];
-			}
-		}
-	}
-	return arr;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j <arr.length; j++) {
+      if (arr[j] > arr[j+1]) {
+        [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
+      }
+    }
+  }
+  return arr;
 }
 
 console.log(bubbleSort([9, 2, 5, 6, 4, 3, 7, 10, 1, 8]))
@@ -1292,7 +1292,7 @@ console.log(bubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
 - without comments
 ```js
 function bubbleSort(arr) {
-	let swapped;
+  let swapped;
   do {
     swapped = false;
     for (let i = 0; i < arr.length; i++) {
@@ -1555,25 +1555,25 @@ You need only pay out your family in the least number of bills possible so you d
 // input amount: 40 , output # of coins: 3 (25, 10, 5)
 // input amount: 35, output # of coins: 2 (25, 10)
 function makeChange(n) {
-	let count = 0;
+  let count = 0;
 
-	if (n % 25 >= 0) {
-		let divided = Math.floor(n/25);
-		n -= (divided*25);
-		count += divided;
-	}
-	if (n % 10 >= 0) {
-		let divided = Math.floor(n/10);
-		n -= (divided*10);
-		count += divided;
-	}
-	if (n % 5 == 0 || n / 5 > 1) {
-		let divided = Math.floor(n/5);
-		n -= (divided*5);
-		count += divided;
-	}
+  if (n % 25 >= 0) {
+    let divided = Math.floor(n/25);
+    n -= (divided*25);
+    count += divided;
+  }
+  if (n % 10 >= 0) {
+    let divided = Math.floor(n/10);
+    n -= (divided*10);
+    count += divided;
+  }
+  if (n % 5 == 0 || n / 5 > 1) {
+    let divided = Math.floor(n/5);
+    n -= (divided*5);
+    count += divided;
+  }
 
-	return count;
+  return count;
 }
 
 console.log(makeChange(40)); // 3
@@ -4354,31 +4354,31 @@ lib.action()
 ```js
 // data.js
 module.exports = {
-	users: [{ id: 1, name: 'Weezy' }],
-	posts: [
-		{ title: 'yo', body: 'I ate today', createdBy: 1 },
-		{ title: 'Me', body: 'Look at my selfie', createdBy: 1 },
-		{ title: 'My doggy', body: 'my dog is better than yours', createdBy: 1 }
-	]
+  users: [{ id: 1, name: 'Weezy' }],
+  posts: [
+    { title: 'yo', body: 'I ate today', createdBy: 1 },
+    { title: 'Me', body: 'Look at my selfie', createdBy: 1 },
+    { title: 'My doggy', body: 'my dog is better than yours', createdBy: 1 }
+  ]
 };
 
 // api.js
 const data = require('./data');
 
 const getUserById = (id, cb) => {
-	// simulate API call
-	setTimeout(() => {
-		const user = data.users.find(user => user.id === id);
-		cb(user);
-	}, 150);
+  // simulate API call
+  setTimeout(() => {
+    const user = data.users.find(user => user.id === id);
+    cb(user);
+  }, 150);
 };
 
 const getPostsForUser = (userId, cb) => {
-	// simulate API call
-	setTimeout(() => {
-		const posts = data.posts.filter(post => post.createdBy === userId);
-		cb(posts);
-	}, 150);
+  // simulate API call
+  setTimeout(() => {
+    const posts = data.posts.filter(post => post.createdBy === userId);
+    cb(posts);
+  }, 150);
 };
 
 module.exports = { getUserById, getPostsForUser };
@@ -4387,28 +4387,28 @@ module.exports = { getUserById, getPostsForUser };
 const { getUserById, getPostsForUser } = require('./api');
 
 const showPostsForCurrentUser = (userId, cb) => {
-	getPostsForUser(userId, posts => {
-		const postTemplates = posts.map(post => {
-			return `
+  getPostsForUser(userId, posts => {
+    const postTemplates = posts.map(post => {
+      return `
       <div class="post">
         ${post.title}
         ${post.body}
         ${post.createdBy}
       </div>`;
-		});
-		cb(postTemplates);
-	});
+    });
+    cb(postTemplates);
+  });
 };
 
 const showUserProfile = (userId, cb) => {
-	getUserById(userId, user => {
-		const profile = `
+  getUserById(userId, user => {
+    const profile = `
       <div>
         ${user.name}
       </div>
     `;
-		cb(user);
-	});
+    cb(user);
+  });
 };
 
 module.exports = { showPostsForCurrentUser, showUserProfile };
@@ -4547,10 +4547,10 @@ const contactsLocation = './contacts.json';
  * it to a js object
  */
 const getContacts = () => {
-	const file = fs
-		.readFileSync(contactsLocation, { encoding: 'utf-8' })
-		.toString();
-	return JSON.parse(file);
+  const file = fs
+    .readFileSync(contactsLocation, { encoding: 'utf-8' })
+    .toString();
+  return JSON.parse(file);
 };
 
 /**
@@ -4559,14 +4559,14 @@ const getContacts = () => {
  * @param {Object} contacts contacts object
  */
 const saveContacts = contacts => {
-	const newContacts = JSON.stringify(contacts);
-	return fs.writeFileSync(contactsLocation, newContacts);
+  const newContacts = JSON.stringify(contacts);
+  return fs.writeFileSync(contactsLocation, newContacts);
 };
 
 module.exports = {
-	contactsLocation,
-	getContacts,
-	saveContacts
+  contactsLocation,
+  getContacts,
+  saveContacts
 };
 ```
 
@@ -4603,8 +4603,8 @@ const contactsLocation = path.join(__dirname, 'contacts.json');
  * it to a js object
  */
 const getContacts = () => {
-	const contacts = fs.readFileSync(contactsLocation).toString();
-	return JSON.parse(contacts);
+  const contacts = fs.readFileSync(contactsLocation).toString();
+  return JSON.parse(contacts);
 };
 
 /**
@@ -4613,13 +4613,13 @@ const getContacts = () => {
  * @param {Object} contacts contacts object
  */
 const saveContacts = contacts => {
-	return fs.writeFileSync(contactsLocation, JSON.stringify(contacts, null, 2));
+  return fs.writeFileSync(contactsLocation, JSON.stringify(contacts, null, 2));
 };
 
 module.exports = {
-	contactsLocation,
-	getContacts,
-	saveContacts
+  contactsLocation,
+  getContacts,
+  saveContacts
 };
 ```
 
@@ -4726,8 +4726,8 @@ const path = require('path');
  * @param {String} name full file name of asset in asset folder
  */
 const findAsset = async name => {
-	const assetPath = await path.join(__dirname, 'assets', name);
-	return fs.readFileSync(assetPath, { encoding: 'utf-8' }).toString();
+  const assetPath = await path.join(__dirname, 'assets', name);
+  return fs.readFileSync(assetPath, { encoding: 'utf-8' }).toString();
 };
 
 const hostname = '127.0.0.1';
@@ -4735,30 +4735,30 @@ const port = 3000;
 
 // log incoming request coming into the server. Helpful for debugging and tracking
 const logRequest = (method, route, status) =>
-	console.log(method, route, status);
+  console.log(method, route, status);
 
 const server = http.createServer(async (req, res) => {
-	const method = req.method;
-	const route = await url.parse(req.url).pathname;
-	// this is sloppy, espcially with more assets, create a "router"
-	try {
-		switch (route) {
-			case '/':
-				res.writeHead(200, { 'Content-Type': 'text/html' });
-				res.write(findAsset('index.html'));
-				logRequest(method, route, 200);
-				res.end();
-				break;
-		}
-	} catch (err) {
-		res.status(404).json(err);
-		return res.end();
-	}
-	// most important part, send down the asset
+  const method = req.method;
+  const route = await url.parse(req.url).pathname;
+  // this is sloppy, espcially with more assets, create a "router"
+  try {
+    switch (route) {
+      case '/':
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(findAsset('index.html'));
+        logRequest(method, route, 200);
+        res.end();
+        break;
+    }
+  } catch (err) {
+    res.status(404).json(err);
+    return res.end();
+  }
+  // most important part, send down the asset
 });
 
 server.listen(port, hostname, () => {
-	console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
 ```
 
@@ -4786,55 +4786,55 @@ const mime = require('mime');
  * @param {String} name full file name of asset in asset folder
  */
 const findAsset = name => {
-	const assetPath = path.join(__dirname, 'assets', name);
-	return new Promise((resolve, reject) => {
-		fs.readFile(assetPath, { encoding: 'utf-8' }, (error, result) => {
-			if (error) {
-				reject(error);
-			} else {
-				resolve(result);
-			}
-		});
-	});
+  const assetPath = path.join(__dirname, 'assets', name);
+  return new Promise((resolve, reject) => {
+    fs.readFile(assetPath, { encoding: 'utf-8' }, (error, result) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(result);
+      }
+    });
+  });
 };
 
 const hostname = '127.0.0.1';
 const port = 3000;
 const router = {
-	'/ GET': {
-		asset: 'index.html',
-		mime: mime.getType('html')
-	},
-	'/style.css GET': {
-		asset: 'style.css',
-		mime: mime.getType('css')
-	}
+  '/ GET': {
+    asset: 'index.html',
+    mime: mime.getType('html')
+  },
+  '/style.css GET': {
+    asset: 'style.css',
+    mime: mime.getType('css')
+  }
 };
 
 // log incoming request coming into the server. Helpful for debugging and tracking
 const logRequest = (method, route, status) =>
-	console.log(method, route, status);
+  console.log(method, route, status);
 
 const server = http.createServer(async (req, res) => {
-	const method = req.method;
-	const route = url.parse(req.url).pathname;
-	const match = router[`${route} ${method}`];
+  const method = req.method;
+  const route = url.parse(req.url).pathname;
+  const match = router[`${route} ${method}`];
 
-	// this is sloppy, espcially with more assets, create a "router"
-	if (!match) {
-		res.writeHead(404);
-		logRequest(method, route, 404);
-		return res.end();
-	}
-	res.writeHead(200, { 'Content-Type': match.mime });
-	res.write(await findAsset(match.asset));
-	logRequest(method, route, 200);
-	res.end();
-	// most important part, send down the asset
+  // this is sloppy, espcially with more assets, create a "router"
+  if (!match) {
+    res.writeHead(404);
+    logRequest(method, route, 404);
+    return res.end();
+  }
+  res.writeHead(200, { 'Content-Type': match.mime });
+  res.write(await findAsset(match.asset));
+  logRequest(method, route, 200);
+  res.end();
+  // most important part, send down the asset
 });
 
 server.listen(port, hostname, () => {
-	console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
 ```
 
@@ -4948,24 +4948,24 @@ server.listen(port, hostname, () => {
 ```js
 // api.js
 app.get('/user/:id', async (req, res) => {
-	const id = req.params.id; // ERROR 1
-	// should ge user by given id in route param
-	const user = await users.findUser(id); // ERROR 2
-	res.status(200).send(user);
+  const id = req.params.id; // ERROR 1
+  // should ge user by given id in route param
+  const user = await users.findUser(id); // ERROR 2
+  res.status(200).send(user);
 });
 
 // user.js
 const fixId = id => parseInt(id);
 // simulate async db call with promise
 const findUser = id =>
-	new Promise((resolve, reject) => {
-		const _id = fixId(id);
-		const user = users.find(user => user.id === _id); // ERROR 3
-		if (user) {
-			return resolve(user);
-		}
-		reject(new Error(`No user with id "${_id}"`));
-	});
+  new Promise((resolve, reject) => {
+    const _id = fixId(id);
+    const user = users.find(user => user.id === _id); // ERROR 3
+    if (user) {
+      return resolve(user);
+    }
+    reject(new Error(`No user with id "${_id}"`));
+  });
 ```
 
 ---
@@ -5223,11 +5223,11 @@ connect()
 const mongoose = require('mongoose');
 
 const connect = () => {
-	return mongoose.connect('mongodb://localhost:27017/whatever');
+  return mongoose.connect('mongodb://localhost:27017/whatever');
 };
 
 const student = new mongoose.Schema({ // added firstName, favFoods, and info validations
-	firstName: {
+  firstName: {
     type: String,
     required: true,
     unique: true
@@ -5246,11 +5246,11 @@ const student = new mongoose.Schema({ // added firstName, favFoods, and info val
 const Student = mongoose.model('student', student);
 
 connect()
-	.then(async connection => {
-		const student = await Student.create({ firstName: 'Tim' });
-		console.log(student);
-	})
-	.catch(e => console.error(e));
+  .then(async connection => {
+    const student = await Student.create({ firstName: 'Tim' });
+    console.log(student);
+  })
+  .catch(e => console.error(e));
 
 ```
 
@@ -5271,11 +5271,11 @@ connect()
 const mongoose = require('mongoose');
 
 const connect = () => {
-	return mongoose.connect('mongodb://localhost:27017/whatever');
+  return mongoose.connect('mongodb://localhost:27017/whatever');
 };
 
 const student = new mongoose.Schema({
-	firstName: {
+  firstName: {
     type: String,
     required: true,
     unique: true
@@ -5294,14 +5294,14 @@ const student = new mongoose.Schema({
 const Student = mongoose.model('student', student);
 
 connect()
-	.then(async connection => {
+  .then(async connection => {
     const student = await Student.create({ firstName: 'Tim' });
     const found = await Student.find({firstName: 'this'}) // returns a list
     const foundById = await Student.findById('asdfasdfasdf') // searches by id
     const updated = await Student.findByIdAndUpdate('asdfads', {}) // 2nd object is what to update
-		console.log(student);
-	})
-	.catch(e => console.error(e));
+    console.log(student);
+  })
+  .catch(e => console.error(e));
 
 ```
 
@@ -5618,7 +5618,7 @@ ReactDOM.render(React.createElement(App), document.getElementById("root"));
 
 ```json
 "scripts": {
-	"format": "prettier --write \"src/**/*.{js,jsx}\"",
+  "format": "prettier --write \"src/**/*.{js,jsx}\"",
 },
 ```
 
@@ -6770,47 +6770,447 @@ describe('factorial', function() {
 - https://frontendmasters.com/courses/computer-science/exercise-1-solution/
 - [Answer](http://codepen.io/btholt/pen/obwrOB?editors=001)
 
+- QUESTION: using return n in the base case? It's an extra call but returning 1 is more explicit
+
 ---
 ## B) Sorting Algorithms
 ---
-### Bubble Sort
+### Bubble Sort (9/14/19)
 - https://frontendmasters.com/courses/computer-science/bubble-sort/
+
+- Recursion should be kept in our toolbox even it isn't being used all the time
+
+- BIG O: O(n^2)
+- Bubble Sort is not useful and not used in production
+- It's a useful learning algorithm and easy to conceptualize
+
+- Bubble sort compares 2 numbers at a time and swaps them
+- there are 2 loops
+- there's an outer "do" loop that runs until all the numbers afre in order
+- there's an inner loop that swaps the numbers
+
 ---
-### Exercise 2: Bubble Sort
+### Exercise 2: Bubble Sort (9/14/19)
 - https://frontendmasters.com/courses/computer-science/exercise-2-bubble-sort/
+- [Exercise](http://codepen.io/btholt/pen/PZKPjj?editors=001)
+
+- **MY ATTEMPT: Non-working**
+```js
+/*
+  Write a bubble sort here
+  Name the function bubbleSort
+
+  If you want to suspend running the unit tests, change describe to xdescribe
+
+  Bubble sort works by comparing two adjacent numbers next to each other and then
+  swapping their places if the smaller index's value is larger than the larger
+  index's. Continue looping through until all values are in ascending order
+
+  Provided is an optional visualization helper. Call snapshot(yourArray) at the
+  beginning of each iteration of your inner loop with the state of the being-sorted
+  array and the helper tool will show you how your array looks in the HTML section
+  of CodePen. This is optional and only for your help.
+
+*/
+
+function bubbleSort (nums) {
+  snapshot(nums)
+
+  for (let i = 0; i < nums.length; i++) {
+    while (nums[i] > nums[i+1]) {
+      for (let j = 0; j < nums.length; j++) {
+        [nums[j], nums[j+1]] = [nums[j+1], nums[j]]
+      }
+    }
+  }
+
+  return nums
+}
+
+// unit tests
+// do not modify the below code
+describe('bubble sort', function() {
+  it('should sort correctly', () => {
+    var nums = [10,5,3,8,2,6,4,7,9,1];
+    bubbleSort(nums);
+    expect(nums).toEqual([1,2,3,4,5,6,7,8,9,10]);
+    done();
+  });
+});
+```
+
 ---
-### Exercise 2 Solution
+### Exercise 2 Solution (9/14/19)
 - https://frontendmasters.com/courses/computer-science/exercise-2-solution/
+- [Answer](http://codepen.io/btholt/pen/KdYPqa?editors=001)
+
+- **CORRECT SOLUTION**
+- It is an O(n^2) solution in the worst case and O(n) in the best case
+- notice that the swapped variable is functioned scoped, not blocked scoped
+- basically the do loops runs through 1 time first and sets swapped to true
+- the while loop then kicks in to continue
+- the swapped snippet is an ES6 array swap feature
+```js
+function bubbleSort (nums) {
+  do {
+    var swapped = false
+    for (let i = 0; i < nums.length; i++) {
+      snapshot(nums);
+      if (nums[i] > nums[i+1]) {
+        [nums[i], nums[i+1]] = [nums[i+1], nums[i]]
+        swapped = true;
+      }
+    }
+  } while (swapped)
+  snapshot(nums);
+
+  return nums
+}
+```
+
 ---
-### Insertion Sort
+### Insertion Sort (9/14/19)
 - https://frontendmasters.com/courses/computer-science/insertion-sort/
+
+- Something that we will use and close to human conceptualization
+- Great for arrays that are almost correctly sorted
+- If the array is not sorted as all, it doesn't work as well
+
 ---
-### Exercise 3: Insertion Sort
+### Exercise 3: Insertion Sort (9/14/19)
 - https://frontendmasters.com/courses/computer-science/exercise-3-insertion-sort/
+- [Exercise](http://codepen.io/btholt/pen/mVMMxj?editors=001)
+- [Big O Cheat Sheet](https://www.bigocheatsheet.com/)
+
+- **MY ATTEMPT**
+```js
+/*
+  Insertion sort!
+
+  Be sure to call your function insertionSort.
+
+  The idea here is that the beginning of your list is sorted and the everything else is assumed to be an unsorted mess.
+  The outer loop goes over the whole list, the index of which signifies where the "sorted" part of the list is. The inner
+  loop goes over the sorted part of the list and inserts it into the correct position in the array.
+
+  Like bubble sort, there's a visualization mechanism available to you. Just call snapshot(myArray) at the beginning of
+  your inner loop and it should handle the rest for you!
+
+  And you put xdescribe instead of describe if you want to suspend running the unit tests.
+*/
+
+function insertionSort (nums) {
+  for (let i = 1; i < nums.length; i++) {
+    for (let j = 1; j < nums.length; j++) {
+      if (nums[j-1] > nums[j]) {
+        [nums[j-1], nums[j]] = [nums[j], nums[j-1]]
+      }
+    }
+  }
+
+  return nums
+}
+
+// unit tests
+// do not modify the below code
+describe('insertion sort', function() {
+  it('should sort correctly', () => {
+    var nums = [10,5,3,8,2,6,4,7,9,1];
+    insertionSort(nums);
+    expect(nums).toEqual([1,2,3,4,5,6,7,8,9,10]);
+    done();
+  });
+});
+```
+
 ---
-### Exercise 3 Solution
+### Exercise 3 Solution (9/14/19)
 - https://frontendmasters.com/courses/computer-science/exercise-3-solution/
+- [Solution](https://codepen.io/btholt/pen/meYQPd?editors=001)
+
+- **OFFICIAL SOLUTION**
+```js
+var insertionSort = nums => {
+  for (let i = 1; i < nums.length; i++) {
+    for (let j = 0; j < i; j++) {
+      snapshot(nums);
+      if (nums[i] < nums[j]) {
+        let spliced = nums.splice(i, 1);
+        nums.splice(j, 0, spliced[0]);
+      }
+    }
+  }
+};
+```
+
 ---
-### Merge Sort
+### Merge Sort (9/14/19)
 - https://frontendmasters.com/courses/computer-science/merge-sort/
+
+- TIME: O(nlogn)
+- SPACE: O(n)
+- merge sort is used more often than bubble and insert sort
+- it's consistent and used 90% of time in search engines
+- this is a divide and conquer technique that uses recursion
+- it's a stable sort, meaning it returns origonal order in the array if the elements are equivalent
+
+- it takes a big list and breaks it down by halves until it reaches 1 item where it is considered sorted
+- then as we move back up, we stitch together these halves to sort them
+- recommended that we split it to 2 functions: mergeSort() and merge()
+
 ---
-### Exercise 4: Merge Sort
+### Exercise 4: Merge Sort (9/14/19)
 - https://frontendmasters.com/courses/computer-science/exercise-4-merge-sort/
+- [Exercise](http://codepen.io/btholt/pen/PZKgQd?editors=001)
+
+- **MY ATTEMPT**
+```js
+/*
+  Write a function that performs mergesort
+  Name the function mergeSort
+  It will take in a array of numbers and return a sorted array numbers
+
+  To read the approach, refer to the class materials at
+  https://btholt.github.io/four-semesters-of-cs/
+
+  As always, you can rename describe to be xdescribe to prevent the
+  unit tests from running while you're working
+
+  There is no visualization mechanism for this algorithm. Use your own
+  preferred method of introspection like console.log().
+*/
+var nums = [10,5,3,8,2,6,4,7,9,1];
+
+function stitch(left, right) {
+  let newArr = []
+
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      newArr.push(left.shift())
+    } else {
+      newArr.push(right.shift())
+    }
+  }
+
+  while (left.length) {newArr.push(left.shift())}
+  while (right.length) {newArr.push(right.shift())}
+
+  return newArr.sort((a, b) => a-b)
+}
+
+function mergeSort(arr) {
+  if (arr.length < 2) return arr;
+
+  const middle = Math.ceil(arr.length/2)
+  const left = arr.slice(0, middle)
+  const right = arr.slice(middle)
+
+  return stitch(mergeSort(left), mergeSort(right));
+}
+
+
+// unit tests
+// do not modify the below code
+describe('insertion sort', function() {
+  it('should sort correctly', () => {
+    var nums = [10,5,3,8,2,6,4,7,9,1];
+    var ans = mergeSort(nums);
+    expect(ans).toEqual([1,2,3,4,5,6,7,8,9,10]);
+  });
+});
+```
+
 ---
-### Exercise 4 Solution
+### Exercise 4 Solution (9/14/19)
 - https://frontendmasters.com/courses/computer-science/exercise-4-solution/
+- [Answer](http://codepen.io/btholt/pen/rOEdKK?editors=001)
+
+- **OFFICIAL SOLUTION**
+```js
+const mergeSort = nums => {
+  if (nums.length < 2) {
+    return nums;
+  }
+  const length = nums.length;
+  const middle = Math.floor(length / 2);
+  const left = nums.slice(0, middle);
+  const right = nums.slice(middle);
+
+  return merge(mergeSort(left), mergeSort(right));
+};
+
+const merge = (left, right) => {
+
+  const results = [];
+
+  while (left.length && right.length) {
+
+    if (left[0] <= right[0]) {
+      results.push(left.shift());
+    }
+    else {
+      results.push(right.shift());
+    }
+  }
+
+  return results.concat(left, right);
+};
+```
+
 ---
-### Median Values
+### Median Values (9/14/19)
 - https://frontendmasters.com/courses/computer-science/median-values/
+
+- Find the median elements of two arrays
+- We can do the stitch function to make it work here but also do it visually on the fly
+- The results is going to be average of 5 and 7, which is 6
+
+- TAKEAWAY: it's always going to be the mid of 4 and 5 index if the array length is 8 in this case, so we can ignore that rest of the array
+- We count 1, 2, 3, 5, 7 and we notice we are at position 4 and 5, take the average, and then we are done
+- Ignore the rest because this is already a sorted array
+
+```js
+let left = [1,5,8,9]
+let right = [2,3,7,10]
+let results = [1,2,3,5,7,8,9,10]
+```
+
 ---
-### Quick Sort
+### Quick Sort (9/15/19)
 - https://frontendmasters.com/courses/computer-science/quick-sort/
+
+- BIG O: O(nlogn)
+- another divide & conquer, recursive algorithm
+- One of the most powerful sort algorithm
+- Not hard to conceptualize
+- If computer is not doing merge sort, it's doing quick sort
+
+- notice that the pivot does not get passed down to the right or left list
+- the pivot gets concatenated when the sorted left and right list return
+
+- in this example of quick sort, we are always picking the last thing as the pivot
+- it doesn't matter if pivot is first or last of array
+- having the last of the array makes the code simpler
+
+- PIVOT = 6
+- takes everything smaller than the pivot to the left
+- bigger to the right
+```js
+// Example 1
+[5,7,4,9,6]
+[5,4] 6 [7,9] // PIVOT: 6
+[] 4 [5], 6, [7] 9 [] // PIVOT 4 and 9
+[4,5], 6, [7,9]
+[4,5,6,7,9]
+
+// Example 2
+[4,9,3,5]
+[4,3] 5 [9]
+[] 3 [4], 5, [9]
+[3,4] 5 [9]
+[3,4,5,9]
+```
+
+- quick sort is often faster than merge sort
+- it can be O(n2) if you pass a sorted list and choose the last index as the pivot
+- it's comparatively slow if you pass it a sorted list than an unsorted list
+
 ---
-### Exercise 5: Quick Sort
+### Exercise 5: Quick Sort (9/16/19)
 - https://frontendmasters.com/courses/computer-science/exercise-5-quick-sort/
+- [Exercise](http://codepen.io/btholt/pen/pgWVQM?editors=001)
+
+- **MY ATTEMPT: WORKING**
+```js
+/*
+
+  Quicksort!
+
+  Name your function quickSort.
+
+  Quicksort should grab a pivot from the end and then separate the list (not including the pivot)
+  into two lists, smaller than the pivot and larger than the pivot. Call quickSort on both of those
+  lists independently. Once those two lists come back sorted, concatenate the "left" (or smaller numbers)
+  list, the pivot, and the "right" (or larger numbers) list and return that. The base case is when quickSort
+  is called on a list with length less-than-or-equal-to 1. In the base case, just return the array given.
+
+  As always, you can change describe to xdescribe to prevent the unit tests from running while you're coding.
+
+  No visualization is provided so feel free to use your own debugging methods (like console.log).
+
+*/
+function quickSort(nums) {
+    let pivot = nums[nums.length - 1]
+  let left = [];
+  let right = [];
+
+  if (nums.length < 2) return nums;
+
+	for (let i = 0; i < nums.length-1; i++) {
+    if (nums[i] <= pivot) {
+      left.push(nums[i])
+    } else {
+      right.push(nums[i])
+    }
+  }
+
+  return [...quickSort(left), pivot, ...quickSort(right)]
+}
+
+// unit tests
+// do not modify the below code
+describe('quickSort', function() {
+  it('quicksort an array', () => {
+    const input = [10, 8, 2, 1, 6, 3, 9, 4, 7, 5];
+    const answer = quickSort(input);
+
+    expect(answer).toEqual([1,2,3,4,5,6,7,8,9,10]);
+
+  });
+});
+```
+
 ---
-### Exercise 5 Solution
+### Exercise 5 Solution (9/16/19)
 - https://frontendmasters.com/courses/computer-science/exercise-5-solution/
+- [Answer](http://codepen.io/btholt/pen/bEoGxa?editors=001)
+
+- you can also do `return quickSort(left).concat(pivot, quickSort(right))`
+- or `[].concat(quickSort(left), pivote, quickSort(right))`
+
+- **OFFICIAL SOLUTION**
+```js
+const quickSort = nums => {
+  if (nums.length <= 1) return nums;
+
+  const pivot = nums[nums.length-1];
+  const left = [];
+  const right = [];
+
+  for (let i = 0; i < nums.length-1; i++) {
+    if (nums[i] < pivot) {
+      left.push(nums[i]);
+    }
+    else {
+      right.push(nums[i]);
+    }
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+};
+
+
+// unit tests
+// do not modify the below code
+describe('quickSort', function() {
+  it('quicksort an array', () => {
+    const input = [10, 8, 2, 1, 6, 3, 9, 4, 7, 5];
+    const answer = quickSort(input);
+
+    expect(answer).toEqual([1,2,3,4,5,6,7,8,9,10]);
+
+  });
+});
+```
 
 ---
 ## C) Data Structure Interfaces
