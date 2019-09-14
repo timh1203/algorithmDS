@@ -5327,7 +5327,7 @@ connect()
 ---
 ## E) APIs
 
-# Complete Intro to React, v5 w/ Brian Holt *HEAD
+# Complete Intro to React, v5 w/ Brian Holt
 
 ## A) Introduction
 ---
@@ -6591,3 +6591,15 @@ state = { loading: true};
 ## L) Portals
 ---
 ## M) Wrapping Up
+
+#  Four Semesters of Computer Science in 5 Hours w/ Brian Holt
+
+## A) Big O & Recursion
+---
+## B) Sorting Algorithms
+---
+## C) Data Structure Interfaces
+---
+## D) Implementing Data Structures
+---
+## E) Functional Programming 101
