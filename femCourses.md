@@ -7220,6 +7220,26 @@ describe('quickSort', function() {
 ---
 ## C) Data Structure Interfaces
 ---
+### Interfaces Data Structure
+- https://frontendmasters.com/courses/computer-science/interfaces-data-structure/
+
+---
+### Set Data Structure
+- https://frontendmasters.com/courses/computer-science/set-data-structure/
+
+---
+### Map Data Structure
+- https://frontendmasters.com/courses/computer-science/map-data-structure/
+
+---
+### Stack Data Structure
+- https://frontendmasters.com/courses/computer-science/stack-data-structure/
+
+---
+### Queue Data Structure
+- https://frontendmasters.com/courses/computer-science/queue-data-structure/
+
+---
 ## D) Implementing Data Structures
 ---
 ## E) Functional Programming 101
