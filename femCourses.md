@@ -7272,4 +7272,52 @@ describe('quickSort', function() {
 ---
 ## D) Implementing Data Structures
 ---
+### Array List
+-
+---
+### Exercise 6: Array List
+-
+---
+### Exercise 6 Solution
+-
+---
+### Linked List
+-
+---
+### Exercise 7: Linked List
+-
+---
+### Exercise 7 Solution Part 1
+-
+---
+### Exercise 7 Solution Part 2
+-
+---
+### Binary Search Tree
+-
+---
+### Exercise 8: Binary Search Tree
+-
+---
+### Exercise 8 Solution
+-
+---
+### AVL Tree
+-
+---
+### Single Rotation
+-
+---
+### Double Rotation
+-
+---
+### Exercise 9 Solution Part 1
+-
+---
+### Exercise 9 Solution Part 2
+-
+---
+### Hash Table
+-
+---
 ## E) Functional Programming 101
