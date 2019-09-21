@@ -6599,7 +6599,7 @@ state = { loading: true};
 ### Introduction (9/14/19)
 - https://frontendmasters.com/courses/computer-science/introduction/
 
-- [Coures Page](http://btholt.github.io/four-semesters-of-cs/)
+- [Courses Page](http://btholt.github.io/four-semesters-of-cs/)
 
 - The course comes from interview coding challenges
 - 90% of code should be more readable
@@ -6786,7 +6786,7 @@ describe('factorial', function() {
 
 - Bubble sort compares 2 numbers at a time and swaps them
 - there are 2 loops
-- there's an outer "do" loop that runs until all the numbers afre in order
+- there's an outer "do" loop that runs until all the numbers are in order
 - there's an inner loop that swaps the numbers
 
 ---
@@ -6844,8 +6844,9 @@ describe('bubble sort', function() {
 - https://frontendmasters.com/courses/computer-science/exercise-2-solution/
 - [Answer](http://codepen.io/btholt/pen/KdYPqa?editors=001)
 
-- **CORRECT SOLUTION**
-- It is an O(n^2) solution in the worst case and O(n) in the best case
+- **OFFICIAL SOLUTION**
+- TIME: O(n^2) solution in the worst case and O(n) in the best case
+- SPACE: O(1)
 - notice that the swapped variable is functioned scoped, not blocked scoped
 - basically the do loops runs through 1 time first and sets swapped to true
 - the while loop then kicks in to continue
@@ -6882,7 +6883,7 @@ function bubbleSort (nums) {
 - [Exercise](http://codepen.io/btholt/pen/mVMMxj?editors=001)
 - [Big O Cheat Sheet](https://www.bigocheatsheet.com/)
 
-- **MY ATTEMPT**
+- **MY ATTEMPT: INCORRECT**
 ```js
 /*
   Insertion sort!
@@ -6929,6 +6930,8 @@ describe('insertion sort', function() {
 - [Solution](https://codepen.io/btholt/pen/meYQPd?editors=001)
 
 - **OFFICIAL SOLUTION**
+- TIME: O(n^2)
+- SPACE: O(1)
 ```js
 var insertionSort = nums => {
   for (let i = 1; i < nums.length; i++) {
@@ -6952,7 +6955,7 @@ var insertionSort = nums => {
 - merge sort is used more often than bubble and insert sort
 - it's consistent and used 90% of time in search engines
 - this is a divide and conquer technique that uses recursion
-- it's a stable sort, meaning it returns origonal order in the array if the elements are equivalent
+- it's a stable sort, meaning it returns orignal order in the array if the elements are equivalent
 
 - it takes a big list and breaks it down by halves until it reaches 1 item where it is considered sorted
 - then as we move back up, we stitch together these halves to sort them
@@ -6963,7 +6966,7 @@ var insertionSort = nums => {
 - https://frontendmasters.com/courses/computer-science/exercise-4-merge-sort/
 - [Exercise](http://codepen.io/btholt/pen/PZKgQd?editors=001)
 
-- **MY ATTEMPT**
+- **MY ATTEMPT: WORKING**
 ```js
 /*
   Write a function that performs mergesort
@@ -7026,6 +7029,9 @@ describe('insertion sort', function() {
 - [Answer](http://codepen.io/btholt/pen/rOEdKK?editors=001)
 
 - **OFFICIAL SOLUTION**
+- this solution is much simpler
+- the `results.concat` in merge function helps to tie up leftover numbers that didn't get pushed in the results
+- In my solution, I had to do a while length() logic to capture leftovers
 ```js
 const mergeSort = nums => {
   if (nums.length < 2) {
@@ -7040,7 +7046,6 @@ const mergeSort = nums => {
 };
 
 const merge = (left, right) => {
-
   const results = [];
 
   while (left.length && right.length) {
@@ -7081,7 +7086,7 @@ let results = [1,2,3,5,7,8,9,10]
 
 - BIG O: O(nlogn)
 - another divide & conquer, recursive algorithm
-- One of the most powerful sort algorithm
+- One of the most powerful sorting algorithm
 - Not hard to conceptualize
 - If computer is not doing merge sort, it's doing quick sort
 
@@ -7091,6 +7096,10 @@ let results = [1,2,3,5,7,8,9,10]
 - in this example of quick sort, we are always picking the last thing as the pivot
 - it doesn't matter if pivot is first or last of array
 - having the last of the array makes the code simpler
+
+- quick sort is often faster than merge sort
+- it can be O(n^2) if you pass a sorted list and choose the last index as the pivot
+- it's comparatively slow if you pass it a sorted list than an unsorted list
 
 - PIVOT = 6
 - takes everything smaller than the pivot to the left
@@ -7110,10 +7119,6 @@ let results = [1,2,3,5,7,8,9,10]
 [3,4] 5 [9]
 [3,4,5,9]
 ```
-
-- quick sort is often faster than merge sort
-- it can be O(n2) if you pass a sorted list and choose the last index as the pivot
-- it's comparatively slow if you pass it a sorted list than an unsorted list
 
 ---
 ### Exercise 5: Quick Sort (9/16/19)
@@ -7176,7 +7181,7 @@ describe('quickSort', function() {
 - [Answer](http://codepen.io/btholt/pen/bEoGxa?editors=001)
 
 - you can also do `return quickSort(left).concat(pivot, quickSort(right))`
-- or `[].concat(quickSort(left), pivote, quickSort(right))`
+- or `[].concat(quickSort(left), pivot, quickSort(right))`
 
 - **OFFICIAL SOLUTION**
 ```js
