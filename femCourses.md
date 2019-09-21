@@ -7220,24 +7220,54 @@ describe('quickSort', function() {
 ---
 ## C) Data Structure Interfaces
 ---
-### Interfaces Data Structure
+### Interfaces Data Structure (9/20/19)
 - https://frontendmasters.com/courses/computer-science/interfaces-data-structure/
 
+- Interfaces are how the structure is where implementation is something we learn later
+
 ---
-### Set Data Structure
+### Set Data Structure (9/20/19)
 - https://frontendmasters.com/courses/computer-science/set-data-structure/
 
----
-### Map Data Structure
-- https://frontendmasters.com/courses/computer-science/map-data-structure/
+- a set is like an array but no set order or index
+- it guarantees that there are no duplicates inside
+- calling a set will not guarantee the order you store it or anything
+- javascript has native Sets as of ES6
 
 ---
-### Stack Data Structure
+### Map Data Structure (9/20/19)
+- https://frontendmasters.com/courses/computer-science/map-data-structure/
+- [2ality Site](https://2ality.com/)
+
+- maps are like dictionaries or javascript objects
+- You can't have the same key and no concept of order
+- however, the values can be duplications
+- ES6 also has native Maps now
+
+- Brian uses Maps, but not Sets as much
+- There are also weakMap and weakSet, it's useful for people who are making libraries
+
+---
+### Stack Data Structure (9/20/19)
 - https://frontendmasters.com/courses/computer-science/stack-data-structure/
 
+- Last In, First Out (LIFO)
+- push and pop terms from from stacks
+- peek is just looking at the top but without modifying on the stack
+- we are programming in a stack when we write functions and calling them
+- most C based languages, which are most modern languages, operate off of this stack architecture
+
 ---
-### Queue Data Structure
+### Queue Data Structure (9/20/19)
 - https://frontendmasters.com/courses/computer-science/queue-data-structure/
+
+- First In, First Out (FIFO)
+- it's similar to a line waiting for something
+- enqueue adds to the array and dequeue taks if off the array
+- there's also a peek method
+
+- there's are priority queues like streaming videos packets are high priority than dropbox packets
+- higher priority things go to front of line
 
 ---
 ## D) Implementing Data Structures
