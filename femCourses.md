@@ -7151,7 +7151,7 @@ function quickSort(nums) {
 
   if (nums.length < 2) return nums;
 
-	for (let i = 0; i < nums.length-1; i++) {
+  for (let i = 0; i < nums.length-1; i++) {
     if (nums[i] <= pivot) {
       left.push(nums[i])
     } else {
@@ -7272,52 +7272,922 @@ describe('quickSort', function() {
 ---
 ## D) Implementing Data Structures
 ---
-### Array List
--
+### Array List (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/array-list/
+
+- talking about array list and linked list (terms borrowing from Java)
+- we are implementing javascript because we already know this language
+- javascript is not a garbage-collected language so you don't have to worry about allocation and deallocation
+- realistically, doing it in a memory controlled language like C or Java is better
+
+- **MEMORY ALLOCATION**
+- In the index in memory, we store items in memory
+- in an array list, the index is descriptive of where the item is stored
+- you interact with it this way
+
+- if you add/delete an item in the array, you have to collapse the list down with is HUGELY expensive operation
+- lookups are fast on the other hand
+
 ---
-### Exercise 6: Array List
--
+### Exercise 6: Array List (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/exercise-6-array-list/
+- [Exercise](http://codepen.io/btholt/pen/adLxyv?editors=001)
+
+- he wants us to collapse the array
+- we will be using ES6 classes and have several methods
+- underscore like `_collapseTo` means an internal method
+
+- **MY SOLUTION: WORKING**
+```js
+/*
+  ArrayList
+
+  We are going to approximate an implementation of ArrayList. In JavaScript terms, that means we are
+  going to implement an array using objects. You should not use arrays at all in this exercise, just
+  objects. Make a class (or constructor function; something you can call new on) called ArrayList.
+  ArrayList should have the following properties (in addition to whatever properties you create):
+
+  length - integer  - How many elements in the array
+  push   - function - accepts a value and adds to the end of the list
+  pop    - function - removes the last value in the list and returns it
+  get    - function - accepts an index and returns the value at that position
+  delete - function - accepts an index, removes value from list, collapses,
+                      and returns removed value
+
+  As always, you can change describe to xdescribe to prevent the unit tests from running while
+  you work
+*/
+
+class ArrayList {
+  constructor() {
+    this.length = 0;
+    this.data = {};
+  }
+
+  push = (value) => {
+    this.data[this.length] = value
+    this.length++
+  }
+
+  pop = () => {
+    const popped = this.data[this.length - 1]
+    delete this.data[this.length - 1]
+    this.length--
+    return popped
+  }
+
+  get = (index) => {
+    return this.data[index]
+  }
+
+  delete = (index) => {
+    delete this.data[index]
+    this.length--
+    this._collapseTo(index);
+
+    return this.data
+  }
+
+  _collapseTo(index) {
+    for (let i = index; i < this.length; i++) {
+      this.data[i] = this.data[i+1]
+      delete this.data[i+1]
+    }
+  }
+}
+
+const data = new ArrayList()
+data.push("tim")
+data.push("juan")
+data.push("vu")
+data.push("brian")
+data.push("seth")
+data.pop()
+data.get(0)
+console.log(this.data)
+data.delete(2)
+console.log(this.data)
+
+// unit tests
+// do not modify the below code
+describe('ArrayList', function() {
+  const range = length => Array.apply(null, {length: length}).map(Number.call, Number);
+  const abcRange = length => range(length).map( num => String.fromCharCode( 97 + num ) );
+  let list;
+
+  beforeEach( () => {
+    list = new ArrayList();
+  })
+
+  it('constructor', () => {
+    expect(list).toEqual(jasmine.any(ArrayList));
+  });
+
+  it('push', () => {
+    abcRange(26).map( character => list.push(character) );
+    expect(list.length).toEqual(26);
+  });
+
+  it('pop', () => {
+    abcRange(13).map( character => list.push(character) );
+    expect(list.length).toEqual(13);
+    range(10).map( () => list.pop() );
+    expect(list.length).toEqual(3);
+    expect(list.pop()).toEqual('c');
+  });
+
+  it('get', () => {
+    list.push('first');
+    expect(list.get(0)).toEqual('first');
+    list.push('second');
+    expect(list.get(1)).toEqual('second');
+    expect(list.get(0)).toEqual('first');
+    abcRange(26).map( character => list.push(character));
+    expect(list.get(27)).toEqual('z');
+    expect(list.get(0)).toEqual('first');
+    expect(list.get(9)).toEqual('h');
+    list.pop();
+    expect(list.get(list.length-1)).toEqual('y');
+  });
+
+  it('delete', () => {
+    abcRange(26).map( character => list.push(character) );
+    list.delete(13);
+    expect(list.length).toEqual(25);
+    expect(list.get(12)).toEqual('m');
+    expect(list.get(13)).toEqual('o');
+    list.delete(0);
+    expect(list.length).toEqual(24);
+    expect(list.get(0)).toEqual('b');
+  });
+
+});
+```
+
 ---
-### Exercise 6 Solution
--
+### Exercise 6 Solution (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/exercise-6-solution/
+- [Answer](http://codepen.io/btholt/pen/dGOaXX?editors=001)
+
+- **OFFICIAL SOLUTION**
+- reads are cheap, but add/delete are expensive
+- linked list are the opposite
+- TIME: O(N) for adds/deletes, O(1) for reads
+```js
+class ArrayList {
+  constructor() {
+    this.length = 0;
+    this.data = {};
+  }
+  push(value) {
+    this.data[this.length] = value;
+    this.length++;
+  }
+  pop() {
+    const ans = this.data[this.length-1];
+    delete this.data[this.length-1];
+    this.length--;
+    return ans;
+  }
+  get(index) {
+    return this.data[index];
+  }
+  delete(index) {
+    const ans = this.data[index];
+    this._collapseTo(index);
+    return ans;
+  }
+  _collapseTo(index) {
+    for (let i = index; i < this.length; i++) {
+      this.data[i] = this.data[i+1];
+    }
+    delete this.data[this.length-1];
+    this.length--;
+  }
+  serialize() {
+    return this.data;
+  }
+}
+```
+
+- QUESTION: can you re-use delete function for pop function? Yes, just call this.delete in the pop function
+- QUESTION: why do you have internal helpful function? It's easier to test, smaller & easier to understand, and reusable
+
 ---
-### Linked List
--
+### Linked List (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/linked-list/
+
+
+- TIME: O(1) for adds/deletes, O(N) for reads
+- terminology: head, next, tail
+
+- A (next: B) -> B (next: C) -> C (next: D) -> D
+
+- we use the head and tail to keep track of the ends that is useful for methods
+- Get's are more expensive because you have to go through every node to go through the list to get to the node
+- Delete's are cheaper because you just change the next to point somewhere else
+
+- Push's are easy because you just point the tail at the next linked node
+- Pop is not as simple as push because you have to find the second to last linked node to point to nothing
+- some people keeps track of second to last tail node, although useful, it is a lot more management and becomes a headache down the road
+- Brian's recommendation is not to have extra variables if you don't need to
+
 ---
-### Exercise 7: Linked List
--
+### Exercise 7: Linked List (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/exercise-7-linked-list/
+- [Exercise](http://codepen.io/btholt/pen/adLxEd?editors=001)
+
+- recommended to do 2 classes: Node and LinkedList
+
+- **COMMENTED ON OFFICIAL SOLUTION 2**
+```js
+class LinkedList {
+  constructor() {
+    this.tail = this.head = null;
+    this.length = 0;
+  }
+
+  push(value) {
+    const node = new Node(value);
+    this.length++;
+    if (!this.head) {
+     this.head = node;
+    }
+    else {
+      this.tail.next = node;
+    }
+    this.tail = node;
+  }
+
+  pop() {
+    return this.delete(this.length-1)
+  }
+
+  get(index) {
+    const node = this._find(index, this._testIndex);
+    if (!node) return null;
+    return node.value;
+  }
+
+  delete(index) {
+    // if the index is the head, shifts everything over
+    if (index === 0) {
+      const head = this.head;
+      if (head) {
+        this.head = head.next;
+      }
+      else {
+        this.head = null;
+      }
+      this.length--;
+      return head.value;
+    }
+
+    // finds the previous index node
+    const node = this._find(index-1, this._testIndex);
+    const excise = node.next;
+    if (!excise) return null;
+    // cuts out the node at the current index
+    // stitches the previous and following nodes together
+    node.next = excise.next;
+    // if there's nothing after the current index node
+    // set previous index node as the tail
+    if (node.next && !node.next.next) this.tail = node.next;
+    this.length--;
+    return excise.value;
+  }
+
+  // Used in conjunction with both _test and _testIndex
+  _find(value, test=this._test) {
+    let current = this.head;
+    let i = 0;
+    while(current) {
+      if (test(value, current.value, i, current)) {
+        return current;
+      }
+      current = current.next;
+      i++;
+    }
+    return null;
+  }
+
+  // search was provided as a text
+  _test(search, nodeValue) {
+    return search === nodeValue;
+  }
+
+  // search was provided as an index interger
+  _testIndex(search, __, i) {
+    return search === i;
+  }
+
+  serialize() {
+    const ans = [];
+    let current = this.head;
+    if (!current) return ans;
+    while (current) {
+      ans.push(current.value);
+      current = current.next;
+    }
+    return ans;
+  }
+}
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+```
+
 ---
-### Exercise 7 Solution Part 1
--
+### Exercise 7 Solution Part 1 (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/exercise-7-solution-part-1/
+- [Answer](http://codepen.io/btholt/pen/eJBBEY?editors=001)
+
+- **OFFICIAL SOLUTION 1**
+```js
+class LinkedList {
+  constructor() {
+    this.tail = this.head = null;
+    this.length = 0;
+  }
+  push(value) {
+    const node = new Node(value);
+    this.length++;
+    if (!this.head) {
+     this.head = node;
+    }
+    else {
+      this.tail.next = node;
+    }
+    this.tail = node;
+  }
+  pop() {
+    if (!this.head) return null;
+    if (this.head === this.tail) {
+      const node = this.head;
+      this.head = this.tail = null;
+      return node.value;
+    }
+    const penultimate = this._find(null, (value, nodeValue, i, current) => current.next === this.tail );
+    const ans = penultimate.next.value;
+    penultimate.next = null;
+    this.tail = penultimate;
+    this.length--;
+    return ans;
+  }
+  get(index) {
+    const node = this._find(index, this._testIndex);
+    if (!node) return null;
+    return node.value;
+  }
+  delete(index) {
+    if (index === 0) {
+      const head = this.head;
+      if (head) {
+        this.head = head.next;
+      }
+      else {
+        this.head = null;
+      }
+      this.length--;
+      return head.value;
+    }
+
+    const node = this._find(index-1, this._testIndex);
+    const excise = node.next;
+    if (!excise) return null;
+    node.next = excise.next;
+    if (node.next && !node.next.next) this.tail = node.next;
+    this.length--;
+    return excise.value;
+  }
+  _find(value, test=this._test) {
+    let current = this.head;
+    let i = 0;
+    while(current) {
+      if (test(value, current.value, i, current)) {
+        return current;
+      }
+      current = current.next;
+      i++;
+    }
+    return null;
+  }
+  _test(search, nodeValue) {
+    return search === nodeValue;
+  }
+  _testIndex(search, __, i) {
+    return search === i;
+  }
+  serialize() {
+    const ans = [];
+    let current = this.head;
+    if (!current) return ans;
+    while (current) {
+      ans.push(current.value);
+      current = current.next;
+    }
+    return ans;
+  }
+}
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+```
+
+- **OFFICIAL SOLUTION 2**
+- this uses delete inside of it's pop method
+```js
+class LinkedList {
+  constructor() {
+    this.tail = this.head = null;
+    this.length = 0;
+  }
+  push(value) {
+    const node = new Node(value);
+    this.length++;
+    if (!this.head) {
+     this.head = node;
+    }
+    else {
+      this.tail.next = node;
+    }
+    this.tail = node;
+  }
+  pop() {
+    return this.delete(this.length-1)
+  }
+  get(index) {
+    const node = this._find(index, this._testIndex);
+    if (!node) return null;
+    return node.value;
+  }
+  delete(index) {
+    if (index === 0) {
+      const head = this.head;
+      if (head) {
+        this.head = head.next;
+      }
+      else {
+        this.head = null;
+      }
+      this.length--;
+      return head.value;
+    }
+
+    const node = this._find(index-1, this._testIndex);
+    const excise = node.next;
+    if (!excise) return null;
+    node.next = excise.next;
+    if (node.next && !node.next.next) this.tail = node.next;
+    this.length--;
+    return excise.value;
+  }
+  _find(value, test=this._test) {
+    let current = this.head;
+    let i = 0;
+    while(current) {
+      if (test(value, current.value, i, current)) {
+        return current;
+      }
+      current = current.next;
+      i++;
+    }
+    return null;
+  }
+  _test(search, nodeValue) {
+    return search === nodeValue;
+  }
+  _testIndex(search, __, i) {
+    return search === i;
+  }
+  serialize() {
+    const ans = [];
+    let current = this.head;
+    if (!current) return ans;
+    while (current) {
+      ans.push(current.value);
+      current = current.next;
+    }
+    return ans;
+  }
+}
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+```
+
 ---
-### Exercise 7 Solution Part 2
--
+### Exercise 7 Solution Part 2 (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/exercise-7-solution-part-2/
+- [Answer](http://codepen.io/btholt/pen/eJBBEY?editors=001)
+
+- See Part 1
+
 ---
-### Binary Search Tree
--
+### Binary Search Tree (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/binary-search-tree/
+
+- TIME: O(logn), worst case is O(n)
+- middle ground between linked lists and array list
+- every node has either 0, 1, 2 children
+- everything to the left of the top node, it is less than the node and vice versa
+- these lookups are logrithmic
+- adding things is also simple
+- for duplicates, you have to decide always goes left or always goes right
+
+- we won't use BSTs in production, we would use a self balancing BST
+
 ---
-### Exercise 8: Binary Search Tree
--
+### Exercise 8: Binary Search Tree (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/exercise-8-binary-search-tree/
+- [Exercise](https://codepen.io/timh1203/pen/aboPpLo?editors=001)
+
+- Can do BST both with recursion or iteratively
+- AVL trees have to be recursive
+- Recursive approach works by breaking BST into smaller trees
+- Iterative approach works by path finding its way down
+
+- Loops generally faster than recursion
+
+- you'll need a couple methods
+
+- **SETUP**
+```js
+class Tree {
+  construction() {
+    this.root = null;
+  }
+  toObject() {
+    return this.root
+  }
+  add(value) {
+
+  }
+}
+
+class Node {
+  constructor(value, left=null, right=null) {
+    this.value = value
+    this.left = left
+    this.right = right
+  }
+}
+```
+
+- **MY ATTEMPT: NONWORKING**
+```js
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+
+  toObject() {
+    return this.root
+  }
+
+  add(value) {
+    if (!this.root) {
+      return this.root = new Node(value)
+    }
+
+    let curr = this.root
+    while(curr) {
+      if (curr.value > value && !curr.left) {
+        curr.left = node
+      }
+      else if (curr.value > value && curr.left) {
+        curr = curr.left
+      }
+      else if (curr.value < value && !curr.right) {
+        curr.right = node
+      }
+      else if (curr.value < value && curr.right) {
+        curr = curr.right
+      }
+      curr = null
+    }
+
+    return node
+  }
+}
+
+class Node {
+  constructor(value, left=null, right=null) {
+    this.value = value
+    this.left = left
+    this.right = right
+  }
+}
+
+const newTree = new Tree()
+newTree.add(8)
+newTree.add(2)
+newTree.add(9)
+newTree.add(10)
+```
+
 ---
-### Exercise 8 Solution
--
+### Exercise 8 Solution (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/exercise-8-solution/
+- [Answer](https://codepen.io/timh1203/pen/xxKmgXx?editors=001)
+
+- **OFFICIAL SOLUTION**
+```js
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+  add(value) {
+    if (this.root === null) {
+      this.root = new Node(value);
+    }
+    else {
+      let current = this.root;
+      while(true) {
+        if (current.value > value) {
+          // go left
+
+          if (current.left) {
+            current = current.left;
+          }
+          else {
+            current.left = new Node(value);
+            break;
+          }
+        }
+        else {
+          // go right
+          if (current.right) {
+            current = current.right;
+          }
+          else {
+            current.right = new Node(value);
+            break;
+          }
+        }
+      }
+    }
+    return this;
+  }
+  toJSON() {
+    return JSON.stringify(this.root.serialize(), null, 4);
+  }
+  toObject() {
+    return this.root.serialize();
+  }
+}
+
+class Node {
+  constructor(value=null, left=null, right=null) {
+    this.left = left;
+    this.right = right;
+    this.value = value;
+  }
+  serialize() {
+    const ans = { value: this.value };
+    ans.left = this.left === null ? null : this.left.serialize();
+    ans.right = this.right === null ? null : this.right.serialize();
+    return ans;
+  }
+}
+```
+
 ---
-### AVL Tree
--
+### AVL Tree (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/avl-tree/
+- [Exercise](http://codepen.io/btholt/pen/qbVvJw?editors=001)
+
+- AVL trees are specialized BSTs
+- an AVL tree is always a BST, but not vice versa
+- the point of an AVL tree is to stay as flat as possible
+- AVL stands for last name of the authors
+
+- the algorithm for adding value is the same way
+- the difference is coming out of the recursion is checking imbalances
+- "A tree is out of balance if its subtrees' difference of heights is greater than one."
+
+- The advantage of AVL trees is that we never hit worst case, O(n). It will always be O(logn) or better
+
 ---
-### Single Rotation
--
+### Single Rotation (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/single-rotation/
+
+- We went over a single rotation either Left or Right
+
+- **RIGHT ROTATION**
+-> perform right rotation
+-> swap the values of nodes A and B
+-> make node B the left child of node A
+-> make node C the right child of node A
+-> move node B's right child to its left child
+   (in this case they're both null)
+-> make node A's _original_ left child
+   (which was null in this case) the left child of node B
+-> update the heights of all the nodes involved
+
 ---
-### Double Rotation
--
+### Double Rotation (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/double-rotation/
+
+- if you see a bent look, it needs to be a double rotation
+- with an add, you would only ever need to do a single or double rotation
+- with a delete, you would need to do things differently
+
 ---
-### Exercise 9 Solution Part 1
--
+### Exercise 9 Solution Part 1 (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/exercise-9-solution-part-1/
+- [Answer](https://codepen.io/btholt/pen/rxLOOp?editors=001)
+
+- **OFFICIAL SOLUTION**
+```js
+/*
+  AVL Tree
+
+  Name you class/function (anything we can call new on) Tree
+
+  I would suggest making a Node class as well (it will help _a lot_ with AVL trees) Whereas with BSTs we
+  could get away with most of the logic living in the Tree class, that will be a lot tougher with AVL
+  trees dues how the function calls must be recursive in order to get the balancing correct.
+
+  Tree must a method called add that takes a value and adds it to the tree and then correctly balances the
+  tree. There is only one correct structure for any given order of adding numbers and the unit tests enforce
+  that structure.
+
+  If you have any questions conceptually about balancing the tree, refer to the class website.
+
+  There is a tree visualization engine that should run automatically. Make sure you are calling the properties
+  of the Nodes as follows:
+  value - integer - the value being store in the tree
+  left  - Node    - the subtree containing Node's with values less than the current Node's value
+  right - Node    - the subtree containing Node's with values greater than the current Node's value
+
+  As always, you can rename describe to xdescribe to prevent the unit tests from running and the visualization
+  from displaying
+
+*/
+
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+  add(value) {
+    if (!this.root) {
+      this.root = new Node(value);
+    }
+    else {
+      this.root.add(value);
+    }
+  }
+  toJSON() {
+    return JSON.stringify(this.root.serialize(), null, 4);
+  }
+  toObject() {
+    return this.root.serialize();
+  }
+}
+
+class Node {
+  constructor(value=null, left=null, right=null) {
+    this.left = left;
+    this.right = right;
+    this.value = value;
+    this.height = 1;
+  }
+
+  add(value) {
+    if (value < this.value) {
+      // go left
+
+      if (this.left) {
+        this.left.add(value);
+      }
+      else {
+        this.left = new Node(value);
+      }
+      if (!this.right || this.right.height < this.left.height) {
+        this.height = this.left.height + 1;
+      }
+    }
+    else {
+      // go right
+
+      if (this.right) {
+        this.right.add(value);
+      }
+      else {
+        this.right = new Node(value);
+      }
+      if (!this.left || this.right.height > this.left.height) {
+        this.height = this.right.height + 1;
+      }
+    }
+    this.balance();
+  }
+  balance() {
+    const rightHeight = (this.right) ? this.right.height : 0;
+    const leftHeight = (this.left) ? this.left.height : 0;
+
+    console.log( this.value, leftHeight, rightHeight );
+
+    if ( leftHeight > rightHeight + 1 ) {
+      const leftRightHeight = (this.left.right) ? this.left.right.height : 0;
+      const leftLeftHeight = (this.left.left) ? this.left.left.height : 0;
+
+      if (leftRightHeight > leftLeftHeight) {
+        this.left.rotateRR();
+      }
+
+      this.rotateLL();
+    }
+    else if ( rightHeight > leftHeight + 1 ) {
+      const rightRightHeight = (this.right.right) ? this.right.right.height : 0;
+      const rightLeftHeight = (this.right.left) ? this.right.left.height : 0;
+
+      if (rightLeftHeight > rightRightHeight) {
+        this.right.rotateLL();
+      }
+
+      this.rotateRR();
+    }
+  }
+  rotateRR() {
+    const valueBefore = this.value;
+    const leftBefore = this.left;
+    this.value = this.right.value;
+    this.left = this.right;
+    this.right = this.right.right;
+    this.left.right = this.left.left;
+    this.left.left = leftBefore;
+    this.left.value = valueBefore;
+    this.left.updateInNewLocation();
+    this.updateInNewLocation();
+  }
+  rotateLL() {
+    const valueBefore = this.value;
+    const rightBefore = this.right;
+    this.value = this.left.value;
+    this.right = this.left;
+    this.left = this.left.left;
+    this.right.left = this.right.right;
+    this.right.right = rightBefore;
+    this.right.value = valueBefore;
+    this.right.updateInNewLocation();
+    this.updateInNewLocation();
+  }
+  updateInNewLocation() {
+    if (!this.right && !this.left) {
+      this.height = 1;
+    }
+    else if (!this.right || (this.left && this.right.height < this.left.height)) {
+        this.height = this.left.height + 1;
+    }
+    else { //if (!this.left || this.right.height > this.left.height)
+        this.height = this.right.height + 1;
+    }
+  }
+  serialize() {
+    const ans = { value: this.value };
+    ans.left = this.left === null ? null : this.left.serialize();
+    ans.right = this.right === null ? null : this.right.serialize();
+    ans.height = this.height;
+    return ans;
+  }
+}
+```
+
 ---
-### Exercise 9 Solution Part 2
--
+### Exercise 9 Solution Part 2 (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/exercise-9-solution-part-2/
+
 ---
-### Hash Table
--
+### Hash Table (9/21/2019)
+- https://frontendmasters.com/courses/computer-science/hash-table/
+
+- a key-value store
+- we use the key as the index
+- we run the key in a hashing algorithm and spits out where to look it up in memory
+- crucial to have a good hashing algorithm
+
+- caches, databases, and objects are implementations
+- have constant look up times
+- no concept of order in hash tables
+
+- need large amount of memory and big enough to collide
+
+- *Indempotent* means a function does only 1 thing and has no side effects
+- a good hasing algorithm needs to be performant, like MD5 and not like SHA-255
+
 ---
 ## E) Functional Programming 101
