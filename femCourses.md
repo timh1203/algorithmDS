@@ -8192,14 +8192,50 @@ class Node {
 ---
 ## E) Functional Programming 101
 ---
-### Functional Programming Concepts
+### Functional Programming Concepts (9/22/19)
 - https://frontendmasters.com/courses/computer-science/functional-programming-concepts/
+
+- Most stuff in previous chapters were useful for interviews and make performance trade-offs
+- Functional programming makes you a better programmer
+
+- Functional programming is a wide scope
+- if you want to get into it, you need to get into something like Haskell, ML, Erlang
+
+- **KEY CONCEPTS**
+- Avoiding side effects - does 1 thing and 1 thing only, makes it easier to reason test
+- higher order functions - passing functions into other functions, composability, pure functions are are an important part of this
+- transforming lists of data - we are declaring instead of how
+
 ---
-### Map Function
+### Map Function  (9/22/19)
 - https://frontendmasters.com/courses/computer-science/map-function/
+- [Exercise](http://codepen.io/btholt/pen/QyQxVP?editors=0010)
+- [Answer](http://codepen.io/btholt/pen/Ywevex?editors=0010)
+
+- map method is like .forEach and a native method of the function of arrays
+- map is different from forEach in the way that it creates a new array
+- it applies a function to every item in an array
+- you can also chain map methods together
+
 ---
-### Reduce Function
+### Reduce Function  (9/22/19)
 - https://frontendmasters.com/courses/computer-science/reduce-function/
+- [Exercise](http://codepen.io/btholt/pen/VeQVVq?editors=0010)
+- [Answer](http://codepen.io/btholt/pen/GoQwBa?editors=0010)
+
+- reduce function helps pull down a group of data into one item, creates a new array
+- the second parameter in the reduce function is the seed value
+- if there's no seed, it will not apply it to the first item IE Capitalize with reduce ['a','b','c'] -> aBC
+
+- The accumulator is the interim value that is passed into each call of the reducer function that the function then returns.
+- The value returned is then passed into the next call of the reducer function on the next value.
+- The seed value is the value of the first accumulator.
+- If there's no seed value, the zero index in the array is the seed.
+
 ---
-### Filter Function
+### Filter Function  (9/22/19)
 - https://frontendmasters.com/courses/computer-science/filter-function/
+- [Exercise](http://codepen.io/btholt/pen/mVxezo?editors=0010)
+- [Answer](http://codepen.io/btholt/pen/KVQLgr?editors=0010)
+
+- Filter is like map but it will pull out the items that match the criteria, creates a new array
