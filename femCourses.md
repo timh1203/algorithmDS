@@ -8191,3 +8191,15 @@ class Node {
 
 ---
 ## E) Functional Programming 101
+---
+### Functional Programming Concepts
+- https://frontendmasters.com/courses/computer-science/functional-programming-concepts/
+---
+### Map Function
+- https://frontendmasters.com/courses/computer-science/map-function/
+---
+### Reduce Function
+- https://frontendmasters.com/courses/computer-science/reduce-function/
+---
+### Filter Function
+- https://frontendmasters.com/courses/computer-science/filter-function/
