@@ -8246,6 +8246,14 @@ class Node {
 
 ## A) JavaScript: From Fundamentals to Functional JS
 ---
+### [Course Introduction](https://frontendmasters.com/courses/js-fundamentals-functional-v2/course-introduction/) (9/26/19)
+---
+### [Success Tips for Learning](https://frontendmasters.com/courses/js-fundamentals-functional-v2/success-tips-for-learning/) (9/26/19)
+-
+---
+### [Functional Programming](https://frontendmasters.com/courses/js-fundamentals-functional-v2/functional-programming/) (9/26/19)
+-
+---
 ## B) Objects
 ---
 ## C) List Transformations
