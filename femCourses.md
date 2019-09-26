@@ -6580,7 +6580,7 @@ state = { loading: true};
 - https://frontendmasters.com/courses/complete-react-v5/index-click-q-a/
 
 ---
-### Caousel Implementation
+### Carousel Implementation
 - https://frontendmasters.com/courses/complete-react-v5/carousel-implementation/
 
 ---
@@ -8239,3 +8239,31 @@ class Node {
 - [Answer](http://codepen.io/btholt/pen/KVQLgr?editors=0010)
 
 - Filter is like map but it will pull out the items that match the criteria, creates a new array
+
+# JavaScript: From Fundamentals to Functional JS, v2 /w Bianca Gandolfo
+- [Slides 1](https://slides.com/bgando/f2f-final-day-1#/)
+- [Slides 2](https://slides.com/bgando/f2f-final-day-2#/)
+
+## A) JavaScript: From Fundamentals to Functional JS
+---
+## B) Objects
+---
+## C) List Transformations
+---
+## D) .forEach() Function
+---
+## E) .map() Function
+---
+## F) .filter() Function
+---
+## G) Function In-Depth
+---
+## H) Scope
+---
+## I) Callbacks
+---
+## J) Functional Utilities
+---
+## K) Advanced Scope: Closure
+---
+## L) Wrapping Up "JavaScript: From Fundamentals to Functional JS"
