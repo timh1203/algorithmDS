@@ -8291,6 +8291,61 @@ class Node {
 ---
 ## B) Objects
 ---
+### [Property Access](https://frontendmasters.com/courses/js-fundamentals-functional-v2/property-access/)
+
+-
+
+---
+### [Arrays](https://frontendmasters.com/courses/js-fundamentals-functional-v2/arrays/)
+
+-
+
+---
+### [Bracket Notation](https://frontendmasters.com/courses/js-fundamentals-functional-v2/bracket-notation/)
+
+-
+
+---
+### [Non-Valid Characters](https://frontendmasters.com/courses/js-fundamentals-functional-v2/non-valid-characters/)
+
+-
+
+---
+### [Game Characters Challenge](https://frontendmasters.com/courses/js-fundamentals-functional-v2/game-characters-challenge/)
+
+-
+
+---
+### [Game Characters Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/game-characters-solution/)
+
+-
+
+---
+### [Object Review](https://frontendmasters.com/courses/js-fundamentals-functional-v2/object-review/)
+
+-
+
+---
+### [ES6 Destructuring](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es6-destructuring/)
+
+-
+
+---
+### [Destructuring Challenge](https://frontendmasters.com/courses/js-fundamentals-functional-v2/destructuring-challenge/)
+
+-
+
+---
+### [Destructuring Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/destructuring-solution/)
+
+-
+
+---
+### [Destructuring Examples](https://frontendmasters.com/courses/js-fundamentals-functional-v2/destructuring-examples/)
+
+-
+
+---
 ## C) List Transformations
 ---
 ## D) .forEach() Function
