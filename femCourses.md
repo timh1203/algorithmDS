@@ -8247,12 +8247,47 @@ class Node {
 ## A) JavaScript: From Fundamentals to Functional JS
 ---
 ### [Course Introduction](https://frontendmasters.com/courses/js-fundamentals-functional-v2/course-introduction/) (9/26/19)
+
+- Bianca is open source JS framework developer, consultant, trainer @Bitovi
+- @BiancaGando
+
+- This course is not about functional programming
+- We are going to practice things like objects, array, closure, scopes
+- We will use functional utility methods and learn how everything works under the hood
+
+- Understand how to use functional utility methods
+- Understand how to implement those methods
+- Apply JS fundamentals
+- Add related ES6 features
+
 ---
 ### [Success Tips for Learning](https://frontendmasters.com/courses/js-fundamentals-functional-v2/success-tips-for-learning/) (9/26/19)
--
+
+- Difficulty ramps up considerabl, but if you stick with it you will reap the rewards
+- Take responsibility for your learning
+- Figure out how you measure your learning
+- Consider the questions I ask you
+- The Obstacle is the Way is a good book
+
 ---
 ### [Functional Programming](https://frontendmasters.com/courses/js-fundamentals-functional-v2/functional-programming/) (9/26/19)
--
+
+- Functional Programming is a programming style that is currently popular
+- FP about breaking up your code into verbs
+- OOP is about the nouns
+
+- Functional Reactive Programming is not the same thing, it's a style that comes with observable streams
+
+- We'll learn Lodash, Underscore, or Rambda
+- These are functional utility libraries
+
+- FP tenets: make pure functions without side effects, making it easier to test and trust
+- In the real world, FP with web is not always purely functional
+- FP will sometimes sacrifice readability, but the basics of FP can help you prevent errors and improve readability of your code
+
+- We will not talk about monads, functors
+- Kyle Simpson's course is not a hard jump from this course
+
 ---
 ## B) Objects
 ---
