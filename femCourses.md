@@ -8291,59 +8291,293 @@ class Node {
 ---
 ## B) Objects
 ---
-### [Property Access](https://frontendmasters.com/courses/js-fundamentals-functional-v2/property-access/)
+### [Property Access](https://frontendmasters.com/courses/js-fundamentals-functional-v2/property-access/) (9/27/19)
 
--
+- Person Object
+- QUESTION: do we need the quotes? not on the key, but not on the value since it's a string
+- standard to put quotes on both
 
----
-### [Arrays](https://frontendmasters.com/courses/js-fundamentals-functional-v2/arrays/)
+- we see dots when we use objects methods, promise functions, array methods and prototype methods, array.length(), string methods
+- basically, when we use any objects
 
--
+```js
+var person = {};
 
----
-### [Bracket Notation](https://frontendmasters.com/courses/js-fundamentals-functional-v2/bracket-notation/)
+person.name = "Mrs.White";
 
--
+var person = {
+  "name": "Mrs. White"
+}
 
----
-### [Non-Valid Characters](https://frontendmasters.com/courses/js-fundamentals-functional-v2/non-valid-characters/)
+// What does person.name return?
+// this is a lookup, not an assignment
+person.name // returns "Mrs. White"
 
--
+// Storing a variable in who variable
+// What does who return?
+// What about after reassigning person.name?
+var who = person.name;
 
----
-### [Game Characters Challenge](https://frontendmasters.com/courses/js-fundamentals-functional-v2/game-characters-challenge/)
+who; // returns "Mrs. White"
 
--
+person.name = "Mr. White"; // storing a value by reference to person object
 
----
-### [Game Characters Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/game-characters-solution/)
+who; // still returns "Mrs. White", since this is primitive and passed by value stored in the who variable
 
--
+who.story; // returns undefined
+```
 
----
-### [Object Review](https://frontendmasters.com/courses/js-fundamentals-functional-v2/object-review/)
+- primitive values (string, number, boolean, null, etc.) gets passed by value
+- non-primitive values (objects, arrays, functions) get passed by reference
 
--
-
----
-### [ES6 Destructuring](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es6-destructuring/)
-
--
-
----
-### [Destructuring Challenge](https://frontendmasters.com/courses/js-fundamentals-functional-v2/destructuring-challenge/)
-
--
+- this is important because you would expect a value to be updated but it doesn't
+- this is why we try to make copies of our data structures
 
 ---
-### [Destructuring Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/destructuring-solution/)
+### [Arrays](https://frontendmasters.com/courses/js-fundamentals-functional-v2/arrays/) (9/27/19)
 
--
+- What about assigning properties on an array?
+- Arrays are objects and the rules are the same
+- If you check the `typeof`, you'll find that an array is classified as an object
+```js
+var person = [];
+person.name = "Mrs. White";
+
+var who = person.name;
+who; // returns "Mrs. White"
+
+typeof person === "array" // returns false, since it's technically an object
+typeof person === "object" // true
+```
 
 ---
-### [Destructuring Examples](https://frontendmasters.com/courses/js-fundamentals-functional-v2/destructuring-examples/)
+### [Bracket Notation](https://frontendmasters.com/courses/js-fundamentals-functional-v2/bracket-notation/) (9/27/19)
 
--
+- Brackets are generally used with arrays
+- We use brackets when we can't use a dot
+- Like when the value is not suppose to be a string literal
+
+```js
+var person = [];
+
+person[0] = "I was not in the Billiards room";
+
+person[plea] = "I would never!" // we don't have a plea entry in the object
+```
+
+- if we want to change the `wouldShe` to plea? we can use dot notation or bracket notation
+- if we create something with a bracket, we can look it up with a dot
+- Using dot notation coerces the name to a string
+- We can't use `person.0` because that coerces the 0 into a string, the parser gets confused because 0 is a number
+- It's just a non-valid way to do assignment
+```js
+var person = [];
+var plea = "wouldShe"
+
+person.name = "Mrs. White";
+
+person[plea] = "I would never!"
+
+person.plea // returns "I would never!"
+```
+
+---
+### [Non-Valid Characters](https://frontendmasters.com/courses/js-fundamentals-functional-v2/non-valid-characters/) (9/27/19)
+
+- Invalid characters are ', ^, &, *,
+
+```js
+x = {}
+x[0] = true // this works
+
+y = []
+y["0"] = true
+y["0"] // returns true
+
+obj = {}
+obj[function(){}] = false; // stringifies inside the brackets
+typeof Object.keys(obj)[0] // "string"
+Object.keys(obj)[0] // "function (){}"
+
+obj[(function(){ return 3;})] // sets object key to 3 since IIFE returns 3 right away
+obj; // { 3: false }
+```
+
+- QUESTION: Difference between array vs object? array is a special type of objects, has special .length property
+- there's length 11 even though 9 empty spaces in between
+- some browsers will hide properties and just find indices with arrays
+```js
+y
+y.length // 1
+y.hello = 'goodbye'
+y.length // 1
+y[10] = false
+y // [true, empty x 9, false, hello: "goodbye"], length 11
+```
+
+---
+### [Game Characters Challenge](https://frontendmasters.com/courses/js-fundamentals-functional-v2/game-characters-challenge/) (9/27/19)
+
+- We are going to create a clue game
+- Create an objct using bracket and dot notation that represents the characters and related data you may find in a game of clue
+
+- Characters
+- Weapons
+- Rooms
+- Confidential Card: murderer, room, and weapon
+
+---
+### [Game Characters Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/game-characters-solution/) (9/27/19)
+
+- This was a creative exercise, no right way to do it
+
+```js
+var game = {}
+
+game.murderer = "??";
+game["weapon"] = [
+  {type: 'lasers', location: 'lab'},
+  {type: 'angry cats', ...},
+  {type: 'dish soap', ...}
+];
+game.name = [];
+game.name[0] = 'Miss Scarlet';
+game.name.push('Mr. Green');
+
+```
+
+---
+### [Object Review](https://frontendmasters.com/courses/js-fundamentals-functional-v2/object-review/) (9/27/19)
+
+- Rules:
+- dots save characters and typing less
+- dots -> strings
+- brackets -> strings, numbers, variables, weird characters, expressions
+
+- Learning technique: write a study guide for yourself
+
+- **STUDY GUIDE**
+- What is the difference between dot and bracket notation?
+- How do you add a property with a key that contains special characters?
+- How do you add a property whose key and value are stored in different variables?
+- How do we loop through objects to access the values?
+- When can you only use dot notation and not bracket?
+- When can you only use brackets and not dot?
+- How do you add a property with a key that is stored in a variable?
+- How do you access an object that is inside another object?
+- How do you create an object that is nested inside another object?
+
+---
+### [ES6 Destructuring](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es6-destructuring/) (9/27/19)
+
+- Destructuring is a way of taking an item out of an array and makes it quicker to use
+- This is verbose
+
+- **ARRAYS**
+- This is defined and assigned in order
+- We are creating variables on the left
+- If there's a location out of place, the value would be undefined
+- Orders matters here, unlike objects
+```js
+const [a, b] = [true, false]
+
+a; // true
+b; // false
+```
+
+- We talked about `const` and `let`
+- `const` doesn't let you reassign the variable name to something else
+- You can still add/reassign the properties on a variable
+- `let` allows you to reassign but block scope
+- `var` is
+
+- `Object.seal()` will prevent adding/removing properties
+- `Object.freeze()` is Object.seal() but also will prevent changing values
+
+
+- **OBJECTS**
+- The names have to match in objects to destructure properly
+- The order does not matter here, only the correct matching names matters
+```js
+let {first, second} = {first: 0, second: 1}
+first; // 0
+second; // 1
+```
+
+---
+### [Destructuring Challenge](https://frontendmasters.com/courses/js-fundamentals-functional-v2/destructuring-challenge/) (9/28/19)
+
+- **MY ATTEMPT**
+```js
+// 1. Create an object that looks like this:
+// 2. Extract out the weapon and location using destructuring
+
+const rusty = {"name": "Rusty", "room":"kitchen", "weapon":"candlestick"}
+
+const { weapon, room } = rusty
+
+console.log("weapon:", weapon)
+console.log("room:", room)
+```
+
+---
+### [Destructuring Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/destructuring-solution/) (9/28/19)
+
+- We are essential declaring the variable name and the object at the same time
+- This helps us save several lines of code
+```js
+const { name, weapon, room } = {
+  "name": "Rusty",
+  "room": "kitchen",
+  "weapon": "candlestick"
+}
+name // "Rusty"
+weapon // "candlestick"
+room // "kitchen"
+```
+
+---
+### [Destructuring Examples](https://frontendmasters.com/courses/js-fundamentals-functional-v2/destructuring-examples/) (9/28/19)
+
+- We are going to learn about how to work through nested data structures, like coming back from json
+- The challenge with destructuring is that there are many ways to do it
+
+- Not recommended to use nested arrays, so use objects instead
+```js
+// Destructuring === Arrays
+var [a, b] = [1, 2]
+console.log(a, b); // => 1 2
+
+// Omit certain values
+var [a, , b] = [1, 2, 3]
+console.log(a, b); // => 1 3
+
+// Combine with spread/rest operator (accumulates the rest of the values)
+var [a, ...b] = [1, 2, 3];
+console.log(a, b); // => 1 [2, 3]
+
+// Swap variables easily without temp
+var a = 1, b =2;
+var temp = a
+a = b
+b = temp
+
+// [b, a] = [a, b]
+console.log(a, b);
+
+// Advance deep arrays
+var [a, [b, [c,d]]] = [1, [2, [[[3,4], 5], 6]]];
+console.log("a:", a, "b:", b, "c:", c, "d:", d);
+
+a // 1
+b // 2
+c // [[3,4], 5]
+d // 6
+
+// === Objects
+var {user: x} = {user: 5};
+console.log(x); // => 5
+```
 
 ---
 ## C) List Transformations
