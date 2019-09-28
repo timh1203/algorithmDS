@@ -8705,6 +8705,26 @@ var [{color: firstColor}, {color: secondColor}] = suspects;
 ---
 ## D) .forEach() Function
 ---
+### [Using Functions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/using-functions/)
+
+-
+
+---
+### [forEach Function](https://frontendmasters.com/courses/js-fundamentals-functional-v2/foreach-function/)
+
+-
+
+---
+### [forEach and _.each Exercises](https://frontendmasters.com/courses/js-fundamentals-functional-v2/foreach-and-each-exercises/)
+
+-
+
+---
+### [forEach and _.each Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/foreach-and-each-solution/)
+
+-
+
+---
 ## E) .map() Function
 ---
 ## F) .filter() Function
