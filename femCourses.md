@@ -8583,18 +8583,125 @@ console.log(x); // => 5
 ## C) List Transformations
 ---
 ### [List Transformations](https://frontendmasters.com/courses/js-fundamentals-functional-v2/list-transformations/)
+
+- We will take nested data structures and extracting information
+- Most front-end developers have to work with api data that comes back
+- We will work with data such as this:
+```js
+const game = {
+    'suspects': [
+        {
+            name: "Rusty",
+            color: "orange"
+        }, {
+            name: "Miss Scarlet",
+            color: "red"
+        }
+    ]
+}
+
+game["suspects"] //[{name: "Rusty"}, {name: "Miss Scarlet"}]
+```
+
 ---
 ### [Looping Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-exercise/)
+
+- We are setting up a for loop
+- We need to set the length to be an array, since an object does not have a length
+- Arrays have numerical values that you can loop over
+- You could also use `game.["suspects"][i]`
+- It's recommened not to use brackets when you can use dots since it's readable and saves you keystrokes
+
 ---
 ### [Looping Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-solution/)
+
+- We loop through the object-array
+- Don't forget we have to target the suspects array
+```js
+function foo() {
+  for (let i=0; i < game.suspects.length; i++) {
+    console.log(game.suspects[i].name);
+  }
+}
+
+foo()
+```
+
 ---
 ### [Looping Exercise, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-exercise-part-2/)
+
+- Loop through all the properties of the suspect objects in the suspects array, mark them if you think they are guilty.
+```js
+const game = {
+    'suspects': [
+        {
+            name: "Rusty",
+            color: "orange"
+        }, {
+            name: "Miss Scarlet",
+            color: "red"
+        }
+    ]
+}
+
+for (let i of game.suspects) {
+  console.log(game.suspects[i])
+}
+```
+
+
 ---
 ### [Looping Solution, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-solution-part-2/)
+
+```js
+var gameLoop = function() {
+  for (let i = 0; i < game.suspects.length; i++) {
+    for (var key in game.suspects[i]) {
+      if (game.suspects[i][key] === "Rusty") {
+        console.log("Found \'em!");
+      } else {
+        console.log("Next time!");
+      }
+    }
+  }
+}
+```
 ---
 ### [Looping Exercise, Part 3](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-exercise-part-3/)
+
+- Destructure this nested data structure into two variables with the strings 'red' and 'orange'.
+
+- **MY ATTEMPT**
+```js
+var suspects = [
+        {
+            name: "Rusty",
+            color: "orange"
+        }, {
+            name: "Miss Scarlet",
+            color: "red"
+        }
+    ]
+
+const { color } = suspects[0]
+const { color2 } = suspects[1]
+```
+
 ---
 ### [Looping Solution, Part 3](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-solution-part-3/)
+
+```js
+// Normal way
+const firstColor = game.suspects[0].color;
+const secondColor = game.suspects[1].color;
+
+// Destructure way 1
+var [color, color2] = [suspects[0].color, suspects[1].color];
+
+// Destructure way 2
+var [{color: firstColor}, {color: secondColor}] = suspects;
+```
+
 ---
 ## D) .forEach() Function
 ---
