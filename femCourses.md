@@ -8582,6 +8582,20 @@ console.log(x); // => 5
 ---
 ## C) List Transformations
 ---
+### [List Transformations](https://frontendmasters.com/courses/js-fundamentals-functional-v2/list-transformations/)
+---
+### [Looping Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-exercise/)
+---
+### [Looping Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-solution/)
+---
+### [Looping Exercise, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-exercise-part-2/)
+---
+### [Looping Solution, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-solution-part-2/)
+---
+### [Looping Exercise, Part 3](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-exercise-part-3/)
+---
+### [Looping Solution, Part 3](https://frontendmasters.com/courses/js-fundamentals-functional-v2/looping-solution-part-3/)
+---
 ## D) .forEach() Function
 ---
 ## E) .map() Function
