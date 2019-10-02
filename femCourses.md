@@ -7289,13 +7289,14 @@ describe('quickSort', function() {
 - lookups are fast on the other hand
 
 ---
-### Exercise 6: Array List (9/21/2019)
-- https://frontendmasters.com/courses/computer-science/exercise-6-array-list/
+### [Exercise 6: Array List](https://frontendmasters.com/courses/computer-science/exercise-6-array-list/) (9/21/2019)
 - [Exercise](http://codepen.io/btholt/pen/adLxyv?editors=001)
 
 - he wants us to collapse the array
 - we will be using ES6 classes and have several methods
 - underscore like `_collapseTo` means an internal method
+- we need the collapse to method to shift the array if items are deleted in the center
+- we are basically changing pointers, the deleted value will then be garbage collected
 
 - **MY SOLUTION: WORKING**
 ```js
@@ -7425,8 +7426,7 @@ describe('ArrayList', function() {
 ```
 
 ---
-### Exercise 6 Solution (9/21/2019)
-- https://frontendmasters.com/courses/computer-science/exercise-6-solution/
+### [Exercise 6 Solution](https://frontendmasters.com/courses/computer-science/exercise-6-solution/) (9/21/2019)
 - [Answer](http://codepen.io/btholt/pen/dGOaXX?editors=001)
 
 - **OFFICIAL SOLUTION**
@@ -7499,7 +7499,9 @@ class ArrayList {
 
 - recommended to do 2 classes: Node and LinkedList
 
-- **COMMENTED ON OFFICIAL SOLUTION 2**
+- **MY SOLUTION**
+- I removed all the extra methods in the official solutions
+- This one makes more sense to me
 ```js
 class LinkedList {
   constructor() {
@@ -7523,73 +7525,57 @@ class LinkedList {
     return this.delete(this.length-1)
   }
 
-  get(index) {
-    const node = this._find(index, this._testIndex);
-    if (!node) return null;
-    return node.value;
-  }
-
-  delete(index) {
-    // if the index is the head, shifts everything over
-    if (index === 0) {
-      const head = this.head;
-      if (head) {
-        this.head = head.next;
-      }
-      else {
-        this.head = null;
-      }
-      this.length--;
-      return head.value;
-    }
-
-    // finds the previous index node
-    const node = this._find(index-1, this._testIndex);
-    const excise = node.next;
-    if (!excise) return null;
-    // cuts out the node at the current index
-    // stitches the previous and following nodes together
-    node.next = excise.next;
-    // if there's nothing after the current index node
-    // set previous index node as the tail
-    if (node.next && !node.next.next) this.tail = node.next;
-    this.length--;
-    return excise.value;
-  }
-
-  // Used in conjunction with both _test and _testIndex
-  _find(value, test=this._test) {
+  getValue(value) {
     let current = this.head;
-    let i = 0;
+    let currentIndex = 0;
     while(current) {
-      if (test(value, current.value, i, current)) {
+      if (current.value === value) {
         return current;
       }
       current = current.next;
-      i++;
+      currentIndex++;
     }
     return null;
   }
 
-  // search was provided as a text
-  _test(search, nodeValue) {
-    return search === nodeValue;
-  }
-
-  // search was provided as an index interger
-  _testIndex(search, __, i) {
-    return search === i;
-  }
-
-  serialize() {
-    const ans = [];
+  getIndex(index) {
     let current = this.head;
-    if (!current) return ans;
-    while (current) {
-      ans.push(current.value);
+    let currentIndex = 0;
+    while(current) {
+      if (currentIndex === index) {
+        return current;
+      }
       current = current.next;
+      currentIndex++;
     }
-    return ans;
+    return null;
+  }
+
+  delete(index) {
+    let results = '';
+    if (index === 0) {
+      if (this.head.next) {
+        this.head = this.head.next
+      } else {
+        this.head = null;
+        this.tail = null;
+      }
+      results = this.head
+    }
+    else if (index === this.length-1) {
+      const prevNode = this.getIndex(index-1);
+      this.tail = prevNode;
+      prevNode.next = null;
+      results = prevNode.next;
+    }
+    else {
+      const prevNode = this.getIndex(index-1);
+      const currentNode = this.getIndex(index)
+      prevNode.next = currentNode.next
+      results = currentNode.next;
+    }
+    this.length--;
+    return results
   }
 }
 
