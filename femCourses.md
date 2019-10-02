@@ -8691,24 +8691,133 @@ var [{color: firstColor}, {color: secondColor}] = suspects;
 ---
 ## D) .forEach() Function
 ---
-### [Using Functions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/using-functions/)
+### [Using Functions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/using-functions/) (10/2/19)
 
--
+- We are now returning a function from a function
+- We can also write `speak() {}` also since it's an ES6 feature
+- We want to initialize each suspect with an object, Bianca calls this "Hydration"
+- If we want to hydrate, we would have to run the function on the suspects in the array with a loop
+
+```js
+function CreateSuspectObjects(name) {
+  return {
+    name: name,
+    color: name.split(' ')[2],
+    speak: function () {
+      console.log("my name is ", name);
+    }
+  };
+};
+
+var suspects = ['Miss Scarlet', 'Colonel Mustard', 'Mr. White'];
+
+var suspectsList = [];
+
+// Loop 1
+for (var i = 0; i < suspects.length; i++) {
+  let suspect = CreateSuspectObjects(suspects[i])
+  suspectsList.push(suspect);
+}
+
+// Loop 1 Refactored
+for (var i = 0; i < suspects.length; i++) {
+  suspectsList.push(createSuspectObjects(suspects[i]))
+}
+```
+
 
 ---
-### [forEach Function](https://frontendmasters.com/courses/js-fundamentals-functional-v2/foreach-function/)
+### [forEach Function](https://frontendmasters.com/courses/js-fundamentals-functional-v2/foreach-function/)  (10/2/19)
 
--
+- `_.each` takes in a list (aka the iteratee) and a callback function (aka iterator function), which we will implement later
+- The callback function will be called on each item on the list
+
+- This is like a functional utility
+- We want to do this because `_.each` is really concise and helps prevent errors
+
+```js
+_.each(suspects, function(name) {
+suspectsList.push(CreateSuspectObjects(name));
+});
+```
+
+- The `_.each` function is easy to write by providing 2 arguments rather than like the `.forEach` function
+- The `.forEach` method is at least free by default
+
+```js
+// _.each()
+_.each(
+    ['observatory','ballroom', 'library'],
+    function(value, index, list){ ... }
+);
+
+// .forEach()
+['observatory','ballroom','library']
+.forEach(function(value, index, list){...});
+```
+
+- The `_.` is the a library with all these methods to be used
+- Underscore and lodash are a similar library
+- We know it's an object because it uses a `.`
+
+- This function will log every item in the rooms array
+
+```js
+var rooms = ['observatory','ballroom', 'library'];
+var logger = function(val){
+  console.log(val);
+};
+
+_.each(rooms, logger);
+```
 
 ---
-### [forEach and _.each Exercises](https://frontendmasters.com/courses/js-fundamentals-functional-v2/foreach-and-each-exercises/)
+### [forEach and _.each Exercises](https://frontendmasters.com/courses/js-fundamentals-functional-v2/foreach-and-each-exercises/)  (10/3/19)
 
--
+- `_.each` works for both arrays and objects
+- Complete the rest of this function so that it works as described in the previous slides:
+
+```js
+const _ = {
+  "each": function(list, callback) {
+    for (let i = 0; i < list.length; i++) {
+      console.log(callback(list[i]))
+    }
+  }
+}
+```
 
 ---
-### [forEach and _.each Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/foreach-and-each-solution/)
+### [forEach and _.each Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/foreach-and-each-solution/)  (10/3/19)
 
--
+- We implment _.each to work for both arrays and objects
+- Notice we implement (name, index, list) in the callback function
+
+```js
+const _ = {};
+
+_.each = function(list, callback) {
+  if (Array.isArray(list)) { // if array, use numerical loop
+    for (var i = 0; i < list.length; i++) { // loop through the list
+      callback(list[i], i, list) // call the callback with a list item
+    }
+  }
+  else { // if object, use for in loop
+    for (var key in list) {
+      callback(list[key], key, list)
+    }
+  }
+}
+
+_.each(['sally', 'georgie', 'porgie'], function(name, i , list) {
+  if (list[i + 1]) {
+    console.log(name, 'is younger than', list [i+1])
+  }
+  else {
+    console.log(name, 'is the oldest')
+  }
+})
+```
 
 ---
 ## E) .map() Function
