@@ -8822,6 +8822,36 @@ _.each(['sally', 'georgie', 'porgie'], function(name, i , list) {
 ---
 ## E) .map() Function
 ---
+### [_.map() vs .map() Functions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-vs-map-functions/)
+
+-
+
+---
+### [_.map() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-exercise/)
+
+-
+
+---
+### [_.map() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-solution/)
+
+-
+
+---
+### [_map() vs. _each()](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-vs-each/)
+
+-
+
+---
+### [_.map() Exercise, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-exercise-part-2/)
+
+-
+
+---
+### [_.map() Solution, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-solution-part-2/)
+
+-
+
+---
 ## F) .filter() Function
 ---
 ## G) Function In-Depth
