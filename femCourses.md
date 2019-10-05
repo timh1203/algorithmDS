@@ -8955,24 +8955,185 @@ _.map = (list, callback) => {
 ---
 ## F) .filter() Function
 ---
-### [.filter() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-exercise/)
+### [.filter() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-exercise/) (10/5/19)
 
--
+- We now have some data we want to filter
+- .filter() will only filter values that return true from the callback
+
+- **MY ATTEMPT: WORKING**
+```js
+const videoData = [
+    {
+        name: 'Miss Scarlet',
+        present: true,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Mrs. White',
+        present: false,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Reverend Green',
+        present: true,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Rusty',
+        present: false,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Colonel Mustard',
+        present: true,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Professor Plum',
+        present: true,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    }
+];
+
+const _ = {}
+_.filter = (arr, callback) => {
+  const results = []
+  for (let i in arr) {
+    if (callback(arr[i], i, arr)) {
+      results.push(arr[i])
+    }
+  }
+  return results;
+}
+
+const checkPresent = (object, index, array) => {
+  return object.present
+}
+
+_.filter(videoData, checkPresent)
+```
 
 ---
-### [.filter() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-solution/)
+### [.filter() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-solution/) (10/5/19)
 
--
+- **OFFICIAL SOLUTION**
+```js
+const _ = {}
+
+// With loop
+_.filter = function(arr, cb) {
+  // create a new array
+  const storage = []
+  // loop through arr
+  for (let i = 0; i < arr.length; i++) {
+    // check if value from cb returns true
+    if (cb(arr[i], i, arr) === true) {
+    // if returns true, push item to array
+      storage.push(arr[i])
+    }
+  }
+  //return storage
+  return storage
+}
+
+// With .each()
+_.filter = function(arr, cb) {
+  const storage = []
+  _.each(arr, function(item, i, list) {
+    if (cb(item, i, arr)) {
+      storage.push(item)
+    }
+  })
+  return storage
+}
+```
 
 ---
-### [.filter() Application Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-application-exercise/)
+### [.filter() Application Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-application-exercise/) (10/5/19)
 
--
+- We now apply to our data to see who was present that night
+- We adapt our code to check for present key-value
 
 ---
-### [.filter() Application Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-application-solution/)
+### [.filter() Application Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-application-solution/) (10/5/19)
 
--
+- **OFFICIAL SOLUTION**
+- We also don't write with .map because it returns an array of the same length
+- So using .map doesn't match with our aim since we want to return a shorter array with suspects
+```js
+// With loop
+_.filter = function(arr, cb) {
+  // create a new array
+  const storage = []
+  // loop through arr
+  for (let i = 0; i < arr.length; i++) {
+    // check if value from cb returns true
+    if (cb(arr[i], i, arr) === true) {
+    // if returns true, push item to array
+      storage.push(arr[i])
+    }
+  }
+  //return storage
+  return storage
+}
+
+// With .each()
+_.filter = function(arr, cb) {
+  const storage = []
+  _.each(arr, function(item, i, list) {
+    if (cb(item, i, arr)) {
+      storage.push(item)
+    }
+  })
+  return storage
+}
+
+_.filter(videoData, function(suspectObject) {
+  return suspectObject.present;
+})
+```
 
 ---
 ## G) Function In-Depth
