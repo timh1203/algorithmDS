@@ -8822,34 +8822,135 @@ _.each(['sally', 'georgie', 'porgie'], function(name, i , list) {
 ---
 ## E) .map() Function
 ---
-### [_.map() vs .map() Functions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-vs-map-functions/)
+### [_.map() vs .map() Functions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-vs-map-functions/) (10/5/19)
 
--
+- _.each does not return anything
+- _.map() returns an array every time
+- You can use it to copy but it's mostly use to modify an array
 
----
-### [_.map() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-exercise/)
-
--
-
----
-### [_.map() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-solution/)
-
--
+- This is actually returning an array of length 3 with values of undefined
+```js
+_.map([1,2,3], function(v,i,list){console.log(v)})
+```
 
 ---
-### [_map() vs. _each()](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-vs-each/)
+### [_.map() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-exercise/) (10/5/19)
 
--
+- Now we need to make an array of broken items
+
+- **MY ATTEMPT: WORKING**
+```js
+const weapons = ['candlestick', 'lead pipe', 'revolver'];
+
+const makeBroken = function(item){
+  return `broken ${item}`;
+};
+
+const _ = {}
+_.map = (arr, callback) => {
+  let results = [];
+  for (let i of arr) {
+    results.push(callback(i));
+  }
+  return results
+}
+
+_.map(weapons, makeBroken) // ["broken candlestick", "broken lead pipe", "broken revolver"]
+```
 
 ---
-### [_.map() Exercise, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-exercise-part-2/)
+### [_.map() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-solution/) (10/5/19)
 
--
+- Visit underscore.js, type following in console
+- TIP: You can access the library by going to the library's site and access the dev console
+- You can access underscore.js and jQuery's library in this way
+
+- **OFFICIAL SOLUTION**
+```js
+const weapons = ['candlestick', 'lead pipe', 'revolver'];
+
+const makeBroken = function(item){
+  return `broken ${item}`;
+};
+
+_.map(weapons, makeBroken) // ["broken candlestick", "broken lead pipe", "broken revolver"]
+```
 
 ---
-### [_.map() Solution, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-solution-part-2/)
+### [_map() vs. _each()](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-vs-each/) (10/5/19)
 
--
+- map returns an array where each doesn't return anything
+
+```js
+function CreateSuspectObjects(name) {
+  return {
+    name: name,
+    color: name.split(' ')[1],
+    speak() {log(`my name is ${this.name}`);}
+  };
+};
+
+var suspects = ['Miss Scarlet', 'Colonel Mustard', 'Mr. White'];
+
+var suspectsList = _.map(suspects, function (name) {
+  return CreateSuspectObjects(name);
+});
+
+_.each(suspects, function(suspect) {
+  suspect.speak()
+}
+```
+
+---
+### [_.map() Exercise, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-exercise-part-2/) (10/5/19)
+
+- **MY ATTEMPT**
+```js
+const _ = {}
+_.map = (arr, callback) => {
+  let results = [];
+  for (let i of arr) {
+    results.push(callback(i));
+  }
+  return results
+}
+```
+
+---
+### [_.map() Solution, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/map-solution-part-2/) (10/5/19)
+
+- We are going to implement map
+- .map() returns an array, iterates through a list
+- You can do this with a loop (METHOD 1) or .each() (METHOD 2)
+
+- **OFFICIAL SOLUTION**
+```js
+// METHOD 1
+const _ = {}
+_.map = (list, callback) => {
+  let results = [];
+  if (Array.isArray(list)) {
+    for (var i = 0; i < list.length; i++) {
+      results.push(callback(list[i], i, list));
+    }
+  }
+  return results;
+}
+
+_.map([1,2,3], function(val) { return val + 1;}) // [2,3,4]
+
+// METHOD 2
+const _ = {}
+_.map = (list, callback) => {
+  let results = [];
+  if (Array.isArray(list)) {
+    _.each(list, function(v, i, list) {
+      results.push(callback(v, i, list));
+    }
+  }
+  return results;
+}
+```
 
 ---
 ## F) .filter() Function
