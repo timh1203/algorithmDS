@@ -8955,6 +8955,26 @@ _.map = (list, callback) => {
 ---
 ## F) .filter() Function
 ---
+### [.filter() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-exercise/)
+
+-
+
+---
+### [.filter() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-solution/)
+
+-
+
+---
+### [.filter() Application Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-application-exercise/)
+
+-
+
+---
+### [.filter() Application Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/filter-application-solution/)
+
+-
+
+---
 ## G) Function In-Depth
 ---
 ## H) Scope
