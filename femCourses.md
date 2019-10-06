@@ -9138,6 +9138,81 @@ _.filter(videoData, function(suspectObject) {
 ---
 ## G) Function In-Depth
 ---
+### [Anatomy of a Function](https://frontendmasters.com/courses/js-fundamentals-functional-v2/anatomy-of-a-function/)
+
+-
+
+---
+### [Function Scavenger Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/function-scavenger-exercise/)
+
+-
+
+---
+### [Function Scavenger Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/function-scavenger-solution/)
+
+-
+
+---
+### [ES6 Arrow Functions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es6-arrow-functions/)
+
+-
+
+---
+### [Projecting Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/projecting-exercise/)
+
+-
+
+---
+### [Projecting Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/projecting-solution/)
+
+-
+
+---
+### [Spread Operator](https://frontendmasters.com/courses/js-fundamentals-functional-v2/spread-operator/)
+
+-
+
+---
+### [Arguments Keyword](https://frontendmasters.com/courses/js-fundamentals-functional-v2/arguments-keyword/)
+
+-
+
+---
+### [Default Parameters](https://frontendmasters.com/courses/js-fundamentals-functional-v2/default-parameters/)
+
+-
+
+---
+### [ES5 Rewrite Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es5-rewrite-exercise/)
+
+-
+
+---
+### [ES5 Rewrite Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es5-rewrite-solution/)
+
+-
+
+---
+### [Array-Like Object](https://frontendmasters.com/courses/js-fundamentals-functional-v2/array-like-object/)
+
+-
+
+---
+### [Array.from](https://frontendmasters.com/courses/js-fundamentals-functional-v2/array-from/)
+
+-
+
+---
+### [_.from() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/from-exercise/)
+
+-
+
+---
+### [_.from() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/from-solution/)
+
+-
+
+---
 ## H) Scope
 ---
 ## I) Callbacks
