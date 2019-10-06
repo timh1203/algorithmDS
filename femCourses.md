@@ -6952,6 +6952,7 @@ var insertionSort = nums => {
 
 - TIME: O(nlogn)
 - SPACE: O(n)
+- Recursion `O(logn)` to divide the list, and the linear portion `O(n)` to stitch the list together again, final time complexity is `O(n * logn)`
 - merge sort is used more often than bubble and insert sort
 - it's consistent and used 90% of time in search engines
 - this is a divide and conquer technique that uses recursion
