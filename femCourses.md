@@ -9138,19 +9138,52 @@ _.filter(videoData, function(suspectObject) {
 ---
 ## G) Function In-Depth
 ---
-### [Anatomy of a Function](https://frontendmasters.com/courses/js-fundamentals-functional-v2/anatomy-of-a-function/)
+### [Anatomy of a Function](https://frontendmasters.com/courses/js-fundamentals-functional-v2/anatomy-of-a-function/) (10/6/19)
 
--
+- Defining a function is static and has not been run
+- Invocation/call-time is when we as
+- Parameters are just variables, they don't hold a value until it is called
+- Arguments are the actual values
+- Parameters and Arguments are used interchangeably
+
+```js
+var add = function(a, b) {
+  return a + b
+};
+
+add(3, 4, 5);
+```
 
 ---
-### [Function Scavenger Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/function-scavenger-exercise/)
+### [Function Scavenger Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/function-scavenger-exercise/) (10/6/19)
 
--
+- Find: Definitions, Fn Names, Invocations, Arguments, Parameters, Fn Bodies, Return Values, Side Effects
+
+```js
+var nameImprover = function (name, adj) {
+  return 'Col ' + name + ' Mc' + adj + ' pants';
+};
+
+$('body').hide();
+
+myArr.forEach(function(val){ console.log(val);});
+
+$('button').on('click', function(){
+  console.log('Don\'t press my buttons!');
+});
+```
 
 ---
-### [Function Scavenger Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/function-scavenger-solution/)
+### [Function Scavenger Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/function-scavenger-solution/) (10/6/19)
 
--
+- Definitions: nameImprover, function(val), function()
+- Names: nameImprover, hide(), forEach(), on(), log(), $()
+- Body: brackets after functions (3)
+- Invocations: .log(), hide(), forEach(), on(), $()
+- Parameters: name, adj, val
+- Arguments: 'body', 'button', 'Don\'t press my buttons!', 'click', function(val){ console.log(val);}
+- Return: return
+- Side Effects: console.log(val), jQuery hide()
 
 ---
 ### [ES6 Arrow Functions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es6-arrow-functions/)
