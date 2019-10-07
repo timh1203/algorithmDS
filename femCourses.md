@@ -9187,49 +9187,267 @@ $('button').on('click', function(){
 - Side Effects: console.log(val), jQuery hide()
 
 ---
-### [ES6 Arrow Functions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es6-arrow-functions/)
+### [ES6 Arrow Functions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es6-arrow-functions/) (10/7/19)
 
--
+- Arrow functions have syntax and some different behaviors
+- It binds `this` to its parent context, it doesn't have its own value for `this`
+- This replaces the need for `.bind()`
+- Arrow functions also don't have `arguments`
+- Arrow functions have automatic return function
 
----
-### [Projecting Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/projecting-exercise/)
+```js
+var nameImprover = (name, adj) => {
+  return `Col ${name} Mc ${adj} pants`;
+};
 
--
+$('body').hide();
 
----
-### [Projecting Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/projecting-solution/)
+myArr.forEach(val => console.log(val));
 
--
+$('button').on('click', () => {
+  console.log('Don\'t press my buttons!');
+});
 
----
-### [Spread Operator](https://frontendmasters.com/courses/js-fundamentals-functional-v2/spread-operator/)
-
--
-
----
-### [Arguments Keyword](https://frontendmasters.com/courses/js-fundamentals-functional-v2/arguments-keyword/)
-
--
-
----
-### [Default Parameters](https://frontendmasters.com/courses/js-fundamentals-functional-v2/default-parameters/)
-
--
+```
 
 ---
-### [ES5 Rewrite Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es5-rewrite-exercise/)
+### [Projecting Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/projecting-exercise/) (10/7/19)
 
--
+- We are going to do "projecting"
+- We take a value out of a data structure and turn it into another data structure
+
+- [LINK](http://jsbin.com/duvafoc/edit)
+- Filter and then map this data structure to get the names of the final suspects to send back to the team
+
+- **MY ATTEMPT: WORKING**
+```js
+const videoData = [
+    {
+        name: 'Miss Scarlet',
+        present: true,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Mrs. White',
+        present: false,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Reverend Green',
+        present: true,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Rusty',
+        present: false,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Colonel Mustard',
+        present: true,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Professor Plum',
+        present: true,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': false},
+            {library: false}
+        ]
+    }
+];
+
+const results = videoData.filter(obj => obj.present).map(person => person.name)
+
+console.log(results);
+```
 
 ---
-### [ES5 Rewrite Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es5-rewrite-solution/)
+### [Projecting Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/projecting-solution/) (10/7/19)
 
--
+- **OFFICIAL SOLUTION**
+- This is a common pattern we see for getting data you need and transforming to data that you need
+```js
+_.filter = function(arr, cb) {
+  const storage = []
+  _.each(arr, function(item, i, list) {
+    if (cb(item, i, arr)) {
+      storage.push(item)
+    }
+  })
+  return storage
+}
+
+const suspects = _.filter(videoData, function(suspectObject) {
+  return suspectObject.present;
+})
+
+const suspectsNames = _.map(suspects, suspect => {
+  return suspect.name;
+})
+```
 
 ---
-### [Array-Like Object](https://frontendmasters.com/courses/js-fundamentals-functional-v2/array-like-object/)
+### [Spread Operator](https://frontendmasters.com/courses/js-fundamentals-functional-v2/spread-operator/) (10/7/19)
 
--
+- A tuple a data structure is a collection of arrays that have 2 values
+- No one will not be picked up since there is no "e" parameter
+- We use the spread operator and this adds an additional inner array
+
+```js
+// Without Spread Operator
+const createTuple = (a, b, c, d) => {
+  return [[a, c],[ b, d]];
+}
+
+createTuple('It', 'be', 'could', 'anyone', 'no one');
+// => ??
+// => [['It', 'could'], ['be', 'anyone']]
+
+// With Spread Operator
+const createTuple = (a, b, c, d) => {
+  return [[a, c],[ b, d]];
+}
+
+createTuple('It', 'be', 'could', 'anyone', 'no one');
+// => ??
+// => [['It', 'could'], ['be', ['anyone', 'no one']]
+```
+
+---
+### [Arguments Keyword](https://frontendmasters.com/courses/js-fundamentals-functional-v2/arguments-keyword/) (10/7/19)
+
+- `arguments` is a pseudoarray but does not have access to array methods
+- We use arguments keyword to get all the arguments even though it wasn't referenced in the parameter
+- So this would return all 5 strings
+
+- *Arrow function returns nothing from arguments since it doesn't have arguments keyword*
+- A normal function would have arguments
+- Notice in the regular function, we are using the spread operator, so this will return all arguments, regardless of parameter specification
+- In fact, `arguments` will return all arguments whether you spread it or not in the parameter
+- The parameter part is mainly for being used in the function, it's separate from `arguments` keyword
+```js
+// ARROW FUNCTION
+const createTuple = (a, b, c, d) => {
+  console.log(arguments); // => arguments is not defined
+  return [[a, c],[ b, d]];
+}
+
+createTuple('It', 'be', 'could', 'anyone', 'no one');
+
+// REGULAR FUNCTION
+const createTuple = function(a, b, c, ...d) {
+  console.log(arguments); // => ['It', 'be', 'could', 'anyone', 'no one']
+  return [[a, c],[ b, d]];
+}
+
+createTuple('It', 'be', 'could', 'anyone', 'no one');
+```
+
+---
+### [Default Parameters](https://frontendmasters.com/courses/js-fundamentals-functional-v2/default-parameters/) (10/7/19)
+
+- Default values sets a default value if none is given
+- Notice that `arguments` is only concerned with what is being passed in, NOT the parameters
+
+```js
+const add = function(a , b = 2) {
+   console.log(arguments); //logs [3]
+   return a + b;
+};
+add(3); //5??
+```
+
+---
+### [ES5 Rewrite Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es5-rewrite-exercise/) (10/7/19)
+
+- **MY ATTEMPT: WORKING**
+```js
+const add = function(a , b = 2){
+   console.log(arguments); //logs [3]
+   return a + b;
+};
+add(3); //5??
+
+// REWRITE
+const add = function(a, b) {
+  var b = b
+  if (!b) { b = 2}
+  console.log(arguments); //logs [3]
+  return a + b
+}
+
+add(3); // 5
+```
+
+---
+### [ES5 Rewrite Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/es5-rewrite-solution/) (10/7/19)
+
+- **OFFICIAL SOLUTION**
+- The most common way is to use the `||` operator
+```js
+const add = function(a, b) {
+  b = b || 2
+  console.log(arguments); //logs [3]
+}
+add(3); // 5
+```
+
+---
+### [Array-Like Object](https://frontendmasters.com/courses/js-fundamentals-functional-v2/array-like-object/) (10/7/19)
+
+- This takes all the arguments and puts in in `arr`
+- Then it pushes billards string into `arr`
+- Then joins all the strings with a ' '
+- The Array.prototype.slice.call takes the arguments object into an array
+
+```js
+const constructArr = function() {
+  const arr = Array.prototype.slice.call(arguments); // ['was', 'it', 'in']
+  arr.push('the billiards room?'); // ['was', 'it', 'in', 'the billiards room']
+  return arr.join(' '); // ['was', 'it', 'in', 'the billiards room?']
+};
+constructArr('was', 'it', 'in'); // "was it in the billiards room?"
+```
 
 ---
 ### [Array.from](https://frontendmasters.com/courses/js-fundamentals-functional-v2/array-from/)
