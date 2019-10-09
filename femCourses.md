@@ -9488,6 +9488,27 @@ const from = arr => {
 ---
 ## H) Scope
 ---
+### [Scope Walkthrough Setup](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-setup/)
+
+-
+---
+### [Scope Walkthrough, Part 1](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-part-1/)
+
+-
+---
+### [Scope Walkthrough, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-part-2/)
+
+-
+---
+### [Scope Walkthrough, Part 3](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-part-3/)
+
+-
+---
+### [Scope Takeaways](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-takeaways/)
+
+-
+
+---
 ## I) Callbacks
 ---
 ## J) Functional Utilities
