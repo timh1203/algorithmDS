@@ -9450,19 +9450,40 @@ constructArr('was', 'it', 'in'); // "was it in the billiards room?"
 ```
 
 ---
-### [Array.from](https://frontendmasters.com/courses/js-fundamentals-functional-v2/array-from/)
+### [Array.from](https://frontendmasters.com/courses/js-fundamentals-functional-v2/array-from/) (10/9/19)
 
--
-
----
-### [_.from() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/from-exercise/)
-
--
+- Instead of using `Array.prototype.slice.call`, we can use `Array.from`
+- We use this so we can access arrays methods like .push() and .join()
+- `Array.from` also takes iterables and makes it into arrays
+- In the past, you had to use `_.from()`
 
 ---
-### [_.from() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/from-solution/)
+### [_.from() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/from-exercise/) (10/9/19)
 
--
+- COOL TIP: You can use debugger in the chrome console, then you can step through, you can also restart the stack, can hover over variables
+
+- **MY ATTEMPT**
+```js
+const from = arr => {
+  const results = Array.prototype.slice.call(arr);
+  return arr
+}
+
+// Object that will be passed in
+// {0: true, length: 1, push: x}
+```
+
+---
+### [_.from() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/from-solution/) (10/9/19)
+
+- functions are also object so you can add properties to them
+
+- **OFFICIAL SOLUTION**
+```js
+const from = arr => {
+  return Array.prototype.slice.call(arr)
+}
+```
 
 ---
 ## H) Scope
