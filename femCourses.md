@@ -9738,6 +9738,51 @@ function () {
 ---
 ## I) Callbacks
 ---
+### [Higher-Order Functions & Callbacks](https://frontendmasters.com/courses/js-fundamentals-functional-v2/higher-order-functions-callbacks/)
+
+-
+
+---
+### [Passing Arguments](https://frontendmasters.com/courses/js-fundamentals-functional-v2/passing-arguments/)
+
+-
+
+---
+### [Translate into ES6 Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/translate-into-es6-exercise/)
+
+-
+
+---
+### [Translate into ES6 Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/translate-into-es6-solution/)
+
+-
+
+---
+### [Passing Arguments, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/passing-arguments-part-2/)
+
+-
+
+---
+### [_.reduce() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/reduce-exercise/)
+
+-
+
+---
+### [_.reduce() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/reduce-solution/)
+
+-
+
+---
+### [Empty Room Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/empty-room-exercise/)
+
+-
+
+---
+### [Empty Room Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/empty-room-solution/)
+
+-
+
+---
 ## J) Functional Utilities
 ---
 ## K) Advanced Scope: Closure
