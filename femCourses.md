@@ -9665,14 +9665,75 @@ function () {
 ```
 
 ---
-### [Scope Walkthrough, Part 3](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-part-3/)
+### [Scope Walkthrough, Part 3](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-part-3/) (10/12/19)
 
--
+- Reviewed tests
+- `var` does funny things with hoisting so it's recommended to add all variables at the top of the function
+- The last test actual creates a tunnel into the function to refer to `innerIncrementingFn` but then exits right away
+
+```js
+it('an inner function can access both its local scope variables and variables in its containing scope, provided the variables have different names',
+function () {
+  var outerName = 'outer';
+  var fn = function () {
+    var innerName = 'inner';
+    ACTUAL = innerName + outerName;
+  };
+  fn();
+  expect(ACTUAL === 'innerouter').to.be.true;
+})
+
+// TH: There's an interesting case if you add var since the same name was initialized already
+it('between calls to an inner function, that inner function retains access to a variable in an outer scope. Modifying those variables has a lasting effect between calls to the inner function.',
+function () {
+  var outerCounter = 10;
+
+  var fn = function () {
+    outerCounter = outerCounter + 1; // if add var in front, it's undefined + 1 = NaN
+    ACTUAL = outerCounter;
+  };
+
+  fn();
+  expect(ACTUAL === 11).to.be.true;
+  fn();
+  expect(ACTUAL === 12).to.be.true;
+})
+
+it('the rule about retaining access to variables from an outer scope still applies, even after the outer function call (that created the outer scope) has returned',
+function () {
+  var outerFn = function () {
+    // NOTE: the contents of this function is the same as the entire body of the previous test
+    var counterInOuterScope = 10;
+
+    var innerIncrementingFn = function () {
+      counterInOuterScope = counterInOuterScope + 1;
+      ACTUAL = counterInOuterScope;
+    };
+
+    innerIncrementingFn();
+    expect(ACTUAL === 11).to.be.true;
+    innerIncrementingFn();
+    expect(ACTUAL === 12).to.be.true;
+    // Here, we retain a reference to the newly created inner function for later, by assigning it to the global scope (window)
+    window.retainedInnerFn = innerIncrementingFn;
+  }
+
+  // before we run outerFn, there will be no innerFn exported to the global scope
+  expect(window.retainedInnerFn).to.equal.undefined;
+  // running this outer funciton should have the same effect as running the whole previous test, with the addition of pacing the innerFn somewhere that we can reach it after outerFn has returned
+  outerFn;
+  expect(window.retainedInnerFn).to.be.a('function');
+  // even though the outerFn has returned once the only call to it was completed a couple of lines above, the inner function remains available in the global scope, and still has access to the variables of that containing scope where it was first created.
+  window.retainedInnerFn();
+  expect(ACTUAL === 13).to.be.true;
+})
+```
 
 ---
-### [Scope Takeaways](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-takeaways/)
+### [Scope Takeaways](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-takeaways/) (10/12/19)
 
--
+- Let and const can be used to create block scope
+- A new execution context is created every time the function is run
 
 ---
 ## I) Callbacks
