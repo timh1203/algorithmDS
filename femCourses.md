@@ -9488,21 +9488,187 @@ const from = arr => {
 ---
 ## H) Scope
 ---
-### [Scope Walkthrough Setup](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-setup/)
+### [Scope Walkthrough Setup](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-setup/) (10/9/19)
 
--
+- Scope is an area where variables have access to a value
+- There is a global, local, nested, precedence, block scopes
+- There are certain rules where variables have certain variables have access to variable scopes
+
+- There's a test code which the instructor is running and we will walk through
+
 ---
-### [Scope Walkthrough, Part 1](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-part-1/)
+### [Scope Walkthrough, Part 1](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-part-1/) (10/11/19)
 
--
+- Reviewed tests
+
+```js
+(function() {
+  describe('Scope Exercises', function() {
+
+    var ACTUAL;
+
+    // This reset the value of ACTUAL (to null) before each test is run
+    beforeEach(function () {
+      ACTUAL = null;
+    })
+
+    it('a function has access to its own local scope variables', function () {
+      var fn = function () {
+        var name = 'inner';
+        ACTUAL = name;
+      }
+      fn();
+      expect(ACTUAL == 'inner').to.be.true
+    })
+
+    it('inputs to a function are treated as local scope variables', function () {
+      var fn = function (name) {
+        ACTUAL = name;
+      }
+      fn('inner')
+      expect(ACTUAL === 'inner').to.be.true
+    })
+
+    it('block scope can be created with let',
+    function () {
+      var where = 'outer'
+      {
+        let where = 'inner'
+      }
+      ACTUAL = where
+    })
+    fn();
+    expect(ACTUAL === 'outer').to.be.true;
+    })
+
+    it('a function has access to the variables contained within the same scope that function was created in',
+    function () {
+      var name = 'outer';
+      var fn = function () {
+        ACTUAL = name;
+      };
+      fn();
+      expect(ACTUAL === 'outer').to.be.true
+    })
+
+    it('a function\'s local scope variables are not available anywhere outside that function',
+    function () {
+      var firstFn = function () {
+        var localToFirstFn = 'inner';
+      };
+      firstFn();
+      expect(function () {
+        ACTUAL = localToFirstFn;
+      }).to.throw();
+      expect(ACTUAL === null).to.be.true
+    })
+})()
+```
+
 ---
-### [Scope Walkthrough, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-part-2/)
+### [Scope Walkthrough, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-part-2/) (10/11/19)
 
--
+- Reviewed tests
+
+```js
+// Continuation of part 1
+it('a function\'s local scope variables are not available anywhere outside that function, regardless of the context it\'s called in',
+function () {
+  var firstFn = function () {
+    var localToFirstFn = 'first';
+    // Although false, it might seem reasonable to think that the second Fn (which mentions the localToFirstFn variable), should have access to the localToFirstFn variable, since it's being called here from within the scope where that variable is declared.
+    secondFn();
+  };
+  var secondFn = funciton () {
+    ACTUAL = localToFirstFn;
+  }
+  expect(function () {
+    // of course, calling the secondFn should throw and error in this case, since secondFN does not have access to the localToFirstFn variable
+    secondFn();
+  }).to.throw();
+  expect(function () {
+    // in addition, calling the firstFn (which in turn calls the secondFn) should also throw, since it the calling context of secondFn has no influence over its scope access rules
+    firstFn();
+  }).to.throw();
+  expect(ACTUAL === null).to.be.true;
+}
+
+it('if an inner and an outer variable share the same name, and the name is reerenced in the inner scope, the inner scope variable masks the variable from the outer scope with the same name. This renders the outer scope variables inaccessible from anywhere within the inner function block',
+function () {
+  var sameName = 'outer';
+  var fn = function () {
+    var sameName = 'inner';
+    ACTUAL = sameName;
+  };
+  fn();
+  expect(ACTUAL === 'inner').to.be.true;
+)
+
+it('If an inner and an outer variable share the same name, and the name is referenced in the outer scope, the outer value binding will be used',
+function () {
+  var sameName = 'outer';
+  var fn = function () {
+    var sameName = 'inner';
+  };
+  fn();
+  ACTUAL = sameName;
+  expect(ACTUAL === '').to.be.true;
+})
+
+it('if an inner and an outer variable share the same name, and the name is referenced in the outer scope, the outer value binding will be used',
+function () {
+  var sameName = 'outer';
+  var fn = function () {
+    var sameName = 'inner';
+  };
+  fn();
+  ACTUAL = sameName;
+  expect(ACTUAL === 'outer').to.be.true;
+})
+
+it('a new variable scope is created for every call to a function, as exemplified with a counter',
+function () {
+  var fn = function () {
+    // the `||` symbol here is being used to set a default value for innerCounter. If innerCounter already contains a truthy value, then the value in that variable will be unchanged. If it is falsey however (such as if it were completely uninitialized), then this line will set it to the default value of 10.
+    var innerCounter = innerCounter || 10;
+    innerCounter = innerCounter + 1;
+    ACTUAL = innerCounter
+  }
+
+  fn();
+  expect(ACTUAL === 11).to.be.true;
+  fn(); // when you call it again, it gets a brand new scope, so 11 again
+  exepect(ACTUAL === 11).to.be.true;
+})
+
+it('a new variable scope is created for each call to a function, as exemplified with uninitialized string variables',
+function () {
+  // this is a longer form of the same observation as above, using strings instead of numbers;
+  var fn = function () {
+    var localVariable;
+    if (localVariable === undefined) {
+      // the variable wil lbe initialized for the first time during this call to fn
+      ACTUAL = 'alpha';
+    } else if (localVariable === 'initialized') {
+      // the variable has already been initialized by a previous call to fn
+      ACTUAL = 'omega';
+    }
+    // now that actual has been set, we wil linitialize localVariable to refer to a string
+    localVariable = 'unintialized';
+  };
+
+  fn();
+  expect(ACTUAL = 'alpha').to.be.true;
+  fn(); // a new scope is initialized
+  expect(ACTUAL = 'alpha').to.be.true;
+})
+```
+
 ---
 ### [Scope Walkthrough, Part 3](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-part-3/)
 
 -
+
 ---
 ### [Scope Takeaways](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-takeaways/)
 
