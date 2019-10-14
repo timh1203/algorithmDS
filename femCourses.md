@@ -9738,29 +9738,128 @@ function () {
 ---
 ## I) Callbacks
 ---
-### [Higher-Order Functions & Callbacks](https://frontendmasters.com/courses/js-fundamentals-functional-v2/higher-order-functions-callbacks/)
+### [Higher-Order Functions & Callbacks](https://frontendmasters.com/courses/js-fundamentals-functional-v2/higher-order-functions-callbacks/) (10/13/19)
 
--
+- Higher order functions and callbacks enable us to do functional programming
+- Functions and callbacks are like data because we can pass them around without invoking them
+
+- **Takes a function as an input (argument)**
+```js
+element.addEventListener("change", () => {
+  console.log("Our evidence is updated")
+})
+```
+
+- **Returns a function as the output**
+```js
+const newClue = (name) => {
+  const length = name.length;
+
+  return (weapon) => {
+    let clue = length + weapon.length;
+    return !!(clue % 1);
+  }
+}
+```
+
+- **Callbacks** are functions that we pass to functions
+```js
+const ifElse = (condition, isTrue, isFalse) => {
+  return condition ? isTrue : isFalse; // You need to add () to invoke it to console.log
+}
+
+ifElse(true,
+  () => { console.log(true) }
+  () => { console.log(false) }
+)
+
+// REWRITE
+const ifElse = (condition, isTrue, isFalse) => {
+  return condition ? isTrue : isFalse;
+}
+
+const logTrue = () => { console.log(true);};
+const logFalse = () => { console.log(false);};
+
+ifElse(true, logTrue, logFalse);
+```
 
 ---
-### [Passing Arguments](https://frontendmasters.com/courses/js-fundamentals-functional-v2/passing-arguments/)
+### [Passing Arguments](https://frontendmasters.com/courses/js-fundamentals-functional-v2/passing-arguments/) (10/13/19)
 
--
+- We pass a function as an argument
+```js
+var increment = function(n){ return n + 1; };
+
+var square = function(n){ return n * n; };
+
+var doMathSoIDontHaveTo = function(n, func){ return func(n); };
+
+doMathSoIDontHaveTo(5, square); //25
+
+doMathSoIDontHaveTo(4, increment); // 5
+```
 
 ---
-### [Translate into ES6 Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/translate-into-es6-exercise/)
+### [Translate into ES6 Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/translate-into-es6-exercise/) (10/13/19)
 
--
+- Translate the previous lesson into ES6
+- **MY ATTEMPT**
+```js
+const increment = (n) => n + 1
+const square = (n) => n * n
+const doMathSoIDontHaveTo = (n, func) => func(n)
+
+doMathSoIDontHaveTo(5, square); //25
+
+doMathSoIDontHaveTo(4, increment); // 5
+```
 
 ---
-### [Translate into ES6 Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/translate-into-es6-solution/)
+### [Translate into ES6 Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/translate-into-es6-solution/) (10/13/19)
 
--
+- **OFFICIAL SOLUTION**
+```js
+const increment = n => { return n + 1 }
+const square = n => { return n * n }
+const doMathSoIDontHaveTo = (n, func) => { return func(n) }
+```
 
 ---
-### [Passing Arguments, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/passing-arguments-part-2/)
+### [Passing Arguments, Part 2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/passing-arguments-part-2/) (10/13/19)
 
+- How do we pass arguments?
+- With the rest operator, you can
+- Before ES6, you had to call the arguments object and convert it to an array
+- You would have to use `apply` in the past
 -
+```js
+const ifElse = (condition, isTrue, isFalse, p) => {
+  return condition ? isTrue(p) : isFalse(p)
+}
+
+ifElse(true, fn1, fn2, 'HI')
+
+// With rest operator
+const ifElse = (condition, isTrue, isFalse, ...args) => {
+  return condition ? isTrue(...args) : isFalse(...args)
+}
+
+ifElse(true, fn1, fn2, 'HI', 'BYE', 'HOLA')
+
+// Pre-ES6
+const ifElse = (condition, isTrue, isFalse) => {
+  const args = [].slice.call(arguments,3)
+
+  return condition ? isTrue.apply(this, args) : isFalse.apply(this, args);
+};
+
+
+const logTrue = (msgs) => { console.log(msgs); };
+const logFalse = (msgs) => { console.log(msgs); };
+
+ifElse(true, logTrue, logFalse, 'a', 'b');
+```
 
 ---
 ### [_.reduce() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/reduce-exercise/)
