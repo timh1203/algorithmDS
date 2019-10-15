@@ -10065,4 +10065,39 @@ blame('you');
 ---
 ## K) Advanced Scope: Closure
 ---
+### [Closure](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure/)
+
+-
+
+---
+### [Closure](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure-part-2/)
+
+-
+
+---
+### [Creating Closure](https://frontendmasters.com/courses/js-fundamentals-functional-v2/creating-closure/)
+
+-
+
+---
+### [Closure Demonstration](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure-demonstration/)
+
+-
+
+---
+### [Closure Recipe](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure-recipe/)
+
+-
+
+---
+### [Currying and Composing Exercises](https://frontendmasters.com/courses/js-fundamentals-functional-v2/currying-and-composing-exercises/)
+
+-
+
+---
+### [Currying and Composing Solutions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/currying-and-composing-solutions/)
+
+-
+
+---
 ## L) Wrapping Up "JavaScript: From Fundamentals to Functional JS"
