@@ -10022,14 +10022,45 @@ _.intersection(...notInRooms) // => ['kitchen', 'ballroom']
 ---
 ## J) Functional Utilities
 ---
-### [Currying](https://frontendmasters.com/courses/js-fundamentals-functional-v2/currying/)
+### [Currying](https://frontendmasters.com/courses/js-fundamentals-functional-v2/currying/) (10/15/19)
 
--
+- We are going to talk about currying and composition
+- Currying is when you create a function that can be called at later times with multiple arguments
+```js
+_.curry(func, [arity=func.length])
+
+var abc = function(a, b, c) {
+  return [a, b, c];
+};
+
+var curried = _.curry(abc);
+
+curried(1)(2)(3);
+// => [1, 2, 3]
+
+curried(1, 2)(3);
+// => [1, 2, 3]
+```
 
 ---
-### [Composing](https://frontendmasters.com/courses/js-fundamentals-functional-v2/composing/)
+### [Composing](https://frontendmasters.com/courses/js-fundamentals-functional-v2/composing/) (10/15/19)
 
--
+- When you take 2 functions and combine them
+```js
+const consider = (name) => {
+  return `I think it could be... ${name}`;
+};
+
+const exclaim  = (statement) => {
+  return `${statement.toUpperCase()}!`;
+};
+
+const blame = _.compose(consider, exclaim);
+
+blame('you');
+
+=> 'I think it could be... YOU!'
+```
 
 ---
 ## K) Advanced Scope: Closure
