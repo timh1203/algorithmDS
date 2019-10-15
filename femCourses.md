@@ -9862,24 +9862,162 @@ ifElse(true, logTrue, logFalse, 'a', 'b');
 ```
 
 ---
-### [_.reduce() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/reduce-exercise/)
+### [_.reduce() Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/reduce-exercise/) (10/15/19)
 
--
+- [Lodash reduce](https://lodash.com/docs/4.17.15#reduce)
+- [Lodash forEachRight](https://lodash.com/docs/4.17.15#forEachRight)
+
+- Challenging: implement _.reduce()
+- Relaxed: implement _.forEachRight()
+
+- **MY ATTEMPT: WORKING**
+```js
+// _.reduce()
+const _ = {}
+_.reduce = (arr, cb, acc = 0) => {
+  for (let i of arr) {
+    let results = cb(i, acc)
+    acc = results
+  }
+  return acc
+}
+_.reduce([1,2,3], function(num, sum) {
+  return num + sum
+}, 3)
+
+// _.forEachRight()
+_.forEachRight = (arr, cb) => {
+  for (let i = arr.length - 1; i >= 0; i--) {
+    cb(arr[i])
+  }
+}
+
+_.forEachRight([1,2,3], function(item) {
+  console.log(item)
+})
+```
 
 ---
-### [_.reduce() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/reduce-solution/)
+### [_.reduce() Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/reduce-solution/) (10/15/19)
 
--
+- **OFFICIAL SOLUTION**
+- This solution is better than mines because I'm modifying the original argument
+```js
+//loop through list
+  //call the cb with arr[i], prev/initial
+  // save the return value
+//return result
+var reduce = function(list, cb, initial) {
+  let memo = initial;
+  for (var i = 0; i < list.length; i++) {
+    if (i === 0 && memo === undefined) {
+      memo = list[0]
+    } else {
+      memo = cb(list[i], memo);
+    }
+  }
+  return memo;
+}
+
+reduce([1,2,3], (v, sum) => v + sum) // 6
+reduce([2,3,5], (v, sum) => v + sum) // 6
+```
 
 ---
-### [Empty Room Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/empty-room-exercise/)
+### [Empty Room Exercise](https://frontendmasters.com/courses/js-fundamentals-functional-v2/empty-room-exercise/) (10/15/19)
 
--
+- [Data](https://jsbin.com/pazixim/edit?js)
+- We have some new data
+- We need to figure out which room no one claims to be the night of the murder from this data set
+
+- **MY ATTEMPT: WORKING**
+```js
+const newDevelopment = [
+    {
+        name: 'Miss Scarlet',
+        present: true,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: true},
+            {'dining room': true},
+            {'billiard room': false},
+            {library: true}
+        ]
+    },
+    {
+        name: 'Reverend Green',
+        present: true,
+        rooms: [
+            {kitchen: true},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': false},
+            {'billiard room': true},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Colonel Mustard',
+        present: true,
+        rooms: [
+            {kitchen: false},
+            {ballroom: false},
+            {conservatory: true},
+            {'dining room': false},
+            {'billiard room': true},
+            {library: false}
+        ]
+    },
+    {
+        name: 'Professor Plum',
+        present: true,
+        rooms: [
+            {kitchen: true},
+            {ballroom: false},
+            {conservatory: false},
+            {'dining room': true},
+            {'billiard room': false},
+            {library: false}
+        ]
+    }
+];
+
+function filterOut(arr) {
+  let results = new Set()
+  for (let i of arr) {
+    for (let j of i.rooms) {
+      if (Object.values(j)[0] === false){
+        results.add(Object.keys(j)[0])
+      } else {
+        results.delete(Object.keys(j)[0])
+      }
+    }
+  }
+  return Array.from(results)
+}
+
+filterOut(newDevelopment) // [ 'ballroom', 'library', 'conservatory', 'billiard room' ]
+```
 
 ---
-### [Empty Room Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/empty-room-solution/)
+### [Empty Room Solution](https://frontendmasters.com/courses/js-fundamentals-functional-v2/empty-room-solution/) (10/15/19)
 
--
+- **OFFICIAL SOLUTION**
+```js
+const notInRoom = (suspect, memo) => {
+  const emptyRooms = reduce(suspect.rooms, (room, memo) => {
+    if (room === false) memo.push(room)
+    return memo
+  }, [])
+
+  return emptyRooms;
+}
+
+notInRooms = _.map(newDevelopment, notInRoom)
+
+_.intersection(...notInRooms) // => ['kitchen', 'ballroom']
+```
 
 ---
 ## J) Functional Utilities
