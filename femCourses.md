@@ -10022,6 +10022,16 @@ _.intersection(...notInRooms) // => ['kitchen', 'ballroom']
 ---
 ## J) Functional Utilities
 ---
+### [Currying](https://frontendmasters.com/courses/js-fundamentals-functional-v2/currying/)
+
+-
+
+---
+### [Composing](https://frontendmasters.com/courses/js-fundamentals-functional-v2/composing/)
+
+-
+
+---
 ## K) Advanced Scope: Closure
 ---
 ## L) Wrapping Up "JavaScript: From Fundamentals to Functional JS"
