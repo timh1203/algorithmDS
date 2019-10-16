@@ -10065,39 +10065,301 @@ blame('you');
 ---
 ## K) Advanced Scope: Closure
 ---
-### [Closure](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure/)
+### [Closure](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure/) (10/15/19)
 
--
+- This calls a function inside of another function
+```js
+const myAlert = () => {
+  const x = "Help! I think I found a clue!";
+  const alerter = () => {
+    alert(x);
+  };
+  alerter();
+};
 
----
-### [Closure](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure-part-2/)
-
--
-
----
-### [Creating Closure](https://frontendmasters.com/courses/js-fundamentals-functional-v2/creating-closure/)
-
--
-
----
-### [Closure Demonstration](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure-demonstration/)
-
--
+myAlert()
+```
 
 ---
-### [Closure Recipe](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure-recipe/)
+### [Closure](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure-part-2/) (10/15/19)
 
--
+- alerter will be called in 1000ms, so the console.log will get logged first
+- alerter is not blocking
+```js
+const myAlert = () => {
+  const x = "Help! I think I found a clue!";
+  const alerter = () => {
+    alert(x);
+  };
+
+  setTimeout(alerter, 1000)
+  console.log('what happens first? this log or the alert?')
+};
+
+myAlert();
+```
 
 ---
-### [Currying and Composing Exercises](https://frontendmasters.com/courses/js-fundamentals-functional-v2/currying-and-composing-exercises/)
+### [Creating Closure](https://frontendmasters.com/courses/js-fundamentals-functional-v2/creating-closure/) (10/15/19)
 
--
+- funcAlert and funcAlert2 will become the alerter function basically
+- the last funcAlert() will just reach into the myAlert function to run ONLY the alerter function
+```js
+const myAlert = () => {
+  const x = "Help! I think I found a clue!";
+  let count = 0;
+  const alerter = () => {
+    alert(`${x} ${++count}`);
+  };
+
+  return alerter;
+};
+
+const funcAlert = myAlert(); // Creates the parent execution context
+const funcAlert2 = myAlert(); // Creates another execution context, separate from funcAlert
+funcAlert(); // 1
+funcAlert(); // 2, if we run again, the alerter function still has the child execution context but won't recreate the parent execution context, there for this second time count will equal 2
+
+funcAlert2(); // 1
+funcAlert2(); // 2
+```
 
 ---
-### [Currying and Composing Solutions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/currying-and-composing-solutions/)
+### [Closure Demonstration](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure-demonstration/) (10/15/19)
 
--
+- **1ST EXAMPLE**
+```js
+const newClue = (name) => {
+  const length = name.length;
+
+  return (weapon) => {
+    let clue = length + weapon.length;
+    return !!(clue % 2);
+  };
+
+};
+
+const didGreenDoItWithA = newClue('Green')
+
+didGreenDoItWithA('candlestick') // false
+didGreenDoItWithA('lead pipe') // false
+```
+
+- **2ND EXAMPLE**
+- When we call count, it retains access to it's parent scope and increments n every time
+```js
+// ES5
+function countClues() {
+  var n = 0;
+  return {
+    count: function() { return ++n; },
+    reset: function() { return n = 0; }
+  };
+};
+
+counter = countClues()
+counter.count() // 1
+counter.count() // 2
+
+//ES6 equivalent
+const countClues = () => {
+  let n = 0;
+
+  return {
+    count: () => n++,
+    reset: () => n = 0
+  };
+};
+
+const c = countClues(), d = countClues();
+
+c.count();
+d.count();
+c.reset();
+c.count();
+d.count();
+```
+
+---
+### [Closure Recipe](https://frontendmasters.com/courses/js-fundamentals-functional-v2/closure-recipe/) (10/15/19)
+
+- To recap, a closure happens when you have a child function inside of a parent function where the child function retains access to the scope variables even after the parent function has been executed
+- Step 1: Create your parent function
+- Step 2: Define some variable in the parent's local scope
+- Step 3: Define a function inside the parent function
+- Step 4: Return that function from inside the parent function
+```js
+// RECIPE
+function checkscope() { // Step 1
+  var innerVar = "local scope"; // Step 2
+
+  function innerFunc() { // Step 3
+    return innerVar;
+  };
+
+  return innerFunc // Step 4
+}
+```
+
+
+- **EXECUTION**
+- The execution needs to be stored in a variable so that we can call it again later
+```js
+var test = checkscope(); // Runs parent function
+test; // Should be inner function
+test(); // Runs the inner function
+```
+
+- **GOTCHA**
+- I thought that the `who` variable didn't get hoisted
+- But it works because we are executing the function later and by then, the `who` was already declared and initialized in the parent scope
+- So it's important to know how things execute
+```js
+const findSomeone = () => {
+
+  const speak = () => {
+    console.log(who);
+  };
+
+  let who = 'Why hello there, Prof Plum!';
+
+  return speak;
+};
+
+const someoneSpeak = findSomeone() // => 'Why hello there, Prof Plum!'
+```
+
+- **ANOTHER EXAMPLE WITH TIMER**
+- You can use a closure to hide away functionality
+- Users can't mess with methods or variables
+
+```js
+const makeTimer = () => {
+  let elapsed = 0;
+
+  const stopwatch = () => { return elapsed; };
+
+  const increase = () => elapsed++;
+
+  setInterval(increase, 1000);
+
+  return stopwatch;
+
+};
+
+let timer = makeTimer();
+timer()
+timer()
+```
+
+- **SAME TIMER EXAMPLE WITH LOGS**
+```js
+const makeTimer = () => {
+  console.log('initialized');
+  let elapsed = 0;
+  console.log(elapsed);
+
+  const stopwatch = () => {
+    console.log('stopwatch');
+    return elapsed;
+  };
+
+  const increase = () => elapsed++;
+
+  setInterval(increase, 1000);
+
+  return stopwatch;
+
+};
+
+const timer = makeTimer();
+```
+
+---
+### [Currying and Composing Exercises](https://frontendmasters.com/courses/js-fundamentals-functional-v2/currying-and-composing-exercises/) (10/15/19)
+
+- **CURRYING EXERCISE: MY ATTEMPT**
+- Implement curry() that only takes up to 2 arguments
+- Don't quite understand it based on example given from lecture
+```js
+const _ = {}
+_.curry = function(a, b) {
+  return [a, b]
+}
+
+let curried = _.curry(a, b)
+
+curried(1)(2)
+```
+
+- **COMPOSE EXERCISE**
+- Create your own compose function
+```js
+const hello = () => {
+  return `My name is...`
+}
+
+const person = (name) => {
+  const uppercase = name.split("")[0].toUpperCase()
+  return `${name.split("")[0].toUpperCase() + Array.from(name).splice(1).join("")}`
+}
+
+const compose = (str1) => {
+  return hello() + person(str1)
+}
+
+compose("tim")
+```
+
+---
+### [Currying and Composing Solutions](https://frontendmasters.com/courses/js-fundamentals-functional-v2/currying-and-composing-solutions/) (10/15/19)
+
+- **CLASS SOLUTION: CURRY**
+- `curry` takes in another function to be called at a later time
+- We define an instance with `curried`
+- When we call `curried` the first time with 4, it gets saved in the scope of the `curry` function
+- By the time we run `curried` again with 7, it remembers the 4 since that was in the parent scope
+```js
+const curry = (fn) => {
+  return (arg) => {
+    return (arg2) => {
+      return fn(arg, arg2)
+    }
+  }
+}
+
+const abc = function(a, b) {
+  return [a, b]
+}
+
+let curried = curry(abc)
+
+curried(4)(7) // => [4, 7]
+```
+
+- **CLASS SOLUTION: COMPOSE**
+- compose basically takes together 2 functions and combines the results of those functions together
+- `curry` takes in all the args and combines it at the end where `compose` makes intermittent changes as needed
+```js
+const compose = (fn1, fn2) => {
+  return (arg) => {
+    const result = fn2(arg)
+    return fn1(result)
+  }
+}
+
+const consider = (name) => {
+  return `I think it could be... ${name}`;
+};
+
+const exclaim  = (statement) => {
+  return `${statement.toUpperCase()}!`;
+};
+
+const blame = compose(consider, exclaim);
+
+blame('you'); // 'I think it could be... YOU!'
+```
 
 ---
 ## L) Wrapping Up "JavaScript: From Fundamentals to Functional JS"
