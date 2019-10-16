@@ -10366,3 +10366,22 @@ blame('you'); // 'I think it could be... YOU!'
 
 - How do we apply these skills?
 - Creating utility methods in your code makes your functional programming better
+
+# Introduction to Data Structures for Interviews /w Bianca Gandolfo
+- [Course Home](https://frontendmasters.com/courses/data-structures-interviews/)
+---
+## A) Introduction
+---
+## B) Data Structures Overview
+---
+## C) Stack Data Structures
+---
+## D) Queue Data Structures
+---
+## E) Linked List Data Structures
+---
+## F) Hash Table Data Structures
+---
+## G) Common Interview Questions
+---
+## H) Course Review
