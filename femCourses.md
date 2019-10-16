@@ -10362,4 +10362,7 @@ blame('you'); // 'I think it could be... YOU!'
 ```
 
 ---
-## L) Wrapping Up "JavaScript: From Fundamentals to Functional JS"
+## L) Wrapping Up "JavaScript: From Fundamentals to Functional JS" (10/15/19)
+
+- How do we apply these skills?
+- Creating utility methods in your code makes your functional programming better
