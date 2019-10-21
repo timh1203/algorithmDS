@@ -10372,34 +10372,83 @@ blame('you'); // 'I think it could be... YOU!'
 ---
 ## A) Introduction
 ---
-### [Series Overview](https://frontendmasters.com/courses/data-structures-interviews/series-overview/)
+### [Series Overview](https://frontendmasters.com/courses/data-structures-interviews/series-overview/) (10/21/19)
 
--
+- [Slides](https://slides.com/bgando/intro-to-ds-1)
 
----
-### [Interview Process](https://frontendmasters.com/courses/data-structures-interviews/interview-process/)
-
--
-
----
-### [Common Interview Mistakes](https://frontendmasters.com/courses/data-structures-interviews/common-interview-mistakes/)
-
--
+- Course is part 2 of a 4 part series
+- Part 1 was practical algorithms
+- Part 2 are data structures
+- Part 3 is trees
+- Part 4 is graphs
 
 ---
-### [Interview Questions Q&A](https://frontendmasters.com/courses/data-structures-interviews/interview-questions-q-a/)
+### [Interview Process](https://frontendmasters.com/courses/data-structures-interviews/interview-process/) (10/21/19)
 
--
+- **WHAT TO EXPECT**
+- Submit resume/application - resume, skimmer, manual reading, or submitted by recommendation
+- Coding Challenge - HackerRank, create a demo app, add a feature to a demo app
+- Recruiter Phone Screen - friednly, marketing company, questions about why are leaving, what you are working on, what you want next
+- Technical Phone Screen - Code in a collabedit or google doc, pair program on adding a feature to a codebase, high-level questions about your domain and projects
+- Onsite Interview - Similar to above execpt in person and 3-6 hours long
+
+- New grad roles are more data structure centric
+- Small startups aren't as concerned with DS and don't have resources to train you as a big company, sometimes a bit harder
+
+- **HOW TO OVERACHIEVE IN THE PROCESS**
+- Resume/Application - ask for a recommendation
+- Coding Challenge - make your indendation, brackets, modular, and code is clean
+- Recruiter Phone Screen - Read the engineering blog and relevant press about the company, Ask engaging questions, have highlights ready
+- Technical Phone Screen - Have a conversational tone, communicate the entire way, be able to discuss previous projects in-depth
+- Onsite Interview - Know your DS, your language of choice, and be their friend
 
 ---
-### [Data Structures](https://frontendmasters.com/courses/data-structures-interviews/data-structure/)
+### [Common Interview Mistakes](https://frontendmasters.com/courses/data-structures-interviews/common-interview-mistakes/) (10/21/19)
 
--
+- Relavant experience is buried, grammar issues, no role fit
+- Messy, unorganized code, didn't solve the challenge, missed details
+- Communication-based: Offended recruiter, didn't seem interested in company
+- Inability to describe pas project high-level implementation details, not communicative, frustrated
+- Though-process was not clear, lack of CS fundamentals, communications
 
 ---
-### [Course Overview](https://frontendmasters.com/courses/data-structures-interviews/course-overview/)
+### [Interview Questions Q&A](https://frontendmasters.com/courses/data-structures-interviews/interview-questions-q-a/) (10/21/19)
 
--
+- Why should we hire you? Unique strengths, able to break down complex projects to digestible pieces
+- Talk about how your strength plays into that company's needs
+- What do you think about the online resume? LinkedIn, Github, make your web presence consistent, old blogs
+- Resources? Cracking the coding interview and Front End Masters
+- Onsite interview and handling an unknown problems? It's more about knowing concepts and breaking it down than knowing the answer
+
+- There's going to be questions about language specific questions like closures and prototypal inheritance
+- Logic and Math questions, Language Specifics, Domain Questions, Recursion
+
+---
+### [Data Structures](https://frontendmasters.com/courses/data-structures-interviews/data-structure/) (10/21/19)
+
+- One technique you can use is using common data structure patterns you already know
+- Reversing a linked list
+- Reason the problem based on the data structures that you know
+- Understanding the time and space complexity helps you reason how to carry different operations
+
+- **COMMON DATA STRUCTURES**
+- Array and strings are for ordered data, words
+- Hash Tables are for optimization
+- Linke Lists for data insert/delete
+- Stacks/Queues for creative auxilary DS
+- Trees, Heaps for ierachical data
+- Graphs for complex relationships
+---
+### [Course Overview](https://frontendmasters.com/courses/data-structures-interviews/course-overview/) (10/21/2019)
+
+- We are covering background, implementation, analysis, and gain experience & intuition about these 4 data structures: stack/queue, linked list, hash tables, array/string
+
+- **RULES**
+- #1 Don't aim to memorize, this will not help!
+- #2 Find themes, but don't jump to conclusions
+- #3 practice with a timer, speed matters
+- #3.5 actually practice, reading doesn't count
+- #4 communicate and be nice
 
 ---
 ## B) Data Structures Overview
