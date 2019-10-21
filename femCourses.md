@@ -10453,6 +10453,56 @@ blame('you'); // 'I think it could be... YOU!'
 ---
 ## B) Data Structures Overview
 ---
+### [Types of Data Structures](https://frontendmasters.com/courses/data-structures-interviews/types-of-data-structures/)
+
+-
+
+---
+### [Stacks & Queues](https://frontendmasters.com/courses/data-structures-interviews/stacks-queues/)
+
+-
+
+---
+### [Linked List Introduction](https://frontendmasters.com/courses/data-structures-interviews/linked-list-introduction/)
+
+-
+
+---
+### [Linked List Demo](https://frontendmasters.com/courses/data-structures-interviews/linked-list-demo/)
+
+-
+
+---
+### [Linked List Use Cases](https://frontendmasters.com/courses/data-structures-interviews/link-list-use-cases/)
+
+-
+
+---
+### [Draw Stacks, Queues & Linked Lists](https://frontendmasters.com/courses/data-structures-interviews/draw-stacks-queues-linked-lists/)
+
+-
+
+---
+### [Stacks, Queuees & Linked Lists Drawings](https://frontendmasters.com/courses/data-structures-interviews/stacks-queues-linked-lists-drawings/)
+
+-
+
+---
+### [Hash Tables](https://frontendmasters.com/courses/data-structures-interviews/hash-tables/)
+
+-
+
+---
+### [Hash Tables Use Cases, Arrays & Strings](https://frontendmasters.com/courses/data-structures-interviews/hash-tables-use-cases-arrays-strings/)
+
+-
+
+---
+### [Draw Hash Tables, Array & Strings](https://frontendmasters.com/courses/data-structures-interviews/draw-hash-tables-array-strings/)
+
+-
+
+---
 ## C) Stack Data Structures
 ---
 ## D) Queue Data Structures
