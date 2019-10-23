@@ -10453,29 +10453,93 @@ blame('you'); // 'I think it could be... YOU!'
 ---
 ## B) Data Structures Overview
 ---
-### [Types of Data Structures](https://frontendmasters.com/courses/data-structures-interviews/types-of-data-structures/)
+### [Types of Data Structures](https://frontendmasters.com/courses/data-structures-interviews/types-of-data-structures/) (10/22/19)
 
--
+- Javascript doesn't have a lot of data structures out of the box pre-ES6
+- We will learn about data structure time and space complexity, how to implement them
+- We are covering stacks, queues, linked lists, hash tables, arrays, strings
+
+- Linked lists can be stored anywhere in memory, it doesn't have to be contiguous
+- A key feature of hash tables is that it uses a hashing function to create a random integer
+- Arrays and strings can be thought of be the same, however strings are not mutable
+---
+### [Stacks & Queues](https://frontendmasters.com/courses/data-structures-interviews/stacks-queues/) (10/22/19)
+
+- [Interactive Stack visualization](https://slides.com/bgando/intro-to-ds-1#/1)
+- [Interactive Queue visualization](https://www.cs.usfca.edu/~galles/visualization/QueueArray.html)
+
+- Both are ordered data structures which have different methods to store and retrieve items
+- Both are fast operations and constant time for access
+- However, for shifting it can be more even though Bianca says it can be optimized for modern browsers
+
+- Stacks are last-in, first-out and uses push and pop
+- You can implement a stack using an array
+- An example of a stack is using the back button
+```js
+const stack = [1,2,3,4];
+
+stack.push(5);
+// [1,2,3,4,5]
+
+stack.pop();
+// -> 5
+// [1,2,3,4]
+```
+
+- Queues are first-in, and first-out
+```js
+const queue = [1,2,3,4];
+
+queue.enqueue(5);
+// [1,2,3,4,5]
+
+queue.dequeue();
+// -> 1
+// [2,3,4,5]
+```
 
 ---
-### [Stacks & Queues](https://frontendmasters.com/courses/data-structures-interviews/stacks-queues/)
+### [Linked List Introduction](https://frontendmasters.com/courses/data-structures-interviews/linked-list-introduction/) (10/22/19)
 
--
+- Linked list organizes items sequentially, with each item storing a pointer to the next
+- Javascript has dynamic arrays but linked lists is important in languages where memory has to be pre-allocated
 
----
-### [Linked List Introduction](https://frontendmasters.com/courses/data-structures-interviews/linked-list-introduction/)
+- PRO: fast operations on the ends, flexible sizes, deletions are cheap
+- CON: costly lookups
 
--
+- Prototypal Inheritance means objects are shared so if you mutate something, it could have consequences affecting other components that use the same object
 
----
-### [Linked List Demo](https://frontendmasters.com/courses/data-structures-interviews/linked-list-demo/)
-
--
+- Shallow and Deep Copy in JS talks about how deep to the children and copy them recursively
 
 ---
-### [Linked List Use Cases](https://frontendmasters.com/courses/data-structures-interviews/link-list-use-cases/)
+### [Linked List Demo](https://frontendmasters.com/courses/data-structures-interviews/linked-list-demo/) (10/22/19)
 
--
+- [Linked List Visualization](https://visualgo.net/en/list?slide=1)
+
+- Linked Lists are often the underlying data structure for a stack or queue
+- A singly-linked list can only point forward and can't go backwards, unliked a doubly-linked list
+```js
+const linkedlist = {
+  head: {
+    value: 1
+    next: {
+      value: 2
+      next: {
+        value: 3
+        next: null
+      }
+    }
+  }
+}
+```
+
+---
+### [Linked List Use Cases](https://frontendmasters.com/courses/data-structures-interviews/link-list-use-cases/) (10/22/19)
+
+- Most common use case is "Least Recently Used" cache
+- Used in searches, popular videos
+
+- We explicitly set null for next and previous values in a linked list instead of undefined
 
 ---
 ### [Draw Stacks, Queues & Linked Lists](https://frontendmasters.com/courses/data-structures-interviews/draw-stacks-queues-linked-lists/)
