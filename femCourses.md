@@ -10542,19 +10542,33 @@ const linkedlist = {
 - We explicitly set null for next and previous values in a linked list instead of undefined
 
 ---
-### [Draw Stacks, Queues & Linked Lists](https://frontendmasters.com/courses/data-structures-interviews/draw-stacks-queues-linked-lists/)
+### [Draw Stacks, Queues & Linked Lists](https://frontendmasters.com/courses/data-structures-interviews/draw-stacks-queues-linked-lists/) (10/24/19)
 
--
-
----
-### [Stacks, Queuees & Linked Lists Drawings](https://frontendmasters.com/courses/data-structures-interviews/stacks-queues-linked-lists-drawings/)
-
--
+- Draw the following data structures: Stack, Queue, Linked List
 
 ---
-### [Hash Tables](https://frontendmasters.com/courses/data-structures-interviews/hash-tables/)
+### [Stacks, Queuees & Linked Lists Drawings](https://frontendmasters.com/courses/data-structures-interviews/stacks-queues-linked-lists-drawings/) (10/24/19)
 
--
+- Various pictures were tweeted to Bianca
+
+---
+### [Hash Tables](https://frontendmasters.com/courses/data-structures-interviews/hash-tables/) (10/24/19)
+
+- A hash table organizes data for quick look up on values for a given key
+- PROS: fast lookups, flexible keys
+- CONS: slow worst-case lookups, unordered, single-directional lookups
+- Previously, keys were strings but with ES6, you can use functions and objects as keys
+
+- A hashing function takes a key and hashes it to a numerical value within a specified range, which might be a memory address under the hood
+- For the same input, it always gives the same output
+- So you can use the same key to find a value quickly in a hash table
+- The range is usually specified during implementation of a hashing table
+- If the hash table is half full, you double it and found to be most efficient strategy
+- You then rehash the values to the new doubled hash table which doesn't require a new hashing function to redistribute
+- There are many strategies for doubling the hash table depending on the use casebut half is generally the most optimal
+- There's a higher chance of higher collision if there's more than half full
+
+- Nobody is going to ask you implement a hashing function, but you just needs to reason about it
 
 ---
 ### [Hash Tables Use Cases, Arrays & Strings](https://frontendmasters.com/courses/data-structures-interviews/hash-tables-use-cases-arrays-strings/)
