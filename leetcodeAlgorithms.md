@@ -1,30 +1,25 @@
-# Leet Code
-
-- https://leetcode.com
-
+# [Leet Code](https://leetcode.com)
 ---
-
-## Two Sum (5/8/19)
-
-- https://leetcode.com/problems/two-sum/
-- Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-- You may assume that each input would have exactly one solution, and you may not use the same element twice.
+## [Two Sum](https://leetcode.com/problems/two-sum/) (5/8/19)
+```
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+```
 
 - **STANDARD SOLUTION**
-
 ```js
 var twoSum = function(nums, target) {
-	for (let i = 0; i <= nums.length; i++) {
-		let first = nums[i];
-		let second = target - first;
-		let secondInd = nums.lastIndexOf(second);
+  for (let i = 0; i <= nums.length; i++) {
+    let first = nums[i];
+    let second = target - first;
+    let secondInd = nums.lastIndexOf(second);
 
-		if (secondInd > 0 && i !== secondInd) {
-			return [i, secondInd];
-		}
-	}
+    if (secondInd > 0 && i !== secondInd) {
+      return [i, secondInd];
+    }
+  }
 
-	throw new Error('No two sum solution found.');
+  throw new Error('No two sum solution found.');
 };
 // twoSum([3], 6)
 // twoSum([3,3], 6)
@@ -35,22 +30,21 @@ var twoSum = function(nums, target) {
 ```
 
 - **MAP SOLUTION**
-
 ```js
 const twoSum = (nums, target) => {
-	let map = new Map();
+  let map = new Map();
 
-	for (let i = 0; i < nums.length; i++) {
-		let diff = target - nums[i];
+  for (let i = 0; i < nums.length; i++) {
+    let diff = target - nums[i];
 
-		if (map.has(diff)) {
-			return [map.get(diff), i];
-		} else {
-			map.set(nums[i], i);
-		}
-	}
+    if (map.has(diff)) {
+      return [map.get(diff), i];
+    } else {
+      map.set(nums[i], i);
+    }
+  }
 
-	throw new Error('No two sum solution found.');
+  throw new Error('No two sum solution found.');
 };
 // twoSum([3], 6)
 // twoSum([3,3], 6)
