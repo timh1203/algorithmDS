@@ -118,6 +118,91 @@ heightChecker([1,2,1,2,1,1,1,2,1]) // 4
 ```
 
 ---
+## [Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings/) (10/26/19)
+```
+1071. Greatest Common Divisor of Strings
+For strings S and T, we say "T divides S" if and only if S = T + ... + T  (T concatenated with itself 1 or more times)
+
+Return the largest string X such that X divides str1 and X divides str2.
+
+
+
+Example 1:
+
+Input: str1 = "ABCABC", str2 = "ABC"
+Output: "ABC"
+Example 2:
+
+Input: str1 = "ABABAB", str2 = "ABAB"
+Output: "AB"
+Example 3:
+
+Input: str1 = "LEET", str2 = "CODE"
+Output: ""
+
+
+Note:
+
+1 <= str1.length <= 1000
+1 <= str2.length <= 1000
+str1[i] and str2[i] are English uppercase letters.
+```
+
+- **MY ATTEMPT: WORKING, NON PASSING**
+- My solution doesn't check the existence of the shorter string multiple times like the correct solution
+- Difficulty was hard on this one also
+```js
+var gcdOfStrings = function(str1, str2) {
+		let _str1 = Array.from(str1)
+		let _str2 = Array.from(str2)
+		let results = Array.from(str1)
+
+		for (let i = 0; i < _str1.length; i++) {
+			if (_str1[i] === _str2[i]) {
+				results.shift()
+			}
+		}
+
+		console.log(results)
+		if (results.join("") === str1) {
+			return ''
+		} else {
+			return results.join("")
+		}
+};
+
+gcdOfStrings("ABCABC", "ABC") // "ABC", PASS
+gcdOfStrings("ABABAB", "ABAB") // "AB", PASS
+gcdOfStrings("LEET", "CODE") // "", PASS
+gcdOfStrings("ABCDEF", "ABC") // "", NON-PASSING
+```
+
+- **CORRECT SOLUTION**
+```js
+var gcdOfStrings = function(str1, str2) {
+		// Sorts the shorter string to smallerString and larger string to largerString variables
+    const [smallerString, largerString] = [str1, str2].sort((a,b) => a.length - b.length);
+
+		// Tests both str1 and str2 to see if any combination of the shorter string exists one or multiple times
+		// If the combination matches in both, correctSmaller and correctLarger both return true and function exits with testString
+		for (let i = smallerString.length; i > 0; i--) {
+        const testString = smallerString.slice(0, i);
+        const correctSmaller = !smallerString.split(testString).join('')
+.length;
+        const correctLarger = !largerString.split(testString).join('').length;
+        if (correctSmaller && correctLarger) return testString;
+    }
+
+		return '';
+};
+
+gcdOfStrings("ABCABC", "ABC") // "ABC"
+gcdOfStrings("ABABAB", "ABAB") // "AB"
+gcdOfStrings("LEET", "CODE") // ""
+gcdOfStrings("ABCDEF", "ABC") // ""
+```
+
+---
 ## []() ()
 ```
 ```
