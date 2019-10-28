@@ -10571,14 +10571,25 @@ const linkedlist = {
 - Nobody is going to ask you implement a hashing function, but you just needs to reason about it
 
 ---
-### [Hash Tables Use Cases, Arrays & Strings](https://frontendmasters.com/courses/data-structures-interviews/hash-tables-use-cases-arrays-strings/)
+### [Hash Tables Use Cases, Arrays & Strings](https://frontendmasters.com/courses/data-structures-interviews/hash-tables-use-cases-arrays-strings/) (10/28/19)
 
--
+- A set doesn't save a value, only the property name
+- The key could be a string, object, function
+- A map is a combination of a set and a object
+- Under the hood, Maps and Sets are implemented as a hash table
+
+- **ARRAY/STRING**
+- organizes items sequentially in memory
+- PROS: fast lookups, fast appends
+- CONS: slow insert, slow deletes
+- strings are not mutable, you are copying a string most of the time
+- You can't set the values of a string
+- It's better at converting a string into an array to take advantage of array methods
 
 ---
-### [Draw Hash Tables, Array & Strings](https://frontendmasters.com/courses/data-structures-interviews/draw-hash-tables-array-strings/)
+### [Draw Hash Tables, Array & Strings](https://frontendmasters.com/courses/data-structures-interviews/draw-hash-tables-array-strings/) (10/28/19)
 
--
+- There are more drawings of data structures but not shown in this video
 
 ---
 ## C) Stack Data Structures
