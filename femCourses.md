@@ -10594,6 +10594,36 @@ const linkedlist = {
 ---
 ## C) Stack Data Structures
 ---
+### [Overview & Stack Exercise](https://frontendmasters.com/courses/data-structures-interviews/overview-stack-exercise/)
+
+-
+
+---
+### [Exercise Prep Q&A](https://frontendmasters.com/courses/data-structures-interviews/exercise-prep-q-a/)
+
+-
+
+---
+### [Stack: Push & Pop Methods](https://frontendmasters.com/courses/data-structures-interviews/stack-push-pop-methods/)
+
+-
+
+---
+### [Stack: Edge Cases](https://frontendmasters.com/courses/data-structures-interviews/stack-edge-cases/)
+
+-
+
+---
+### [Stack: Peek Method](https://frontendmasters.com/courses/data-structures-interviews/stack-peek-method/)
+
+-
+
+---
+### [Stack: Q&A](https://frontendmasters.com/courses/data-structures-interviews/stack-q-a/)
+
+-
+
+---
 ## D) Queue Data Structures
 ---
 ## E) Linked List Data Structures
