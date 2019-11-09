@@ -10594,9 +10594,64 @@ const linkedlist = {
 ---
 ## C) Stack Data Structures
 ---
-### [Overview & Stack Exercise](https://frontendmasters.com/courses/data-structures-interviews/overview-stack-exercise/)
+### [Overview & Stack Exercise](https://frontendmasters.com/courses/data-structures-interviews/overview-stack-exercise/) (11/9/19)
 
--
+- Big O Cheatsheet tables
+
+- **STACK EXERCISE**
+- [Stack Prompt Replit](https://repl.it/@bgando/stack-prompt)
+- [Stack Prompt Fork](https://repl.it/@timh1203/stack-prompt)
+
+- The `_` represents an internal private property and is a common convention
+- We need to implement the methods in this data structure
+- We need to implement constant time operations for all 3 operations
+
+- *MY IMPLEMENTATION*
+```js
+/** Class representing a Stack. */
+class Stack {
+
+  constructor() {
+    this._storage = {};
+		this._count = 0;
+  }
+  /*
+  * Adds a new value at the end of the stack
+  * @param {*} value the value to push
+  */
+  push(value) {
+		this._storage[this._count] = value;
+		this._count++;
+  }
+
+  /*
+  * Removes the value at the end of the stack and returns it
+  * @return {*} the last and newest value in the stack
+  */
+  pop() {
+		const popped = this._storage[this._count-1];
+		delete this._storage[this._count-1];
+		this._count--;
+		return popped;
+  }
+  /*
+  * Returns the value at the end of the stack without removing it
+  * @return {*} the last and newest value in the stack
+  */
+  peek() {
+		return this._storage[this._count-1];
+  }
+}
+
+const myStack = new Stack();
+
+myStack.push("tim")
+myStack.push("juan")
+myStack.push("brian")
+myStack.pop();
+myStack.peek();
+console.log(myStack)
+```
 
 ---
 ### [Exercise Prep Q&A](https://frontendmasters.com/courses/data-structures-interviews/exercise-prep-q-a/)
