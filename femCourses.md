@@ -10773,6 +10773,26 @@ class Stack {
 ---
 ## D) Queue Data Structures
 ---
+### [Queue Exercise](https://frontendmasters.com/courses/data-structures-interviews/queue-exercise/)
+
+-
+
+---
+### [Queue: Method Usage](https://frontendmasters.com/courses/data-structures-interviews/queue-method-usage/)
+
+-
+
+---
+### [Queue: Enqueue & Dequeue](https://frontendmasters.com/courses/data-structures-interviews/queue-enqueue-dequeue/)
+
+-
+
+---
+### [Queue: Q&A](https://frontendmasters.com/courses/data-structures-interviews/queue-q-a/)
+
+-
+
+---
 ## E) Linked List Data Structures
 ---
 ## F) Hash Table Data Structures
