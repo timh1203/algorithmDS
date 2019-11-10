@@ -10654,29 +10654,121 @@ console.log(myStack)
 ```
 
 ---
-### [Exercise Prep Q&A](https://frontendmasters.com/courses/data-structures-interviews/exercise-prep-q-a/)
+### [Exercise Prep Q&A](https://frontendmasters.com/courses/data-structures-interviews/exercise-prep-q-a/) (11/10/19)
 
--
-
----
-### [Stack: Push & Pop Methods](https://frontendmasters.com/courses/data-structures-interviews/stack-push-pop-methods/)
-
--
+- Try to spend an hour to reason it out yourself
+- You won't ever be asked to fully implemented these data structures on interview
+- It's best to know about them nonetheless
 
 ---
-### [Stack: Edge Cases](https://frontendmasters.com/courses/data-structures-interviews/stack-edge-cases/)
+### [Stack: Push & Pop Methods](https://frontendmasters.com/courses/data-structures-interviews/stack-push-pop-methods/) (11/10/19)
 
--
+- First, think about how it gets inserted like a numeric key
+- A stack is like an array which uses numerical indices
+- We probably need a counter to keep track of the indices
+- Talk with edge cases with interviewers, error handling
+- If things are not clear, you can pseudocode
+
+- **CLASS IMPLEMENTATION**
+- Later, one can add typechecking and checking arguments
+- I noticed she uses `undefined` versus using `delete` since the implementations under the hood are the same
+```js
+class Stack {
+  constructor() {
+    this._storage = {};
+    this._length = 0;
+  }
+
+  push(value) {
+    this._storage[this._length] = value;
+    this._length++;
+  }
+
+  pop() {
+    const lastVal = this._storage[this._length - 1];
+    this._storage[this._length - 1] = undefined; // or use delete
+    this._length--;
+    return lastVal
+  }
+}
+```
 
 ---
-### [Stack: Peek Method](https://frontendmasters.com/courses/data-structures-interviews/stack-peek-method/)
+### [Stack: Edge Cases](https://frontendmasters.com/courses/data-structures-interviews/stack-edge-cases/) (11/10/19)
 
--
+- If there is an argument passed? It is disregarded
+- If you pop something that's empty? Can show error or return undefined
+- Be mindful of using `this._length` as an if check since it covers undefined or zero
+- You can also refer to how a regular array handles the empty array
+- Arrays return undefined so we want to mirror the behavior to keep it consistent
+
+- We add a if check in our pop method
+```js
+class Stack {
+  constructor() {
+    this._storage = {};
+    this._length = 0;
+  }
+
+  push(value) {
+    this._storage[this._length] = value;
+    this._length++;
+  }
+
+  pop() {
+    if (this._length) {
+      const lastVal = this._storage[this._length - 1];
+      this._storage[this._length - 1] = undefined; // or use delete
+      this._length--;
+      return lastVal
+    }
+  }
+}
+```
 
 ---
-### [Stack: Q&A](https://frontendmasters.com/courses/data-structures-interviews/stack-q-a/)
+### [Stack: Peek Method](https://frontendmasters.com/courses/data-structures-interviews/stack-peek-method/) (11/10/19)
 
--
+- Peek() is very similar to pop()
+- Bianca would use a method to access the length instead of getting the length directly
+- We don't want someone to be able to change the length
+```js
+class Stack {
+  constructor() {
+    this._storage = {};
+    this._length = 0;
+  }
+
+  push(value) {
+    this._storage[this._length] = value;
+    this._length++;
+  }
+
+  pop() {
+    if (this._length) {
+      const lastVal = this._storage[this._length - 1];
+      this._storage[this._length - 1] = undefined; // or use delete
+      this._length--;
+      return lastVal
+    }
+  }
+
+  peek() {
+    if (this._length) {
+      return this._storage[this._length - 1];
+    }
+  }
+}
+```
+
+---
+### [Stack: Q&A](https://frontendmasters.com/courses/data-structures-interviews/stack-q-a/) (11/10/19)
+
+- QUESTION: What parts were confusing?
+- A: How the data was being stored.
+
+- QUESTION: How to physically lock the length variable?
+- A: Freeze object, closures. Usually, okay to use the underscore since it's a known convention. If you're using a class constructor, it's difficult to make it private
 
 ---
 ## D) Queue Data Structures
