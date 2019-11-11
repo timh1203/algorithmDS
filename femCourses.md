@@ -11161,6 +11161,37 @@ class LinkedList {
 ---
 ## F) Hash Table Data Structures
 ---
+### [Hash Table Exercise](https://frontendmasters.com/courses/data-structures-interviews/hash-table-exercise/)
+
+-
+
+---
+### [Hash Table: Usage, Constructor & Insert](https://frontendmasters.com/courses/data-structures-interviews/hash-table-usage-constructor-insert/)
+
+-
+
+---
+### [Hash Table: Retrieve](https://frontendmasters.com/courses/data-structures-interviews/hash-table-retrieve/)
+
+-
+
+---
+### [Hash Table: Remove](https://frontendmasters.com/courses/data-structures-interviews/hash-table-remove/)
+
+-
+
+---
 ## G) Common Interview Questions
 ---
+### []()
+
+-
+
+---
 ## H) Course Review
+---
+### []()
+
+-
+
+---
