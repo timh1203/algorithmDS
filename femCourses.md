@@ -10916,44 +10916,247 @@ console.log(myQ);
 ---
 ## E) Linked List Data Structures
 ---
-### [Linked List Exercise](https://frontendmasters.com/courses/data-structures-interviews/linked-list-exercise/)
+### [Linked List Exercise](https://frontendmasters.com/courses/data-structures-interviews/linked-list-exercise/) (11/11/19)
 
--
+- [Replit link](https://repl.it/@bgando/linked-list-prompt)
+- [My fork](https://repl.it/@timh1203/linked-list-prompt)
+
+- Insertion needs to be constant time
+- Removal can be constant time if you have a reference to the node, or else linear time to traverse the nodes
+- Contains should be be linear time
 
 ---
 ### [Linked List: Usage & Constructor](https://frontendmasters.com/courses/data-structures-interviews/linked-list-usage-constructor/)
 
--
+- Ask interviewer if it should be initiated with a value
+- If confused about passing by reference of by value? Look at [Lesson](https://frontendmasters.com/courses/js-fundamentals-functional-v2/scope-walkthrough-setup/) or Kyle Simpson [Lesson](https://frontendmasters.com/courses/advanced-javascript/scope-and-the-javascript-compiler/)
+
+- **CLASSROOM SETUP**
+```js
+/** Class representing a Linked List */
+
+class LinkedList {
+
+  constructor(value) {
+    this.head = {value, next: null};
+    this.tail = this.head;
+  }
+  /*
+  * Inserts a new value to the end of the linked list
+  * @param {*} value - the value to insert
+  */
+  insert(value) {
+    const node = {value, next: null};
+    this.tail.next = node;
+    this.tail = node;
+  }
+  /*
+  * Deletes a node
+  * @param {*} node - the node to remove
+  * @return {*} value - the deleted node's value
+  */
+  remove() {
+
+  }
+  /*
+  * Removes the value at the end of the linked list
+  * @return {*} - the removed value
+  */
+// {
+//   head: {value: 1, next: {value: 2, next: null}}
+//   tail: {value: 2, next: null}
+// }
+  removeTail() {
+    let currentNode = this.head;
+    while (currentNode.next !== this.tail) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = null;
+    this.tail = currentNode;
+  }
+  /*
+  * Searches the linked list and returns true if it contains the value passed
+  * @param {*} value - the value to search for
+  * @return {boolean} - true if value is found, otherwise false
+  */
+  contains(value) {
+    let currentNode = this.head;
+    while (currentNode.value !== value) {
+      currentNode = currentNode.next;
+    }
+    return currentNode.value === value;
+  }
+  /*
+  * Checks if a node is the head of the linked list
+  * @param {{prev:Object|null, next:Object|null}} node - the node to check
+  * @return {boolean} - true if node is the head, otherwise false
+  */
+  isHead(node) {
+    return node === this.head;
+  }
+  /*
+  * Checks if a node is the tail of the linked list
+  * @param {{prev:Object|null, next:Object|null}} node - the node to check
+  * @return {boolean} - true if node is the tail, otherwise false
+  */
+  isTail(node) {
+    return node === this.tail;
+  }
+}
+
+const myList = new LinkedList(1); //initiate?
+
+
+// {
+//   head: {value: 1, next: null}
+//   tail: {value: 1, next: null}
+// }
+
+myList.insert(2)
+
+// {
+//   head: {value: 1, next: {value: 2, next: null}}
+//   tail: {value: 2, next: null}
+// }
+
+myList.insert(3)
+
+
+// {
+//   head: {value: 1, next: {value: 2, next: {value: 3, next: null}}}
+//   tail: {value: 3, next: null}
+// }
+console.log(myList);
+myList.removeTail();
+console.log(myList);
+myList.removeNext(prevNode)
+
+function removeNext(list, prevNode) {
+
+}
+// {
+//   head: {value: 1, next: {value: 2, next: null}}
+//   tail: {value: 2, next: null}
+// }
+```
 
 ---
-### [Linked List: Insert Method](https://frontendmasters.com/courses/data-structures-interviews/linked-list-insert-method/)
+### [Linked List: Insert Method](https://frontendmasters.com/courses/data-structures-interviews/linked-list-insert-method/) (11/11/2019)
 
--
+- **INSERT METHOD**
+- In the insert method, we are updating the current tail with the new node
+- Then we are making the new tail with the new node
+```js
+class LinkedList {
+    constructor(value) {
+    this.head = {value, next: null};
+    this.tail = this.head;
+  }
 
----
-### [Linked List: Insert Q&A](https://frontendmasters.com/courses/data-structures-interviews/linked-list-insert-q-a/)
-
--
-
----
-### [Linked List: Remove Tail](https://frontendmasters.com/courses/data-structures-interviews/linked-list-remove-tail/)
-
--
-
----
-### [Linked List: Q&A](https://frontendmasters.com/courses/data-structures-interviews/linked-list-q-a/)
-
--
-
----
-### [Linked List: Head, Tail & Contains](https://frontendmasters.com/courses/data-structures-interviews/linked-list-head-tail-contains/)
-
--
+  insert(value) {
+    const node = {value, next: null};
+    this.tail.next = node;
+    this.tail = node;
+  }
+}
+```
 
 ---
-### [Linked List Commentary](https://frontendmasters.com/courses/data-structures-interviews/linked-list-commentary/)
+### [Linked List: Insert Q&A](https://frontendmasters.com/courses/data-structures-interviews/linked-list-insert-q-a/) (11/11/2019)
 
--
+- Questions here are confusion about dealing with the next part of nodes
+- Appending to the tail is pretty standard and is constant time
+
+---
+### [Linked List: Remove Tail](https://frontendmasters.com/courses/data-structures-interviews/linked-list-remove-tail/) (11/11/2019)
+
+- **REMOVE METHOD**
+- Ask are we deleting the head, node, or specific node?
+- It depends on what the interviewer asks for
+
+- The most straightforward way is to loop through the linked list and find the node right before the tail
+- Then check if the next node is equal to the tail
+```js
+class LinkedList {
+    constructor(value) {
+    this.head = {value, next: null};
+    this.tail = this.head;
+  }
+
+  insert(value) {
+    const node = {value, next: null};
+    this.tail.next = node;
+    this.tail = node;
+  }
+
+  remove() {
+    let currentNode = this.head
+    while(currentNode.next !== this.tail) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = null;
+    this.tail = currentNode;
+  }
+}
+```
+
+---
+### [Linked List: Q&A](https://frontendmasters.com/courses/data-structures-interviews/linked-list-q-a/) (11/11/2019)
+
+- In generally, Bianca resorts to iterative solution over a recursive solution
+- There are points where the recursive solution is easier
+- You have to ask the interviewer if they want iterative or recursive solution
+
+---
+### [Linked List: Head, Tail & Contains](https://frontendmasters.com/courses/data-structures-interviews/linked-list-head-tail-contains/) (11/11/2019)
+
+- **CLASS SOLUTION**
+```js
+class LinkedList {
+    constructor(value) {
+    this.head = {value, next: null};
+    this.tail = this.head;
+  }
+
+  insert(value) {
+    const node = {value, next: null};
+    this.tail.next = node;
+    this.tail = node;
+  }
+
+  remove() {
+    let currentNode = this.head
+    while(currentNode.next !== this.tail) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = null;
+    this.tail = currentNode;
+  }
+
+  isHead(node) {
+    return node === this.head;
+  }
+
+  isTail(node) {
+    return node === this.tail;
+  }
+
+  contains(value) {
+    let currentNode = this.head
+    while(currentNode.value !== value) {
+      currentNode = currentNode.next;
+    }
+    return currentNode.value === value;
+  }
+}
+```
+
+---
+### [Linked List Commentary](https://frontendmasters.com/courses/data-structures-interviews/linked-list-commentary/) (11/11/2019)
+
+- Key advices?
+- Be able to hold reference to head and tail
+- Can only iterate forward with a singly linked list
 
 ---
 ## F) Hash Table Data Structures
