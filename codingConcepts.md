@@ -20,7 +20,7 @@
 ## Binary Tree
 ---
 ## Functions
-- 8/20/19 [Function Declarations VS Function Expressions in JavaScript](https://www.youtube.com/watch?v=gjLn95skIKE)by All Things JavaScript
+- 8/20/19 [Function Declarations VS Function Expressions in JavaScript](https://www.youtube.com/watch?v=gjLn95skIKE) by All Things JavaScript
 
 ---
 ## This keyword
