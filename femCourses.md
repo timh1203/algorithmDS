@@ -10773,24 +10773,145 @@ class Stack {
 ---
 ## D) Queue Data Structures
 ---
-### [Queue Exercise](https://frontendmasters.com/courses/data-structures-interviews/queue-exercise/)
+### [Queue Exercise](https://frontendmasters.com/courses/data-structures-interviews/queue-exercise/) (11/10/19)
 
--
+- [Queue Replit](https://repl.it/@bgando/queue-prompt)
+- [My Fork Replit](https://repl.it/@timh1203/queue-prompt)
+
+- We have queue(), dequeue(), and peek() methods which are common names when talking about this data structure
+- **MY ATTEMPT: WORKING**
+```js
+/** Class representing a Queue.
+ * @constructor
+*/
+
+class Queue {
+
+  constructor() {
+    this._storage = {};
+		this._length = 0;
+		this._headIndex = null;
+  }
+  /*
+  * Enqueues a new value at the end of the queue
+  * @param {*} value the value to enqueue
+  */
+  enqueue(value) {
+		if (!this._headIndex) {
+			this._headIndex = 0;
+		}
+
+		this._storage[this._length] = value;
+		this._length++;
+  }
+
+  /*
+  * Dequeues the value from the beginning of the queue and returns it
+  * @return {*} the first and oldest value in the queue
+  */
+  dequeue() {
+		const dequeued = this._storage[this._headIndex]
+		let prevHead = this._headIndex
+		delete this._storage[this._headIndex]
+		this._length--;
+		this._headIndex = prevHead + 1;
+		return dequeued
+  }
+  /*
+  * Returns the value at the beginning of the queue without removing it from the queue
+  * @return {*} the first and oldest value in the queue
+  */
+  peek() {
+		return this._storage[this._headIndex]
+  }
+}
+
+const myQ = new Queue();
+myQ.enqueue('zero')
+myQ.enqueue('one')
+myQ.enqueue('two')
+myQ.enqueue('three')
+myQ.enqueue('four')
+myQ.dequeue()
+myQ.dequeue()
+myQ.peek()
+console.log(myQ)
+```
 
 ---
-### [Queue: Method Usage](https://frontendmasters.com/courses/data-structures-interviews/queue-method-usage/)
+### [Queue: Method Usage](https://frontendmasters.com/courses/data-structures-interviews/queue-method-usage/) (11/10/19)
 
--
+- We want the queue to be able to do something like this
+```js
+var myQ = new Queue();
+myQ.enqueue('zero') // { _storage: {0: 'zero'}, length: 1, headIndex: 0}
+myQ.enqueue('one') // { _storage: {0: 'zero', 1: 'one'}, length: 2, headIndex: 0}
+myQ.dequeue() // { _storage: {1: 'one'}, length: 1, headIndex: 1}
+myQ.enqueue('two') // { _storage: {1: 'one', 2: 'two'}, length: 2, headIndex: 1}
+```
 
 ---
-### [Queue: Enqueue & Dequeue](https://frontendmasters.com/courses/data-structures-interviews/queue-enqueue-dequeue/)
+### [Queue: Enqueue & Dequeue](https://frontendmasters.com/courses/data-structures-interviews/queue-enqueue-dequeue/) (11/11/19)
 
--
+- **CLASS SOLUTION**
+- Notice in the enqueue method we have to add the length and the headIndex value to get the next index to store the value
+- This is because say we have enqueued and dequeued many things, the length will change but won't be accurate in representing the next number we need to add it on to the end
+- Take index 3 to index 7 for example, even though the length is 4, we need our next index number to be 8
+```js
+/** Class representing a Queue.
+ * @constructor
+*/
+
+class Queue {
+
+  constructor() {
+    this._storage = {};
+    this._length = 0;
+    this._headIndex = 0;
+  }
+  /*
+  * Enqueues a new value at the end of the queue
+  * @param {*} value the value to enqueue
+  */
+  enqueue(value) {
+    //TODO: typechecking
+    this._storage[this._length + this._headIndex] = value;
+    this._length++;
+  }
+
+  /*
+  * Dequeues the value from the beginning of the queue and returns it
+  * @return {*} the first and oldest value in the queue
+  */
+  dequeue() {
+    if (this._length) {
+      const firstVal = this._storage[this._headIndex];
+      delete this.storage[this._headIndex];
+      this._length--;
+      this._headIndex++;
+    }
+  }
+  /*
+  * Returns the value at the beginning of the queue without removing it from the queue
+  * @return {*} the first and oldest value in the queue
+  */
+  peek() {
+
+  }
+}
+
+var myQ = new Queue();
+myQ.enqueue('zero');
+myQ.enqueue('one');
+myQ.dequeue();
+console.log(myQ);
+```
 
 ---
-### [Queue: Q&A](https://frontendmasters.com/courses/data-structures-interviews/queue-q-a/)
+### [Queue: Q&A](https://frontendmasters.com/courses/data-structures-interviews/queue-q-a/) (11/11/19)
 
--
+- Q: When do you use Queues in trees/graphs?
+- A: When you're using recursion, you are using a stack to keep account of the space
 
 ---
 ## E) Linked List Data Structures
