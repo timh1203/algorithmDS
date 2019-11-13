@@ -11329,24 +11329,109 @@ myHT.insert('b', 2)
 ---
 ## G) Common Interview Questions
 ---
-### [Overview](https://frontendmasters.com/courses/data-structures-interviews/overview/)
+### [Overview](https://frontendmasters.com/courses/data-structures-interviews/overview/) (11/13/2019)
 
--
+- We will investigate different themes and practice these type of problems
+- Bianca started learning through [MOOC](http://mooc.org/), [Cracking the Coding Interview](http://www.crackingthecodinginterview.com/), [InverviewBit](https://www.interviewbit.com/), [LeetCode](https://leetcode.com/), [Geeks for Geeks](https://www.geeksforgeeks.org/)
 
----
-### [Stack & Queue](https://frontendmasters.com/courses/data-structures-interviews/stack-queue/)
-
--
 
 ---
-### [Linked List](https://frontendmasters.com/courses/data-structures-interviews/linked-list/)
+### [Stack & Queue](https://frontendmasters.com/courses/data-structures-interviews/stack-queue/) (11/13/2019)
 
--
+- **COMMON QUESTIONS FOR STACK & QUEUES**
+1. Use an array to implement 3 stacks
+- [Kstacks Prompt](https://repl.it/@bgando/k-stacks-one-array-prompt)
+- [Kstacks Solution](https://repl.it/@bgando/k-stacks-one-array-solution)
+
+2. Implement a getMin() or getMax() method on your stack
+- [GetMin Prompt](https://repl.it/@bgando/min-stack-prompt)
+- [GetMin Solution](https://repl.it/@bgando/min-stack-solution)
+- Requires an auxilary data structures, like a stack, to keep track of min and max
+- Or you can keep track of it in the node itself
+
+3. Create a queue using 2 stacks
+- [2 Stack Prompt](https://repl.it/@bgando/queue-two-stacks-prompt)
+- [2 Stack Solution](https://repl.it/@bgando/queue-two-stacks-solution)
+
+4. Sort a stack with the min values in order, on top. You can use another stack as a buffer.
+- [Sort Stack Prompt](https://repl.it/@bgando/sort-stack-prompt)
+- [Sort Stack Solution](https://repl.it/@bgando/sort-stack-solution)
+- Simplification of Tower of Hanoi problem
+
+5. Write a function that returns true if a string of brackets is valid/balanced
+- [Bracket Validator Prompt](https://repl.it/@bgando/bracket-validator-prompt)
+- [Bracket Validator Solution](https://repl.it/@bgando/bracket-validator-solution)
 
 ---
-### [Hash Table, Array & String](https://frontendmasters.com/courses/data-structures-interviews/hash-table-array-string/)
+### [Linked List](https://frontendmasters.com/courses/data-structures-interviews/linked-list/) (11/13/2019)
 
--
+- **COMMON QUESTIONS FOR LINKED LISTS**
+- You'll need a way to keep track of the list length
+1. Delete the following:
+a. a node in the middle of the linked list -> [Prompt](https://repl.it/@bgando/ll-delete-mid-node-prompt)
+, [Solution](https://www.geeksforgeeks.org/delete-middle-of-linked-list/)
+
+b. a node with only a variable pointing at that node -> [Prompt](https://repl.it/@bgando/ll-delete-node-no-pointers-prompt), [Solution](https://www.geeksforgeeks.org/given-only-a-pointer-to-a-node-to-be-deleted-in-a-singly-linked-list-how-do-you-delete-it/)
+
+c. a duplicate -> [Prompt](https://repl.it/@bgando/ll-delete-dupe-node-prompt), [Solution](https://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/)
+
+2. Partition a linked list around a value.
+- [Prompt](https://repl.it/@bgando/ll-partition-prompt)
+- [Solution](https://repl.it/@bgando/ll-partition-solution)
+
+3. Write a function for reversing a linked list. Can you do it in-place?
+- [Prompt](https://repl.it/@bgando/ll-reverse-prompt)
+- [Solution](https://repl.it/@bgando/ll-reverse-solution)
+
+4. Check if a linked list contains a cycle.
+- [Prompt](https://repl.it/@bgando/ll-cycle-detect-prompt)
+- [Solution](https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/)
+
+5. Find the kth to the last node.
+- [Prompt](https://repl.it/@bgando/ll-kth-to-last-node-prompt)
+- [Solution](https://repl.it/@bgando/ll-kth-to-last-node-solution)
+
+---
+### [Hash Table, Array & String](https://frontendmasters.com/courses/data-structures-interviews/hash-table-array-string/) (11/13/2019)
+
+- **COMMON QUESTIONS FOR HASH TABLE**
+1. Count the number of occurrences of all characters or words in a body of text or string.
+- [Prompt](https://repl.it/@bgando/ht-unique-string-prompt)
+- [Solution](https://www.geeksforgeeks.org/determine-string-unique-characters/)
+
+2. Delete duplicates in a list.
+- [Prompt](https://repl.it/@bgando/ht-remove-dups-prompt)
+- [Solution](https://www.geeksforgeeks.org/remove-duplicates-from-a-given-string/)
+
+3. Find a unique value in a list.
+- [Prompt](https://repl.it/@bgando/ht-find-unique-list-prompt)
+- [Solution](https://www.geeksforgeeks.org/non-repeating-element/)
+
+4. Find if two integers in a list add up to k
+- [Prompt](https://repl.it/@bgando/ht-two-items-sum)
+- [Solution](https://www.geeksforgeeks.org/given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x/)
+
+
+- **COMMON QUESTIONS FOR ARRAY/STRING**
+1. Rotate a matrix, string, or an array
+- [Prompt](https://repl.it/@bgando/rotate-array-prompt)
+- [Solution](https://www.geeksforgeeks.org/array-rotation/)
+
+2. Given an m x n boolean matrix, if an element is 0, set its entire row and column to 0.
+- [Prompt](https://repl.it/@bgando/boolean-matrix-prompt)
+- [Solution](https://www.geeksforgeeks.org/a-boolean-matrix-question/)
+
+3. Search for a value.
+- [Prompt](https://repl.it/@bgando/search-for-value-prompt)
+- [Solution](https://www.geeksforgeeks.org/linear-search/)
+
+4. Write a function encodes a string by turning all spaces into `%20`.
+- [Prompt](https://repl.it/@bgando/encode-string-prompt)
+- [Solution](https://www.geeksforgeeks.org/urlify-given-string-replace-spaces/)
+
+5. Merge two sorted lists into one list.
+- [Prompt](https://repl.it/@bgando/merge-sorted-arrays-prompt)
+- [Solution](https://www.geeksforgeeks.org/merge-two-sorted-arrays/)
 
 ---
 ## H) Course Review
