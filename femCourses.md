@@ -11161,14 +11161,59 @@ class LinkedList {
 ---
 ## F) Hash Table Data Structures
 ---
-### [Hash Table Exercise](https://frontendmasters.com/courses/data-structures-interviews/hash-table-exercise/)
+### [Hash Table Exercise](https://frontendmasters.com/courses/data-structures-interviews/hash-table-exercise/) (11/12/2019)
 
--
+- [REPLIT LINK](https://repl.it/@bgando/hash-table-prompt)
+- [MY FORK](https://repl.it/@timh1203/hash-table-prompt)
+
+- Hash table has an array storage
+- Methods: insert, remove, retrieve
+- All 3 methods are constant time on average
+- 2 Problems: Size and Collision
+- Note that if you handle collisions a certain way, the methods have to address this issue
 
 ---
-### [Hash Table: Usage, Constructor & Insert](https://frontendmasters.com/courses/data-structures-interviews/hash-table-usage-constructor-insert/)
+### [Hash Table: Usage, Constructor & Insert](https://frontendmasters.com/courses/data-structures-interviews/hash-table-usage-constructor-insert/) (11/12/2019)
 
--
+- Hashing functions allows us to do everything constant time
+- A hash table is basically an object
+- You need key and value with insert, then you only need key for removal and retrieve
+
+- **CLASS SETUP**
+- We are handling a collision in the insert method here
+- We do this by inserting an array inside another array at that specific index in case the hashing function returns the same index for 2 separate inserts
+```js
+class HashTable {
+  constructor(val) {
+    this._storage = [];
+    this._tableSize = val;
+  }
+
+  insert(key, value) {
+    const index = this._hash(key, this._tableSize);
+
+    if (!this._storage[index]) this._storage[index] = []; // If already exists, we want to initiate an array
+    this._storage[index].push([key,value])
+  }
+
+  _hash(str, n) {
+    let sum = 0;
+    for (let i = 0; i < str.length; i++)
+        sum += str.charCodeAt(i) * 3
+
+    return sum % n;
+  }
+}
+
+const myHT = new HashTable(25);
+
+console.log(myHT)
+
+myHT.insert('a', 1)
+myHT.insert('b', 2)
+
+// HashTable { _storage: [0,0,0,['a', 1], ['b', 2],0,0,0]}
+```
 
 ---
 ### [Hash Table: Retrieve](https://frontendmasters.com/courses/data-structures-interviews/hash-table-retrieve/)
