@@ -11216,14 +11216,115 @@ myHT.insert('b', 2)
 ```
 
 ---
-### [Hash Table: Retrieve](https://frontendmasters.com/courses/data-structures-interviews/hash-table-retrieve/)
+### [Hash Table: Retrieve](https://frontendmasters.com/courses/data-structures-interviews/hash-table-retrieve/) (11/13/19)
 
--
+- **RETRIEVE METHOD**
+- We think of hash tables as constant time
+- It's rare to have the same index and collisions, so on average it is constant time
+- It is constant time to get the index, but if we have our special array structure, we will have to loop through it (linear time)
+
+- EDGE CASE: When we are pushing, we have to make sure we don't have the same key either
+- So we need to loop through the array and find if the key was already inserted
+```js
+class HashTable {
+  constructor(val) {
+    this._storage = [];
+    this._tableSize = val;
+  }
+
+  insert(key, value) {
+    const index = this._hash(key, this._tableSize);
+
+    if (!this._storage[index]) this._storage[index] = []; // If already exists, we want to initiate an array
+    this._storage[index].push([key,value])
+  }
+
+  retrieve(key) {
+    const index = this._hash(key, this._tableSize);
+    const arrayAtIndex = this._storage[index];
+
+    if (arrayAtIndex) {
+      for (let i =0; i < this._storage[index].length; i++) {
+        const keyValueArray = arrayAtIndex[i]
+        if (keyValueArray[0] === key) return keyValueArray[1];
+      }
+    }
+  }
+
+  _hash(str, n) {
+    let sum = 0;
+    for (let i = 0; i < str.length; i++)
+        sum += str.charCodeAt(i) * 3
+
+    return sum % n;
+  }
+}
+
+const myHT = new HashTable(25);
+
+console.log(myHT)
+
+myHT.insert('a', 1)
+myHT.insert('b', 2)
+
+// HashTable { _storage: [0,0,0,['a', 1], ['b', 2],0,0,0]}
+```
 
 ---
-### [Hash Table: Remove](https://frontendmasters.com/courses/data-structures-interviews/hash-table-remove/)
+### [Hash Table: Remove](https://frontendmasters.com/courses/data-structures-interviews/hash-table-remove/) (11/13/19)
 
--
+- **REMOVE METHOD**
+- Similar to retrieve method
+- We should also think of resizing if the table gets less or bigger than 50% size
+- There really isn't a real-world situation where we would have to implement this hash table, we would just use an object or array methods instead
+```js
+class HashTable {
+  constructor(val) {
+    this._storage = [];
+    this._tableSize = val;
+  }
+
+  insert(key, value) {
+    const index = this._hash(key, this._tableSize);
+
+    if (!this._storage[index]) this._storage[index] = []; // If already exists, we want to initiate an array
+    this._storage[index].push([key,value])
+  }
+
+  remove(key) {
+
+  }
+
+  retrieve(key) {
+    const index = this._hash(key, this._tableSize);
+    const arrayAtIndex = this._storage[index];
+
+    if (arrayAtIndex) {
+      for (let i =0; i < this._storage[index].length; i++) {
+        const keyValueArray = arrayAtIndex[i]
+        if (keyValueArray[0] === key) return keyValueArray[1];
+      }
+    }
+  }
+
+  _hash(str, n) {
+    let sum = 0;
+    for (let i = 0; i < str.length; i++)
+        sum += str.charCodeAt(i) * 3
+
+    return sum % n;
+  }
+}
+
+const myHT = new HashTable(25);
+
+console.log(myHT)
+
+myHT.insert('a', 1)
+myHT.insert('b', 2)
+
+// HashTable { _storage: [0,0,0,['a', 1], ['b', 2],0,0,0]}
+```
 
 ---
 ## G) Common Interview Questions
