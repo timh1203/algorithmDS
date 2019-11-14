@@ -1,6 +1,8 @@
 # Front End Masters
 
 # A Practical Guide to Algorithms with Javascript /w Bianca Gandolfo
+- [Course Home](https://frontendmasters.com/courses/practical-algorithms/)
+- Computer Science Learning Track (2nd of 4)
 
 ## A) Introducing Practical Guide to Algorithms
 
@@ -6593,6 +6595,8 @@ state = { loading: true};
 ## M) Wrapping Up
 
 #  Four Semesters of Computer Science in 5 Hours w/ Brian Holt
+- [Course Home](https://frontendmasters.com/courses/computer-science/)
+- Computer Science Learning Track (1st of 4)
 
 ## A) Big O & Recursion
 ---
@@ -10369,7 +10373,8 @@ blame('you'); // 'I think it could be... YOU!'
 
 # Introduction to Data Structures for Interviews /w Bianca Gandolfo
 - [Course Home](https://frontendmasters.com/courses/data-structures-interviews/)
----
+- Computer Science Learning Track (3rd of 4)
+
 ## A) Introduction
 ---
 ### [Series Overview](https://frontendmasters.com/courses/data-structures-interviews/series-overview/) (10/21/19)
@@ -11456,23 +11461,88 @@ c. a duplicate -> [Prompt](https://repl.it/@bgando/ll-delete-dupe-node-prompt), 
 ---
 ## H) Course Review
 ---
-### [Common Operations](https://frontendmasters.com/courses/data-structures-interviews/common-operations/)
+### [Common Operations](https://frontendmasters.com/courses/data-structures-interviews/common-operations/) (11/14/2019)
 
--
+- [Bianca's Guide to Algorithms Course](https://frontendmasters.com/courses/practical-algorithms/)
+
+- Use a hash table for optimization since it is constant times for search, insertion, deletion
+- You can improve the array sorting algorithms if the input is already sorted by using the sort() method
+
+- When working on a solution, we implement a naive solution like with a hash table but then the interviewer might ask us to implement doing items in place to save on memory
+- You can use pointer with linked lists, swapping
+
+- Check out on BigOCheatsheet:
+- Array, Stack, Queue, Singly-Linked List, Doubly-Linked List, Hash Table
+- Quicksort, Mergesort, Bubble Sort, Insertion Sort, Selection Sort
+- You don't need to memorize the table but to be able to reason out the complexities
+- Try to figure out complexities during your day to day coding to improve your skills
 
 ---
-### [Data Structures Overview](https://frontendmasters.com/courses/data-structures-interviews/data-structures-overview/)
+### [Data Structures Overview](https://frontendmasters.com/courses/data-structures-interviews/data-structures-overview/) (11/14/2019)
 
--
+- Typical operations we might be expected to do on an data structure interview
+- Edit distance and Shuffling are not commonly asked but added for completion
+```
+                  Stack/Queue       Linked List       Array/String
+Reversing         linear            linear            linear
+Sorting           tower of Hanoi    not typical       merge, quick
+Traversing        not typical       linear            linear
+Merging, sorted   not typical       linear            linear
+Merging, range    not typical       not typical       if sorted, O(n)
+Interleaving      not typical       linear            linear
+Partitioning      not typical       linear            linear
+Rotating          not typical       linear            linear
+Edit distance     not typical       not typical       varies
+Shuffling         not typical       varies            varies
+
+                  Stack/Queue     Linked List     Hash Table    Array/String
+Searching         linear          linear          linear        linear
+Searching, sorted log(n)          log(n)          NA            log(n)
+Min/Max           stack, O(1)     stack, O(1)     stack, O(1)   stack, O(1)
+Min/Max, sorted   in-place, O(1)  in-place, O(1)  NA            in-place, O(1)
+Unique            HT, O(n)        HT, O(n)        default       HT, O(n)
+Unique, sorted    in-place, O(n)  in-place, O(n)  NA            in-place, O(n)
+Permutations
+```
 
 ---
-### [Other Considerations](https://frontendmasters.com/courses/data-structures-interviews/other-considerations/)
+### [Other Considerations](https://frontendmasters.com/courses/data-structures-interviews/other-considerations/) (11/14/2019)
 
--
+- **THINGS TO CONSIDER**
+- Discuss this with interviewers
+- If you ask enough questions, understanding the constraints can help you come up with a solution
+
+1. in-place / side effects
+- Doing someting in place creates side effects
+- You're saving space but there are tradeoffs
+
+2. preserving original order
+
+3. Set vs Map vs Object
+
+4. lengths of 0 and 1
+
+5. off-by-ones
+
+6. optimization vs readability
+
+7. what other information could you ask for?
 
 ---
-### [Additional Resources](https://frontendmasters.com/courses/data-structures-interviews/additional-resources/)
+### [Additional Resources](https://frontendmasters.com/courses/data-structures-interviews/additional-resources/) (11/14/2019)
 
--
+1. On Frontend Masters:
+- Upcoming: Interview Prep course
+- Brian Holt's CS in 5hrs
+
+2. Geeks for Geeks
+
+3. https://github.com/jwasham/coding-interview-university
+
+4. Cracking the Coding Interview
+
+5. Hacker Rank / Leetcode
+
+6. Interviewing.io & Pramp
 
 ---
