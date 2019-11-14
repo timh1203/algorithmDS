@@ -11163,8 +11163,10 @@ class LinkedList {
 ---
 ### [Hash Table Exercise](https://frontendmasters.com/courses/data-structures-interviews/hash-table-exercise/) (11/12/2019)
 
-- [REPLIT LINK](https://repl.it/@bgando/hash-table-prompt)
-- [MY FORK](https://repl.it/@timh1203/hash-table-prompt)
+- [REPLIT Prompt](https://repl.it/@bgando/hash-table-prompt)
+- [Prompt Fork](https://repl.it/@timh1203/hash-table-prompt)
+- [REPLIT Solution](https://repl.it/@bgando/hash-table-solution-1)
+- [Solution Fork](https://repl.it/@timh1203/hash-table-solution-1)
 
 - Hash table has an array storage
 - Methods: insert, remove, retrieve
@@ -11275,8 +11277,9 @@ myHT.insert('b', 2)
 
 - **REMOVE METHOD**
 - Similar to retrieve method
-- We should also think of resizing if the table gets less or bigger than 50% size
-- There really isn't a real-world situation where we would have to implement this hash table, we would just use an object or array methods instead
+- We should also think of resizing if the table gets bigger than 50% size
+- Basically you would keep track of the total table size and current table size
+- There really isn't a real-world situation where we would have to implement this hash table, we would just use an object, map or set
 ```js
 class HashTable {
   constructor(val) {
@@ -11292,7 +11295,22 @@ class HashTable {
   }
 
   remove(key) {
+    const index = this._hash(key, this._tableSize);
+    const arrayAtIndex = this._storage[index];
 
+    if (arrayAtIndex) {
+      for (let i = 0; i < arrayAtIndex.length; i++) {
+        let keyValueArray = arrayAtIndex[i];
+        if (keyValueArray[0] === key) {
+					if (keyValueArray.length < 2) {
+						delete this._storage[index];
+					} else {
+						delete arrayAtIndex[i];
+					}
+					return keyValueArray[1];
+				}
+      }
+    }
   }
 
   retrieve(key) {
@@ -11318,10 +11336,13 @@ class HashTable {
 
 const myHT = new HashTable(25);
 
-console.log(myHT)
-
-myHT.insert('a', 1)
-myHT.insert('b', 2)
+// console.log("before", myHT)
+myHT.insert('a', 1);
+myHT.insert('b', 2);
+myHT.retrieve('b');
+myHT.remove('b');
+myHT.retrieve('b');
+// console.log("after", myHT)
 
 // HashTable { _storage: [0,0,0,['a', 1], ['b', 2],0,0,0]}
 ```
@@ -11333,7 +11354,6 @@ myHT.insert('b', 2)
 
 - We will investigate different themes and practice these type of problems
 - Bianca started learning through [MOOC](http://mooc.org/), [Cracking the Coding Interview](http://www.crackingthecodinginterview.com/), [InverviewBit](https://www.interviewbit.com/), [LeetCode](https://leetcode.com/), [Geeks for Geeks](https://www.geeksforgeeks.org/)
-
 
 ---
 ### [Stack & Queue](https://frontendmasters.com/courses/data-structures-interviews/stack-queue/) (11/13/2019)
@@ -11436,7 +11456,22 @@ c. a duplicate -> [Prompt](https://repl.it/@bgando/ll-delete-dupe-node-prompt), 
 ---
 ## H) Course Review
 ---
-### []()
+### [Common Operations](https://frontendmasters.com/courses/data-structures-interviews/common-operations/)
+
+-
+
+---
+### [Data Structures Overview](https://frontendmasters.com/courses/data-structures-interviews/data-structures-overview/)
+
+-
+
+---
+### [Other Considerations](https://frontendmasters.com/courses/data-structures-interviews/other-considerations/)
+
+-
+
+---
+### [Additional Resources](https://frontendmasters.com/courses/data-structures-interviews/additional-resources/)
 
 -
 
