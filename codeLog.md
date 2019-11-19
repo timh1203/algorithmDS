@@ -15,6 +15,19 @@
 -
 
 ---
+## Day2: 11/19/19
+- **Today's Progress**:
+- Worked through "10 Days of Javascript" on HackerRank, up to day 4
+- Read through some of the resources on topics about classes and objects
+- **Thoughts**:
+-
+- **Link(s) to work**:
+https://www.hackerrank.com/challenges/js10-objects/problem
+- [Day 4: Create a Rectangle Object](https://www.hackerrank.com/challenges/js10-objects)
+- [Day 4 Count Objects](https://www.hackerrank.com/challenges/js10-count-objects)
+- [Day 4: Classes](https://www.hackerrank.com/challenges/js10-class/problem)
+
+---
 ## Day1: 11/18/19
 - **Today's Progress**:
 - Worked through "10 Days of Javascript" on HackerRank, up to day 4
