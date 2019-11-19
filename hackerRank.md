@@ -1,6 +1,8 @@
 # [Hacker Rank](https://www.hackerrank.com/)
+- [HackerRank Sandbox](https://repl.it/@timh1203/HackerRank-Sandbox)
 
-## Day 0: Hello, World! (11/18/19)
+## [Day 0: Hello, World!](https://www.hackerrank.com/challenges/js10-hello-world) (11/18/19)
+- [Javascript Basics](https://www.hackerrank.com/challenges/js10-hello-world/topics/javascript-basics)
 ```js
 /**
 *   A line of code that prints "Hello, World!" on a new line is provided in the editor.
@@ -19,7 +21,8 @@ function greeting(parameterVariable) {
 ```
 
 ---
-## Day 0: Data Types (11/18/19)
+## [Day 0: Data Types](https://www.hackerrank.com/challenges/js10-data-types) (11/18/19)
+- [Data Types](https://www.hackerrank.com/challenges/js10-data-types/topics/javascript-data-types)
 ```js
 /**
 *   The variables 'firstInteger', 'firstDecimal', and 'firstString' are declared for you -- do not modify them.
@@ -56,10 +59,9 @@ function performOperation(secondInteger, secondDecimal, secondString) {
 ```
 
 ---
-## Day 1: Arithmetic Operators (11/18/19)
+## [Day 1: Arithmetic Operators](https://www.hackerrank.com/challenges/js10-arithmetic-operators) (11/18/19)
+- [Arithmetic Operators](https://www.hackerrank.com/challenges/js10-arithmetic-operators/topics/javascript-arithmetic-operators)
 ```js
-
-
 /**
 *   Calculate the area of a rectangle.
 *
@@ -93,7 +95,9 @@ function getPerimeter(length, width) {
 ```
 
 ---
-## Day 1: Functions (11/18/19)
+## [Day 1: Functions](https://www.hackerrank.com/challenges/js10-function) (11/18/19)
+- [Functions in Javascript](https://www.hackerrank.com/challenges/js10-function/topics/javascript-function)
+- [Recursion](https://www.hackerrank.com/challenges/js10-function/topics/recursion)
 ```js
 /*
  * Create the function factorial here
@@ -105,7 +109,8 @@ function factorial(n) {
 ```
 
 ---
-## Day 1: Let and Const (11/18/19)
+## [Day 1: Let and Const](https://www.hackerrank.com/challenges/js10-let-and-const) (11/18/19)
+- [Variable Declartion Keywords](https://www.hackerrank.com/challenges/js10-let-and-const/topics/javascript-let-const-var)
 ```js
 function main() {
     // Write your code here. Read input using 'readLine()' and print output using 'console.log()'.
@@ -119,7 +124,8 @@ function main() {
 ```
 
 ---
-## Day 2: Conditional Statements: If-Else (11/18/19)
+## [Day 2: Conditional Statements: If-Else](https://www.hackerrank.com/challenges/js10-if-else) (11/18/19)
+- [If-Else Conditional Statements](https://www.hackerrank.com/challenges/js10-if-else/topics/javascript-conditional-if-else)
 ```js
 function getGrade(score) {
     let grade;
@@ -136,7 +142,9 @@ function getGrade(score) {
 ```
 
 ---
-## Day 2: Conditional Statements: Switch (11/18/19)
+## [Day 2: Conditional Statements: Switch](https://www.hackerrank.com/challenges/js10-switch) (11/18/19)
+- [Switch Conditional Statements](https://www.hackerrank.com/challenges/js10-switch/topics/javascript-conditional-switch)
+- [String Basics](https://www.hackerrank.com/challenges/js10-switch/topics/javascript-strings)
 ```js
 function getLetter(s) {
     let letter;
@@ -174,7 +182,8 @@ function getLetter(s) {
 ```
 
 ---
-## Day 2: Loops (11/18/19)
+## [Day 2: Loops](https://www.hackerrank.com/challenges/js10-loops) (11/18/19)
+- [Loops](https://www.hackerrank.com/challenges/js10-loops/topics/javascript-loops)
 ```js
 /*
  * Complete the vowelsAndConsonants function.
@@ -195,7 +204,8 @@ function vowelsAndConsonants(s) {
 ```
 
 ---
-## Day 3: Arrays (11/18/19)
+## [Day 3: Arrays](https://www.hackerrank.com/challenges/js10-arrays) (11/18/19)
+- [Arrays in Javascript](https://www.hackerrank.com/challenges/js10-arrays/topics/javascript-arrays)
 ```js
 /**
 *   Return the second largest number in the array.
@@ -214,7 +224,9 @@ function getSecondLargest(nums) {
 ```
 
 ---
-## Day 3: Try, Catch, and Finally
+## [Day 3: Try, Catch, and Finally](https://www.hackerrank.com/challenges/js10-try-catch-and-finally) (11/18/19)
+- [String Basics](https://www.hackerrank.com/challenges/js10-try-catch-and-finally/topics/javascript-strings)
+- [Error Handling](https://www.hackerrank.com/challenges/js10-throw/topics/javascript-errors)
 ```js
 /*
  * Complete the reverseString function
@@ -234,7 +246,8 @@ function reverseString(s) {
 ```
 
 ---
-## Day 3: Throw (11/18/19)
+## [Day 3: Throw](https://www.hackerrank.com/challenges/js10-throw) (11/18/19)
+- [Error Handling](https://www.hackerrank.com/challenges/js10-throw/topics/javascript-errors)
 ```js
 /*
  * Complete the isPositive function.
@@ -250,7 +263,8 @@ function isPositive(a) {
 ```
 
 ---
-##
+## []() (//)
+-
 ```js
 ```
 
