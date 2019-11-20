@@ -15,12 +15,25 @@
 -
 
 ---
+## Day3: 11/20/19
+- **Today's Progress**:
+- Worked through "10 Days of Javascript" on HackerRank, day 5
+- Read through articles about inheritance, template literals, and arrow functions
+- **Thoughts**:
+- I think doing exactly what it asks is better
+- One can get lost in the instructions provided
+- **Link(s) to work**:
+- [Day 5: Inheritance](https://www.hackerrank.com/challenges/js10-inheritance)
+- [Day 5: Template Literals](https://www.hackerrank.com/challenges/js10-template-literals/problem)
+- [Day 5: Arrow Functions](https://www.hackerrank.com/challenges/js10-arrows/problem)
+
+---
 ## Day2: 11/19/19
 - **Today's Progress**:
 - Worked through "10 Days of Javascript" on HackerRank, up to day 4
 - Read through some of the resources on topics about classes and objects
 - **Thoughts**:
--
+- Learned about classes, constructor, prototype, static, inheritance, extends, super
 - **Link(s) to work**:
 https://www.hackerrank.com/challenges/js10-objects/problem
 - [Day 4: Create a Rectangle Object](https://www.hackerrank.com/challenges/js10-objects)
