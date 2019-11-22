@@ -403,6 +403,41 @@ function modifyArray(nums) {
 ```
 
 ---
+## [Day 6: Bitwise Operators](https://www.hackerrank.com/challenges/js10-bitwise/problem) (11/21/19)
+- [Bitwise Operators in Javascript](https://www.hackerrank.com/challenges/js10-bitwise/topics/javascript-bitwise-operators)
+```js
+    let results = 0;
+
+    for (let i = n; i > 0; i--) {
+        for (let j = i-1; j > 0; j--) {
+            if ((i & j) < k && (i & j) > results) {
+                results = (i&j)
+            }
+        }
+    }
+
+    return results
+```
+
+---
+## [Day 6: JavaScript Dates](https://www.hackerrank.com/challenges/js10-date) (11/21/19)
+- [Dates in Javascript](https://www.hackerrank.com/challenges/js10-date/topics/javascript-dates)
+```js
+// The days of the week are: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+function getDayName(dateString) {
+    let dayName;
+    // Write your code here
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    const date = new Date(dateString)
+    const numeral = date.getDay()
+
+    dayName = daysOfWeek[numeral]
+
+    return dayName;
+}
+```
+
+---
 ## []() (//)
 -
 ```js

@@ -15,6 +15,20 @@
 -
 
 ---
+## Day4: 11/21/19
+- **Today's Progress**:
+- Worked through "10 Days of Javascript" on HackerRank, day 6
+- Read through articles about bitwise operators and javascript dates
+- **Thoughts**:
+- Learned about Bitwise Operators and conversion between binary/decimal
+- From decimal to binary, use `(n).toString(2)`
+- From binary to decimal, use `parstInt(n, 2)`
+- Learn to use `new Date()`, then using `date.getDay()` to get numeral of day of the week
+- **Link(s) to work**:
+- [Day 6: Bitwise Operators](https://www.hackerrank.com/challenges/js10-bitwise/problem)
+- [Day 6: JavaScript Dates](https://www.hackerrank.com/challenges/js10-date)
+
+---
 ## Day3: 11/20/19
 - **Today's Progress**:
 - Worked through "10 Days of Javascript" on HackerRank, day 5
