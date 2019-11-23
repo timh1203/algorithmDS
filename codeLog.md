@@ -15,6 +15,26 @@
 -
 
 ---
+## Day5: 11/23/19
+- **Today's Progress**:
+- Worked through "10 Days of Javascript" on HackerRank, day 6
+- Read through articles about regular expressions
+- **Thoughts**:
+- Define regex pattern by setting to a new variable or use `new RegExp(/pattern/flags)`
+- Regex literal:`const re = /\d+/g`
+- Regex object: `const re = new RegExp('\\d+', 'g')`
+- A character class is used in brackets to define one or more characters (Use ., \d, \D, \w, \W, \s, \S)
+- Boundaries are used to set limits around the string (Use ^, S, \b, \B)
+- RegExp methods (test, exec) or string methods (match, search, split, replace)
+- Capturing groups use parentheses and remembers the match
+- use `\1` to backreference the first capture group
+- See [article](https://www.hackerrank.com/challenges/js10-regexp-1/topics/javascript-regex)
+- **Link(s) to work**:
+- [Day 7: Regular Expressions I](https://www.hackerrank.com/challenges/js10-regexp-1/problem)
+- [Day 7: Regular Expressions II](https://www.hackerrank.com/challenges/js10-regexp-2/problem)
+- [Day 7: Regular Expressions III](https://www.hackerrank.com/challenges/js10-regexp-3/problem)
+
+---
 ## Day4: 11/21/19
 - **Today's Progress**:
 - Worked through "10 Days of Javascript" on HackerRank, day 6

@@ -438,6 +438,61 @@ function getDayName(dateString) {
 ```
 
 ---
+## [Day 7: Regular Expressions I](https://www.hackerrank.com/challenges/js10-regexp-1/problem) (11/23/19)
+- [Regular Expressions in Javascript](https://www.hackerrank.com/challenges/js10-regexp-1/topics/javascript-regex)
+```js
+function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match a string that starts and ends with the same vowel (i.e., {a, e, i, o, u})
+     */
+    const re = /^([aeiou]).*\1$/i
+
+    /*
+     * Do not remove the return statement
+     */
+    return re;
+}
+```
+
+---
+## [Day 7: Regular Expressions II](https://www.hackerrank.com/challenges/js10-regexp-2/problem) (11/23/19)
+- [Regular Expressions in Javascript](https://www.hackerrank.com/challenges/js10-regexp-1/topics/javascript-regex)
+```js
+function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match a string that starts with 'Mr.', 'Mrs.', 'Ms.', 'Dr.', or 'Er.',
+     * followed by one or more letters.
+     */
+    const re = new RegExp('^(Mr|Mrs|Ms|Dr|Er)(\\.)([A-Za-z])+$')
+
+    /*
+     * Do not remove the return statement
+     */
+    return re;
+}
+```
+
+---
+## [Day 7: Regular Expressions III](https://www.hackerrank.com/challenges/js10-regexp-3/problem) (11/23/19)
+- [Regular Expressions in Javascript](https://www.hackerrank.com/challenges/js10-regexp-1/topics/javascript-regex)
+```js
+function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match ALL occurrences of numbers in a string.
+     */
+    const re = new RegExp('(\\d)+', 'g')
+
+    /*
+     * Do not remove the return statement
+     */
+    return re;
+}
+```
+
+---
 ## []() (//)
 -
 ```js
