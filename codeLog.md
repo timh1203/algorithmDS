@@ -15,9 +15,20 @@
 -
 
 ---
+## Day6: 11/24/19
+- **Today's Progress**:
+- Worked through "10 Days of Javascript" on HackerRank, day 8
+- **Thoughts**:
+- It was cool to jump back into some vanilla javascript for once
+- The challenges themselves weren't too interesting
+- **Link(s) to work**:
+- [Day 8: Create a Button](https://www.hackerrank.com/challenges/js10-create-a-button)
+- [Day 8: Buttons Container](https://www.hackerrank.com/challenges/js10-buttons-container)
+
+---
 ## Day5: 11/23/19
 - **Today's Progress**:
-- Worked through "10 Days of Javascript" on HackerRank, day 6
+- Worked through "10 Days of Javascript" on HackerRank, day 7
 - Read through articles about regular expressions
 - **Thoughts**:
 - Define regex pattern by setting to a new variable or use `new RegExp(/pattern/flags)`
@@ -77,7 +88,7 @@ https://www.hackerrank.com/challenges/js10-objects/problem
 ---
 ## Day1: 11/18/19
 - **Today's Progress**:
-- Worked through "10 Days of Javascript" on HackerRank, up to day 4
+- Worked through "10 Days of Javascript" on HackerRank, up to day 4 (started with day0)
 - **Thoughts**:
 - I learned about the difference between syntax, runtime, and logic errors.
 - Reviewed try/catch/finally and throw error handling.

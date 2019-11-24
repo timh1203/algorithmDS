@@ -493,6 +493,113 @@ function regexVar() {
 ```
 
 ---
+## [Day 8: Create a Button](https://www.hackerrank.com/challenges/js10-create-a-button) (11/24/19)
+- [Button Basics in Javascript](https://www.hackerrank.com/challenges/js10-create-a-button/topics/javascript-button-basics)
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Button</title>
+  <link rel="stylesheet" href="css/button.css" type="text/css">
+</head>
+
+<body>
+  <button id="btn">0</button>
+  <script src="js/button.js" type="text/javascript"></script>
+</body>
+
+</html>
+```
+```css
+#btn {
+  width: 96px;
+  height: 48px;
+  font-size: 24px;
+}
+```
+```js
+let btn = document.querySelector('#btn')
+btn.addEventListener('click', () => btn.innerHTML++)
+```
+
+
+---
+## [Day 8: Buttons Container](https://www.hackerrank.com/challenges/js10-buttons-container) (11/24/19)
+- [Button Containers in Javscript](https://www.hackerrank.com/challenges/js10-buttons-container/topics/javascript-button-container)
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/buttonsGrid.css" type="text/css">
+</head>
+
+<body>
+  <div id="btns">
+    <button id="btn1">1</button>
+    <button id="btn2">2</button>
+    <button id="btn3">3</button>
+    <button id="btn4">4</button>
+    <button id="btn5">5</button>
+    <button id="btn6">6</button>
+    <button id="btn7">7</button>
+    <button id="btn8">8</button>
+    <button id="btn9">9</button>
+  </div>
+  <script src="js/buttonsGrid.js" type="text/javascript"></script>
+</body>
+
+</html>
+```
+```css
+#btns {
+  width: 75%;
+}
+
+#btn1,
+#btn2,
+#btn3,
+#btn4,
+#btn5,
+#btn6,
+#btn7,
+#btn8,
+#btn9 {
+  width: 30%;
+  height: 48px;
+  font-size: 24px;
+}
+```
+```js
+const btn5 = document.querySelector('#btn5')
+const btns = document.getElementsByTagName('button')
+
+btn5.addEventListener('click', () => {
+  const firstPlace = btns[0].innerHTML
+  const secondPlace = btns[1].innerHTML
+  const thirdPlace = btns[2].innerHTML
+  const sixthPlace = btns[5].innerHTML
+  const ninthPlace = btns[8].innerHTML
+  const eigthPlace = btns[7].innerHTML
+  const seventhPlace = btns[6].innerHTML
+  const fourthPlace = btns[3].innerHTML
+
+  btns[0].innerHTML = fourthPlace
+  btns[1].innerHTML = firstPlace
+  btns[2].innerHTML = secondPlace
+  btns[5].innerHTML = thirdPlace
+  btns[8].innerHTML = sixthPlace
+  btns[7].innerHTML = ninthPlace
+  btns[6].innerHTML = eigthPlace
+  btns[3].innerHTML = seventhPlace
+})
+```
+
+---
 ## []() (//)
 -
 ```js
