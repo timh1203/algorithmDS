@@ -15,6 +15,18 @@
 -
 
 ---
+## Day 7: 11/25/19
+- **Today's Progress**:
+- Worked through "10 Days of Javascript" on HackerRank, day 9
+- Implemented display to show numbers when clicked on button
+- Not finished yet
+- **Thoughts**:
+- I tried adding click event listeners after looping through a `querySelectorAll` but didn't work
+- End up having to manually attaching an event listener to each selector manually
+- **Link(s) to work**:
+- [Day 9: Binary Calculator](https://www.hackerrank.com/challenges/js10-binary-calculator?hr_b=1)
+
+---
 ## Day6: 11/24/19
 - **Today's Progress**:
 - Worked through "10 Days of Javascript" on HackerRank, day 8
