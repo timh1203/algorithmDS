@@ -756,7 +756,8 @@ btnEql.addEventListener('click', function () {
 })
 ```
 
----
+# The HackerRank Interview Preparation Kit (69 challenges)
+
 ## []() (//)
 -
 ```js
