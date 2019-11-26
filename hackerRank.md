@@ -600,10 +600,9 @@ btn5.addEventListener('click', () => {
 ```
 
 ---
-## [Day 9: Binary Calculator](https://www.hackerrank.com/challenges/js10-binary-calculator?hr_b=1) (11/25/19)
-- [Day 9: Binary Calculator](https://www.hackerrank.com/challenges/js10-binary-calculator/topics/javascript-calculator)
+## [Day 9: Binary Calculator](https://www.hackerrank.com/challenges/js10-binary-calculator?hr_b=1) (11/25/19 and 11/26/19)
+- [Simple Calculator in Javascript](https://www.hackerrank.com/challenges/js10-binary-calculator/topics/javascript-calculator)
 ```html
-<!-- Enter your HTML code here -->
 <!DOCTYPE html>
 <html>
 
@@ -679,13 +678,14 @@ let btns = document.querySelectorAll('button')
 
 const btn0 = document.querySelector('#btn0')
 const btn1 = document.querySelector('#btn1')
-const btnClr = document.querySelector('#btnClr')
-const btnEql = document.querySelector('#btnEql')
 const btnSum = document.querySelector('#btnSum')
 const btnSub = document.querySelector('#btnSub')
 const btnMul = document.querySelector('#btnMul')
 const btnDiv = document.querySelector('#btnDiv')
+const btnClr = document.querySelector('#btnClr')
+const btnEql = document.querySelector('#btnEql')
 
+// NUMBERS
 btn0.addEventListener('click', function () {
   display += this.innerHTML
   res.innerHTML += this.innerHTML
@@ -694,6 +694,8 @@ btn1.addEventListener('click', function () {
   display += this.innerHTML
   res.innerHTML += this.innerHTML
 })
+
+// BASIC OPERATIONS
 btnSum.addEventListener('click', function () {
   display += this.innerHTML
   res.innerHTML += this.innerHTML
@@ -709,6 +711,45 @@ btnMul.addEventListener('click', function () {
 btnDiv.addEventListener('click', function () {
   display += this.innerHTML
   res.innerHTML += this.innerHTML
+})
+
+// CLEAR AND EQUAL OPERATIONS
+btnClr.addEventListener('click', function () {
+  res.innerHTML = ''
+  display = ''
+})
+btnEql.addEventListener('click', function () {
+  const results = display.split(/[+\-*/.]/g)
+  const parsedNum1 = parseInt(results[0], 2)
+  const parsedNum2 = parseInt(results[1], 2)
+  const sign = display.match(/[+\-*/.]/g)
+
+  if (!sign) {
+    alert("Please provide a operation sign.")
+  }
+  else if (results.length > 2) {
+    alert("Please limit to 2 set of numbers.")
+  }
+  else if (sign[0] === "+") {
+    const results = (parsedNum1 + parsedNum2).toString(2)
+    res.innerHTML = results
+    display = ''
+  }
+  else if (sign[0] === "-") {
+    const results = (parsedNum1 - parsedNum2).toString(2)
+    res.innerHTML = results
+    display = ''
+  }
+  else if (sign[0] === "*") {
+    const results = (parsedNum1 * parsedNum2).toString(2)
+    res.innerHTML = results
+    display = ''
+  }
+  else if (sign[0] === "/") {
+    const results = (parsedNum1 / parsedNum2).toString(2)
+    res.innerHTML = results
+    display = ''
+  }
 })
 ```
 

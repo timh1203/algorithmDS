@@ -15,7 +15,18 @@
 -
 
 ---
-## Day 7: 11/25/19
+## Day8: 11/26/19
+- **Today's Progress**:
+- Finished day 10 and completed "10 Days of Javascript" on HackerRank
+- **Thoughts**:
+- The calculator javascript code wasn't as difficult
+- I remember in the past that using eval() method was easy but unsecure
+- This was just a matter of splitting the numbers and operation sign, converting to binary, then do the operation, and converting back to base-10
+- **Link(s) to work**:
+- [Day 9: Binary Calculator](https://www.hackerrank.com/challenges/js10-binary-calculator?hr_b=1)
+
+---
+## Day7: 11/25/19
 - **Today's Progress**:
 - Worked through "10 Days of Javascript" on HackerRank, day 9
 - Implemented display to show numbers when clicked on button
@@ -65,7 +76,7 @@
 - **Thoughts**:
 - Learned about Bitwise Operators and conversion between binary/decimal
 - From decimal to binary, use `(n).toString(2)`
-- From binary to decimal, use `parstInt(n, 2)`
+- From binary to decimal, use `parseInt(n, 2)`
 - Learn to use `new Date()`, then using `date.getDay()` to get numeral of day of the week
 - **Link(s) to work**:
 - [Day 6: Bitwise Operators](https://www.hackerrank.com/challenges/js10-bitwise/problem)
