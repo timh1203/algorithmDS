@@ -758,6 +758,49 @@ btnEql.addEventListener('click', function () {
 
 # The HackerRank Interview Preparation Kit (69 challenges)
 
+## [Sock Merchant](https://www.hackerrank.com/challenges/sock-merchant/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup) (11/27/19)
+
+- **1st ATTEMPT: FAIL**
+```js
+function sockMerchant(n, ar) {
+	let results = [];
+
+	while (n > 1) {
+		let curr = ar.splice(0, 1)
+
+		if (ar.indexOf(curr)) {
+			curr[0] !== undefined ? results.push(curr[0]) : ''
+			ar.splice(ar.indexOf(curr))
+			curr = ar.splice(0, 1)
+			n--;
+		}
+	}
+
+	return results.length;
+}
+
+sockMerchant(9, [10,20,20,10,10,30,50,10,20])
+```
+
+- **2nd ATTEMPT: SUCCESS**
+```js
+function sockMerchant(n, ar) {
+  let res = 0;
+
+  ar.sort();
+
+  for(let i = 0; i < n; i++){
+    if (ar[i] == ar[i+1]) {
+      i++;
+      res++;
+    }
+  }
+
+  return res;
+}
+```
+
+---
 ## []() (//)
 -
 ```js

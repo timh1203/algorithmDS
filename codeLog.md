@@ -15,6 +15,17 @@
 -
 
 ---
+## Day9: 11/27/19
+### Today's Progress:
+- Worked on Warm-up Challenges: Sock Merchant
+### Thoughts:
+- I had a difficult time at first since I didn't think of sorting the input first
+- Once it's sorted, it's easy to determine the number of matching socks
+- This is good practice because HackerRank makes you think from different angles
+### Link(s) to Work:
+- [Socker Merchant](https://www.hackerrank.com/challenges/sock-merchant/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup)
+
+---
 ## Day8: 11/26/19
 ### Today's Progress:
 - Finished day 10 and completed "10 Days of Javascript" on HackerRank
