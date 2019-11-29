@@ -11,7 +11,7 @@
 *   A line of code that prints "Hello, World!" on a new line is provided in the editor.
 *   Write a second line of code that prints the contents of 'parameterVariable' on a new line.
 *
-*	Parameter:
+* Parameter:
 *   parameterVariable - A string of text.
 **/
 function greeting(parameterVariable) {
@@ -34,7 +34,7 @@ function greeting(parameterVariable) {
 *   2. The sum of 'firstDecimal' and the Number representation of 'secondDecimal'.
 *   3. The concatenation of 'firstString' and 'secondString' ('firstString' must be first).
 *
-*	Parameter(s):
+* Parameter(s):
 *   secondInteger - The string representation of an integer.
 *   secondDecimal - The string representation of a floating-point number.
 *   secondString - A string consisting of one or more space-separated words.
@@ -71,7 +71,7 @@ function performOperation(secondInteger, secondDecimal, secondString) {
 *   length: The length of the rectangle.
 *   width: The width of the rectangle.
 *
-*	Return a number denoting the rectangle's area.
+* Return a number denoting the rectangle's area.
 **/
 function getArea(length, width) {
     let area;
@@ -84,10 +84,10 @@ function getArea(length, width) {
 /**
 *   Calculate the perimeter of a rectangle.
 *
-*	length: The length of the rectangle.
+* length: The length of the rectangle.
 *   width: The width of the rectangle.
 *
-*	Return a number denoting the perimeter of a rectangle.
+* Return a number denoting the perimeter of a rectangle.
 **/
 function getPerimeter(length, width) {
     let perimeter;
@@ -763,20 +763,20 @@ btnEql.addEventListener('click', function () {
 - **1st ATTEMPT: FAIL**
 ```js
 function sockMerchant(n, ar) {
-	let results = [];
+  let results = [];
 
-	while (n > 1) {
-		let curr = ar.splice(0, 1)
+  while (n > 1) {
+    let curr = ar.splice(0, 1)
 
-		if (ar.indexOf(curr)) {
-			curr[0] !== undefined ? results.push(curr[0]) : ''
-			ar.splice(ar.indexOf(curr))
-			curr = ar.splice(0, 1)
-			n--;
-		}
-	}
+    if (ar.indexOf(curr)) {
+      curr[0] !== undefined ? results.push(curr[0]) : ''
+      ar.splice(ar.indexOf(curr))
+      curr = ar.splice(0, 1)
+      n--;
+    }
+  }
 
-	return results.length;
+  return results.length;
 }
 
 sockMerchant(9, [10,20,20,10,10,30,50,10,20])
@@ -798,6 +798,31 @@ function sockMerchant(n, ar) {
 
   return res;
 }
+```
+
+---
+## [Counting Valleys](https://www.hackerrank.com/challenges/counting-valleys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup) (11/28/19)
+
+```js
+function countingValleys(n, s) {
+  let valleys = 0
+  let seaLevel = 0
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === 'U') seaLevel++;
+    else if (s[i] === 'D') seaLevel--;
+
+    // If the climb is back to sea level, and the current direction is up
+    // That means the climber is out of the valley
+    if (seaLevel === 0 && s[i] === 'U') {
+      valleys++
+    }
+  }
+
+  return valleys
+}
+
+countingValleys(8, 'UDDDUUDDUU')
 ```
 
 ---

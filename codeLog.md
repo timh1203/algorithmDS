@@ -15,6 +15,18 @@
 -
 
 ---
+## Day: 11/28/19
+### Today's Progress:
+- Worked on Warm-up Challenges: Counting Valleys
+### Thoughts:
+- This challenge seemed hard at first but the solution was more simple than I had originally thought
+- I thought I would have to keep track of the time it goes down, then make sure the ascent number equals out
+- All I had to do was check the sea level and the ascent direction is up
+- You'll understand if you look at my cold
+### Link(s) to Work:
+- [Counting Valleys](https://www.hackerrank.com/challenges/counting-valleys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup)
+
+---
 ## Day9: 11/27/19
 ### Today's Progress:
 - Worked on Warm-up Challenges: Sock Merchant
