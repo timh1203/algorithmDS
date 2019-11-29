@@ -15,6 +15,17 @@
 -
 
 ---
+## Day: 11/29/19
+### Today's Progress:
+- Worked on Warm-up Challenges: Jumping on the Clouds
+### Thoughts:
+- I figured doing a while loop through the end is most efficient
+- As it progresses, it checks if it can jump 2 times first, then 1
+- I would ask further in an interview if they want me to check any edge cases
+### Link(s) to Work:
+- [Jumping on the Clouds](https://www.hackerrank.com/interview/interview-preparation-kit/warmup/challenges)
+
+---
 ## Day: 11/28/19
 ### Today's Progress:
 - Worked on Warm-up Challenges: Counting Valleys

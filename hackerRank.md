@@ -826,6 +826,33 @@ countingValleys(8, 'UDDDUUDDUU')
 ```
 
 ---
+## [Jumping on the Clouds](https://www.hackerrank.com/interview/interview-preparation-kit/warmup/challenges) (11/29/19)
+```js
+function jumpingOnClouds(c) {
+    let counter = 0
+    let pos = 0
+
+    while (pos < c.length-1) {
+        if (c[pos + 2] < 1) {
+            pos += 2
+            counter++
+        }
+        else if (c[pos + 1] < 1) {
+            pos += 1
+            counter++
+        } else {
+            break
+        }
+    }
+
+    return counter
+}
+
+jumpingOnClouds([0,0,1,0,0,1,0]) // 4
+jumpingOnClouds([0,0,0,0,1,0]) // 3
+```
+
+---
 ## []() (//)
 -
 ```js
