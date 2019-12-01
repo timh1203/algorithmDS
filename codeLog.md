@@ -15,7 +15,21 @@
 -
 
 ---
-## Day: 11/29/19
+## Day12: 11/30/19
+### Today's Progress:
+- Worked on Warm-up Challenges: Repeated String
+### Thoughts:
+- This was a tough one due to all the edge cases and JS loose typing
+- I used RegExp `string.match(/a/g)` to check for all cases
+- The problem lies in if it returns `null` if none are found
+- Therefore, one has to put a `OR` operator before taking the length
+- Otherwise you will get can't read length of null error
+- IE `(s.match(/a/g) || []).length`
+### Link(s) to Work:
+- [Repeated String](https://www.hackerrank.com/challenges/repeated-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup)
+
+---
+## Day11: 11/29/19
 ### Today's Progress:
 - Worked on Warm-up Challenges: Jumping on the Clouds
 ### Thoughts:
@@ -26,7 +40,7 @@
 - [Jumping on the Clouds](https://www.hackerrank.com/interview/interview-preparation-kit/warmup/challenges)
 
 ---
-## Day: 11/28/19
+## Day10: 11/28/19
 ### Today's Progress:
 - Worked on Warm-up Challenges: Counting Valleys
 ### Thoughts:

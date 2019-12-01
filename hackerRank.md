@@ -853,6 +853,89 @@ jumpingOnClouds([0,0,0,0,1,0]) // 3
 ```
 
 ---
+## [Repeated String](https://www.hackerrank.com/challenges/repeated-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup) (11/30/19)
+- **1st ATTEMPT: FAIL**
+```js
+function repeatedString(s, n) {
+	const divided = Math.floor(n / s.length)
+	const remainder = n % s.length
+	let results
+
+	if (s.length === 1 && s[0] === 'a') {
+		results = n
+	}
+	else if (s.length > 1) {
+		let repeated = s.repeat(divided) + s.slice(0, remainder)
+		let totalA = [...repeated.match(/a/g)]
+		results = totalA.length
+	}
+	else {
+		results = 0
+	}
+
+	return results
+}
+
+repeatedString('aba', 10) // 7
+repeatedString('a', 1000000000000) // 1000000000000
+```
+
+- **2nd ATTEMPT: FAIL**
+```js
+function repeatedString(s, n) {
+	const divided = Math.floor(n / s.length)
+	const remainder = n % s.length
+	let results
+
+	if (s.length === 1 && s[0] === 'a') {
+		results = n
+	}
+	else if (s.length > 1) {
+		let dividedCount = divided ? s.repeat(divided) : '';
+		let remainderCount = remainder ? s.slice(0, remainder) : '';
+		let repeated = dividedCount + remainderCount
+		let count = 0;
+
+		[...repeated].map(letter => {
+			if (letter === 'a') count++
+		})
+
+		results = count
+	}
+
+	return results
+}
+
+repeatedString('aba', 9) // 6
+repeatedString('aba', 10) // 7
+repeatedString('a', 1000000000000) // 1000000000000
+```
+
+- **3rd ATTEMPT: PASS**
+```js
+function repeatedString(s, n) {
+	const divided = Math.floor(n / s.length)
+	const remainder = n % s.length
+	let results
+
+	let aInString = (s.match(/a/g) || []).length
+	let aInStringTotal = aInString * divided
+
+	let aInRemainder = s.slice(0, remainder)
+	let aInRemainderTotal = (aInRemainder.match(/a/g) || []).length
+
+	return aInStringTotal + aInRemainderTotal
+}
+
+repeatedString('bbc', 9) // 0
+repeatedString('aba', 9) // 6
+repeatedString('aba', 10) // 7
+repeatedString('a', 1000000000000) // 1000000000000
+repeatedString('ceebbcb', 817723) // 0
+repeatedString('gfcaaaecbg', 547602) // 164280
+```
+
+---
 ## []() (//)
 -
 ```js
