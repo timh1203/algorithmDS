@@ -15,6 +15,20 @@
 -
 
 ---
+## Day14: 12/2/12
+### Today's Progress:
+- Array section of Interview Prep Kit: 2D Array - DS
+- Worked on [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)
+- Researched about speech-to-text and translation APIs
+### Thoughts:
+- Finally solved the 2d Array problem
+- Learned how to work with 2D arrays in JS
+- See this helpful [Link](https://stackoverflow.com/questions/966225/how-can-i-create-a-two-dimensional-array-in-javascript)
+### Link(s) to Work:
+- [2D Array - DS](https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D=arrays)
+- [My Typescript Repo](https://github.com/timh1203/typescript-react-starter)
+
+---
 ## Day13: 12/1/19
 ### Today's Progress:
 - Started on Array section of Interview Prep Kit

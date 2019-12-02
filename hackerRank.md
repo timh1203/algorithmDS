@@ -857,23 +857,23 @@ jumpingOnClouds([0,0,0,0,1,0]) // 3
 - **1st ATTEMPT: FAIL**
 ```js
 function repeatedString(s, n) {
-	const divided = Math.floor(n / s.length)
-	const remainder = n % s.length
-	let results
+  const divided = Math.floor(n / s.length)
+  const remainder = n % s.length
+  let results
 
-	if (s.length === 1 && s[0] === 'a') {
-		results = n
-	}
-	else if (s.length > 1) {
-		let repeated = s.repeat(divided) + s.slice(0, remainder)
-		let totalA = [...repeated.match(/a/g)]
-		results = totalA.length
-	}
-	else {
-		results = 0
-	}
+  if (s.length === 1 && s[0] === 'a') {
+    results = n
+  }
+  else if (s.length > 1) {
+    let repeated = s.repeat(divided) + s.slice(0, remainder)
+    let totalA = [...repeated.match(/a/g)]
+    results = totalA.length
+  }
+  else {
+    results = 0
+  }
 
-	return results
+  return results
 }
 
 repeatedString('aba', 10) // 7
@@ -883,27 +883,27 @@ repeatedString('a', 1000000000000) // 1000000000000
 - **2nd ATTEMPT: FAIL**
 ```js
 function repeatedString(s, n) {
-	const divided = Math.floor(n / s.length)
-	const remainder = n % s.length
-	let results
+  const divided = Math.floor(n / s.length)
+  const remainder = n % s.length
+  let results
 
-	if (s.length === 1 && s[0] === 'a') {
-		results = n
-	}
-	else if (s.length > 1) {
-		let dividedCount = divided ? s.repeat(divided) : '';
-		let remainderCount = remainder ? s.slice(0, remainder) : '';
-		let repeated = dividedCount + remainderCount
-		let count = 0;
+  if (s.length === 1 && s[0] === 'a') {
+    results = n
+  }
+  else if (s.length > 1) {
+    let dividedCount = divided ? s.repeat(divided) : '';
+    let remainderCount = remainder ? s.slice(0, remainder) : '';
+    let repeated = dividedCount + remainderCount
+    let count = 0;
 
-		[...repeated].map(letter => {
-			if (letter === 'a') count++
-		})
+    [...repeated].map(letter => {
+      if (letter === 'a') count++
+    })
 
-		results = count
-	}
+    results = count
+  }
 
-	return results
+  return results
 }
 
 repeatedString('aba', 9) // 6
@@ -914,17 +914,17 @@ repeatedString('a', 1000000000000) // 1000000000000
 - **3rd ATTEMPT: PASS**
 ```js
 function repeatedString(s, n) {
-	const divided = Math.floor(n / s.length)
-	const remainder = n % s.length
-	let results
+  const divided = Math.floor(n / s.length)
+  const remainder = n % s.length
+  let results
 
-	let aInString = (s.match(/a/g) || []).length
-	let aInStringTotal = aInString * divided
+  let aInString = (s.match(/a/g) || []).length
+  let aInStringTotal = aInString * divided
 
-	let aInRemainder = s.slice(0, remainder)
-	let aInRemainderTotal = (aInRemainder.match(/a/g) || []).length
+  let aInRemainder = s.slice(0, remainder)
+  let aInRemainderTotal = (aInRemainder.match(/a/g) || []).length
 
-	return aInStringTotal + aInRemainderTotal
+  return aInStringTotal + aInRemainderTotal
 }
 
 repeatedString('bbc', 9) // 0
@@ -936,33 +936,70 @@ repeatedString('gfcaaaecbg', 547602) // 164280
 ```
 
 ---
-## [2D Array - DS](https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D=arrays) (12/1/19)
+## [2D Array - DS](https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D=arrays) (12/1/19 and 12/2/19)
 
-- **1st ATTEMPT: IN PROGRESS**
+- **1st ATTEMPT: WORKING**
+- Given an array separated by commas, this would work
+- However, HackerRank gives us a 2D array
 ```js
 function hourglassSum(arr) {
-	let max = 0;
-	for (let i = 0; i < 4; i++) {
-		for (let j = 0; j < 3; j+5) {
-			let current = i + j
-			let row1 = arr[current] + arr[current+1] + arr[current+2]
-			let row2 = arr[current+7]
-			let row3 = arr[current+12] + arr[current+13] + arr[current+14]
+  let max = 0;
 
-			const sum = row1 + row2 + row3
-			if (sum > max) max = sum
-		}
-	}
-	return max
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 24; j+=6) {
+      let current = i + j
+      let row1 = arr[current] + arr[current+1] + arr[current+2]
+      let row2 = arr[current+7]
+      let row3 = arr[current+12] + arr[current+13] + arr[current+14]
+
+      const sum = row1 + row2 + row3
+      if (sum > max) max = sum
+    }
+  }
+
+  return max
 }
 
 hourglassSum([
-	1, 1, 1, 0, 0, 0, // row1 (0-5)
-	0, 1, 0, 0, 0, 0, // row2 (6-11)
-	1, 1, 1, 0, 0, 0, // row3 (12-17)
-	0, 0, 2, 4, 4, 0, // row4 (18-23)
-	0, 0, 0, 2, 0, 0, // row5 (24-29)
-	0, 0, 1, 2, 4, 0 // row6 (30-34)
+  1, 1, 1, 0, 0, 0, // row1 (0-5)
+  0, 1, 0, 0, 0, 0, // row2 (6-11)
+  1, 1, 1, 0, 0, 0, // row3 (12-17)
+  0, 0, 2, 4, 4, 0, // row4 (18-23)
+  0, 0, 0, 2, 0, 0, // row5 (24-29)
+  0, 0, 1, 2, 4, 0 // row6 (30-34)
+])
+```
+
+- **2nd ATTEMPT: PASSING**
+- Notice how the input is an array of arrays, unlike my previous attempt
+- Set to infinity because there are negative values
+- We find the sum of the top, middle, and bottom of the hourglass
+- If their collective sums are more than the max, then we store it
+```js
+function hourglassSum(arr) {
+    let total = -Infinity;
+
+  for (let x = 0; x < 4; x++) {
+    for (let y = 0; y < 4; y++) {
+      let top = arr[y][x] + arr[y][x+1] + arr[y][x+2]
+      let mid = arr[y+1][x+1]
+      let bot = arr[y+2][x] + arr[y+2][x+1] + arr[y+2][x+2]
+      let sum = top + mid + bot
+
+      if (total < sum) total = sum
+    }
+  }
+
+  return total;
+}
+
+hourglassSum([
+  [1, 1, 1, 0, 0, 0], // index 0
+  [0, 1, 0, 0, 0, 0], // index 1
+  [1, 1, 1, 0, 0, 0], // index 2
+  [0, 0, 2, 4, 4, 0], // index 3
+  [0, 0, 0, 2, 0, 0], // index 4
+  [0, 0, 1, 2, 4, 0] // index 5
 ])
 ```
 
