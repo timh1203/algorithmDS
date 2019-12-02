@@ -15,6 +15,17 @@
 -
 
 ---
+## Day13: 12/1/19
+### Today's Progress:
+- Started on Array section of Interview Prep Kit
+- Working on problem "2D Array - DS"
+### Thoughts:
+- Attempted make sense of the problem
+- It's complex and I'm still working on it
+### Link(s) to Work:
+- [2D Array - DS](https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D=arrays)
+
+---
 ## Day12: 11/30/19
 ### Today's Progress:
 - Worked on Warm-up Challenges: Repeated String

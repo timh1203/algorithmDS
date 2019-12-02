@@ -936,6 +936,37 @@ repeatedString('gfcaaaecbg', 547602) // 164280
 ```
 
 ---
+## [2D Array - DS](https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D=arrays) (12/1/19)
+
+- **1st ATTEMPT: IN PROGRESS**
+```js
+function hourglassSum(arr) {
+	let max = 0;
+	for (let i = 0; i < 4; i++) {
+		for (let j = 0; j < 3; j+5) {
+			let current = i + j
+			let row1 = arr[current] + arr[current+1] + arr[current+2]
+			let row2 = arr[current+7]
+			let row3 = arr[current+12] + arr[current+13] + arr[current+14]
+
+			const sum = row1 + row2 + row3
+			if (sum > max) max = sum
+		}
+	}
+	return max
+}
+
+hourglassSum([
+	1, 1, 1, 0, 0, 0, // row1 (0-5)
+	0, 1, 0, 0, 0, 0, // row2 (6-11)
+	1, 1, 1, 0, 0, 0, // row3 (12-17)
+	0, 0, 2, 4, 4, 0, // row4 (18-23)
+	0, 0, 0, 2, 0, 0, // row5 (24-29)
+	0, 0, 1, 2, 4, 0 // row6 (30-34)
+])
+```
+
+---
 ## []() (//)
 -
 ```js
