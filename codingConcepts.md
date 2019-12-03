@@ -2,6 +2,81 @@
 # Coding Concepts
 ---
 ## Bubble Sort
+
+- TIME COMPLEXITY: O(n^2) worst, O(n) best
+
+- SPACE COMPLEXITY: O(1) worst
+
+- ALGORITHM: Loop through an array, comparing adjacent indices and swapping the greater value to the end
+
+- NOTES:
+- Easy algorithm to conceptualize and learn
+- Not used in production and not a useful sort
+- Bubble Sort is an average sort in terms of performance
+- Better for arrays that are somewhat sorted and not a great sort if the array is reversed
+- Easier to implement in interviews than mergesort, but slower with bubble sort's O(n^2) vs mergesort's O(nlogn)
+- There's 2 ways to swap items in an array:
+- *ES6*
+```js
+[first, second] = [second, first]
+```
+- *PRE ES6*
+```js
+var temp = first;
+first = second;
+second = temp;
+```
+
+- PROBLEM: Sort these arrays
+`[9, 2, 5, 6, 4, 3, 7, 10, 1, 8];`
+`[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];`
+`[10, 9, 8, 7, 6, 5, 4, 3, 2, 1];`
+
+- **BASIC BUBBLE SORT**
+- We move through the array one by one and swap the higher values to the right
+- The first loop is necessary to move through all the indices
+- The second loop is to bubble the value to the right
+```js
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j <arr.length; j++) {
+      if (arr[j] > arr[j+1]) {
+        [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
+      }
+    }
+  }
+  return arr;
+}
+
+console.log(bubbleSort([9, 2, 5, 6, 4, 3, 7, 10, 1, 8]))
+console.log(bubbleSort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+console.log(bubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
+```
+
+- **REFINED BUBBLE SORT**
+- Uses recursion to bubble the higher value to the right
+- Eliminates extra looping if array is mostly sorted
+```js
+function bubbleSort(arr) {
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] && arr[i + 1] && arr[i] > arr[i + 1]) {
+        [arr[i], arr[i+1]] = [arr[i+1], arr[i]]
+        swapped = true;
+      }
+    }
+  } while(swapped);
+
+  return arr;
+}
+
+console.log(bubbleSort([9, 2, 5, 6, 4, 3, 7, 10, 1, 8]))
+console.log(bubbleSort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+console.log(bubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]))
+```
+
 ---
 ## Insertion Sort
 ---

@@ -1004,6 +1004,24 @@ hourglassSum([
 ```
 
 ---
+## [Arrays: Left Rotation](https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays) (12/3/19)
+- **1st ATTEMPT: PASSING**
+- I noticed the pattern that basically you can just slice up to the rotate number
+- Then append the remainder right in front
+- This passed all the tests
+```js
+function rotLeft(a, d) {
+  let rotated = a.slice(0, d)
+  let remaining = a.slice(d)
+
+  return [...remaining, ...rotated]
+}
+
+rotLeft([1, 2, 3, 4, 5], 4) // 5 1 2 3 4
+rotLeft([1, 2, 3, 4, 5], 2) // 3 4 5 1 2
+```
+
+---
 ## []() (//)
 -
 ```js

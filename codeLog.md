@@ -15,7 +15,23 @@
 -
 
 ---
-## Day14: 12/2/12
+## Day15: 12/3/19
+### Today's Progress:
+- Solved Left Rotation from Array section of Interview Prep Kit
+- Reviewed Bubble Sort Coding Concept
+- Finish the demo short of ejecting, [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)
+### Thoughts:
+- The HackerRank problem was not as difficult as I thought
+- Bubble sort makes more sense and still fresh in my mind, naive is more intuitive than refined approach for me
+- The typescript demo went into adding redux and it totally blew me away!
+- Definitely need to work on a project to familiarize the ecosystem: Typescript, Redux, React Router
+### Link(s) to Work:
+- [Arrays: Left Rotation](https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays)
+- [codeNotes: Bubble Sort](https://github.com/timh1203/codeNotes/blob/master/codingConcepts.md)
+- [My Typescript Repo](https://github.com/timh1203/typescript-react-starter)
+
+---
+## Day14: 12/2/19
 ### Today's Progress:
 - Array section of Interview Prep Kit: 2D Array - DS
 - Worked on [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)
