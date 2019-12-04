@@ -1022,6 +1022,128 @@ rotLeft([1, 2, 3, 4, 5], 2) // 3 4 5 1 2
 ```
 
 ---
+## [New Year Chaos](https://www.hackerrank.com/challenges/new-year-chaos/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays) (12/4/19)
+- **1st attempt: In progress**
+```js
+function minimumBribes(q) {
+  const arr = [...Array(q.length).keys()].map(x => x + 1)
+  let bribes = 0
+
+  if (q.length < 2) return
+
+  for (let i in arr) {
+    let found = q.indexOf(arr[i])
+
+    if ((i - found) > 2) {
+      return 'Too Chaotic'
+    }
+  }
+
+  for (let i = arr.length-1; i >= 0; i--) {
+    if (q[i] !== arr[i]) {
+      [arr[i], arr[i-1]] = [arr[i-1], arr[i]]
+
+      if (q[i] === arr[i]) {
+        bribes++
+      } else {
+        [arr[i], arr[i-2]] = [arr[i-2], arr[i]]
+
+        if (q[i] === arr[i]) {
+          bribes++
+        }
+      }
+    }
+    else {
+      continue
+    }
+  }
+
+  return bribes
+}
+
+// minimumBribes([1,2,3,4,5]) // 0
+// minimumBribes([2,1,5,3,4]) // 3
+// minimumBribes([2,5,1,3,4]) // Too chaotic
+// minimumBribes([5,1,2,3,7,8,6,4]) // Too chaotic
+// minimumBribes([1,2,5,3,7,8,6,4]) // 7
+// minimumBribes([1,2,5,3,4,7,8,6]) // 4
+```
+
+- **2nd attempt: Working, not passing**
+- I got the answer to return as state and even typed checked
+- Still would not pass 100%
+```js
+function minimumBribes(q) {
+  const arr = [...Array(q.length).keys()].map(x => x + 1)
+  let bribes = 0
+
+  if (q.length < 2) return
+
+  for (let i in arr) {
+    let found = q.indexOf(arr[i])
+
+    if ((i - found) > 2) {
+      return 'Too Chaotic'
+    }
+  }
+
+  for (let i = 0; i <= arr.length - 1; i++) {
+    console.log(arr)
+    if (q[i] === arr[i]) {
+      continue
+    }
+    else {
+      if (q[i] === arr[i+1]) {
+        [arr[i], arr[i+1]] = [arr[i+1], arr[i]]
+        bribes++
+      }
+      else if (q[i] === arr[i+2]) {
+        const spliced = arr.splice(i+2, 1)[0]
+        arr.splice(i, 0, spliced)
+        bribes+=2
+      }
+    }
+  }
+
+  return bribes
+}
+
+// minimumBribes([1,2,3,4,5]) // 0
+// minimumBribes([2,1,5,3,4]) // 3
+// minimumBribes([2,5,1,3,4]) // Too chaotic
+// minimumBribes([5,1,2,3,7,8,6,4]) // Too chaotic
+minimumBribes([1,2,5,3,7,8,6,4]) // 7
+// minimumBribes([1,2,5,3,4,7,8,6]) // 4
+```
+
+- **This code passes:**
+```js
+function minimumBribes(q) {
+    let bribeCount = []
+    let high = 0;
+
+    for (let i = 0; i < q.length; i++) {
+        let val = q[i]
+        bribeCount[val] = 0
+        high = Math.max(val, high)  // update the highest value encountered
+
+        if (val < high) {
+            // if current value < high value, increment value for all bribeCount indices > val
+            for (let j=val+1; j < bribeCount.length; j++) {
+                bribeCount[j]++
+                if (bribeCount[j] > 2) {
+                    console.log("Too chaotic")
+                    return;
+                }
+            }
+        }
+    }
+    const sum = bribeCount.reduce((a,b) => a + b, 0)  // sum
+    console.log(sum);
+}
+```
+
+---
 ## []() (//)
 -
 ```js

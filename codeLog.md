@@ -15,6 +15,17 @@
 -
 
 ---
+## Day16: 12/4/19
+### Today's Progress:
+- Solved New Years Chaos from Array section of Interview Prep Kit
+### Thoughts:
+- I solved the problem successfully but output type causes not all 100% cases to pass
+- Found that splice was useful but didn't remove & insert with a for loop
+- Note: splice works by how many to remove, slice works by removing up to an index
+### Link(s) to Work:
+- [New Year Chaos](https://www.hackerrank.com/challenges/new-year-chaos/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays)
+
+---
 ## Day15: 12/3/19
 ### Today's Progress:
 - Solved Left Rotation from Array section of Interview Prep Kit
