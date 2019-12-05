@@ -1144,6 +1144,36 @@ function minimumBribes(q) {
 ```
 
 ---
+## [Minimum Swaps 2](https://www.hackerrank.com/challenges/minimum-swaps-2/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays) (12/5/19)
+
+- **1st attempt: PASS**
+- "Your code did not execute within the time limits"
+```js
+function minimumSwaps(arr) {
+  let swaps = 0
+
+  for (let i = 0; i < arr.length; i++) {
+    let found = arr.indexOf(i+1, i)
+
+    if (arr[i] !== i+1) {
+      let store = arr[i]
+      arr[i] = arr[found]
+      arr[found] = store
+      swaps++
+    }
+    else {
+      continue
+    }
+  }
+
+  return swaps
+}
+
+minimumSwaps([2,3,4,1,5]) // 3 swaps minimum
+minimumSwaps([1,3,5,2,4,6,7]) // 3 swaps minimum
+```
+
+---
 ## []() (//)
 -
 ```js

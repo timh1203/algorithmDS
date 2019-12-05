@@ -15,6 +15,30 @@
 -
 
 ---
+## Day17: 12/5/19
+### Today's Progress:
+- Solved New Years Chaos from Array section of Interview Prep Kit
+- Finished "Basic CSS" section of Responsive Web Design Certification
+### Thoughts:
+- Algorithm was confusing initially but I wrote it out on paper
+- It started making more sense and I wrote this algorithm accordingly
+- `indexOf` takes a second argument to start searching from second argument
+- `indexOf` returns the first matching index which the element can be found (IE string, number), or else returns -1
+- EXAMPLE: `array.indexOf('bison')`
+- `findIndex` returns the first matching index in array matching the condition, or else returns -1
+- EXAMPLE: `array.findIndex(item => item > 13)`
+- Learned CSS variables: declartion => `--penguin-skin: gray;`, usage =>`background: var(--penguin-skin), black;`
+- Declaring CSS variable in root
+```css
+  :root {
+    --penguin-belly: pink;
+  }
+```
+### Link(s) to Work:
+- [Minimum Swaps 2](https://www.hackerrank.com/challenges/minimum-swaps-2/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays)
+- [FreeCodeCamp Profile](https://www.freecodecamp.org/timh1203)
+
+---
 ## Day16: 12/4/19
 ### Today's Progress:
 - Solved New Years Chaos from Array section of Interview Prep Kit
