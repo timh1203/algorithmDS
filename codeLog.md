@@ -15,10 +15,26 @@
 -
 
 ---
+## Day18: 12/6/19
+### Today's Progress:
+- Solved "Ransom Note" from Hash Tables section of Interview Prep Kit
+- Finished "Applied Visual Design" section of Responsive Web Design Certification (52 challenges)
+### Thoughts:
+- The problem wasn't too difficult
+- I learned differences between `.find()`, `.findIndex()`, `.filter()`, `.indexOf()`, `.lastIndexOf()`, `.includes()`, `.some()`
+- I also learned that I should check for negative returns IE `exists !== -1`
+- I'll have to make a blog post of this
+- I learned so many things in the Applied Visual Design section including bezier curves, animations, gradients, keyframes, and creating complex shapes
+- Definitely have to review this section again since it has so many cool stuff
+### Link(s) to Work:
+- [Ransom Note](https://www.hackerrank.com/challenges/ctci-ransom-note/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps)
+- [FreeCodeCamp Profile](https://www.freecodecamp.org/timh1203)
+
+---
 ## Day17: 12/5/19
 ### Today's Progress:
-- Solved New Years Chaos from Array section of Interview Prep Kit
-- Finished "Basic CSS" section of Responsive Web Design Certification
+- Solved "Minimum Swaps 2" from Array section of Interview Prep Kit
+- Finished "Basic CSS" section of Responsive Web Design Certification (44 challenges)
 ### Thoughts:
 - Algorithm was confusing initially but I wrote it out on paper
 - It started making more sense and I wrote this algorithm accordingly

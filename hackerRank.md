@@ -1174,6 +1174,29 @@ minimumSwaps([1,3,5,2,4,6,7]) // 3 swaps minimum
 ```
 
 ---
+## [Ransom Note](https://www.hackerrank.com/challenges/ctci-ransom-note/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps) (12/6/19)
+- I learned differences between `.find()`, `.findIndex()`, `.filter()`, `.indexOf()`, `.lastIndexOf()`, `.includes()`, `.some()`
+- I also learned that I should check for negative returns IE `exists !== -1`
+```js
+function checkMagazine(magazine, note) {
+  let containsAll = true
+
+  for (let i in note) {
+    let exists = magazine.indexOf(note[i])
+    if (exists !== -1) magazine.splice(exists, 1)
+    else containsAll = false
+  }
+
+  return containsAll ? console.log("Yes") : console.log("No")
+}
+
+// checkMagazine(["give", "me", "one", "grand", "today", "night"],["give", "one", "grand", "today"]) // Yes
+// checkMagazine(["two", "times", "three", "is", "not", "four"],["two", "times", "two", "is", "four"]) // No
+// checkMagazine(["ive", "got", "a", "lovely", "bunch", "of", "coconuts"],["ive", "got", "some", "coconuts"]) // No
+// checkMagazine(["apgo", "clm", "w", "lxkvg", "mwz", "elo", "bg", "elo", "lxkvg", "elo", "apgo", "apgo", "w", "elo", "bg"],["elo", "lxkvg", "bg", "mwz", "clm", "w"]) // Yes
+```
+
+---
 ## []() (//)
 -
 ```js
