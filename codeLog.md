@@ -1,4 +1,4 @@
-# Code Log
+# codeLog
 
 - **RULES**
 - Code minimum an hour every day for the next 100 days.
@@ -37,7 +37,7 @@
 - I learned so many things in the Applied Visual Design section including bezier curves, animations, gradients, keyframes, and creating complex shapes
 - Definitely have to review this section again since it has so many cool stuff
 ### Link(s) to Work:
-- [Ransom Note](https://www.hackerrank.com/challenges/ctci-ransom-note/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps)
+- [HackerRank Problems: Ransom Note](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
 - [FreeCodeCamp Profile](https://www.freecodecamp.org/timh1203)
 
 ---
@@ -61,7 +61,7 @@
   }
 ```
 ### Link(s) to Work:
-- [Minimum Swaps 2](https://www.hackerrank.com/challenges/minimum-swaps-2/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays)
+- [HackerRank Problems: Minimum Swaps 2](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
 - [FreeCodeCamp Profile](https://www.freecodecamp.org/timh1203)
 
 ---
@@ -73,7 +73,7 @@
 - Found that splice was useful but didn't remove & insert with a for loop
 - Note: splice works by how many to remove, slice works by removing up to an index
 ### Link(s) to Work:
-- [New Year Chaos](https://www.hackerrank.com/challenges/new-year-chaos/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays)
+- [HackerRank Problems: New Years Chaos](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
 
 ---
 ## Day15: 12/3/19
@@ -87,7 +87,7 @@
 - The typescript demo went into adding redux and it totally blew me away!
 - Definitely need to work on a project to familiarize the ecosystem: Typescript, Redux, React Router
 ### Link(s) to Work:
-- [Arrays: Left Rotation](https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays)
+- [HackerRank Problems: Left Rotation](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
 - [codeNotes: Bubble Sort](https://github.com/timh1203/codeNotes/blob/master/codingConcepts.md)
 - [My Typescript Repo](https://github.com/timh1203/typescript-react-starter)
 
@@ -102,7 +102,7 @@
 - Learned how to work with 2D arrays in JS
 - See this helpful [Link](https://stackoverflow.com/questions/966225/how-can-i-create-a-two-dimensional-array-in-javascript)
 ### Link(s) to Work:
-- [2D Array - DS](https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D=arrays)
+- [HackerRank Problems: 2D Array](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
 - [My Typescript Repo](https://github.com/timh1203/typescript-react-starter)
 
 ---
@@ -114,7 +114,7 @@
 - Attempted make sense of the problem
 - It's complex and I'm still working on it
 ### Link(s) to Work:
-- [2D Array - DS](https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D=arrays)
+- [HackerRank Problems: 2D Array](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
 
 ---
 ## Day12: 11/30/19
@@ -128,7 +128,7 @@
 - Otherwise you will get can't read length of null error
 - IE `(s.match(/a/g) || []).length`
 ### Link(s) to Work:
-- [Repeated String](https://www.hackerrank.com/challenges/repeated-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup)
+- [HackerRank Problems: Repeated String](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
 
 ---
 ## Day11: 11/29/19
@@ -139,7 +139,7 @@
 - As it progresses, it checks if it can jump 2 times first, then 1
 - I would ask further in an interview if they want me to check any edge cases
 ### Link(s) to Work:
-- [Jumping on the Clouds](https://www.hackerrank.com/interview/interview-preparation-kit/warmup/challenges)
+- [HackerRank Problems: Jumping on the Clouds](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
 
 ---
 ## Day10: 11/28/19
@@ -151,7 +151,7 @@
 - All I had to do was check the sea level and the ascent direction is up
 - You'll understand if you look at my cold
 ### Link(s) to Work:
-- [Counting Valleys](https://www.hackerrank.com/challenges/counting-valleys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup)
+- [HackerRank Problems: Counting Valleys](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
 
 ---
 ## Day9: 11/27/19
@@ -162,7 +162,7 @@
 - Once it's sorted, it's easy to determine the number of matching socks
 - This is good practice because HackerRank makes you think from different angles
 ### Link(s) to Work:
-- [Socker Merchant](https://www.hackerrank.com/challenges/sock-merchant/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup)
+- [HackerRank Problems: Sock Merchant](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
 
 ---
 ## Day8: 11/26/19
