@@ -15,6 +15,16 @@
 -
 
 ---
+## Day19: 12/7/19
+### Today's Progress:
+- Solved "Two Strings" from Hash Tables section of Interview Prep Kit
+### Thoughts:
+- This challenge was not difficult, it was worth it not to overthink the solution
+- I just check for letters from string1 in string2, instead of worrying about all combinations of substrings
+### Link(s) to Work:
+- [HackerRank Problems: Two Strings](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+
+---
 ## Day18: 12/6/19
 ### Today's Progress:
 - Solved "Ransom Note" from Hash Tables section of Interview Prep Kit

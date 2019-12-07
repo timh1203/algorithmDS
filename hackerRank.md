@@ -1197,6 +1197,21 @@ function checkMagazine(magazine, note) {
 ```
 
 ---
+## [Two Strings](https://www.hackerrank.com/interview/interview-preparation-kit/dictionaries-hashmaps/challenges) (12/7/19)
+- **1st attempt: PASS**
+```js
+function twoStrings(s1, s2) {
+    let exists = false;
+
+    for (let i = 0; i < s1.length; i++) {
+        if (s2.includes(s1[i])) exists = true
+    }
+
+    return exists ? "YES" : "NO"
+}
+```
+
+---
 ## []() (//)
 -
 ```js
