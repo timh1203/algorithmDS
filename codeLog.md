@@ -15,6 +15,28 @@
 -
 
 ---
+## Day20: 12/8/19
+### Today's Progress:
+- Finished "Applied Accessibility" section of Responsive Web Design Certification (22 challenges)
+### Thoughts:
+- Learning about using different html tags properly: `<header>`, `<main>`, `<footer>`, `<section>`, `<article>`
+- New things I learned: `<audio>`, `<source>`, `<figure>`, `<figcaption>`, `<fieldset>`, `<legend>`, `<time>`, `<datetime>`
+- Setting for hiding elements meant for only screen readers:
+```css
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
+```
+- <button> "accesskey" attribute helps allow quick navigation with keyboard shortcuts
+### Link(s) to Work:
+- [FreeCodeCamp Profile](https://www.freecodecamp.org/timh1203)
+
+---
 ## Day19: 12/7/19
 ### Today's Progress:
 - Solved "Two Strings" from Hash Tables section of Interview Prep Kit
