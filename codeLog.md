@@ -15,6 +15,18 @@
 -
 
 ---
+## Day21: 12/9/19
+### Today's Progress:
+- Working on "Sherlock and Anagrams" from Hash Tables section of Interview Prep Kit
+- Finished "Responsive Web Design Principles" section of Responsive Web Design Certification (4 challenges)
+- Finished "CSS Flexbox" section of Responsive Web Design Certification (17 challenges)
+### Thoughts:
+- Tough problem and solution not working 100% yet
+### Link(s) to Work:
+- [HackerRank Problems: Sherlock and Anagrams](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [FreeCodeCamp Profile](https://www.freecodecamp.org/timh1203)
+
+---
 ## Day20: 12/8/19
 ### Today's Progress:
 - Finished "Applied Accessibility" section of Responsive Web Design Certification (22 challenges)
