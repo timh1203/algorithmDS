@@ -15,6 +15,19 @@
 -
 
 ---
+## Day22: 12/10/19
+### Today's Progress:
+- Finished "Sherlock and Anagrams" from Hash Tables section of Interview Prep Kit
+- Finished "CSS Grid" section of Responsive Web Design Certification (22 challenges)
+### Thoughts:
+- The algorithm was a tough one, had to get help
+- Used substring method and object to store the substring partials
+- CSS Grid section helped me review a lot of concepts
+### Link(s) to Work:
+- [HackerRank Problems: Sherlock and Anagrams](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [FreeCodeCamp Profile](https://www.freecodecamp.org/timh1203)
+
+---
 ## Day21: 12/9/19
 ### Today's Progress:
 - Working on "Sherlock and Anagrams" from Hash Tables section of Interview Prep Kit
