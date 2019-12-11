@@ -21,7 +21,7 @@
 ### Thoughts:
 - Got the basic cases working but having difficulty when `r` is 1
 ### Link(s) to Work:
-- [HackerRank Problems: Sherlock and Anagrams](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: Sherlock and Anagrams](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 
 ---
 ## Day22: 12/10/19
@@ -33,7 +33,7 @@
 - Used substring method and object to store the substring partials
 - CSS Grid section helped me review a lot of concepts
 ### Link(s) to Work:
-- [HackerRank Problems: Sherlock and Anagrams](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: Sherlock and Anagrams](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 - [FreeCodeCamp Profile](https://www.freecodecamp.org/timh1203)
 
 ---
@@ -45,7 +45,7 @@
 ### Thoughts:
 - Tough problem and solution not working 100% yet
 ### Link(s) to Work:
-- [HackerRank Problems: Sherlock and Anagrams](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: Sherlock and Anagrams](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 - [FreeCodeCamp Profile](https://www.freecodecamp.org/timh1203)
 
 ---
@@ -78,7 +78,7 @@
 - This challenge was not difficult, it was worth it not to overthink the solution
 - I just check for letters from string1 in string2, instead of worrying about all combinations of substrings
 ### Link(s) to Work:
-- [HackerRank Problems: Two Strings](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: Two Strings](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 
 ---
 ## Day18: 12/6/19
@@ -93,7 +93,7 @@
 - I learned so many things in the Applied Visual Design section including bezier curves, animations, gradients, keyframes, and creating complex shapes
 - Definitely have to review this section again since it has so many cool stuff
 ### Link(s) to Work:
-- [HackerRank Problems: Ransom Note](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: Ransom Note](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 - [FreeCodeCamp Profile](https://www.freecodecamp.org/timh1203)
 
 ---
@@ -117,7 +117,7 @@
   }
 ```
 ### Link(s) to Work:
-- [HackerRank Problems: Minimum Swaps 2](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: Minimum Swaps 2](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 - [FreeCodeCamp Profile](https://www.freecodecamp.org/timh1203)
 
 ---
@@ -129,7 +129,7 @@
 - Found that splice was useful but didn't remove & insert with a for loop
 - Note: splice works by how many to remove, slice works by removing up to an index
 ### Link(s) to Work:
-- [HackerRank Problems: New Years Chaos](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: New Years Chaos](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 
 ---
 ## Day15: 12/3/19
@@ -143,7 +143,7 @@
 - The typescript demo went into adding redux and it totally blew me away!
 - Definitely need to work on a project to familiarize the ecosystem: Typescript, Redux, React Router
 ### Link(s) to Work:
-- [HackerRank Problems: Left Rotation](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: Left Rotation](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 - [codeNotes: Bubble Sort](https://github.com/timh1203/codeNotes/blob/master/codingConcepts.md)
 - [My Typescript Repo](https://github.com/timh1203/typescript-react-starter)
 
@@ -158,7 +158,7 @@
 - Learned how to work with 2D arrays in JS
 - See this helpful [Link](https://stackoverflow.com/questions/966225/how-can-i-create-a-two-dimensional-array-in-javascript)
 ### Link(s) to Work:
-- [HackerRank Problems: 2D Array](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: 2D Array](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 - [My Typescript Repo](https://github.com/timh1203/typescript-react-starter)
 
 ---
@@ -170,7 +170,7 @@
 - Attempted make sense of the problem
 - It's complex and I'm still working on it
 ### Link(s) to Work:
-- [HackerRank Problems: 2D Array](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: 2D Array](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 
 ---
 ## Day12: 11/30/19
@@ -184,7 +184,7 @@
 - Otherwise you will get can't read length of null error
 - IE `(s.match(/a/g) || []).length`
 ### Link(s) to Work:
-- [HackerRank Problems: Repeated String](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: Repeated String](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 
 ---
 ## Day11: 11/29/19
@@ -195,7 +195,7 @@
 - As it progresses, it checks if it can jump 2 times first, then 1
 - I would ask further in an interview if they want me to check any edge cases
 ### Link(s) to Work:
-- [HackerRank Problems: Jumping on the Clouds](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: Jumping on the Clouds](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 
 ---
 ## Day10: 11/28/19
@@ -207,7 +207,7 @@
 - All I had to do was check the sea level and the ascent direction is up
 - You'll understand if you look at my cold
 ### Link(s) to Work:
-- [HackerRank Problems: Counting Valleys](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: Counting Valleys](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 
 ---
 ## Day9: 11/27/19
@@ -218,7 +218,7 @@
 - Once it's sorted, it's easy to determine the number of matching socks
 - This is good practice because HackerRank makes you think from different angles
 ### Link(s) to Work:
-- [HackerRank Problems: Sock Merchant](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+- [HackerRank Problems: Sock Merchant](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
 
 ---
 ## Day8: 11/26/19
