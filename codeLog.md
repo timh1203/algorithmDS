@@ -15,6 +15,15 @@
 -
 
 ---
+## Day23: 12/11/19
+### Today's Progress:
+- Working on "Count Triplets" from Hash Tables section of Interview Prep Kit
+### Thoughts:
+- Got the basic cases working but having difficulty when `r` is 1
+### Link(s) to Work:
+- [HackerRank Problems: Sherlock and Anagrams](https://github.com/timh1203/codeNotes/blob/master/hackerRank.md)
+
+---
 ## Day22: 12/10/19
 ### Today's Progress:
 - Finished "Sherlock and Anagrams" from Hash Tables section of Interview Prep Kit
