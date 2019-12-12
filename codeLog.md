@@ -18,10 +18,13 @@
 ## Day23: 12/11/19
 ### Today's Progress:
 - Working on "Count Triplets" from Hash Tables section of Interview Prep Kit
+- Started on "Build a survey form" project, finished 6 user stores (16 total user stories)
 ### Thoughts:
 - Got the basic cases working but having difficulty when `r` is 1
+- So far so good on the project, I'm trying to be mindful to use the new html tags that I learned in the previous lessons like `<main>` or `<section>`
 ### Link(s) to Work:
 - [HackerRank Problems: Sherlock and Anagrams](https://drive.google.com/file/d/1yfNI7wwBBUpap3eU4d9Q9jEv8RSpDkcP/view?usp=sharing)
+- [Survey Form CodePen](https://codepen.io/timh1203/pen/KKwMdNy)
 
 ---
 ## Day22: 12/10/19
