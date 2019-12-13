@@ -15,6 +15,18 @@
 -
 
 ---
+## Day25: 12/13/19
+### Today's Progress:
+- Finished on "Reverse Integer" from Leetcode
+- Worked on "Build a survey form" project, finished all the basic styles
+### Thoughts:
+- Decide to switch up to another platform
+- Learned about `Math.sign(x)` which returns 1/-1 depending if negative number
+- Reviewed a lot of things from CSS that I haven't use in awhile like selectors and learned something new, `background-blend-mode`
+### Link(s) to Work:
+-
+
+---
 ## Day24: 12/12/19
 ### Today's Progress:
 - Finished on "Count Triplets" from Hash Tables section of Interview Prep Kit
