@@ -15,6 +15,20 @@
 -
 
 ---
+## Day27: 12/15/19
+### Today's Progress:
+- Finished on "Roman to Integer" from Leetcode
+- Started a new react app to learn patterns
+### Thoughts:
+- This algorithm was one I have done in the past for freeCodeCamp
+- Create-react-app was deprecated, I used `yarn create react-app <appname>` instead
+- Review react syntax that I might see in older codebases
+- Learn a couple of new patterns for conditional rendering and working with arrays
+### Link(s) to Work:
+- [LeetCode Problems: Roman to Integer](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
+- [React App Repository ](https://github.com/timh1203/reactapp2019)
+
+---
 ## Day26: 12/14/19
 ### Today's Progress:
 - Finished "Build a survey form" project and submitted
@@ -25,6 +39,7 @@
 ### Link(s) to Work:
 - [Survey Form CodePen](https://codepen.io/timh1203/pen/KKwMdNy) or [Github Repository](https://github.com/timh1203/buildASurveyForm)
 - [LeetCode Problems: Palindrome Number](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
+
 ---
 ## Day25: 12/13/19
 ### Today's Progress:
