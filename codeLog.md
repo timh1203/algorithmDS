@@ -15,6 +15,17 @@
 -
 
 ---
+## Day26: 12/14/19
+### Today's Progress:
+- Finished "Build a survey form" project and submitted
+- Finished on "Palindrome Number" from Leetcode
+### Thoughts:
+- Rechecked all the user stories
+- Preparing what to do tomorrow
+### Link(s) to Work:
+- [Survey Form CodePen](https://codepen.io/timh1203/pen/KKwMdNy) or [Github Repository](https://github.com/timh1203/buildASurveyForm)
+- [LeetCode Problems: Palindrome Number](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
+---
 ## Day25: 12/13/19
 ### Today's Progress:
 - Finished on "Reverse Integer" from Leetcode
@@ -24,7 +35,8 @@
 - Learned about `Math.sign(x)` which returns 1/-1 depending if negative number
 - Reviewed a lot of things from CSS that I haven't use in awhile like selectors and learned something new, `background-blend-mode`
 ### Link(s) to Work:
--
+- [LeetCode Problems: Reverse Integer](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
+- [Survey Form CodePen](https://codepen.io/timh1203/pen/KKwMdNy) or [Github Repository](https://github.com/timh1203/buildASurveyForm)
 
 ---
 ## Day24: 12/12/19
