@@ -15,6 +15,19 @@
 -
 
 ---
+## Day28: 12/16/19
+### Today's Progress:
+- Finished on "Longest Common Prefix" from Leetcode
+- Continue with building the react app, learned redux pattern
+- Updated my portfolio website with project from engineering position
+### Thoughts:
+- It feels good to review the setup for redux since it's always extensive
+- I learned the difference between calling an action creator object vs an action creator function
+### Link(s) to Work:
+- [LeetCode Problems: Longest Common Prefix](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
+- [React App Repository](https://github.com/timh1203/reactapp2019)
+
+---
 ## Day27: 12/15/19
 ### Today's Progress:
 - Finished on "Roman to Integer" from Leetcode
@@ -26,7 +39,7 @@
 - Learn a couple of new patterns for conditional rendering and working with arrays
 ### Link(s) to Work:
 - [LeetCode Problems: Roman to Integer](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
-- [React App Repository ](https://github.com/timh1203/reactapp2019)
+- [React App Repository](https://github.com/timh1203/reactapp2019)
 
 ---
 ## Day26: 12/14/19
