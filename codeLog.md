@@ -15,6 +15,19 @@
 -
 
 ---
+## Day29: 12/17/19
+### Today's Progress:
+- Finished on "Valid Parentheses" from Leetcode
+- Continue with building the react app, learned about react router and auth0 patterns
+### Thoughts:
+- Understood the concept but didn't know how to translate to code right away
+- Picked up a lot reviewing how to do auth0 again
+- It felt rushed the first time since I had to produce for work but now I can take time
+### Link(s) to Work:
+- [LeetCode Problems: Valid Parentheses](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
+- [React App Repository](https://github.com/timh1203/reactapp2019)
+
+---
 ## Day28: 12/16/19
 ### Today's Progress:
 - Finished on "Longest Common Prefix" from Leetcode
