@@ -15,6 +15,17 @@
 -
 
 ---
+## Day31: 12/19/19
+### Today's Progress:
+- Continue with building the react app, learned about react hooks, useState(), useEffect(), useReducer()
+### Thoughts:
+- Started a new repository for comparison purposes with normal react/redux pattern
+- Learned how to make a global state with context and useReducer()
+- If I had to say, Hooks is so much easier to set up than redux in my opinion but I still have not used Hooks in production yet
+### Link(s) to Work:
+- [react-redux-auth0-hooks-2019 Repository](https://github.com/timh1203/react-redux-auth0-hooks-2019)
+
+---
 ## Day30: 12/18/19
 ### Today's Progress:
 - Finished on "Merge Two Sorted Lists" from Leetcode
@@ -26,7 +37,7 @@
 - To see the proper flow helps tremendously in seeing how all the parts fit together
 ### Link(s) to Work:
 - [LeetCode Problems: Merge Two Sorted Lists](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
-- [React App Repository](https://github.com/timh1203/reactapp2019)
+- [react-redux-auth0-2019 Repository](https://github.com/timh1203/reactapp2019)
 
 ---
 ## Day29: 12/17/19
@@ -39,7 +50,7 @@
 - It felt rushed the first time since I had to produce for work but now I can take time
 ### Link(s) to Work:
 - [LeetCode Problems: Valid Parentheses](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
-- [React App Repository](https://github.com/timh1203/reactapp2019)
+- [react-redux-auth0-2019 Repository](https://github.com/timh1203/reactapp2019)
 
 ---
 ## Day28: 12/16/19
@@ -52,7 +63,7 @@
 - I learned the difference between calling an action creator object vs an action creator function
 ### Link(s) to Work:
 - [LeetCode Problems: Longest Common Prefix](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
-- [React App Repository](https://github.com/timh1203/reactapp2019)
+- [react-redux-auth0-2019 Repository](https://github.com/timh1203/reactapp2019)
 
 ---
 ## Day27: 12/15/19
@@ -66,7 +77,7 @@
 - Learn a couple of new patterns for conditional rendering and working with arrays
 ### Link(s) to Work:
 - [LeetCode Problems: Roman to Integer](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
-- [React App Repository](https://github.com/timh1203/reactapp2019)
+- [react-redux-auth0-2019 Repository](https://github.com/timh1203/reactapp2019)
 
 ---
 ## Day26: 12/14/19
