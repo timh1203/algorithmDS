@@ -15,6 +15,20 @@
 -
 
 ---
+## Day30: 12/18/19
+### Today's Progress:
+- Finished on "Merge Two Sorted Lists" from Leetcode
+- Continue with building the react app, learned about social logins, user profile, and silent authentication patterns
+### Thoughts:
+- This problem used singly linked-list which made conceptually challenging for code implementation
+- Finished the section on authentication and learned a lot about how authentication flow is suppose to work
+- Again, rushed through it at the workplace since we were under time constraints
+- To see the proper flow helps tremendously in seeing how all the parts fit together
+### Link(s) to Work:
+- [LeetCode Problems: Merge Two Sorted Lists](https://drive.google.com/file/d/1MCM-DWH43pob1UaVw-mmD1q57RQ972Gv/view?usp=sharing)
+- [React App Repository](https://github.com/timh1203/reactapp2019)
+
+---
 ## Day29: 12/17/19
 ### Today's Progress:
 - Finished on "Valid Parentheses" from Leetcode
