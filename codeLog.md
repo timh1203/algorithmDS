@@ -15,13 +15,26 @@
 -
 
 ---
+## Day 32: 12/20/19
+### Today's Progress:
+- Finished  building the react app with hooks, reducer, and context
+### Thoughts:
+- Wow, I learned a great deal going through this and cool to see how everything fits together
+- My understanding is that `useReducer` is used to sync data with the redux store, therefore making data global scoped
+- `useContext` is used to access the global data and have state persist between components
+- My question now: How and should I even use hooks/reducer/context to replace Redux?
+### Link(s) to Work:
+- [react-redux-auth0-hooks-2019 Repository](https://github.com/timh1203/react-redux-auth0-hooks-2019)
+
+---
 ## Day31: 12/19/19
 ### Today's Progress:
-- Continue with building the react app, learned about react hooks, useState(), useEffect(), useReducer()
+- Continue with building the react app, learned about context API, react hooks, useState(), useEffect(), useReducer()
 ### Thoughts:
 - Started a new repository for comparison purposes with normal react/redux pattern
 - Learned how to make a global state with context and useReducer()
 - If I had to say, Hooks is so much easier to set up than redux in my opinion but I still have not used Hooks in production yet
+- Context is a way to pass down data to deeply nested children components
 ### Link(s) to Work:
 - [react-redux-auth0-hooks-2019 Repository](https://github.com/timh1203/react-redux-auth0-hooks-2019)
 
