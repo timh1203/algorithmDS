@@ -6,6 +6,21 @@
 - Encourage at least 2 people who are also doing the challenge each day.
 
 ---
+## Day:
+### Today's Progress:
+### Thoughts:
+### Link(s) to Work:
+
+---
+## Day34: 12/22/19
+### Today's Progress:
+- Work on full stack app to connect client and server
+### Thoughts:
+- Learned how to use "proxy" in client package.json to connect client and server together (Cool!)
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day33: 12/21/19
 ### Today's Progress:
 - Started new react app with react, node, psql, and aws
