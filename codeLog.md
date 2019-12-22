@@ -6,18 +6,19 @@
 - Encourage at least 2 people who are also doing the challenge each day.
 
 ---
-## Day: //
+## Day33: 12/21/19
 ### Today's Progress:
--
+- Started new react app with react, node, psql, and aws
 ### Thoughts:
--
+- I signed up for an AWS account and installed PSQL and Express Generator
+- Went through information about node and different npm packages
 ### Link(s) to Work:
--
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
 
 ---
 ## Day 32: 12/20/19
 ### Today's Progress:
-- Finished  building the react app with hooks, reducer, and context
+- Finished building the react app with hooks, reducer, and context
 ### Thoughts:
 - Wow, I learned a great deal going through this and cool to see how everything fits together
 - My understanding is that `useReducer` is used to sync data with the redux store, therefore making data global scoped
