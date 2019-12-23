@@ -12,6 +12,21 @@
 ### Link(s) to Work:
 
 ---
+## Day35: 12/23/19
+### Today's Progress:
+- Work on full stack app to connect client and server
+- Setup a local database for psql, dotenv, actions&reducers, and saving db profile
+### Thoughts:
+- Learned that I was able to make requests from server because of proxy
+- This helps prevents CORS issues because client and server essentially originate from the same `localhost:5000`
+- Learned that ORM sequelize is a middle man and has its own language
+- I would rather have SQL skills transfer than ORM skills, more resources for SQL than ORM, more granular control
+- Redux Form, a popular library, is also another level of complexity isn't needed
+- Useful psql commands: `CREATE DATABASE <db name>:`, `\c <dbname>`, `\dt`
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day34: 12/22/19
 ### Today's Progress:
 - Work on full stack app to connect client and server
