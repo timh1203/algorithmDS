@@ -12,6 +12,15 @@
 ### Link(s) to Work:
 
 ---
+## Day36: 12/24/19
+### Today's Progress:
+- Work on full stack app to build server api endpoints
+### Thoughts:
+- Learned about general CRUD endpoints that deal with psql database and psql commands
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day35: 12/23/19
 ### Today's Progress:
 - Work on full stack app to connect client and server
