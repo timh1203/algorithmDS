@@ -12,6 +12,16 @@
 ### Link(s) to Work:
 
 ---
+## Day38: 12/26/19
+### Today's Progress:
+- Worked on full stack app by adding AddPost, Posts, ShowPosts components
+### Thoughts:
+- There's a lot of things going on between the state component, redux state, and db state
+- Take the time to understand how things are moving and how information is being passed along
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day37: 12/25/19
 ### Today's Progress:
 - Worked on full stack app and added comments and users route endpoints
