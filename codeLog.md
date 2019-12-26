@@ -12,6 +12,16 @@
 ### Link(s) to Work:
 
 ---
+## Day37: 12/25/19
+### Today's Progress:
+- Worked on full stack app and added comments and users route endpoints
+### Thoughts:
+- Learned `ON CONFLICT DO NOTHING` was a psql command to help prevent overwriting in the db
+- Practiced more of the different routes that are common
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day36: 12/24/19
 ### Today's Progress:
 - Work on full stack app to build server api endpoints
