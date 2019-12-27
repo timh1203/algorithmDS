@@ -12,6 +12,18 @@
 ### Link(s) to Work:
 
 ---
+## Day39: 12/27/19
+### Today's Progress:
+- Worked on full stack app by fixing client/server communications
+### Thoughts:
+- Reviewed differences about req.params vs req.query and fixed bug in my app
+- [Helpful Link](https://stackoverflow.com/questions/14417592/node-js-difference-between-req-query-and-req-params)
+- Learned that you should always be running the app when you're developing
+- It's easy to get mixed up between res and req, I've done it here
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day38: 12/26/19
 ### Today's Progress:
 - Worked on full stack app by adding AddPost, Posts, ShowPosts components
