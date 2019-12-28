@@ -12,6 +12,18 @@
 ### Link(s) to Work:
 
 ---
+## Day 40: 12/28/19
+### Today's Progress:
+- Worked on full stack app by adding animations, additional component functions
+- Started working on adding the pagination component
+### Thoughts:
+- I found that exporting the redux dispatch functions the same name works better
+- I spent the longest time trying to fix it but that's what ultimately ended up working
+- Therefore I just changed the action name in the end to match
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day39: 12/27/19
 ### Today's Progress:
 - Worked on full stack app by fixing client/server communications
