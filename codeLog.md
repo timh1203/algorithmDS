@@ -12,6 +12,16 @@
 ### Link(s) to Work:
 
 ---
+## Day 41: 12/29/19
+### Today's Progress:
+- Worked on full stack app by adding more animation and fixing pagination component
+### Thoughts:
+- Pagination can be done different ways
+- This case, all the results are paginated on the client side
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day 40: 12/28/19
 ### Today's Progress:
 - Worked on full stack app by adding animations, additional component functions
