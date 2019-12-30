@@ -12,7 +12,16 @@
 ### Link(s) to Work:
 
 ---
-## Day 41: 12/29/19
+## Day42: 12/30/19
+### Today's Progress:
+- Worked on full stack app and adding keyframe animations for posts and comments
+### Thoughts:
+- Instead of redirecting via history page, you can scroll to top with `window.scroll({ top: 0, left: 0, behavior: 'smooth' })`
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
+## Day41: 12/29/19
 ### Today's Progress:
 - Worked on full stack app by adding more animation and fixing pagination component
 ### Thoughts:
@@ -22,7 +31,7 @@
 - [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
 
 ---
-## Day 40: 12/28/19
+## Day40: 12/28/19
 ### Today's Progress:
 - Worked on full stack app by adding animations, additional component functions
 - Started working on adding the pagination component
