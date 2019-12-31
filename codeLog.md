@@ -12,6 +12,13 @@
 ### Link(s) to Work:
 
 ---
+## Day43: 12/31/19
+### Today's Progress:
+### Thoughts:
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day42: 12/30/19
 ### Today's Progress:
 - Worked on full stack app and adding keyframe animations for posts and comments
