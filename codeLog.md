@@ -14,7 +14,9 @@
 ---
 ## Day43: 12/31/19
 ### Today's Progress:
+- Worked on full stack app and adding like button with some styles
 ### Thoughts:
+- Some parts of PSQL schema is not working so I have to work on fixing it or learning more
 ### Link(s) to Work:
 - [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
 
