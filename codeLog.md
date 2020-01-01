@@ -12,6 +12,18 @@
 ### Link(s) to Work:
 
 ---
+## Day44: 1/1/20
+### Today's Progress:
+- Worked on full stack app and added unauthorized redirect to signup page
+- Fixed the like post feature
+- Add moment to format the time
+### Thoughts:
+- I had to drop tables in the database and run the create table commands again to get the new columns
+- Unauthorized redirect checks the is_authenticated boolean and sends the user to signup if they haven't
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day43: 12/31/19
 ### Today's Progress:
 - Worked on full stack app and adding like button with some styles
