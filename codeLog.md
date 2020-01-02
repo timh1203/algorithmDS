@@ -12,6 +12,20 @@
 ### Link(s) to Work:
 
 ---
+## Day45: 1/2/20
+### Today's Progress:
+- Worked on full stack app and implemented on adding Text Search functionality
+- Learned about TSvector and TSquery as a search pattern for PSQL databases
+### Thoughts:
+- TSvector - a list of lexemes (word variants for past tense and plural)
+- TSquery - allows search and compare of lexemes
+- TS is more effective than LIKE% solution
+- `ALTER TABLE posts ADD COLUMN search_vector TSVECTOR` is a command used to add a new column in the table
+- `to_ts_vector()` is a psql command to convert data into a vector on the database
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day44: 1/1/20
 ### Today's Progress:
 - Worked on full stack app and added unauthorized redirect to signup page
