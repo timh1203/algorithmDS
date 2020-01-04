@@ -12,6 +12,16 @@
 ### Link(s) to Work:
 
 ---
+## Day 46: 1/3/20
+### Today's Progress:
+- Worked on full stack app and implemented user profile and user post routes
+### Thoughts:
+- Ran into some error about a redux method, but turns out it was just an error in method name
+- The error was: "Invariant Violation: Invariant Violation: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined."
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day45: 1/2/20
 ### Today's Progress:
 - Worked on full stack app and implemented on adding Text Search functionality
