@@ -12,6 +12,16 @@
 ### Link(s) to Work:
 
 ---
+## Day47: 1/4/20
+### Today's Progress:
+- Worked on full stack app and added private messaging features
+- Debugging why the messages aren't passing to the server
+### Thoughts:
+- You can pass a state component with react-router's Link and can be used by the the child
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day 46: 1/3/20
 ### Today's Progress:
 - Worked on full stack app and implemented user profile and user post routes
