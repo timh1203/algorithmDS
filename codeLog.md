@@ -12,6 +12,19 @@
 ### Link(s) to Work:
 
 ---
+## Day48: 1/5/20
+### Today's Progress:
+- Not much time today but worked on fixing the private message feature
+- Able to pass messages to PSQL db and save
+- Able to retrieve messages from db and display
+### Thoughts:
+- I need to be careful about the order in server routes
+- I had this reverse
+- IE `(req, res, next)`
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day47: 1/4/20
 ### Today's Progress:
 - Worked on full stack app and added private messaging features
