@@ -12,6 +12,18 @@
 ### Link(s) to Work:
 
 ---
+## Day49: 1/6/20
+### Today's Progress:
+- Worked on full stack app
+- Fixed delete and reply to routes
+- Set up auth0 for admin app
+### Thoughts:
+- The admin app is used by the admin in order to control users and messages
+- The admin app uses a separate application and database on Auth0
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day48: 1/5/20
 ### Today's Progress:
 - Not much time today but worked on fixing the private message feature
@@ -19,7 +31,7 @@
 - Able to retrieve messages from db and display
 ### Thoughts:
 - I need to be careful about the order in server routes
-- I had this reverse
+- I had this reversed
 - IE `(req, res, next)`
 ### Link(s) to Work:
 - [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
