@@ -12,6 +12,19 @@
 ### Link(s) to Work:
 
 ---
+## Day50: 1/7/20
+### Today's Progress:
+- Worked on full stack app to implement admin panel but decided to skip
+- Opted to learn AWS instead and learned about Elastic Beanstalk
+### Thoughts:
+- Decided to skip the admin part because it writes on top of existing app
+- Would rather learn AWS deployment as I'm sure I can set up an admin dashboard
+- Learned that Elastic Beanstalk is a quick deploy and we can use a free tier
+- Then terminated the instance so we won't be charged
+### Link(s) to Work:
+- [react-node-postgresql-aws-2019](https://github.com/timh1203/react-node-postgresql-aws-2019)
+
+---
 ## Day49: 1/6/20
 ### Today's Progress:
 - Worked on full stack app
