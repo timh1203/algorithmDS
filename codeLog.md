@@ -11,6 +11,22 @@
 ### Thoughts:
 ### Link(s) to Work:
 
+---
+## Day52: 1/9/20
+### Today's Progress:
+- Took assessment to get Frontend badge at hired.com
+- Work on AWS learning to create VPC, subnets, route tables, internet gateways, and security groups with inbound rules
+### Thoughts:
+- The 2d array programming question was difficult
+- Concept was easy but implementation was more challenging
+- AWS requires that we have 2 private subnets available
+- EC2 instance is a virtual computer like your home but will act as our web server
+- SSH is how we log into out Linux EC2 server, Putty is a GUI for SSH
+- [Helpful Link to fix SSH error](https://99robots.com/how-to-fix-permission-error-ssh-amazon-ec2-instance/)
+- `sudo nano` is the mini editor in the SSH shell
+### Link(s) to Work:
+
+---
 ## Day51: 1/8/20
 ### Today's Progress:
 - Worked through understanding general AWS architecture
