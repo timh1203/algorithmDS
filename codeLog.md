@@ -11,6 +11,18 @@
 ### Thoughts:
 ### Link(s) to Work:
 
+## Day51: 1/8/20
+### Today's Progress:
+- Worked through understanding general AWS architecture
+### Thoughts:
+- Hardware is virtualized in cloud computing (routers, switches, internet gateways)
+- An IPv4 address has 4 bytes, each byte is 8 bits (octet), an octet can be 2^8 (0-255), 256^4 = 4.3 billion combos of IP addresses
+- A VPC (virtual Private Cloud) is a an all-in-one virtual resource which houses web servers, databases, file servers, and message servers
+- A subnet is a small section of the entire VPC, divided for performance and security reasons
+- Subnet masks use CIDR notation, which has the first 24 bits as unusable and the remaining 8 bits are used as host addresses
+- Subnet maks should have increments of 8 (8, 16, 24)
+### Link(s) to Work:
+
 ---
 ## Day50: 1/7/20
 ### Today's Progress:
