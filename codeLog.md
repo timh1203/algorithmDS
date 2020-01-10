@@ -12,6 +12,18 @@
 ### Link(s) to Work:
 
 ---
+## Day53: 1/10/20
+### Today's Progress:
+- Creating a RDS database on AWS and appropriate tables
+### Thoughts:
+- After creating a database, you also have to create a security group for the db
+- Use `sudo amazon-linux-extras install postgresql9.6` to install package on Amazon AMI
+- Use `psql --version` to check if installed correctly
+- Use `psql -d vpcalphadb -h vpcalphadb.ce8bphwbwlja.us-east-2.rds.amazonaws.com -p 5432 =U timh1203 -p 5432 -U timh1203` to connect to DB
+- Used create table commands to make new tables on Amazon PSQL DB
+### Link(s) to Work:
+
+---
 ## Day52: 1/9/20
 ### Today's Progress:
 - Took assessment to get Frontend badge at hired.com
