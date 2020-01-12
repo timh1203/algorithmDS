@@ -12,6 +12,17 @@
 ### Link(s) to Work:
 
 ---
+## Day54: 1/11/20
+### Today's Progress:
+- Ran a production build for app
+- Ran the express to serve up the client on 1 command
+### Thoughts:
+- We make it a single app by transfering the build folder to the server folder
+- We check if it's a production build and then serves up index.html
+- Server is running but running html code as text
+### Link(s) to Work:
+
+---
 ## Day53: 1/10/20
 ### Today's Progress:
 - Creating a RDS database on AWS and appropriate tables
