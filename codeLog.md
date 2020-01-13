@@ -12,6 +12,16 @@
 ### Link(s) to Work:
 
 ---
+## Day56: 1/13/20
+### Today's Progress:
+- Worked on FEM Intro to React Course: Class Components
+### Thoughts:
+- Learned about creating an image carousel, context, and implementation
+- Learned that the plus sign turns item into a number: `active: +event.target.dataset.index`
+### Link(s) to Work:
+- [FEM Course Notes](https://drive.google.com/file/d/15IoqcpBLhpRSFJUVVM5o3O3Py3phM7Gw/view?usp=sharing)
+
+---
 ## Day55: 1/12/20
 ### Today's Progress:
 - Finished the rest of the videos on AWS deployment
