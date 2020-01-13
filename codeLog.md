@@ -12,6 +12,14 @@
 ### Link(s) to Work:
 
 ---
+## Day55: 1/12/20
+### Today's Progress:
+- Finished the rest of the videos on AWS deployment
+### Thoughts:
+- Learned about Nginx production setup and setting up a production database
+### Link(s) to Work:
+
+---
 ## Day54: 1/11/20
 ### Today's Progress:
 - Ran a production build for app
@@ -20,6 +28,9 @@
 - We make it a single app by transfering the build folder to the server folder
 - We check if it's a production build and then serves up index.html
 - Server is running but running html code as text
+- Learned `sudo chmod 777 <folder name>` helps grant permissions for a folder on AWS EC2, probably local as well
+- The majority of
+- PM2 (npm library) is an production process manager for node apps that reruns our app if it crashes, needs to be installed globally on our EC2
 ### Link(s) to Work:
 
 ---
