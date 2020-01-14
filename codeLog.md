@@ -12,14 +12,31 @@
 ### Link(s) to Work:
 
 ---
+## Day57: 1/14/20
+### Today's Progress:
+- Finished Error Boundaries section on FEM Complete Intro to React Course, v5
+- Worked a little bit on FCC project
+### Thoughts:
+- Error boundaries helps captures data without crashing your program
+- Error Boundary works only when it's a HOC
+- Can't do error boundaries without classes, can't do it in hooks
+- In hooks, there is no equivalent `static getDerivedStateFromError` or `componentDidCatch`
+### Link(s) to Work:
+- [FEM Course Notes](https://drive.google.com/file/d/15IoqcpBLhpRSFJUVVM5o3O3Py3phM7Gw/view?usp=sharing)
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
+
+---
 ## Day56: 1/13/20
 ### Today's Progress:
-- Worked on FEM Intro to React Course: Class Components
+- Finished Class Components section on FEM Complete Intro to React Course, v5
+- Set up Nextjs and typescript for FCC Product Landing Page project
 ### Thoughts:
 - Learned about creating an image carousel, context, and implementation
 - Learned that the plus sign turns item into a number: `active: +event.target.dataset.index`
+- Yarn uses `yarn add typescript --dev` to add to dev dependencies [Link](https://yarnpkg.com/lang/en/docs/cli/install/)
 ### Link(s) to Work:
 - [FEM Course Notes](https://drive.google.com/file/d/15IoqcpBLhpRSFJUVVM5o3O3Py3phM7Gw/view?usp=sharing)
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
 
 ---
 ## Day55: 1/12/20
