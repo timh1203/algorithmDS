@@ -12,6 +12,17 @@
 ### Link(s) to Work:
 
 ---
+## Day59: 1/16/20
+### Today's Progress:
+- Finished FEM Complete Intro to React Course, v5 with learning about Portals
+### Thoughts:
+- Learned how portals work by creating a component separate from the deeply nested structure of the DOM
+- Still don't quite understand the use cases for portals in practice
+### Link(s) to Work:
+- [FEM Course Notes](https://drive.google.com/file/d/15IoqcpBLhpRSFJUVVM5o3O3Py3phM7Gw/view?usp=sharing)
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
+
+---
 ## Day58: 1/15/20
 ### Today's Progress:
 - Finished Context section on FEM Complete Intro to React Course, v5
