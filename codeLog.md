@@ -12,6 +12,19 @@
 ### Link(s) to Work:
 
 ---
+## Day58: 1/15/20
+### Today's Progress:
+- Finished Context section on FEM Complete Intro to React Course, v5
+- Worked on building header and using SVG images and learning to work with them
+### Thoughts:
+- Learned how to create context, use context with hooks, and persisting context with hooks
+- SVG are really cool lossless image types but learning the viewport and viewbox is necessary
+- [Viewport and Viewbox Article](https://webdesign.tutsplus.com/tutorials/svg-viewport-and-viewbox-for-beginners--cms-30844)
+### Link(s) to Work:
+- [FEM Course Notes](https://drive.google.com/file/d/15IoqcpBLhpRSFJUVVM5o3O3Py3phM7Gw/view?usp=sharing)
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
+
+---
 ## Day57: 1/14/20
 ### Today's Progress:
 - Finished Error Boundaries section on FEM Complete Intro to React Course, v5
