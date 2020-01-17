@@ -12,21 +12,26 @@
 ### Link(s) to Work:
 
 ---
-## Day59: 1/16/20
+## Day58: 1/16/20
 ### Today's Progress:
 - Finished FEM Complete Intro to React Course, v5 with learning about Portals
+- Worked on FCC Landing Page App and finished up to user story #7
+- Built out section linking to 3 sections, embedded product video with react-youtube npm package
 ### Thoughts:
 - Learned how portals work by creating a component separate from the deeply nested structure of the DOM
 - Still don't quite understand the use cases for portals in practice
+- `react-youtube` was an easy to use youtube embedder package
 ### Link(s) to Work:
 - [FEM Course Notes](https://drive.google.com/file/d/15IoqcpBLhpRSFJUVVM5o3O3Py3phM7Gw/view?usp=sharing)
 - [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
 
 ---
-## Day58: 1/15/20
+## Day57: 1/15/20
 ### Today's Progress:
 - Finished Context section on FEM Complete Intro to React Course, v5
-- Worked on building header and using SVG images and learning to work with them
+- Finished FEM Complete Intro to React Course, v5 with learning about Portals
+- Worked on FCC Landing Page App and finished up to user story #7
+- Built out section linking to 3 sections, embedded product video with react-youtube npm package
 ### Thoughts:
 - Learned how to create context, use context with hooks, and persisting context with hooks
 - SVG are really cool lossless image types but learning the viewport and viewbox is necessary
@@ -36,10 +41,11 @@
 - [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
 
 ---
-## Day57: 1/14/20
+## Day56: 1/14/20
 ### Today's Progress:
 - Finished Error Boundaries section on FEM Complete Intro to React Course, v5
 - Worked a little bit on FCC project
+- Worked on building header and using SVG images and learning to work with them
 ### Thoughts:
 - Error boundaries helps captures data without crashing your program
 - Error Boundary works only when it's a HOC
@@ -50,7 +56,7 @@
 - [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
 
 ---
-## Day56: 1/13/20
+## Day55: 1/13/20
 ### Today's Progress:
 - Finished Class Components section on FEM Complete Intro to React Course, v5
 - Set up Nextjs and typescript for FCC Product Landing Page project
@@ -63,7 +69,7 @@
 - [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
 
 ---
-## Day55: 1/12/20
+## Day54: 1/12/20
 ### Today's Progress:
 - Finished the rest of the videos on AWS deployment
 ### Thoughts:
@@ -71,7 +77,7 @@
 ### Link(s) to Work:
 
 ---
-## Day54: 1/11/20
+## Day54: 1/11/20 (Forgot to report)
 ### Today's Progress:
 - Ran a production build for app
 - Ran the express to serve up the client on 1 command
