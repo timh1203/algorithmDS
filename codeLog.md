@@ -12,6 +12,21 @@
 ### Link(s) to Work:
 
 ---
+## Day59: 1/17/20
+### Today's Progress:
+- Worked on FCC Landing Page App and finished up to user story #12
+- Set up loquela organization and Taiga board for spanish practice tool
+### Thoughts:
+- I think using emmet to make forms is faster and I always have to think through the form attributes
+- labels should have `htmlFor`
+- inputs should have `id`, `name`, `type`, `placeholder`, and optional `required`
+- Learned that I can do an input with `type` of submit and `value` of Submit
+- Had meet with another dev to pick tech stack, decide work tools, and deploy basic repos
+### Link(s) to Work:
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
+- [Loquela Organization](https://github.com/loquela-espanol)
+
+---
 ## Day58: 1/16/20
 ### Today's Progress:
 - Finished FEM Complete Intro to React Course, v5 with learning about Portals
