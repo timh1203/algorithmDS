@@ -12,6 +12,20 @@
 ### Link(s) to Work:
 
 ---
+## Day60: 1/18/20
+### Today's Progress:
+- Worked on FCC Landing Page App and finished up to user story #3
+- Learned how to create react forms with a custom React Hook
+- Read opinions on PostgreSQL, MongoDB, Apollo GraphQL to prepare for upcoming app
+### Thoughts:
+- A hooksLib file holds the function to take care of form values and resuable across many components
+- I also used async/await just to practice the syntax
+- [Custom React Hook Article](https://serverless-stack.com/chapters/create-a-custom-react-hook-to-handle-form-fields.html)
+### Link(s) to Work:
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
+- [Loquela Organization](https://github.com/loquela-espanol)
+
+---
 ## Day59: 1/17/20
 ### Today's Progress:
 - Worked on FCC Landing Page App and finished up to user story #12
