@@ -12,9 +12,23 @@
 ### Link(s) to Work:
 
 ---
+## Day61: 1/19/20
+### Today's Progress:
+- Reviewed Algorithms and Javascript knowledge to prepare for interview
+- Worked on FCC Landing Page App and finished up to user story #14 to add a sticky navbar and gradient border bottom
+- Started tdNet2 nextjs project
+### Thoughts:
+- Call is just like bind in the way it takes arguments, however apply takes an array as a second argument
+- Creating a gradient color bottom used a background instead of `border-bottom: 5px solid linear-gradient(blue, green)`
+- I had `autofocus` on one of the form inputs and that caused a page jump bug (live and learn)
+- Decided that I want to stick with styled components over doing Sass so I can get better at it
+### Link(s) to Work:
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
+
+---
 ## Day60: 1/18/20
 ### Today's Progress:
-- Worked on FCC Landing Page App and finished up to user story #3
+- Worked on FCC Landing Page App and finished up to user story #13
 - Learned how to create react forms with a custom React Hook
 - Read opinions on PostgreSQL, MongoDB, Apollo GraphQL to prepare for upcoming app
 ### Thoughts:
