@@ -12,6 +12,17 @@
 ### Link(s) to Work:
 
 ---
+## Day62: 1/20/20
+### Today's Progress:
+- Update portfolio website for twitter link and project link
+- Pair-programmed with a dev friend on Loquela Project
+### Thoughts:
+- We set up create react app and taught my friend about the Scrum Workflow
+- We went over how to work with other devs with master, dev, and feature branches
+### Link(s) to Work:
+- [Loquela Repo](https://github.com/loquela-espanol)
+
+---
 ## Day61: 1/19/20
 ### Today's Progress:
 - Reviewed Algorithms and Javascript knowledge to prepare for interview
