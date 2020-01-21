@@ -12,6 +12,21 @@
 ### Link(s) to Work:
 
 ---
+## Day63: 1/21/20
+### Today's Progress:
+- Worked on media query for 768px of FCC Landing Page Project
+- Reviewed concepts about javascript prototype, inheritance, and composition
+- Went to a tech meetup: Build a Job-Winning LinkedIn Profile
+### Thoughts:
+- With sass, I will do the media query under each element
+- That helps keep it together instead of doing a big media query for the whole component
+- Classes are syntactical sugar on top of javascript prototypes
+- There's many ways to write inheritance so one should get familiar
+### Link(s) to Work:
+- [Loquela Repo](https://github.com/loquela-espanol)
+- [Dev Concepts](https://drive.google.com/file/d/1TG_67DVOBvNJiu-xZJQ-_dDSTL609aAO/view?usp=sharing)
+
+---
 ## Day62: 1/20/20
 ### Today's Progress:
 - Update portfolio website for twitter link and project link
