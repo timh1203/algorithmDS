@@ -12,6 +12,19 @@
 ### Link(s) to Work:
 
 ---
+## Day64: 1/22/20
+### Today's Progress:
+- Worked on usage section of FCC Landing Page Project
+- Review more programming concepts for job interview
+- Went to a winter job fair in Austin, TX
+### Thoughts:
+- I feel like I still don't fully know JS and React, but going to try my best on the interview
+- I never thought I would get an interview with this big finance company, but consistent hard work and putting in stellar effort might get you there
+### Link(s) to Work:
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
+- [Dev Concepts](https://drive.google.com/file/d/1TG_67DVOBvNJiu-xZJQ-_dDSTL609aAO/view?usp=sharing)
+
+---
 ## Day63: 1/21/20
 ### Today's Progress:
 - Worked on media query for 768px of FCC Landing Page Project
@@ -23,7 +36,7 @@
 - Classes are syntactical sugar on top of javascript prototypes
 - There's many ways to write inheritance so one should get familiar
 ### Link(s) to Work:
-- [Loquela Repo](https://github.com/loquela-espanol)
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
 - [Dev Concepts](https://drive.google.com/file/d/1TG_67DVOBvNJiu-xZJQ-_dDSTL609aAO/view?usp=sharing)
 
 ---
