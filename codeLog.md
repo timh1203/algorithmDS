@@ -12,6 +12,18 @@
 ### Link(s) to Work:
 
 ---
+## Day65: 1/23/20
+### Today's Progress:
+- Worked on rearranging sectinos on FCC Landing Page Project
+- Brainstorming and checking out ways to improve the look for the website
+- Had onsite interview
+### Thoughts:
+- I'm thinking about doing a carousel for the big images, adding color slants
+- Prepared the carousel component for tomorrow
+### Link(s) to Work:
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
+
+---
 ## Day64: 1/22/20
 ### Today's Progress:
 - Worked on usage section of FCC Landing Page Project
