@@ -12,6 +12,17 @@
 ### Link(s) to Work:
 
 ---
+## Day66: 1/24/20
+### Today's Progress:
+- Add working carousel with logic to transition
+### Thoughts:
+- I didn't use any packages and just implemented a basic carousel
+- Used [article](https://dev.to/willamesoares/how-to-build-an-image-carousel-with-react--24na) for carousel
+- Used [article](https://leerob.io/blog/things-ive-learned-building-nextjs-apps) for google font loading
+### Link(s) to Work:
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
+
+---
 ## Day65: 1/23/20
 ### Today's Progress:
 - Worked on rearranging sectinos on FCC Landing Page Project
