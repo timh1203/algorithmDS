@@ -12,9 +12,20 @@
 ### Link(s) to Work:
 
 ---
+## Day67: 1/25/20
+### Today's Progress:
+- Finished up FCC Product Landing Page and submitted project
+- Read about how to deploy nextjs on subdomain for dev branch
+### Thoughts:
+- I wanted to quickly finish this project to get started on Loquela
+- Add some color styles and pushed changes
+### Link(s) to Work:
+- [FCC Product Landing Page](https://github.com/timh1203/fccProductLandingPage)
+
+---
 ## Day66: 1/24/20
 ### Today's Progress:
-- Add working carousel with logic to transition
+- Add working carousel with logic to transition and google fonts
 ### Thoughts:
 - I didn't use any packages and just implemented a basic carousel
 - Used [article](https://dev.to/willamesoares/how-to-build-an-image-carousel-with-react--24na) for carousel
