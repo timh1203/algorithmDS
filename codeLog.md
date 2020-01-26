@@ -12,6 +12,16 @@
 ### Link(s) to Work:
 
 ---
+## Day68: 1/26/20
+### Today's Progress:
+- Worked on FEM Course for JS: The Hard Parts, up to chapter 4
+### Thoughts:
+- HOC are used to maintain DRY principle
+- Worked on Dev concepts video for execution context/call stack/higher order components
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day67: 1/25/20
 ### Today's Progress:
 - Finished up FCC Product Landing Page and submitted project
