@@ -12,6 +12,12 @@
 ### Link(s) to Work:
 
 ---
+## Day69: 1/27/20
+### Today's Progress:
+### Thoughts:
+### Link(s) to Work:
+
+---
 ## Day68: 1/26/20
 ### Today's Progress:
 - Worked on FEM Course for JS: The Hard Parts, up to chapter 4
