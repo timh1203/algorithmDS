@@ -12,6 +12,21 @@
 ### Link(s) to Work:
 
 ---
+## Day70: 1/28/20
+### Today's Progress:
+- Worked on closures with FEM Course
+- Pair Programmed with friend on Loquela Project to implement redux, eslint, dotenv
+- Started reading Cracking the Coding Interview yesterday
+### Thoughts:
+- Closure is not a great term because it's just an umbrella term
+- Better terms: Persistent Lexically Scoped Referenced Data (P.L.S.R.D) or Closed Lid Variable Environment (C.O.V.E)
+- "Backpack" might be acceptable too if you watched the lesson :)
+- We will start with Redux but refactor to hooks down the line
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Loquela Project](https://loquela.cc/)
+
+---
 ## Day69: 1/27/20
 ### Today's Progress:
 - Finished higher order components and arrow functions
