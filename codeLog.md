@@ -14,8 +14,15 @@
 ---
 ## Day69: 1/27/20
 ### Today's Progress:
+- Finished higher order components and arrow functions
+- Pair programmed with friend to deploy front end on netlify
+- Went to a coding meeting to learn about startups
 ### Thoughts:
+- Arrow functions help legibility but not readability
+- They are syntactic sugar which abstracts the under-the-hood mechanisms crucial for us as engineers to learn deeply
 ### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Loquela Project](https://loquela.cc/)
 
 ---
 ## Day68: 1/26/20
