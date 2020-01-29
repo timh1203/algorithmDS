@@ -12,6 +12,20 @@
 ### Link(s) to Work:
 
 ---
+## Day71: 1/29/20
+### Today's Progress:
+- Worked on closure exercises from FEM Course => JavaScript: The Hard Parts
+- Finished Asynchronous JS section of FEM Course => JavaScript: The Hard Parts
+- Pair programmed with friend on Loquela to implement Jest, resolve merge conflicts, and review Redux architecture
+- Attempted to work with subdomain deployment for Loquela
+### Thoughts:
+- If you want practice with closure, try [Course Closure Exercise](http://csbin.io/closures)
+- Recommended article to [understand closure](https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8)
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Loquela Project](https://loquela.cc/)
+
+---
 ## Day70: 1/28/20
 ### Today's Progress:
 - Worked on closures with FEM Course
