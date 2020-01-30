@@ -12,18 +12,34 @@
 ### Link(s) to Work:
 
 ---
+## Day72: 1/30/20
+### Today's Progress:
+- Finished 3 chapters on Promises in from FEM Course => JavaScript: The Hard Parts
+- Pair programmed in Loquela to add more packages and successfully deployed to subdomain
+- Took a ReactJS coding test for a company to implement a calculator component
+### Thoughts:
+- Fetch really is an incredible facade function because it does so much under the hood
+- The 2 prong approach of fetch stores a Promise object on the global memory and also sends the command to the Web Browser
+- For tomorrow, Loquela team will meet to do a production push, select UI design tool, and create the layout for the UI
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Loquela Home](https://loquela.cc/)
+- [Loquela Subdomain](https://dev.loquela.cc/)
+
+---
 ## Day71: 1/29/20
 ### Today's Progress:
 - Worked on closure exercises from FEM Course => JavaScript: The Hard Parts
 - Finished Asynchronous JS section of FEM Course => JavaScript: The Hard Parts
 - Pair programmed with friend on Loquela to implement Jest, resolve merge conflicts, and review Redux architecture
 - Attempted to work with subdomain deployment for Loquela
+- Worked on blog site to add structure for pages
 ### Thoughts:
 - If you want practice with closure, try [Course Closure Exercise](http://csbin.io/closures)
 - Recommended article to [understand closure](https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8)
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Loquela Project](https://loquela.cc/)
+- [Loquela Project](https://github.com/loquela-espanol)
 
 ---
 ## Day70: 1/28/20
@@ -38,7 +54,7 @@
 - We will start with Redux but refactor to hooks down the line
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Loquela Project](https://loquela.cc/)
+- [Loquela Project](https://github.com/loquela-espanol)
 
 ---
 ## Day69: 1/27/20
