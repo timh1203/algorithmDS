@@ -6,10 +6,26 @@
 - Encourage at least 2 people who are also doing the challenge each day.
 
 ---
-## Day:
+## Day73: 1/31/20
 ### Today's Progress:
+- Finished section on Promises in from FEM Course => JavaScript: The Hard Parts
+- Did a production push on Loquela today and did sprint #2 planning for next week
+- Read 2 chapters Cracking the Coding Interview, up to Chapter 6
+- Made a video for my admin v2 project in my portfolio and added url to portfolio site
 ### Thoughts:
+- Async behavior can be confusing but if you understand the Call Stack, Microtask Queue, and Callback Queue, then you are 1 step closer
+- *Any task sent to the browser is inserted in the Callback Queue IE setTimeout()*
+- *Any function attached to a promise is inserted in the Microtask Queue IE display()*
+- Even though Javascript is single-threaded, async JS allows us to build fast non-blocking applications for the modern web
+- We are going to use Figma for designing and making a design to pick on Monday
+- Specifically, thinking about how the web app is going to look and what the experience is like practicing the language
+- Since the tenavox app is blocked by the Auth0 wall specific to @tenavox.com domain, I made a video for potential recruiters
+- With the book, I learned about the behavioral aspect of the interview process, S.A.R. and elevator pitch
+- Also, I learned that the interview starts long before the onsite because there is much preparation to be done
 ### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Loquela Home](https://loquela.cc/)
+- [Admin v2 project](https://youtu.be/o4Kd1pOrdlI)
 
 ---
 ## Day72: 1/30/20
