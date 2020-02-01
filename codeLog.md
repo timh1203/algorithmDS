@@ -6,6 +6,55 @@
 - Encourage at least 2 people who are also doing the challenge each day.
 
 ---
+## Day:
+### Today's Progress:
+### Thoughts
+### Link(s) to Work:
+
+---
+## Day74: 2/1/20
+### Today's Progress:
+- Finished 7 subchapters about Prototypes in from FEM Course => JavaScript: The Hard Parts
+- Created video about execution context and javascript series
+- Worked on blog website on the nav bar
+### Thoughts:
+- Although OOP paradigm is easy to reason about, we also don't want to repeat ourselves by storing multiple functions on each instance
+- A special nuance is that the backpack also stores the deleted object name on the backpack when you make a new instance of the object IE `newUser`
+- Explaining a concept during a video is more challenging than just passively listening about it
+- Another way to think about it is if we use the `this` keyword in the increment function
+```js
+function userCreator(name, score) {
+  const newUser = {};
+  newUser.name = name;
+  newUser.score = score;
+  newUser.increment = function() {
+    newUser.score++;
+  }
+  return newUser;
+}
+
+const user1 = userCreator("Will", 3);
+const user2 = userCreator("Tim", 5);
+```
+
+- With the nextjs blog, I learned how to style `Link` tags in next.js
+```js
+<Link href="/login" passHref>
+  <TopbarLink>Login</TopbarLink>
+</Link>
+
+const TopbarLink = styled.a`
+// your style
+`;
+```
+
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
+- [JavaScript Series](https://youtu.be/JWrd5aiHfP4)
+- [Execution Context](https://youtu.be/VyxBMBnCERE)
+
+---
 ## Day73: 1/31/20
 ### Today's Progress:
 - Finished section on Promises in from FEM Course => JavaScript: The Hard Parts
