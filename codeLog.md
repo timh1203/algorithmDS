@@ -12,6 +12,42 @@
 ### Link(s) to Work:
 
 ---
+## Day75: 2/2/20
+### Today's Progress:
+- Finished 3 subchapters about Prototypes in from FEM Course => JavaScript: The Hard Parts
+- Re-recorded Execution context video
+- Worked on blog website for video and importing fonts
+### Thoughts
+- `hasOwnProperty` is a method on the Object.prototype that checks if that object has that property, returns boolean
+- We can use arrow functions or call to make proper binding
+```js
+function userCreator(name, score) {
+ const newUser = Object.create(userFunctionStore);
+ newUser.name = name;
+ newUser.score = score;
+ return newUser;
+};
+const userFunctionStore = {
+ increment: function() {
+  const add1 = () => { this.score++; } // Option 1
+  add1()
+  // const add1 = function() { // Option 2
+  //   this.score++;
+  // }
+  // add1.call(this)
+ }
+};
+const user1 = userCreator("Will", 3);
+const user2 = userCreator("Tim", 5);
+user1.increment();
+```
+- Useful link for working with [nextjs apps](https://leerob.io/blog/things-ive-learned-building-nextjs-apps)
+### Link(s) to Work:
+  - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+  - [Execution Context](https://youtu.be/6POX72a6WD0)
+  - [Next.js Blog](https://github.com/timh1203/tdNet2)
+
+---
 ## Day74: 2/1/20
 ### Today's Progress:
 - Finished 7 subchapters about Prototypes in from FEM Course => JavaScript: The Hard Parts
