@@ -12,6 +12,20 @@
 ### Link(s) to Work:
 
 ---
+## Day76: 2/3/20
+### Today's Progress:
+- Finished 3 subchapters and the course: FEM Course => JavaScript: The Hard Parts
+- Worked on blog website for social icons, globalstyles, web fonts
+- Brainstormed ideas for UI flow for landing page and home page
+### Thoughts
+- Excited to review these concepts and take other hard parts course
+- For blog site, `public` folder is where I can store all my constants and files, `static` was said to be deprecated
+- For Loquela, the landing page will have a signup/signin/guest flow and the home page will be where users can interact with the app
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
+
+---
 ## Day75: 2/2/20
 ### Today's Progress:
 - Finished 3 subchapters about Prototypes in from FEM Course => JavaScript: The Hard Parts
@@ -43,9 +57,9 @@ user1.increment();
 ```
 - Useful link for working with [nextjs apps](https://leerob.io/blog/things-ive-learned-building-nextjs-apps)
 ### Link(s) to Work:
-  - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-  - [Execution Context](https://youtu.be/6POX72a6WD0)
-  - [Next.js Blog](https://github.com/timh1203/tdNet2)
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Execution Context](https://youtu.be/6POX72a6WD0)
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day74: 2/1/20
