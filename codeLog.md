@@ -8,8 +8,29 @@
 ---
 ## Day:
 ### Today's Progress:
-### Thoughts
+### Thoughts:
 ### Link(s) to Work:
+
+---
+## Day77: 2/4/20
+### Today's Progress:
+- Finished 6 subchapters of course: FEM Course => Deep JavaScript Foundations
+- Reviewed code concepts for interview
+### Thoughts:
+- Learned the little nuances of JS: `typeof null` returns object, `typeof [1,2,3]` returns object but we can use `Array.isArray()` to confirm
+- BigInt is working in the browser but not Replit
+```js
+// 2 ways to declare
+const bigint = 9007199254740991n
+
+const bigint2 = BigInt(9007199254740991)
+
+console.log(typeof bigint) // "bigint"
+console.log(typeof bigin2) // "bigint"
+```
+- Learned about `isNan()` vs `Number.isNan()`, [Samantha Ming explains](https://medium.com/dailyjs/better-nan-check-with-es6-number-isnan-517861d32be3)
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
 
 ---
 ## Day76: 2/3/20
@@ -17,7 +38,7 @@
 - Finished 3 subchapters and the course: FEM Course => JavaScript: The Hard Parts
 - Worked on blog website for social icons, globalstyles, web fonts
 - Brainstormed ideas for UI flow for landing page and home page
-### Thoughts
+### Thoughts:
 - Excited to review these concepts and take other hard parts course
 - For blog site, `public` folder is where I can store all my constants and files, `static` was said to be deprecated
 - For Loquela, the landing page will have a signup/signin/guest flow and the home page will be where users can interact with the app
@@ -31,7 +52,7 @@
 - Finished 3 subchapters about Prototypes in from FEM Course => JavaScript: The Hard Parts
 - Re-recorded Execution context video
 - Worked on blog website for video and importing fonts
-### Thoughts
+### Thoughts:
 - `hasOwnProperty` is a method on the Object.prototype that checks if that object has that property, returns boolean
 - We can use arrow functions or call to make proper binding
 ```js
