@@ -12,6 +12,21 @@
 ### Link(s) to Work:
 
 ---
+## Day79: 2/6/20
+### Today's Progress:
+- Finished Types chapter of course: FEM Course => Deep JavaScript Foundations
+- Work on blog site for adding youtube video feed
+- Met with Loquela group for landing page flow
+- Met local hacker group to plan events for area
+### Thoughts:
+- To check if something is NaN, you can check `x !== x`
+- To check if something is -0, you can check `x === 0 && (1 / x) === -Infinity`
+- Was able to get videos to pull from youtube but working on dotenv with nextjs
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
+
+---
 ## Day78: 2/5/20
 ### Today's Progress:
 - Finished 3 subchapters of course: FEM Course => Deep JavaScript Foundations
