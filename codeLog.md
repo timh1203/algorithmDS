@@ -12,6 +12,20 @@
 ### Link(s) to Work:
 
 ---
+## Day78: 2/5/20
+### Today's Progress:
+- Finished 3 subchapters of course: FEM Course => Deep JavaScript Foundations
+- Long interview and travel time today so not much progress as usual
+### Thoughts:
+- Interviewers liked that I showed interested in their company, seeing things from their point of view and how I can come in and help them out, and asking good questions like opportunities for growth laterally/vertically
+- Practicing interviewing skills and "presentation" is important as coding to get you the job too
+- Learned that there is "undeclared", "undefined", and "uninitialized" AKA temporal dead zone (TDZ)
+- NaN and -0 are important special values we need to consider
+- NaN is checked with `Number.isNan()` and -0 is checked with Object.is()
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day77: 2/4/20
 ### Today's Progress:
 - Finished 6 subchapters of course: FEM Course => Deep JavaScript Foundations
