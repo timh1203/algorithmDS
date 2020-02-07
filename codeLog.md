@@ -12,6 +12,23 @@
 ### Link(s) to Work:
 
 ---
+## Day80: 2/7/20
+### Today's Progress:
+- Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Work on loquela to code the landing page
+- Worked on blog page and made environmental variables work, add youtube uploads, footer, hook contact form
+### Thoughts:
+- Learned that there's some under the hood coercion with primitives, strings, numbers, and booleans and some of the behavior can be weird like how "-0" coerces to "0" with toString under the hood
+- Memory the 7 values in the Falsy table for booleans, anything else is truthy
+- Falsy values: NaN, undefined, null, "", 0, -0, false
+- Use `newStudents.length > 0` instead of `newStudents.length` since NaN can make it return false
+- Use `Boolean(studentsInputElem.value)` instead of `studentsInputElem.value` since a string of white spaces can return true
+- Use [Next.js env article](https://www.leighhalliday.com/secrets-env-vars-nextjs-now)
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
+
+---
 ## Day79: 2/6/20
 ### Today's Progress:
 - Finished Types chapter of course: FEM Course => Deep JavaScript Foundations
