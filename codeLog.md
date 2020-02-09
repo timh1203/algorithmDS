@@ -6,10 +6,15 @@
 - Encourage at least 2 people who are also doing the challenge each day.
 
 ---
-## Day:
+## Day82: 2/9/20
 ### Today's Progress:
+- Finished 5 subchapter of course: FEM Course => Deep JavaScript Foundations
 ### Thoughts:
+- Use JS quirks as an opportunity to educate or else, it's a lazy excuse not to learn, teach, or just being clever (aka one-lining)
+- Code comments should not be written with the "how" or "what", but more of the "why"
+- Still understanding this one: "JavaScript's dynamic typing is not a weakness, it's one of its strong qualities"
 ### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
 
 ---
 ## Day81: 2/8/20
