@@ -12,6 +12,15 @@
 ### Link(s) to Work:
 
 ---
+## Day81: 2/8/20
+### Today's Progress:
+- Work on blog page and added styles to form and footer
+### Thoughts:
+- Tired today from tech meetup group, prioritizing rest
+### Link(s) to Work:
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
+
+---
 ## Day80: 2/7/20
 ### Today's Progress:
 - Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
