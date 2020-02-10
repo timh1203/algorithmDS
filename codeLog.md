@@ -9,6 +9,7 @@
 ## Day82: 2/9/20
 ### Today's Progress:
 - Finished 5 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Next.js Blog => add new sections and stylings, used new parallax and gradient techniques
 ### Thoughts:
 - Use JS quirks as an opportunity to educate or else, it's a lazy excuse not to learn, teach, or just being clever (aka one-lining)
 - Code comments should not be written with the "how" or "what", but more of the "why"
