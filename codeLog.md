@@ -6,6 +6,25 @@
 - Encourage at least 2 people who are also doing the challenge each day.
 
 ---
+## Day:
+### Today's Progress:
+### Thoughts:
+### Link(s) to Work:
+
+---
+## Day83: 2/10/20
+### Today's Progress:
+- Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Next.js Blog => Fixed api call to youtube from page component instead and render data to page, attempted to deploy to Zeit Now but not working yet
+### Thoughts:
+- A way to check for empty strings and non-empty strings is `el.trim() != ""`
+- We tend to believe that implicit coercion is magic and magic thought up as bad, instead think of it as abstractions (not all tend to be bad)
+- `getInitialProps` is run on both the server and the client alone, it works great for api call
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
+
+---
 ## Day82: 2/9/20
 ### Today's Progress:
 - Finished 5 subchapter of course: FEM Course => Deep JavaScript Foundations
@@ -16,6 +35,7 @@
 - Still understanding this one: "JavaScript's dynamic typing is not a weakness, it's one of its strong qualities"
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day81: 2/8/20
