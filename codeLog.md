@@ -12,6 +12,34 @@
 ### Link(s) to Work:
 
 ---
+## Day84: 2/11/20
+### Today's Progress:
+- Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
+  - Next.js Blog => Succesfully deployed to Zeit, finished home, started on about and playlists
+### Thoughts:
+- Learned about the double and triple equality checks
+- Double equals allows coercion when the types are different, Triple equals does **NOT** allow coercion when types are different and not compare them at all
+- The main difference between double and triple is if we allow coercion to occur, not that they don't check for types
+- For double equals, null and undefined is indistinguishable
+- It's not a useful distinction like in this case:
+```js
+var workshop1 = { topic: null }
+var workshop2 = {}
+
+// WRITE THIS...
+if (workshop1.topic == null &&workshop2.topic === null) { // .. }
+
+// INSTEAD OF THIS...
+if (
+  (workshop1.topic === null || workshop1.topic === undefined) &&
+  (workshop2.topic === null || workshop2.topic === undefined) &&
+) { // .. }
+```
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
+
+---
 ## Day83: 2/10/20
 ### Today's Progress:
 - Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
