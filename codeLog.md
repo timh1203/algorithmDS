@@ -12,10 +12,25 @@
 ### Link(s) to Work:
 
 ---
+## Day85: 2/12/20
+### Today's Progress:
+- Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Next.js Blog => finished playlists section
+- Phone interview today
+### Thoughts:
+- Summary of double equals:
+- If the types are the same, will use ===
+- If null or undefined are equal
+- If non-primitives, will use ToPrimitive
+- Prefer: ToNumber
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day84: 2/11/20
 ### Today's Progress:
 - Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
-  - Next.js Blog => Succesfully deployed to Zeit, finished home, started on about and playlists
+- Next.js Blog => Succesfully deployed to Zeit, finished home, started on about and playlists
 ### Thoughts:
 - Learned about the double and triple equality checks
 - Double equals allows coercion when the types are different, Triple equals does **NOT** allow coercion when types are different and not compare them at all
