@@ -12,9 +12,23 @@
 ### Link(s) to Work:
 
 ---
+## Day86: 2/13/20
+### Today's Progress:
+- Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Completed a logic test as part of interview process and got invited to the next round
+- Went to Built-In meetup to network and job search
+- Loquela => worked on it a little bit with Juan
+### Thoughts:
+- Learned a lot by checking different corner cases and understanding implicit coercion
+- Learned that it's good to talk to people at the event too, networked and found another lead
+- Logic test was fair but there were definitely some curveball
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day85: 2/12/20
 ### Today's Progress:
-- Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Finished 6 subchapter of course: FEM Course => Deep JavaScript Foundations
 - Next.js Blog => finished playlists section
 - Phone interview today
 ### Thoughts:
