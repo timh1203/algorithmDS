@@ -6,10 +6,15 @@
 - Encourage at least 2 people who are also doing the challenge each day.
 
 ---
-## Day:
+## Day87: 2/14/20
 ### Today's Progress:
+- Finished 5 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Took a coding assessment for a company
 ### Thoughts:
+- I learned about Kyle's opinion on TypeScript and I agree that there should be a middle ground
+- I still think that if you want to write a more typed language, then ReasonML
 ### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
 
 ---
 ## Day86: 2/13/20
