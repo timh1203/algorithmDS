@@ -12,12 +12,23 @@
 ### Link(s) to Work:
 
 ---
+## Day 89: 2/17/20
+### Today's Progress:
+- Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- `Shadowing` is a when there are 2 variables of the same name in different scopes
+- In a lexically scoped language like JS, all of the scopes and identifiers are determined at compiled time, not at run time. They are used at run time.
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day88: 2/16/20
 ### Today's Progress:
 - Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
 ### Thoughts:
 - By understanding our types and coercion, we don't have to depend on static typed systems
 - Although typescript/flow is helpful for teams, it also has high entry and verbose code when using complex features
+- Typl is a system that Kyle Simpson created, it's the middle ground between vanilla and typed systems
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
 
