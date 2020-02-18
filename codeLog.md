@@ -12,6 +12,19 @@
 ### Link(s) to Work:
 
 ---
+## Day90: 2/18/20
+### Today's Progress:
+- Finished 7 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Leetcode => Solved "Merge Two Sorted Lists" and "Remove Duplicates from Sorted Array"
+- Cracking the Coding Interview => Reading up and through negotiation section
+### Thoughts:
+- Learned about how JS compiles the code before execution
+- Strict mode does not allow auto-global creations
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Leetcode](https://leetcode.com/timh1203/)
+
+---
 ## Day 89: 2/17/20
 ### Today's Progress:
 - Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
