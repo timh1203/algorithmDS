@@ -12,6 +12,16 @@
 ### Link(s) to Work:
 
 ---
+## Day91: 2/19/20
+### Today's Progress:
+- Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Prepared for an onsite interview by researching company, answering common questions, and evaluating previous works
+### Thoughts:
+- Continued working through ideas with lexical scope
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day90: 2/18/20
 ### Today's Progress:
 - Finished 7 subchapter of course: FEM Course => Deep JavaScript Foundations
