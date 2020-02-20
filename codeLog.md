@@ -12,6 +12,18 @@
 ### Link(s) to Work:
 
 ---
+## Day92: 2/20/20
+### Today's Progress:
+- Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Went to onsite interview
+### Thoughts:
+- Prefer Function Declarations > Named Function Expressions > Anonymous function expressions
+- Function declarations are generally more semantic, self-referencing, and easier to debug than function expressions
+- If you must write a function expressions, prefer to do a named function expression
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day91: 2/19/20
 ### Today's Progress:
 - Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
