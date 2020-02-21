@@ -12,16 +12,27 @@
 ### Link(s) to Work:
 
 ---
+## Day93: 2/21/20
+### Today's Progress:
+- Finished 1 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- Started working on function problems
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day92: 2/20/20
 ### Today's Progress:
 - Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
 - Went to onsite interview
+- Next.js Blog => Worked on gear & resources section
 ### Thoughts:
 - Prefer Function Declarations > Named Function Expressions > Anonymous function expressions
 - Function declarations are generally more semantic, self-referencing, and easier to debug than function expressions
 - If you must write a function expressions, prefer to do a named function expression
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day91: 2/19/20
@@ -78,6 +89,7 @@
 - I still think that if you want to write a more typed language, then ReasonML
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day86: 2/13/20
@@ -107,6 +119,7 @@
 - Prefer: ToNumber
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day84: 2/11/20
