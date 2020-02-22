@@ -12,6 +12,16 @@
 ### Link(s) to Work:
 
 ---
+## Day94: 2/22/20
+### Today's Progress:
+- Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- Learned about lexical scope
+- Away this weekend, so taking it easy
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day93: 2/21/20
 ### Today's Progress:
 - Finished 1 subchapter of course: FEM Course => Deep JavaScript Foundations
