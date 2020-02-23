@@ -12,6 +12,15 @@
 ### Link(s) to Work:
 
 ---
+## Day95: 2/26/20
+### Today's Progress:
+- Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- Learned about function scoping, block scoping, and using IFFEs
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day94: 2/22/20
 ### Today's Progress:
 - Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
