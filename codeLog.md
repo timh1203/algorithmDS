@@ -12,6 +12,34 @@
 ### Link(s) to Work:
 
 ---
+## Day96: 2/27/20
+### Today's Progress:
+- Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- Let about using var, let, and const in the right places
+- `const` carries more confusion than benefits
+- `var` should be used for function scopes, `let` should be used for block scopes for semantic reasons
+- Kyle recommends `var` > `let` > `const` in your code
+- This is weird syntax but use let and block scope where you want to isolate the amount of exposure
+```js
+function formatStr(str) {
+  {
+    let prefix, rest
+    prefix = str.slice(0,3)
+    rest = str.slice(3)
+  }
+
+  if (/^FOO:/.test(str)) {
+    return str
+  }
+
+  return str.slice(4)
+}
+```
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day95: 2/26/20
 ### Today's Progress:
 - Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
