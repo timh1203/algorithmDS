@@ -12,6 +12,18 @@
 ### Link(s) to Work:
 
 ---
+## Day97: 2/28/20
+### Today's Progress:
+- Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- We tend to think of hoisting as a simple explanation for the actual 2 pass process, but it just obfuscates
+- I learned about var and function hoisting
+- `var` gets hoisted to function scopes and initialized as undefined
+- `let` and `const` does not initialized during the compile phase, it does not get initialized until runtime (therefore, early access results in TDZ error)
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day96: 2/27/20
 ### Today's Progress:
 - Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
