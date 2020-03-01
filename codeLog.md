@@ -12,6 +12,19 @@
 ### Link(s) to Work:
 
 ---
+## Day98: 2/29/20
+### Today's Progress:
+- Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Next.js Blog => Worked on gear & contact section
+### Thoughts:
+- Learned about readability with function declarations and started closures
+- To improve readability, one should place function declarations at the bottom and put executable code at the top of a file
+- Learned that you can have function declarations below a return statement
+- Closure is 2 parts: It has access to parent scope and also retains access to original scope where it was executed
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day97: 2/28/20
 ### Today's Progress:
 - Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
@@ -91,7 +104,6 @@ function formatStr(str) {
 - If you must write a function expressions, prefer to do a named function expression
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day91: 2/19/20
@@ -148,7 +160,6 @@ function formatStr(str) {
 - I still think that if you want to write a more typed language, then ReasonML
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day86: 2/13/20
@@ -178,7 +189,6 @@ function formatStr(str) {
 - Prefer: ToNumber
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day84: 2/11/20
@@ -206,7 +216,6 @@ if (
 ```
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day83: 2/10/20
@@ -219,7 +228,6 @@ if (
 - `getInitialProps` is run on both the server and the client alone, it works great for api call
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day82: 2/9/20
@@ -232,7 +240,6 @@ if (
 - Still understanding this one: "JavaScript's dynamic typing is not a weakness, it's one of its strong qualities"
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day81: 2/8/20
@@ -241,7 +248,6 @@ if (
 ### Thoughts:
 - Tired today from tech meetup group, prioritizing rest
 ### Link(s) to Work:
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day80: 2/7/20
@@ -258,7 +264,6 @@ if (
 - Use [Next.js env article](https://www.leighhalliday.com/secrets-env-vars-nextjs-now)
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day79: 2/6/20
@@ -273,7 +278,6 @@ if (
 - Was able to get videos to pull from youtube but working on dotenv with nextjs
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day78: 2/5/20
@@ -322,7 +326,6 @@ console.log(typeof bigin2) // "bigint"
 - For Loquela, the landing page will have a signup/signin/guest flow and the home page will be where users can interact with the app
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day75: 2/2/20
@@ -358,7 +361,6 @@ user1.increment();
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
 - [Execution Context](https://youtu.be/6POX72a6WD0)
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 
 ---
 ## Day74: 2/1/20
@@ -399,7 +401,6 @@ const TopbarLink = styled.a`
 
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-- [Next.js Blog](https://github.com/timh1203/tdNet2)
 - [JavaScript Series](https://youtu.be/JWrd5aiHfP4)
 - [Execution Context](https://youtu.be/VyxBMBnCERE)
 
