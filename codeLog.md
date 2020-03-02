@@ -12,6 +12,19 @@
 ### Link(s) to Work:
 
 ---
+## Day99: 3/1/20
+### Today's Progress:
+- Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- Learned about closing over variables and the module pattern
+- JS wires up that `let` becomes a new i every iteration in a for loop, where `var` keeps the same
+- A module has public and private aspects, this idea of visibility and encapsulation
+- It's not a module if it does not have closure
+- A module factory pattern is very common and help creates instances with public and private aspects
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day98: 2/29/20
 ### Today's Progress:
 - Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
