@@ -12,6 +12,38 @@
 ### Link(s) to Work:
 
 ---
+## Day100: 3/2/20
+### Today's Progress:
+- Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Next.js Blog => Worked on gear section, added pictures, rendered data
+### Thoughts:
+- I learned about the module pattern
+- Cool link for [Learning JavaScript Design Patters](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript)
+- Module patterns are singleton (running only once) and are file-based (1 module per file)
+- Module pattern helps encapsulate data and methods privately and the return of an public api object exposes only methods you want to be publicly accessed
+- You have to use `.mjs` extension to make modules work
+```js
+function defineWorkshop() {
+	var currentEnrollment = [];
+	var studentRecords = [];
+
+	var publicAPI = {
+		addStudent,
+		enrollStudent,
+		printCurrentEnrollment,
+		enrollPaidStudents,
+		remindUnpaidStudents,
+	};
+  return publicAPI;
+
+  // *******
+  // Module methods...
+}
+```
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day99: 3/1/20
 ### Today's Progress:
 - Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
