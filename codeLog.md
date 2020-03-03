@@ -12,6 +12,21 @@
 ### Link(s) to Work:
 
 ---
+## Day101: 3/3/20
+### Today's Progress:
+- Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Next.js Blog => Worked on links section
+### Thoughts:
+- There's 4 ways to set the `this` keyword: implicit binding, dynamic bindind, explicit binding, hard binding,
+- Using the keyword `new` does 4 things:
+- 1) Create a brand new empty object
+- 2) Link that object to a another object
+- 3) Call function with `this` set to the new object
+- 4) If function does not return an object, assume return of `this`
+### Link(s) to Work:
+  - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day100: 3/2/20
 ### Today's Progress:
 - Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
