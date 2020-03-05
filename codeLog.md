@@ -6,6 +6,17 @@
 - Encourage at least 2 people who are also doing the challenge each day.
 
 ---
+## Day102: 3/4/20
+### Today's Progress:
+- Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- The 4 ways to invoke a function with the `this` keyword: implicit binding, explicit binding, new keyword, and default global
+- Arrow functions don't have a `this` at all, it resolves lexically by going up the scope chain until it finds one
+- You're actually not allowed to call a `new` on an arrow function
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day:
 ### Today's Progress:
 ### Thoughts:
@@ -24,7 +35,7 @@
 - 3) Call function with `this` set to the new object
 - 4) If function does not return an object, assume return of `this`
 ### Link(s) to Work:
-  - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
 
 ---
 ## Day100: 3/2/20
