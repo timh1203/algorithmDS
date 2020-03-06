@@ -6,6 +6,23 @@
 - Encourage at least 2 people who are also doing the challenge each day.
 
 ---
+## Day:
+### Today's Progress:
+### Thoughts:
+### Link(s) to Work:
+
+---
+## Day103: 3/5/20
+### Today's Progress:
+- Finished 1 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- Not much time today, spent time with family from out of town
+- Learned about arrow functions and `this` keyword
+- Kyle gave the advice of using an arrow function only when you want to adopt `this` from the parent scope
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day102: 3/4/20
 ### Today's Progress:
 - Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
@@ -15,12 +32,6 @@
 - You're actually not allowed to call a `new` on an arrow function
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
-
----
-## Day:
-### Today's Progress:
-### Thoughts:
-### Link(s) to Work:
 
 ---
 ## Day101: 3/3/20
