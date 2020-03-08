@@ -12,6 +12,19 @@
 ### Link(s) to Work:
 
 ---
+## Day104: 3/8/20
+### Today's Progress:
+- Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- Learned about using the Object pattern with the `this` keyword
+- Learned about `class` patterns and properly using `extends`, `constructor`, and `this`
+- A new thing I learned is relative polymorphism which is basically using `super.` to call upon the direct parent methods from the child
+- `super.` is like `this` but it is helpful if you want to have the same method name in the child as the parent
+- Like if you want to have the `ask()` method in the child and parent, pretty neat
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day103: 3/5/20
 ### Today's Progress:
 - Finished 1 subchapter of course: FEM Course => Deep JavaScript Foundations
