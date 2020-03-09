@@ -12,6 +12,53 @@
 ### Link(s) to Work:
 
 ---
+## Day105: 3/9/20
+### Today's Progress:
+- Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- Worked with classes and subclasses today
+- Learned that methods that are not `this` aware can be placed in a helper file
+- This way, the parent class can still have access to these methods and not be cluttered with helper methods
+```js
+// Does not use `this` or `this`-aware
+class Helpers {
+  sortByNameAsc(record1,record2){
+    if (record1.name < record2.name) return -1;
+    else if (record1.name > record2.name) return 1;
+    else return 0;
+  }
+  printRecord(record) {
+    console.log(`${record.name} (${record.id}): ${record.paid ? "Paid" : "Not Paid"}`);
+  }
+  getStudentId(record) {
+    return record.id;
+  }
+}
+
+class Workshop extends Helpers {
+  constructor() {
+    super()
+    this.currentEnrollment = []
+    this.studentRecords = []
+  }
+  addStudent(id,name,paid) {
+    this.studentRecords.push({ id, name, paid, });
+  }
+  printRecords(recordIds) {
+  var records = recordIds.map(this.getStudentFromId.bind(this));
+
+  records.sort(this.sortByNameAsc); // Helper method
+
+  records.forEach(this.printRecord); // Helper method
+  }
+  // ...rest of methods
+}
+```
+
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day104: 3/8/20
 ### Today's Progress:
 - Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
@@ -20,6 +67,7 @@
 - Learned about `class` patterns and properly using `extends`, `constructor`, and `this`
 - A new thing I learned is relative polymorphism which is basically using `super.` to call upon the direct parent methods from the child
 - `super.` is like `this` but it is helpful if you want to have the same method name in the child as the parent
+- "Our current “relative” semantics refer to one particular aspect: the idea that any method can reference another method (of the same or different name) at a higher level of the inheritance hierarchy. We say “relative” because we don’t absolutely define which inheritance level (aka class) we want to access, but rather relatively reference it by essentially saying “look one level up.” It's a way for the classes themselves (not the object instances created from them!) to relatively reference the class inherited from. If the child “overrides” a method it inherits, both the original and overridden versions of the method are actually maintained, so that they are both accessible. Don’t let polymorphism confuse you into thinking a child class is linked to its parent class. A child class instead gets a copy of what it needs from the parent class. Class inheritance implies copies." -[Source](https://www.oreilly.com/library/view/you-dont-know/9781491905142/ch04.html)
 - Like if you want to have the `ask()` method in the child and parent, pretty neat
 ### Link(s) to Work:
 - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
