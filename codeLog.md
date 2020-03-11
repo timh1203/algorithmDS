@@ -12,6 +12,32 @@
 ### Link(s) to Work:
 
 ---
+## Day106: 3/10/20
+### Today's Progress:
+- Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Had my first day at my new developer job
+### Thoughts:
+- Talked about classes, prototype, inheritance
+- This is the old way of writing class inheritance, but we would use the `class` keyword instead now
+```js
+function Workshop(teacher) {
+  this.teacher = teacher
+}
+
+Workshop.prototype.ask = function(question){
+  console.log(this.teacher,question)
+}
+
+var deepJS = new Workshop("Kyle")
+var reactJS = new Workshop("Suzy")
+
+deepJS.ask("Is 'prototype' a class?") // Kyle Is 'prototype' a class?
+reactJS.ask("Isn't 'prototype' ugly?") // Suzy Is 'prototype' a class?
+```
+### Link(s) to Work:
+  - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day105: 3/9/20
 ### Today's Progress:
 - Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
