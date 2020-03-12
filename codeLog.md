@@ -12,6 +12,35 @@
 ### Link(s) to Work:
 
 ---
+## Day107: 3/11/20
+### Today's Progress:
+- Finished 3 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- Learned about the prototype chain, dunder proto, and how `new` links back on the prototype chain
+- The `new` keyword is what created the deepJS object
+- Basically, deepJS has a copy of the teacher variable but does NOT have a copy of the ask() method
+- The deepJS copy has a link back to the original ask() method through the prototype chain (AKA dunder proto, __proto__)
+- Basically when `deepJS.ask` is called, the copy looks in its own object (which it doesn't find the method), then moves up the prototype chain (which does have ask method)
+- This is infinitely useful because we can have many instances referring back to the original method
+```js
+function Workshop(teacher) {
+  this.teacher = teacher
+}
+
+Workshop.prototype.ask = function(question){
+  console.log(this.teacher,question)
+}
+
+var deepJS = new Workshop("Kyle")
+var reactJS = new Workshop("Suzy")
+
+deepJS.ask("Is 'prototype' a class?") // Kyle Is 'prototype' a class?
+reactJS.ask("Isn't 'prototype' ugly?") // Suzy Is 'prototype' a class?
+```
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day106: 3/10/20
 ### Today's Progress:
 - Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
@@ -35,7 +64,7 @@ deepJS.ask("Is 'prototype' a class?") // Kyle Is 'prototype' a class?
 reactJS.ask("Isn't 'prototype' ugly?") // Suzy Is 'prototype' a class?
 ```
 ### Link(s) to Work:
-  - [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
 
 ---
 ## Day105: 3/9/20
