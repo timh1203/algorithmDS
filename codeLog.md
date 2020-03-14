@@ -1,15 +1,46 @@
 # codeLog
 
 - **RULES**
-- Code minimum an hour every day for the next 100 days.
-- Tweet your progress every day with the #100DaysOfCode hashtag.
-- Encourage at least 2 people who are also doing the challenge each day.
+- Switched over to work mode
+- After hours, continue learning code concepts, building projects, and practicing algorithms
 
 ---
 ## Day:
 ### Today's Progress:
 ### Thoughts:
 ### Link(s) to Work:
+
+---
+## Day108: 3/13/20
+### Today's Progress:
+- Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
+### Thoughts:
+- Learned more about the prototype chain, Object.create
+- The magic of the prototype chain is that it will still use the callsite as the `this` and will continue looking up the prototype chain until the appropriate method is found
+- So noticed that JSRecentParts has to go up a level to find `speakUp` and concurrently go up one more level to find `ask`
+```js
+function Workshop(teacher) {
+  this.teacher = teacher;
+}
+Workshop.prototype.ask = function(question){
+  console.log(this.teacher,question);
+};
+
+// EXHIBIT A
+function AnotherWorkshop(teacher) {
+  Workshop.call(this,teacher);
+}
+AnotherWorkshop.prototype = Object.create(Workshop.prototype);
+AnotherWorkshop.prototype.speakUp = function(msg){ // EXHIBIT B
+  this.ask(msg.toUpperCase());
+}
+
+var JSRecentParts = new AnotherWorkshop("Kyle");
+
+JSRecentParts.speakUp("Is this actually inheritance?"); // Kyle IS THIS ACTUALLY INHERITANCE?
+```
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
 
 ---
 ## Day107: 3/11/20
