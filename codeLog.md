@@ -11,6 +11,34 @@
 ### Link(s) to Work:
 
 ---
+## Day109: 3/14/20
+### Today's Progress:
+- Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Research, learned, took notes about ASPX, OOP, Strong vs Weak typed languages
+### Thoughts:
+- We been trying far too long to make a delegation like a class system like other languages
+- It's easier if we accept JavaScript's delegation system and it is ultimately more useful
+- **Classical Inheritance AKA Class System**
+- In classical inheritance, there's a top-bottom and left-right relationship and are fundamentally copy operations
+```
+Workshop ️➡️ deepJS
+⬇️        ↘️ reactJS
+⬇️
+AnotherWorkshop ➡️ JSRecentParts
+```
+
+- **Prototypal Inheritance AKA Delegation System**
+- But more correctly Javascript Behavior Delegation
+```
+Workshop ️⬅️ deepJS
+⬆️        ↖️ reactJS
+⬆️
+AnotherWorkshop ⬅️ JSRecentParts
+```
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day108: 3/13/20
 ### Today's Progress:
 - Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
@@ -27,7 +55,7 @@ Workshop.prototype.ask = function(question){
 };
 
 // EXHIBIT A
-function AnotherWorkshop(teacher) {
+function AnotherWorkshop(teacher)
   Workshop.call(this,teacher);
 }
 AnotherWorkshop.prototype = Object.create(Workshop.prototype);
