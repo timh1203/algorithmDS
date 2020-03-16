@@ -11,6 +11,42 @@
 ### Link(s) to Work:
 
 ---
+## Day110: 3/15/20
+### Today's Progress:
+- Finished 4 subchapter of course: FEM Course => Deep JavaScript Foundations
+- Also finished the course
+### Thoughts:
+- Learned about Kyle's Objects Linking Other Objects Pattern (OLOO) as the methods can cooperate together more easily and easier to test
+```js
+var AuthController = {
+  authenticate() {
+    server.authenticate(
+      [this.username, this.password],
+      this.handleResponse.bind(this)
+    );
+  },
+  handleResponse(resp) {
+    if (!resp.ok) this.displayError(resp.msg);  // Can link to the LoginFormController's method
+  }
+}
+
+var LoginFormController =
+  Object.assign(Object.create(AuthController),{
+    onSubmit() {
+      this.username = this.$username.val();
+      this.password = this.$password.val();
+      this.authenticate(); // Can link to the AuthController's method
+    },
+    displayError(msg) {
+      alert(msg);
+    }
+  })
+```
+- Also go introduced to [Typl](https://github.com/getify/Typl) but I'm not planning to use it anytime soon
+### Link(s) to Work:
+- [devFEMJavaScript](https://drive.google.com/open?id=1AVfp60-x_lwDoLPb7dNPU3b61w3hetdU)
+
+---
 ## Day109: 3/14/20
 ### Today's Progress:
 - Finished 2 subchapter of course: FEM Course => Deep JavaScript Foundations
