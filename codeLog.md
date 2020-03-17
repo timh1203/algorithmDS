@@ -5,10 +5,30 @@
 - After hours, continue learning code concepts, building projects, and practicing algorithms
 
 ---
-## Day:
+## Day111: 3/16/20
 ### Today's Progress:
+- Finished 4 subchapter of course: FEM Course => Intermediate React, V2
 ### Thoughts:
+- Most problems in react can be solved with useState, useEffect, useContext, and useRef
+- It's good to clear timers to prevent bugs IE Exhibit B
+```js
+import React, { useState, useEffect } from "react";
+
+const EffectComponent = () => {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setTimeout(setTime(new Date()), 1000);
+    return () => clearTimeout(timer); // EXHIBIT B
+  }); // EXHIBIT A
+
+  return <h1>useEffect Example: {time.toLocaleTimeString()}</h1>;
+};
+
+export default EffectComponent;
+```
 ### Link(s) to Work:
+- [devFEMReact](https://drive.google.com/open?id=1fVWMCTc7yoaP4e7ZEhJRVZW5KsMBdeqt)
 
 ---
 ## Day110: 3/15/20
