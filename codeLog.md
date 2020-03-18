@@ -5,6 +5,25 @@
 - After hours, continue learning code concepts, building projects, and practicing algorithms
 
 ---
+## Day: /20
+### Today's Progress:
+### Thoughts:
+### Link(s) to Work:
+
+---
+## Day112: 3/17/20
+### Today's Progress:
+- Finished 3 subchapter of course: FEM Course => Intermediate React, V2
+### Thoughts:
+- Reviewed and learn about `useContext`, `useRef`, and `useReducer`
+- `useRef` is useful any time you want to keep track of a value and having to deal with closure situations where it holds on to previous values
+- `useRef` gives you an object with exactly 1 attribute called current, it is locked by Object.seal
+- You can use `useContext` and `useReducer` to replace redux
+- `useReducer` is also easy to test
+### Link(s) to Work:
+  - [devFEMReact](https://drive.google.com/open?id=1fVWMCTc7yoaP4e7ZEhJRVZW5KsMBdeqt)
+
+---
 ## Day111: 3/16/20
 ### Today's Progress:
 - Finished 4 subchapter of course: FEM Course => Intermediate React, V2
