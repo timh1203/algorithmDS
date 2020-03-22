@@ -11,6 +11,19 @@
 ### Link(s) to Work:
 
 ---
+## Day113: 3/21/20
+### Today's Progress:
+- Finished 2 subchapter of course: FEM Course => Intermediate React, V2
+### Thoughts:
+- Learned about `useMemo`, `useCallback` and `memo`
+- These won't be used pre-emptively as they are mainly for performance optimization
+- Both features of the same coin to help check for changed props or functions in order to cause a re-render of the parent and children
+- Usually the re-render of parent and children are very fast as it only updates for changes
+- But this can get expensive if there's recursion
+### Link(s) to Work:
+- [devFEMReact](https://drive.google.com/open?id=1fVWMCTc7yoaP4e7ZEhJRVZW5KsMBdeqt)
+
+---
 ## Day112: 3/17/20
 ### Today's Progress:
 - Finished 3 subchapter of course: FEM Course => Intermediate React, V2
@@ -21,7 +34,7 @@
 - You can use `useContext` and `useReducer` to replace redux
 - `useReducer` is also easy to test
 ### Link(s) to Work:
-  - [devFEMReact](https://drive.google.com/open?id=1fVWMCTc7yoaP4e7ZEhJRVZW5KsMBdeqt)
+- [devFEMReact](https://drive.google.com/open?id=1fVWMCTc7yoaP4e7ZEhJRVZW5KsMBdeqt)
 
 ---
 ## Day111: 3/16/20
