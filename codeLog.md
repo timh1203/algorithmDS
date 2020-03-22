@@ -11,6 +11,18 @@
 ### Link(s) to Work:
 
 ---
+## Day114: 3/22/20
+### Today's Progress:
+- Finished 2 subchapter of course: FEM Course => Intermediate React, V2
+### Thoughts:
+- Learned about `useLayoutEffect` and `useImperativeHandle`
+- `useLayoutEffect` is useful if you need to make a measurement in the dom IE animation with jQuery or D3
+- Difference between the two is `useEffect` is asynchronous (scheduled for later) where `useLayoutEffect` is synchronous (render happens and then runs `useLayoutEffect`)
+- `useImperativeHandle` is designed for library authors and you will never likely use it
+### Link(s) to Work:
+- [devFEMReact](https://drive.google.com/open?id=1fVWMCTc7yoaP4e7ZEhJRVZW5KsMBdeqt)
+
+---
 ## Day113: 3/21/20
 ### Today's Progress:
 - Finished 2 subchapter of course: FEM Course => Intermediate React, V2
