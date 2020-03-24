@@ -11,9 +11,26 @@
 ### Link(s) to Work:
 
 ---
+## Day116: 3/24/20
+### Today's Progress:
+- Started LinkedIn Learning Course: Learning PHP, finished 2 chapters
+- Finished 2 subchapter of course: FEM Course => Intermediate React, V2
+### Thoughts:
+- Set up PHPStorm with MAMP to run exercise files
+- I learned about code-splitting which is pretty cool
+- It's a tool that should be used responsibly and only for 30+ kb components
+- The main tools of code-splitting are `lazy` and `React.Suspense`
+- - You can have one top level `React.Suspense`, which the child will also use
+- Or you can specific parts, that's up to you
+### Link(s) to Work:
+- [devLILPHP](https://drive.google.com/open?id=1jSOFV-0bWhkOM1fkfAm44zDLrWBx8sTU)
+- [devFEMReact](https://drive.google.com/open?id=1fVWMCTc7yoaP4e7ZEhJRVZW5KsMBdeqt)
+
+---
 ## Day115: 3/23/20
 ### Today's Progress:
 - Finished 3 subchapter of course: FEM Course => Intermediate React, V2
+- Worked on blog portfolio site and edit pictures in photoshop
 ### Thoughts:
 - Learned about how to set up emotion, using js with css, and making design system files
 - I still prefer styled-components as it is still in the same file but looks less messy
