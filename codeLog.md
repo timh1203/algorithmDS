@@ -11,6 +11,17 @@
 ### Link(s) to Work:
 
 ---
+## Day115: 3/23/20
+### Today's Progress:
+- Finished 3 subchapter of course: FEM Course => Intermediate React, V2
+### Thoughts:
+- Learned about how to set up emotion, using js with css, and making design system files
+- I still prefer styled-components as it is still in the same file but looks less messy
+- Emotion looks like inline tags just like the old days and seems messy
+### Link(s) to Work:
+- [devFEMReact](https://drive.google.com/open?id=1fVWMCTc7yoaP4e7ZEhJRVZW5KsMBdeqt)
+
+---
 ## Day114: 3/22/20
 ### Today's Progress:
 - Finished 2 subchapter of course: FEM Course => Intermediate React, V2
