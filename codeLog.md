@@ -11,6 +11,20 @@
 ### Link(s) to Work:
 
 ---
+## Day117: 3/25/20
+### Today's Progress:
+- Finished 6 subchapter of course: FEM Course => LinkedIn Learning Learning PHP Course
+### Thoughts:
+- Learned about variables, displaying text/numbers, comments, white space, single vs double quotes, and joining strings
+- Single quotes treat everything as literal text
+- Double quotes extrapolate variables and special escape sequences
+- Combined concatenation operator `.=` helps add on text to a string
+- A shorthand is `<?= $book; ?>` to display a *single string only*
+- The shorthand is abbreviated for `<?php echo $book; ?>`
+### Link(s) to Work:
+- [devLILPHP](https://drive.google.com/open?id=1jSOFV-0bWhkOM1fkfAm44zDLrWBx8sTU)
+
+---
 ## Day116: 3/24/20
 ### Today's Progress:
 - Started LinkedIn Learning Course: Learning PHP, finished 2 chapters
